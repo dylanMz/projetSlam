@@ -152,6 +152,7 @@
             // lblAcceuil
             // 
             this.lblAcceuil.AutoSize = true;
+            this.lblAcceuil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAcceuil.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblAcceuil.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblAcceuil.Location = new System.Drawing.Point(140, 25);
@@ -410,16 +411,16 @@
             // dgvAuteur
             // 
             this.dgvAuteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuteur.Location = new System.Drawing.Point(12, 398);
+            this.dgvAuteur.Location = new System.Drawing.Point(12, 388);
             this.dgvAuteur.Name = "dgvAuteur";
-            this.dgvAuteur.Size = new System.Drawing.Size(703, 195);
+            this.dgvAuteur.Size = new System.Drawing.Size(703, 205);
             this.dgvAuteur.TabIndex = 10;
             // 
             // lblListeAuteur
             // 
             this.lblListeAuteur.AutoSize = true;
             this.lblListeAuteur.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblListeAuteur.Location = new System.Drawing.Point(23, 376);
+            this.lblListeAuteur.Location = new System.Drawing.Point(23, 366);
             this.lblListeAuteur.Name = "lblListeAuteur";
             this.lblListeAuteur.Size = new System.Drawing.Size(100, 19);
             this.lblListeAuteur.TabIndex = 14;
