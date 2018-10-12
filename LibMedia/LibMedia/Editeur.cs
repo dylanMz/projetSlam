@@ -96,5 +96,7 @@ namespace LibMedia
             set { EditeurMail = value; }
         }
         #endregion
+
+        /*COMMENTAIRE*/
     }
 }
