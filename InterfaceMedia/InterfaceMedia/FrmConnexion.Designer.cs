@@ -42,18 +42,20 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(83, 48);
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel1.Location = new System.Drawing.Point(82, 49);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(73, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(78, 19);
             this.metroLabel1.TabIndex = 0;
             this.metroLabel1.Text = "Identifiant :";
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(61, 96);
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel2.Location = new System.Drawing.Point(60, 97);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(95, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(99, 19);
             this.metroLabel2.TabIndex = 1;
             this.metroLabel2.Text = "Mot de passe :";
             // 
@@ -83,7 +85,7 @@
             this.metroTextBox1.CustomButton.UseSelectable = true;
             this.metroTextBox1.CustomButton.Visible = false;
             this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(171, 48);
+            this.metroTextBox1.Location = new System.Drawing.Point(171, 49);
             this.metroTextBox1.MaxLength = 32767;
             this.metroTextBox1.Name = "metroTextBox1";
             this.metroTextBox1.PasswordChar = '\0';
@@ -113,7 +115,7 @@
             this.metroTextBox2.CustomButton.UseSelectable = true;
             this.metroTextBox2.CustomButton.Visible = false;
             this.metroTextBox2.Lines = new string[0];
-            this.metroTextBox2.Location = new System.Drawing.Point(171, 96);
+            this.metroTextBox2.Location = new System.Drawing.Point(171, 97);
             this.metroTextBox2.MaxLength = 32767;
             this.metroTextBox2.Name = "metroTextBox2";
             this.metroTextBox2.PasswordChar = '\0';
@@ -130,7 +132,7 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(42, 160);
+            this.metroButton1.Location = new System.Drawing.Point(31, 160);
             this.metroButton1.Name = "metroButton1";
             this.metroButton1.Size = new System.Drawing.Size(129, 36);
             this.metroButton1.TabIndex = 5;
@@ -139,7 +141,7 @@
             // 
             // metroButton2
             // 
-            this.metroButton2.Location = new System.Drawing.Point(269, 160);
+            this.metroButton2.Location = new System.Drawing.Point(286, 160);
             this.metroButton2.Name = "metroButton2";
             this.metroButton2.Size = new System.Drawing.Size(129, 36);
             this.metroButton2.TabIndex = 6;
