@@ -35,12 +35,12 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAccueil = new MetroFramework.Controls.MetroButton();
+            this.btnAjouter = new MetroFramework.Controls.MetroButton();
             this.btnSupprimer = new MetroFramework.Controls.MetroButton();
             this.btnRechercher = new MetroFramework.Controls.MetroButton();
             this.btnModifier = new MetroFramework.Controls.MetroButton();
             this.metroGrid1 = new MetroFramework.Controls.MetroGrid();
-            this.btnAjouter = new MetroFramework.Controls.MetroButton();
-            this.btnAccueil = new MetroFramework.Controls.MetroButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -79,7 +79,7 @@
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel2.Location = new System.Drawing.Point(107, 15);
+            this.metroLabel2.Location = new System.Drawing.Point(107, 13);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(18, 50);
             this.metroLabel2.TabIndex = 5;
@@ -98,29 +98,57 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
+            // btnAccueil
+            // 
+            this.btnAccueil.Highlight = true;
+            this.btnAccueil.Location = new System.Drawing.Point(25, 462);
+            this.btnAccueil.Name = "btnAccueil";
+            this.btnAccueil.Size = new System.Drawing.Size(169, 43);
+            this.btnAccueil.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnAccueil.TabIndex = 10;
+            this.btnAccueil.Text = "Accueil";
+            this.btnAccueil.UseSelectable = true;
+            // 
+            // btnAjouter
+            // 
+            this.btnAjouter.Highlight = true;
+            this.btnAjouter.Location = new System.Drawing.Point(25, 29);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(169, 43);
+            this.btnAjouter.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnAjouter.TabIndex = 9;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.UseSelectable = true;
+            // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(25, 226);
+            this.btnSupprimer.Highlight = true;
+            this.btnSupprimer.Location = new System.Drawing.Point(25, 159);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(169, 43);
+            this.btnSupprimer.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnSupprimer.TabIndex = 8;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.UseSelectable = true;
             // 
             // btnRechercher
             // 
-            this.btnRechercher.Location = new System.Drawing.Point(25, 162);
+            this.btnRechercher.Highlight = true;
+            this.btnRechercher.Location = new System.Drawing.Point(25, 223);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(169, 43);
+            this.btnRechercher.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnRechercher.TabIndex = 7;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.UseSelectable = true;
             // 
             // btnModifier
             // 
+            this.btnModifier.Highlight = true;
             this.btnModifier.Location = new System.Drawing.Point(25, 95);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(169, 43);
+            this.btnModifier.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnModifier.TabIndex = 6;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.UseSelectable = true;
@@ -165,31 +193,14 @@
             this.metroGrid1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.metroGrid1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.metroGrid1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid1.Size = new System.Drawing.Size(683, 245);
+            this.metroGrid1.Size = new System.Drawing.Size(683, 250);
             this.metroGrid1.TabIndex = 8;
-            // 
-            // btnAjouter
-            // 
-            this.btnAjouter.Location = new System.Drawing.Point(25, 29);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(169, 43);
-            this.btnAjouter.TabIndex = 9;
-            this.btnAjouter.Text = "Ajouter";
-            this.btnAjouter.UseSelectable = true;
-            // 
-            // btnAccueil
-            // 
-            this.btnAccueil.Location = new System.Drawing.Point(25, 472);
-            this.btnAccueil.Name = "btnAccueil";
-            this.btnAccueil.Size = new System.Drawing.Size(169, 43);
-            this.btnAccueil.TabIndex = 10;
-            this.btnAccueil.Text = "Accueil";
-            this.btnAccueil.UseSelectable = true;
             // 
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(35, 132);
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel3.Location = new System.Drawing.Point(28, 133);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(46, 19);
             this.metroLabel3.TabIndex = 9;
@@ -198,63 +209,70 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(23, 185);
+            this.metroLabel4.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel4.Location = new System.Drawing.Point(10, 184);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(62, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(64, 19);
             this.metroLabel4.TabIndex = 10;
             this.metroLabel4.Text = "Adresse :";
             // 
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(23, 238);
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel5.Location = new System.Drawing.Point(6, 237);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(66, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(68, 19);
             this.metroLabel5.TabIndex = 11;
             this.metroLabel5.Text = "Creation :";
             // 
             // metroLabel_codepostal
             // 
             this.metroLabel_codepostal.AutoSize = true;
-            this.metroLabel_codepostal.Location = new System.Drawing.Point(263, 134);
+            this.metroLabel_codepostal.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel_codepostal.Location = new System.Drawing.Point(255, 133);
             this.metroLabel_codepostal.Name = "metroLabel_codepostal";
-            this.metroLabel_codepostal.Size = new System.Drawing.Size(86, 19);
+            this.metroLabel_codepostal.Size = new System.Drawing.Size(88, 19);
             this.metroLabel_codepostal.TabIndex = 12;
             this.metroLabel_codepostal.Text = "Code Postal :";
             // 
             // metroLabel7
             // 
             this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(309, 185);
+            this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel7.Location = new System.Drawing.Point(299, 184);
             this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(40, 19);
+            this.metroLabel7.Size = new System.Drawing.Size(41, 19);
             this.metroLabel7.TabIndex = 13;
             this.metroLabel7.Text = "Ville :";
             // 
             // metroLabel8
             // 
             this.metroLabel8.AutoSize = true;
-            this.metroLabel8.Location = new System.Drawing.Point(274, 238);
+            this.metroLabel8.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel8.Location = new System.Drawing.Point(262, 237);
             this.metroLabel8.Name = "metroLabel8";
-            this.metroLabel8.Size = new System.Drawing.Size(75, 19);
+            this.metroLabel8.Size = new System.Drawing.Size(78, 19);
             this.metroLabel8.TabIndex = 14;
-            this.metroLabel8.Text = "Telephone :";
+            this.metroLabel8.Text = "Téléphone :";
             // 
             // metroLabel9
             // 
             this.metroLabel9.AutoSize = true;
-            this.metroLabel9.Location = new System.Drawing.Point(528, 134);
+            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel9.Location = new System.Drawing.Point(515, 133);
             this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(35, 19);
+            this.metroLabel9.Size = new System.Drawing.Size(36, 19);
             this.metroLabel9.TabIndex = 15;
             this.metroLabel9.Text = "Fax :";
             // 
             // metroLabel10
             // 
             this.metroLabel10.AutoSize = true;
-            this.metroLabel10.Location = new System.Drawing.Point(522, 185);
+            this.metroLabel10.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel10.Location = new System.Drawing.Point(515, 184);
             this.metroLabel10.Name = "metroLabel10";
-            this.metroLabel10.Size = new System.Drawing.Size(41, 19);
+            this.metroLabel10.Size = new System.Drawing.Size(42, 19);
             this.metroLabel10.TabIndex = 16;
             this.metroLabel10.Text = "Mail :";
             // 
@@ -273,7 +291,7 @@
             this.txtNom.CustomButton.UseSelectable = true;
             this.txtNom.CustomButton.Visible = false;
             this.txtNom.Lines = new string[0];
-            this.txtNom.Location = new System.Drawing.Point(87, 132);
+            this.txtNom.Location = new System.Drawing.Point(87, 131);
             this.txtNom.MaxLength = 32767;
             this.txtNom.Name = "txtNom";
             this.txtNom.PasswordChar = '\0';
@@ -303,7 +321,7 @@
             this.txtAdresse.CustomButton.UseSelectable = true;
             this.txtAdresse.CustomButton.Visible = false;
             this.txtAdresse.Lines = new string[0];
-            this.txtAdresse.Location = new System.Drawing.Point(87, 185);
+            this.txtAdresse.Location = new System.Drawing.Point(87, 184);
             this.txtAdresse.MaxLength = 32767;
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.PasswordChar = '\0';
@@ -333,7 +351,7 @@
             this.txtCreation.CustomButton.UseSelectable = true;
             this.txtCreation.CustomButton.Visible = false;
             this.txtCreation.Lines = new string[0];
-            this.txtCreation.Location = new System.Drawing.Point(87, 238);
+            this.txtCreation.Location = new System.Drawing.Point(87, 237);
             this.txtCreation.MaxLength = 32767;
             this.txtCreation.Name = "txtCreation";
             this.txtCreation.PasswordChar = '\0';
@@ -363,7 +381,7 @@
             this.txtCodePostal.CustomButton.UseSelectable = true;
             this.txtCodePostal.CustomButton.Visible = false;
             this.txtCodePostal.Lines = new string[0];
-            this.txtCodePostal.Location = new System.Drawing.Point(355, 132);
+            this.txtCodePostal.Location = new System.Drawing.Point(355, 131);
             this.txtCodePostal.MaxLength = 32767;
             this.txtCodePostal.Name = "txtCodePostal";
             this.txtCodePostal.PasswordChar = '\0';
@@ -393,7 +411,7 @@
             this.txtVille.CustomButton.UseSelectable = true;
             this.txtVille.CustomButton.Visible = false;
             this.txtVille.Lines = new string[0];
-            this.txtVille.Location = new System.Drawing.Point(355, 185);
+            this.txtVille.Location = new System.Drawing.Point(355, 184);
             this.txtVille.MaxLength = 32767;
             this.txtVille.Name = "txtVille";
             this.txtVille.PasswordChar = '\0';
@@ -423,7 +441,7 @@
             this.txtTelephone.CustomButton.UseSelectable = true;
             this.txtTelephone.CustomButton.Visible = false;
             this.txtTelephone.Lines = new string[0];
-            this.txtTelephone.Location = new System.Drawing.Point(355, 238);
+            this.txtTelephone.Location = new System.Drawing.Point(355, 237);
             this.txtTelephone.MaxLength = 32767;
             this.txtTelephone.Name = "txtTelephone";
             this.txtTelephone.PasswordChar = '\0';
@@ -453,7 +471,7 @@
             this.txtFax.CustomButton.UseSelectable = true;
             this.txtFax.CustomButton.Visible = false;
             this.txtFax.Lines = new string[0];
-            this.txtFax.Location = new System.Drawing.Point(569, 132);
+            this.txtFax.Location = new System.Drawing.Point(569, 131);
             this.txtFax.MaxLength = 32767;
             this.txtFax.Name = "txtFax";
             this.txtFax.PasswordChar = '\0';
@@ -483,7 +501,7 @@
             this.txtMail.CustomButton.UseSelectable = true;
             this.txtMail.CustomButton.Visible = false;
             this.txtMail.Lines = new string[0];
-            this.txtMail.Location = new System.Drawing.Point(569, 185);
+            this.txtMail.Location = new System.Drawing.Point(569, 184);
             this.txtMail.MaxLength = 32767;
             this.txtMail.Name = "txtMail";
             this.txtMail.PasswordChar = '\0';
