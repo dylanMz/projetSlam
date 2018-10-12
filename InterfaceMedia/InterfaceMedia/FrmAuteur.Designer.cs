@@ -1,6 +1,6 @@
 ﻿namespace InterfaceMedia
 {
-    partial class Auteur
+    partial class FrmAuteur
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.grpBoxMenu = new System.Windows.Forms.GroupBox();
+            this.btnChercher = new MetroFramework.Controls.MetroButton();
+            this.btnSauvegarder = new MetroFramework.Controls.MetroButton();
             this.btnAnnuler = new MetroFramework.Controls.MetroButton();
             this.btnSupprimer = new MetroFramework.Controls.MetroButton();
             this.btnRechercher = new MetroFramework.Controls.MetroButton();
@@ -36,26 +38,25 @@
             this.btnAjouter = new MetroFramework.Controls.MetroButton();
             this.lblSeparation = new MetroFramework.Controls.MetroLabel();
             this.lblAcceuil = new MetroFramework.Controls.MetroLabel();
-            this.btnSauvegarder = new MetroFramework.Controls.MetroButton();
-            this.btnChercher = new MetroFramework.Controls.MetroButton();
             this.pnlAuteur = new MetroFramework.Controls.MetroPanel();
+            this.grpBxAuteur = new System.Windows.Forms.GroupBox();
+            this.txtBxDateNaiss = new MetroFramework.Controls.MetroTextBox();
+            this.dtDateNaiss = new MetroFramework.Controls.MetroDateTime();
+            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.lblCode = new MetroFramework.Controls.MetroLabel();
+            this.txtBio = new MetroFramework.Controls.MetroTextBox();
             this.lblNom = new MetroFramework.Controls.MetroLabel();
             this.lblDateNais = new MetroFramework.Controls.MetroLabel();
+            this.txtPrenom = new MetroFramework.Controls.MetroTextBox();
             this.lblPrenom = new MetroFramework.Controls.MetroLabel();
             this.txtCode = new MetroFramework.Controls.MetroTextBox();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
-            this.txtPrenom = new MetroFramework.Controls.MetroTextBox();
             this.dgvAuteur = new System.Windows.Forms.DataGridView();
-            this.txtBio = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.grpBxAuteur = new System.Windows.Forms.GroupBox();
-            this.dtDateNaiss = new MetroFramework.Controls.MetroDateTime();
-            this.txtBxDateNaiss = new MetroFramework.Controls.MetroTextBox();
+            this.lblListeAuteur = new MetroFramework.Controls.MetroLabel();
             this.grpBoxMenu.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
             this.grpBxAuteur.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxMenu
@@ -74,6 +75,24 @@
             this.grpBoxMenu.Size = new System.Drawing.Size(216, 596);
             this.grpBoxMenu.TabIndex = 1;
             this.grpBoxMenu.TabStop = false;
+            // 
+            // btnChercher
+            // 
+            this.btnChercher.Location = new System.Drawing.Point(27, 449);
+            this.btnChercher.Name = "btnChercher";
+            this.btnChercher.Size = new System.Drawing.Size(169, 43);
+            this.btnChercher.TabIndex = 13;
+            this.btnChercher.Text = "Chercher";
+            this.btnChercher.UseSelectable = true;
+            // 
+            // btnSauvegarder
+            // 
+            this.btnSauvegarder.Location = new System.Drawing.Point(27, 363);
+            this.btnSauvegarder.Name = "btnSauvegarder";
+            this.btnSauvegarder.Size = new System.Drawing.Size(169, 43);
+            this.btnSauvegarder.TabIndex = 11;
+            this.btnSauvegarder.Text = "Sauvegarder";
+            this.btnSauvegarder.UseSelectable = true;
             // 
             // btnAnnuler
             // 
@@ -141,29 +160,12 @@
             this.lblAcceuil.TabIndex = 5;
             this.lblAcceuil.Text = "Acceuil";
             // 
-            // btnSauvegarder
-            // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(27, 363);
-            this.btnSauvegarder.Name = "btnSauvegarder";
-            this.btnSauvegarder.Size = new System.Drawing.Size(169, 43);
-            this.btnSauvegarder.TabIndex = 11;
-            this.btnSauvegarder.Text = "Sauvegarder";
-            this.btnSauvegarder.UseSelectable = true;
-            // 
-            // btnChercher
-            // 
-            this.btnChercher.Location = new System.Drawing.Point(27, 449);
-            this.btnChercher.Name = "btnChercher";
-            this.btnChercher.Size = new System.Drawing.Size(169, 43);
-            this.btnChercher.TabIndex = 13;
-            this.btnChercher.Text = "Chercher";
-            this.btnChercher.UseSelectable = true;
-            // 
             // pnlAuteur
             // 
             this.pnlAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlAuteur.Controls.Add(this.lblListeAuteur);
             this.pnlAuteur.Controls.Add(this.grpBxAuteur);
             this.pnlAuteur.Controls.Add(this.dgvAuteur);
             this.pnlAuteur.HorizontalScrollbarBarColor = true;
@@ -177,6 +179,73 @@
             this.pnlAuteur.VerticalScrollbarHighlightOnWheel = false;
             this.pnlAuteur.VerticalScrollbarSize = 10;
             // 
+            // grpBxAuteur
+            // 
+            this.grpBxAuteur.Controls.Add(this.txtBxDateNaiss);
+            this.grpBxAuteur.Controls.Add(this.dtDateNaiss);
+            this.grpBxAuteur.Controls.Add(this.metroLabel5);
+            this.grpBxAuteur.Controls.Add(this.lblCode);
+            this.grpBxAuteur.Controls.Add(this.txtBio);
+            this.grpBxAuteur.Controls.Add(this.lblNom);
+            this.grpBxAuteur.Controls.Add(this.lblDateNais);
+            this.grpBxAuteur.Controls.Add(this.txtPrenom);
+            this.grpBxAuteur.Controls.Add(this.lblPrenom);
+            this.grpBxAuteur.Controls.Add(this.txtCode);
+            this.grpBxAuteur.Controls.Add(this.txtNom);
+            this.grpBxAuteur.Location = new System.Drawing.Point(3, 3);
+            this.grpBxAuteur.Name = "grpBxAuteur";
+            this.grpBxAuteur.Size = new System.Drawing.Size(718, 360);
+            this.grpBxAuteur.TabIndex = 13;
+            this.grpBxAuteur.TabStop = false;
+            // 
+            // txtBxDateNaiss
+            // 
+            // 
+            // 
+            // 
+            this.txtBxDateNaiss.CustomButton.Image = null;
+            this.txtBxDateNaiss.CustomButton.Location = new System.Drawing.Point(147, 1);
+            this.txtBxDateNaiss.CustomButton.Name = "";
+            this.txtBxDateNaiss.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtBxDateNaiss.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBxDateNaiss.CustomButton.TabIndex = 1;
+            this.txtBxDateNaiss.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBxDateNaiss.CustomButton.UseSelectable = true;
+            this.txtBxDateNaiss.CustomButton.Visible = false;
+            this.txtBxDateNaiss.Lines = new string[0];
+            this.txtBxDateNaiss.Location = new System.Drawing.Point(141, 132);
+            this.txtBxDateNaiss.MaxLength = 32767;
+            this.txtBxDateNaiss.Name = "txtBxDateNaiss";
+            this.txtBxDateNaiss.PasswordChar = '\0';
+            this.txtBxDateNaiss.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBxDateNaiss.SelectedText = "";
+            this.txtBxDateNaiss.SelectionLength = 0;
+            this.txtBxDateNaiss.SelectionStart = 0;
+            this.txtBxDateNaiss.ShortcutsEnabled = true;
+            this.txtBxDateNaiss.Size = new System.Drawing.Size(169, 23);
+            this.txtBxDateNaiss.TabIndex = 14;
+            this.txtBxDateNaiss.UseSelectable = true;
+            this.txtBxDateNaiss.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBxDateNaiss.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // dtDateNaiss
+            // 
+            this.dtDateNaiss.Location = new System.Drawing.Point(432, 126);
+            this.dtDateNaiss.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtDateNaiss.Name = "dtDateNaiss";
+            this.dtDateNaiss.Size = new System.Drawing.Size(200, 29);
+            this.dtDateNaiss.TabIndex = 13;
+            // 
+            // metroLabel5
+            // 
+            this.metroLabel5.AutoSize = true;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel5.Location = new System.Drawing.Point(20, 185);
+            this.metroLabel5.Name = "metroLabel5";
+            this.metroLabel5.Size = new System.Drawing.Size(91, 19);
+            this.metroLabel5.TabIndex = 12;
+            this.metroLabel5.Text = "Biographie :";
+            // 
             // lblCode
             // 
             this.lblCode.AutoSize = true;
@@ -186,6 +255,37 @@
             this.lblCode.Size = new System.Drawing.Size(52, 19);
             this.lblCode.TabIndex = 2;
             this.lblCode.Text = "Code :";
+            // 
+            // txtBio
+            // 
+            // 
+            // 
+            // 
+            this.txtBio.CustomButton.Image = null;
+            this.txtBio.CustomButton.Location = new System.Drawing.Point(559, 1);
+            this.txtBio.CustomButton.Name = "";
+            this.txtBio.CustomButton.Size = new System.Drawing.Size(143, 143);
+            this.txtBio.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtBio.CustomButton.TabIndex = 1;
+            this.txtBio.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtBio.CustomButton.UseSelectable = true;
+            this.txtBio.CustomButton.Visible = false;
+            this.txtBio.Lines = new string[0];
+            this.txtBio.Location = new System.Drawing.Point(9, 207);
+            this.txtBio.MaxLength = 32767;
+            this.txtBio.Multiline = true;
+            this.txtBio.Name = "txtBio";
+            this.txtBio.PasswordChar = '\0';
+            this.txtBio.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBio.SelectedText = "";
+            this.txtBio.SelectionLength = 0;
+            this.txtBio.SelectionStart = 0;
+            this.txtBio.ShortcutsEnabled = true;
+            this.txtBio.Size = new System.Drawing.Size(703, 145);
+            this.txtBio.TabIndex = 11;
+            this.txtBio.UseSelectable = true;
+            this.txtBio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtBio.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // lblNom
             // 
@@ -206,6 +306,36 @@
             this.lblDateNais.Size = new System.Drawing.Size(115, 19);
             this.lblDateNais.TabIndex = 4;
             this.lblDateNais.Text = "Date naissance :";
+            // 
+            // txtPrenom
+            // 
+            // 
+            // 
+            // 
+            this.txtPrenom.CustomButton.Image = null;
+            this.txtPrenom.CustomButton.Location = new System.Drawing.Point(147, 1);
+            this.txtPrenom.CustomButton.Name = "";
+            this.txtPrenom.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtPrenom.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtPrenom.CustomButton.TabIndex = 1;
+            this.txtPrenom.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtPrenom.CustomButton.UseSelectable = true;
+            this.txtPrenom.CustomButton.Visible = false;
+            this.txtPrenom.Lines = new string[0];
+            this.txtPrenom.Location = new System.Drawing.Point(463, 79);
+            this.txtPrenom.MaxLength = 32767;
+            this.txtPrenom.Name = "txtPrenom";
+            this.txtPrenom.PasswordChar = '\0';
+            this.txtPrenom.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPrenom.SelectedText = "";
+            this.txtPrenom.SelectionLength = 0;
+            this.txtPrenom.SelectionStart = 0;
+            this.txtPrenom.ShortcutsEnabled = true;
+            this.txtPrenom.Size = new System.Drawing.Size(169, 23);
+            this.txtPrenom.TabIndex = 9;
+            this.txtPrenom.UseSelectable = true;
+            this.txtPrenom.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtPrenom.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // lblPrenom
             // 
@@ -277,143 +407,25 @@
             this.txtNom.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNom.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // txtPrenom
-            // 
-            // 
-            // 
-            // 
-            this.txtPrenom.CustomButton.Image = null;
-            this.txtPrenom.CustomButton.Location = new System.Drawing.Point(147, 1);
-            this.txtPrenom.CustomButton.Name = "";
-            this.txtPrenom.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtPrenom.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtPrenom.CustomButton.TabIndex = 1;
-            this.txtPrenom.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtPrenom.CustomButton.UseSelectable = true;
-            this.txtPrenom.CustomButton.Visible = false;
-            this.txtPrenom.Lines = new string[0];
-            this.txtPrenom.Location = new System.Drawing.Point(463, 79);
-            this.txtPrenom.MaxLength = 32767;
-            this.txtPrenom.Name = "txtPrenom";
-            this.txtPrenom.PasswordChar = '\0';
-            this.txtPrenom.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtPrenom.SelectedText = "";
-            this.txtPrenom.SelectionLength = 0;
-            this.txtPrenom.SelectionStart = 0;
-            this.txtPrenom.ShortcutsEnabled = true;
-            this.txtPrenom.Size = new System.Drawing.Size(169, 23);
-            this.txtPrenom.TabIndex = 9;
-            this.txtPrenom.UseSelectable = true;
-            this.txtPrenom.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtPrenom.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // dgvAuteur
             // 
             this.dgvAuteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuteur.Location = new System.Drawing.Point(12, 369);
+            this.dgvAuteur.Location = new System.Drawing.Point(12, 398);
             this.dgvAuteur.Name = "dgvAuteur";
-            this.dgvAuteur.Size = new System.Drawing.Size(703, 224);
+            this.dgvAuteur.Size = new System.Drawing.Size(703, 195);
             this.dgvAuteur.TabIndex = 10;
             // 
-            // txtBio
+            // lblListeAuteur
             // 
+            this.lblListeAuteur.AutoSize = true;
+            this.lblListeAuteur.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblListeAuteur.Location = new System.Drawing.Point(23, 376);
+            this.lblListeAuteur.Name = "lblListeAuteur";
+            this.lblListeAuteur.Size = new System.Drawing.Size(100, 19);
+            this.lblListeAuteur.TabIndex = 14;
+            this.lblListeAuteur.Text = "Liste auteurs :";
             // 
-            // 
-            // 
-            this.txtBio.CustomButton.Image = null;
-            this.txtBio.CustomButton.Location = new System.Drawing.Point(559, 1);
-            this.txtBio.CustomButton.Name = "";
-            this.txtBio.CustomButton.Size = new System.Drawing.Size(143, 143);
-            this.txtBio.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBio.CustomButton.TabIndex = 1;
-            this.txtBio.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBio.CustomButton.UseSelectable = true;
-            this.txtBio.CustomButton.Visible = false;
-            this.txtBio.Lines = new string[0];
-            this.txtBio.Location = new System.Drawing.Point(9, 207);
-            this.txtBio.MaxLength = 32767;
-            this.txtBio.Multiline = true;
-            this.txtBio.Name = "txtBio";
-            this.txtBio.PasswordChar = '\0';
-            this.txtBio.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBio.SelectedText = "";
-            this.txtBio.SelectionLength = 0;
-            this.txtBio.SelectionStart = 0;
-            this.txtBio.ShortcutsEnabled = true;
-            this.txtBio.Size = new System.Drawing.Size(703, 145);
-            this.txtBio.TabIndex = 11;
-            this.txtBio.UseSelectable = true;
-            this.txtBio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBio.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel5.Location = new System.Drawing.Point(20, 185);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(91, 19);
-            this.metroLabel5.TabIndex = 12;
-            this.metroLabel5.Text = "Biographie :";
-            // 
-            // grpBxAuteur
-            // 
-            this.grpBxAuteur.Controls.Add(this.txtBxDateNaiss);
-            this.grpBxAuteur.Controls.Add(this.dtDateNaiss);
-            this.grpBxAuteur.Controls.Add(this.metroLabel5);
-            this.grpBxAuteur.Controls.Add(this.lblCode);
-            this.grpBxAuteur.Controls.Add(this.txtBio);
-            this.grpBxAuteur.Controls.Add(this.lblNom);
-            this.grpBxAuteur.Controls.Add(this.lblDateNais);
-            this.grpBxAuteur.Controls.Add(this.txtPrenom);
-            this.grpBxAuteur.Controls.Add(this.lblPrenom);
-            this.grpBxAuteur.Controls.Add(this.txtCode);
-            this.grpBxAuteur.Controls.Add(this.txtNom);
-            this.grpBxAuteur.Location = new System.Drawing.Point(3, 3);
-            this.grpBxAuteur.Name = "grpBxAuteur";
-            this.grpBxAuteur.Size = new System.Drawing.Size(718, 360);
-            this.grpBxAuteur.TabIndex = 13;
-            this.grpBxAuteur.TabStop = false;
-            // 
-            // dtDateNaiss
-            // 
-            this.dtDateNaiss.Location = new System.Drawing.Point(432, 126);
-            this.dtDateNaiss.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtDateNaiss.Name = "dtDateNaiss";
-            this.dtDateNaiss.Size = new System.Drawing.Size(200, 29);
-            this.dtDateNaiss.TabIndex = 13;
-            // 
-            // txtBxDateNaiss
-            // 
-            // 
-            // 
-            // 
-            this.txtBxDateNaiss.CustomButton.Image = null;
-            this.txtBxDateNaiss.CustomButton.Location = new System.Drawing.Point(147, 1);
-            this.txtBxDateNaiss.CustomButton.Name = "";
-            this.txtBxDateNaiss.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBxDateNaiss.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBxDateNaiss.CustomButton.TabIndex = 1;
-            this.txtBxDateNaiss.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBxDateNaiss.CustomButton.UseSelectable = true;
-            this.txtBxDateNaiss.CustomButton.Visible = false;
-            this.txtBxDateNaiss.Lines = new string[0];
-            this.txtBxDateNaiss.Location = new System.Drawing.Point(141, 132);
-            this.txtBxDateNaiss.MaxLength = 32767;
-            this.txtBxDateNaiss.Name = "txtBxDateNaiss";
-            this.txtBxDateNaiss.PasswordChar = '\0';
-            this.txtBxDateNaiss.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBxDateNaiss.SelectedText = "";
-            this.txtBxDateNaiss.SelectionLength = 0;
-            this.txtBxDateNaiss.SelectionStart = 0;
-            this.txtBxDateNaiss.ShortcutsEnabled = true;
-            this.txtBxDateNaiss.Size = new System.Drawing.Size(169, 23);
-            this.txtBxDateNaiss.TabIndex = 14;
-            this.txtBxDateNaiss.UseSelectable = true;
-            this.txtBxDateNaiss.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBxDateNaiss.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // Auteur
+            // FrmAuteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -422,13 +434,14 @@
             this.Controls.Add(this.lblAcceuil);
             this.Controls.Add(this.lblSeparation);
             this.Controls.Add(this.grpBoxMenu);
-            this.Name = "Auteur";
+            this.Name = "FrmAuteur";
             this.Text = "Auteur";
             this.grpBoxMenu.ResumeLayout(false);
             this.pnlAuteur.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
+            this.pnlAuteur.PerformLayout();
             this.grpBxAuteur.ResumeLayout(false);
             this.grpBxAuteur.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,5 +473,6 @@
         private System.Windows.Forms.GroupBox grpBxAuteur;
         private MetroFramework.Controls.MetroDateTime dtDateNaiss;
         private MetroFramework.Controls.MetroTextBox txtBxDateNaiss;
+        private MetroFramework.Controls.MetroLabel lblListeAuteur;
     }
 }

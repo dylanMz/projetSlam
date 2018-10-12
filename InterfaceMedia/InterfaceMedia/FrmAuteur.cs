@@ -11,9 +11,9 @@ using MetroFramework.Forms;
 
 namespace InterfaceMedia
 {
-    public partial class Auteur : MetroForm
+    public partial class FrmAuteur : MetroForm
     {
-        public Auteur()
+        public FrmAuteur()
         {
             InitializeComponent();
         }
