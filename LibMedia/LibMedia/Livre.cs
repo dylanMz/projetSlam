@@ -11,7 +11,7 @@ namespace LibMedia
         public class Livre
         {
             #region Propriete
-
+            /* propriete*/
             private int bd_code;
             private String bd_titre;
             private int bd_num_tome;
