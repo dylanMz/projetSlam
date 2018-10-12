@@ -309,9 +309,9 @@
             this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel9.Location = new System.Drawing.Point(540, 112);
             this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(105, 19);
+            this.metroLabel9.Size = new System.Drawing.Size(77, 19);
             this.metroLabel9.TabIndex = 34;
-            this.metroLabel9.Text = "Date Naissance:";
+            this.metroLabel9.Text = "Date Naiss:";
             // 
             // metroLabel10
             // 
