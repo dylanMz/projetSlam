@@ -53,9 +53,9 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
-        //test
+        
         #region Accesseur
-
+        //Accesseur de la liste Emprunteur
         public List<Emprunteur> lesEmprunteurs
         {
             get { return _desEmprunteurs; }
