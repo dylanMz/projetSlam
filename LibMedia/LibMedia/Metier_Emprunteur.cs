@@ -15,7 +15,6 @@ namespace LibMedia
         private List<Emprunteur> _desEmprunteurs;
         private DataSet _unDataSet;
         private MySqlDataReader _unReader;
-        private String test;
         #endregion
 
         #region Constructeur
@@ -50,6 +49,7 @@ namespace LibMedia
                 {
                     _desEmprunteurs.Add(new Emprunteur(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), DateTime.Parse(_unReader["emp_prem_adh"].ToString()), DateTime.Parse(_unReader["emp_ren_adh"].ToString())));
                 }
+                _unReader.Close();
                 uneconnexion.closeConnexion();
             }
         }
@@ -61,7 +61,6 @@ namespace LibMedia
             get { return _desEmprunteurs; }
             set { _desEmprunteurs = value; }
         }
-
         #endregion
 
     }
