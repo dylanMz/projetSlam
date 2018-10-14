@@ -15,8 +15,6 @@ namespace LibMedia
         private List<Emprunteur> _desEmprunteurs;
         private DataSet _unDataSet;
         private MySqlDataReader _unReader;
-        private String test;
-        private DataTable _dataemprunteur;
         #endregion
 
         #region Constructeur
