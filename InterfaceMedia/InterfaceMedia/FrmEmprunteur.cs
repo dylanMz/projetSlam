@@ -25,7 +25,6 @@ namespace InterfaceMedia
             gridEmprunteur.DataSource = unEmprunteur.lesEmprunteurs;
 
         }
-
     }
 
 }
