@@ -198,7 +198,7 @@
             this.metroButton5.Size = new System.Drawing.Size(169, 43);
             this.metroButton5.Style = MetroFramework.MetroColorStyle.Red;
             this.metroButton5.TabIndex = 12;
-            this.metroButton5.Text = "Annuler";
+            this.metroButton5.Text = "Quitter";
             this.metroButton5.UseSelectable = true;
             // 
             // gridEmprunteur
