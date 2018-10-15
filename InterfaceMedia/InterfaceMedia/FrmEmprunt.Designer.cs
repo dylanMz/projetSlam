@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.lblAcceuil = new MetroFramework.Controls.MetroLabel();
             this.gpbxMenu = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnQuitter = new MetroFramework.Controls.MetroButton();
             this.btnAnnuler = new MetroFramework.Controls.MetroButton();
             this.btnRechercheLivre = new MetroFramework.Controls.MetroButton();
             this.btnRecherEmp = new MetroFramework.Controls.MetroButton();
@@ -46,23 +48,20 @@
             this.txtbxRefEx = new MetroFramework.Controls.MetroTextBox();
             this.lblRefEx = new MetroFramework.Controls.MetroLabel();
             this.GridEmprunt = new MetroFramework.Controls.MetroGrid();
-            this.txtbxdateEmp = new MetroFramework.Controls.MetroTextBox();
             this.lblDateEmp = new MetroFramework.Controls.MetroLabel();
-            this.txtbxDateRetourPrev = new MetroFramework.Controls.MetroTextBox();
             this.lblDateRetourPrev = new MetroFramework.Controls.MetroLabel();
-            this.txtbxDateRetour = new MetroFramework.Controls.MetroTextBox();
             this.lblDateRetourRéel = new MetroFramework.Controls.MetroLabel();
             this.gpbxChoix = new System.Windows.Forms.GroupBox();
-            this.lblDate = new MetroFramework.Controls.MetroLabel();
-            this.btnQuitter = new MetroFramework.Controls.MetroButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
-            this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
             this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
+            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
+            this.lblDate = new MetroFramework.Controls.MetroLabel();
+            this.metroDateTime3 = new MetroFramework.Controls.MetroDateTime();
+            this.metroDateTime4 = new MetroFramework.Controls.MetroDateTime();
             this.gpbxMenu.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).BeginInit();
             this.gpbxChoix.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroLabel2
@@ -108,10 +107,30 @@
             this.gpbxMenu.TabIndex = 5;
             this.gpbxMenu.TabStop = false;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnQuitter);
+            this.groupBox1.Location = new System.Drawing.Point(0, 469);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(216, 64);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Highlight = true;
+            this.btnQuitter.Location = new System.Drawing.Point(25, 15);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(169, 43);
+            this.btnQuitter.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnQuitter.TabIndex = 7;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseSelectable = true;
+            // 
             // btnAnnuler
             // 
             this.btnAnnuler.Highlight = true;
-            this.btnAnnuler.Location = new System.Drawing.Point(25, 347);
+            this.btnAnnuler.Location = new System.Drawing.Point(25, 361);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
             this.btnAnnuler.Style = MetroFramework.MetroColorStyle.Red;
@@ -122,7 +141,7 @@
             // btnRechercheLivre
             // 
             this.btnRechercheLivre.Highlight = true;
-            this.btnRechercheLivre.Location = new System.Drawing.Point(25, 274);
+            this.btnRechercheLivre.Location = new System.Drawing.Point(25, 288);
             this.btnRechercheLivre.Name = "btnRechercheLivre";
             this.btnRechercheLivre.Size = new System.Drawing.Size(169, 43);
             this.btnRechercheLivre.Style = MetroFramework.MetroColorStyle.Blue;
@@ -134,7 +153,7 @@
             // btnRecherEmp
             // 
             this.btnRecherEmp.Highlight = true;
-            this.btnRecherEmp.Location = new System.Drawing.Point(25, 225);
+            this.btnRecherEmp.Location = new System.Drawing.Point(25, 239);
             this.btnRecherEmp.Name = "btnRecherEmp";
             this.btnRecherEmp.Size = new System.Drawing.Size(169, 43);
             this.btnRecherEmp.Style = MetroFramework.MetroColorStyle.Blue;
@@ -156,7 +175,7 @@
             // btnAjoutRetour
             // 
             this.btnAjoutRetour.Highlight = true;
-            this.btnAjoutRetour.Location = new System.Drawing.Point(25, 176);
+            this.btnAjoutRetour.Location = new System.Drawing.Point(25, 190);
             this.btnAjoutRetour.Name = "btnAjoutRetour";
             this.btnAjoutRetour.Size = new System.Drawing.Size(169, 43);
             this.btnAjoutRetour.Style = MetroFramework.MetroColorStyle.Blue;
@@ -185,6 +204,7 @@
             this.btnAjoutEmp.TabIndex = 0;
             this.btnAjoutEmp.Text = "Ajouter";
             this.btnAjoutEmp.UseSelectable = true;
+            this.btnAjoutEmp.Click += new System.EventHandler(this.btnAjoutEmp_Click);
             // 
             // lblNumEmp
             // 
@@ -201,7 +221,7 @@
             // 
             // 
             this.txtbxNumEmp.CustomButton.Image = null;
-            this.txtbxNumEmp.CustomButton.Location = new System.Drawing.Point(91, 1);
+            this.txtbxNumEmp.CustomButton.Location = new System.Drawing.Point(49, 1);
             this.txtbxNumEmp.CustomButton.Name = "";
             this.txtbxNumEmp.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtbxNumEmp.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -219,7 +239,7 @@
             this.txtbxNumEmp.SelectionLength = 0;
             this.txtbxNumEmp.SelectionStart = 0;
             this.txtbxNumEmp.ShortcutsEnabled = true;
-            this.txtbxNumEmp.Size = new System.Drawing.Size(113, 23);
+            this.txtbxNumEmp.Size = new System.Drawing.Size(71, 23);
             this.txtbxNumEmp.TabIndex = 9;
             this.txtbxNumEmp.UseSelectable = true;
             this.txtbxNumEmp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -231,7 +251,7 @@
             // 
             // 
             this.txtbxRefEx.CustomButton.Image = null;
-            this.txtbxRefEx.CustomButton.Location = new System.Drawing.Point(101, 1);
+            this.txtbxRefEx.CustomButton.Location = new System.Drawing.Point(57, 1);
             this.txtbxRefEx.CustomButton.Name = "";
             this.txtbxRefEx.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtbxRefEx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -249,7 +269,7 @@
             this.txtbxRefEx.SelectionLength = 0;
             this.txtbxRefEx.SelectionStart = 0;
             this.txtbxRefEx.ShortcutsEnabled = true;
-            this.txtbxRefEx.Size = new System.Drawing.Size(123, 23);
+            this.txtbxRefEx.Size = new System.Drawing.Size(79, 23);
             this.txtbxRefEx.TabIndex = 11;
             this.txtbxRefEx.UseSelectable = true;
             this.txtbxRefEx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -271,71 +291,41 @@
             this.GridEmprunt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridEmprunt.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridEmprunt.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.GridEmprunt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle5;
             this.GridEmprunt.EnableHeadersVisualStyles = false;
             this.GridEmprunt.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEmprunt.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridEmprunt.Location = new System.Drawing.Point(23, 373);
             this.GridEmprunt.Name = "GridEmprunt";
             this.GridEmprunt.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.GridEmprunt.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEmprunt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridEmprunt.Size = new System.Drawing.Size(695, 150);
             this.GridEmprunt.TabIndex = 12;
-            // 
-            // txtbxdateEmp
-            // 
-            // 
-            // 
-            // 
-            this.txtbxdateEmp.CustomButton.Image = null;
-            this.txtbxdateEmp.CustomButton.Location = new System.Drawing.Point(91, 1);
-            this.txtbxdateEmp.CustomButton.Name = "";
-            this.txtbxdateEmp.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtbxdateEmp.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtbxdateEmp.CustomButton.TabIndex = 1;
-            this.txtbxdateEmp.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtbxdateEmp.CustomButton.UseSelectable = true;
-            this.txtbxdateEmp.CustomButton.Visible = false;
-            this.txtbxdateEmp.Lines = new string[0];
-            this.txtbxdateEmp.Location = new System.Drawing.Point(181, 185);
-            this.txtbxdateEmp.MaxLength = 32767;
-            this.txtbxdateEmp.Name = "txtbxdateEmp";
-            this.txtbxdateEmp.PasswordChar = '\0';
-            this.txtbxdateEmp.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtbxdateEmp.SelectedText = "";
-            this.txtbxdateEmp.SelectionLength = 0;
-            this.txtbxdateEmp.SelectionStart = 0;
-            this.txtbxdateEmp.ShortcutsEnabled = true;
-            this.txtbxdateEmp.Size = new System.Drawing.Size(113, 23);
-            this.txtbxdateEmp.TabIndex = 14;
-            this.txtbxdateEmp.UseSelectable = true;
-            this.txtbxdateEmp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtbxdateEmp.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // lblDateEmp
             // 
@@ -346,36 +336,6 @@
             this.lblDateEmp.TabIndex = 13;
             this.lblDateEmp.Text = "Date emprunt";
             // 
-            // txtbxDateRetourPrev
-            // 
-            // 
-            // 
-            // 
-            this.txtbxDateRetourPrev.CustomButton.Image = null;
-            this.txtbxDateRetourPrev.CustomButton.Location = new System.Drawing.Point(101, 1);
-            this.txtbxDateRetourPrev.CustomButton.Name = "";
-            this.txtbxDateRetourPrev.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtbxDateRetourPrev.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtbxDateRetourPrev.CustomButton.TabIndex = 1;
-            this.txtbxDateRetourPrev.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtbxDateRetourPrev.CustomButton.UseSelectable = true;
-            this.txtbxDateRetourPrev.CustomButton.Visible = false;
-            this.txtbxDateRetourPrev.Lines = new string[0];
-            this.txtbxDateRetourPrev.Location = new System.Drawing.Point(506, 185);
-            this.txtbxDateRetourPrev.MaxLength = 32767;
-            this.txtbxDateRetourPrev.Name = "txtbxDateRetourPrev";
-            this.txtbxDateRetourPrev.PasswordChar = '\0';
-            this.txtbxDateRetourPrev.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtbxDateRetourPrev.SelectedText = "";
-            this.txtbxDateRetourPrev.SelectionLength = 0;
-            this.txtbxDateRetourPrev.SelectionStart = 0;
-            this.txtbxDateRetourPrev.ShortcutsEnabled = true;
-            this.txtbxDateRetourPrev.Size = new System.Drawing.Size(123, 23);
-            this.txtbxDateRetourPrev.TabIndex = 16;
-            this.txtbxDateRetourPrev.UseSelectable = true;
-            this.txtbxDateRetourPrev.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtbxDateRetourPrev.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // lblDateRetourPrev
             // 
             this.lblDateRetourPrev.AutoSize = true;
@@ -384,36 +344,6 @@
             this.lblDateRetourPrev.Size = new System.Drawing.Size(132, 19);
             this.lblDateRetourPrev.TabIndex = 15;
             this.lblDateRetourPrev.Text = "Date de retour prévu";
-            // 
-            // txtbxDateRetour
-            // 
-            // 
-            // 
-            // 
-            this.txtbxDateRetour.CustomButton.Image = null;
-            this.txtbxDateRetour.CustomButton.Location = new System.Drawing.Point(91, 1);
-            this.txtbxDateRetour.CustomButton.Name = "";
-            this.txtbxDateRetour.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtbxDateRetour.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtbxDateRetour.CustomButton.TabIndex = 1;
-            this.txtbxDateRetour.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtbxDateRetour.CustomButton.UseSelectable = true;
-            this.txtbxDateRetour.CustomButton.Visible = false;
-            this.txtbxDateRetour.Lines = new string[0];
-            this.txtbxDateRetour.Location = new System.Drawing.Point(181, 248);
-            this.txtbxDateRetour.MaxLength = 32767;
-            this.txtbxDateRetour.Name = "txtbxDateRetour";
-            this.txtbxDateRetour.PasswordChar = '\0';
-            this.txtbxDateRetour.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtbxDateRetour.SelectedText = "";
-            this.txtbxDateRetour.SelectionLength = 0;
-            this.txtbxDateRetour.SelectionStart = 0;
-            this.txtbxDateRetour.ShortcutsEnabled = true;
-            this.txtbxDateRetour.Size = new System.Drawing.Size(113, 23);
-            this.txtbxDateRetour.TabIndex = 18;
-            this.txtbxDateRetour.UseSelectable = true;
-            this.txtbxDateRetour.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtbxDateRetour.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // lblDateRetourRéel
             // 
@@ -431,50 +361,20 @@
             this.gpbxChoix.Controls.Add(this.metroRadioButton1);
             this.gpbxChoix.Controls.Add(this.lblDate);
             this.gpbxChoix.Enabled = false;
-            this.gpbxChoix.Location = new System.Drawing.Point(23, 233);
+            this.gpbxChoix.Location = new System.Drawing.Point(23, 234);
             this.gpbxChoix.Name = "gpbxChoix";
             this.gpbxChoix.Size = new System.Drawing.Size(695, 100);
             this.gpbxChoix.TabIndex = 19;
             this.gpbxChoix.TabStop = false;
             // 
-            // lblDate
+            // metroDateTime1
             // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(54, 21);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(36, 19);
-            this.lblDate.TabIndex = 15;
-            this.lblDate.Text = "Date";
-            // 
-            // btnQuitter
-            // 
-            this.btnQuitter.Highlight = true;
-            this.btnQuitter.Location = new System.Drawing.Point(25, 15);
-            this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(169, 43);
-            this.btnQuitter.Style = MetroFramework.MetroColorStyle.Red;
-            this.btnQuitter.TabIndex = 7;
-            this.btnQuitter.Text = "Quitter";
-            this.btnQuitter.UseSelectable = true;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.btnQuitter);
-            this.groupBox1.Location = new System.Drawing.Point(0, 469);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(216, 64);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            // 
-            // metroRadioButton1
-            // 
-            this.metroRadioButton1.AutoSize = true;
-            this.metroRadioButton1.Location = new System.Drawing.Point(336, 60);
-            this.metroRadioButton1.Name = "metroRadioButton1";
-            this.metroRadioButton1.Size = new System.Drawing.Size(276, 15);
-            this.metroRadioButton1.TabIndex = 19;
-            this.metroRadioButton1.Text = "Afficher les livres non rendus à une date donnée";
-            this.metroRadioButton1.UseSelectable = true;
+            this.metroDateTime1.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.metroDateTime1.Location = new System.Drawing.Point(158, 19);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 25);
+            this.metroDateTime1.Name = "metroDateTime1";
+            this.metroDateTime1.Size = new System.Drawing.Size(137, 25);
+            this.metroDateTime1.TabIndex = 21;
             // 
             // metroRadioButton2
             // 
@@ -486,25 +386,53 @@
             this.metroRadioButton2.Text = "Afficher les livres empruntés à une date précise";
             this.metroRadioButton2.UseSelectable = true;
             // 
-            // metroDateTime1
+            // metroRadioButton1
             // 
-            this.metroDateTime1.Location = new System.Drawing.Point(147, 21);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(149, 29);
-            this.metroDateTime1.TabIndex = 21;
+            this.metroRadioButton1.AutoSize = true;
+            this.metroRadioButton1.Location = new System.Drawing.Point(336, 60);
+            this.metroRadioButton1.Name = "metroRadioButton1";
+            this.metroRadioButton1.Size = new System.Drawing.Size(276, 15);
+            this.metroRadioButton1.TabIndex = 19;
+            this.metroRadioButton1.Text = "Afficher les livres non rendus à une date donnée";
+            this.metroRadioButton1.UseSelectable = true;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(54, 21);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(36, 19);
+            this.lblDate.TabIndex = 15;
+            this.lblDate.Text = "Date";
+            // 
+            // metroDateTime3
+            // 
+            this.metroDateTime3.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.metroDateTime3.Location = new System.Drawing.Point(506, 185);
+            this.metroDateTime3.MinimumSize = new System.Drawing.Size(0, 25);
+            this.metroDateTime3.Name = "metroDateTime3";
+            this.metroDateTime3.Size = new System.Drawing.Size(137, 25);
+            this.metroDateTime3.TabIndex = 23;
+            // 
+            // metroDateTime4
+            // 
+            this.metroDateTime4.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.metroDateTime4.Location = new System.Drawing.Point(181, 185);
+            this.metroDateTime4.MinimumSize = new System.Drawing.Size(0, 25);
+            this.metroDateTime4.Name = "metroDateTime4";
+            this.metroDateTime4.Size = new System.Drawing.Size(137, 25);
+            this.metroDateTime4.TabIndex = 24;
             // 
             // FrmEmprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 546);
+            this.Controls.Add(this.metroDateTime3);
+            this.Controls.Add(this.metroDateTime4);
             this.Controls.Add(this.gpbxChoix);
-            this.Controls.Add(this.txtbxDateRetour);
             this.Controls.Add(this.lblDateRetourRéel);
-            this.Controls.Add(this.txtbxDateRetourPrev);
             this.Controls.Add(this.lblDateRetourPrev);
-            this.Controls.Add(this.txtbxdateEmp);
             this.Controls.Add(this.lblDateEmp);
             this.Controls.Add(this.GridEmprunt);
             this.Controls.Add(this.txtbxRefEx);
@@ -514,13 +442,14 @@
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.lblAcceuil);
             this.Controls.Add(this.gpbxMenu);
+            this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FrmEmprunt";
             this.Text = "Emprunt";
             this.gpbxMenu.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).EndInit();
             this.gpbxChoix.ResumeLayout(false);
             this.gpbxChoix.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -543,11 +472,8 @@
         private MetroFramework.Controls.MetroTextBox txtbxRefEx;
         private MetroFramework.Controls.MetroLabel lblRefEx;
         private MetroFramework.Controls.MetroGrid GridEmprunt;
-        private MetroFramework.Controls.MetroTextBox txtbxdateEmp;
         private MetroFramework.Controls.MetroLabel lblDateEmp;
-        private MetroFramework.Controls.MetroTextBox txtbxDateRetourPrev;
         private MetroFramework.Controls.MetroLabel lblDateRetourPrev;
-        private MetroFramework.Controls.MetroTextBox txtbxDateRetour;
         private MetroFramework.Controls.MetroLabel lblDateRetourRéel;
         private System.Windows.Forms.GroupBox gpbxChoix;
         private MetroFramework.Controls.MetroLabel lblDate;
@@ -556,5 +482,7 @@
         private MetroFramework.Controls.MetroDateTime metroDateTime1;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
         private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
+        private MetroFramework.Controls.MetroDateTime metroDateTime3;
+        private MetroFramework.Controls.MetroDateTime metroDateTime4;
     }
 }
