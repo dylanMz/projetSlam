@@ -28,13 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.metroButton6 = new MetroFramework.Controls.MetroButton();
-            this.metroButton5 = new MetroFramework.Controls.MetroButton();
-            this.metroButton4 = new MetroFramework.Controls.MetroButton();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
@@ -63,100 +56,30 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox10 = new MetroFramework.Controls.MetroTextBox();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.metroTextBox26 = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel29 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel30 = new MetroFramework.Controls.MetroLabel();
             this.metroTextBox27 = new MetroFramework.Controls.MetroTextBox();
-            this.metroButton7 = new MetroFramework.Controls.MetroButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.groupBox1.SuspendLayout();
+            this.gpbxMenu = new System.Windows.Forms.GroupBox();
+            this.btnQuitter = new MetroFramework.Controls.MetroButton();
+            this.btnAnnuler = new MetroFramework.Controls.MetroButton();
+            this.btnRechercheLivre = new MetroFramework.Controls.MetroButton();
+            this.btnRecherEmp = new MetroFramework.Controls.MetroButton();
+            this.btnSupprEmp = new MetroFramework.Controls.MetroButton();
+            this.btnModifier = new MetroFramework.Controls.MetroButton();
+            this.btnAjoutEmp = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.btnAjoutRetour = new MetroFramework.Controls.MetroButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.metroPanel1.SuspendLayout();
+            this.gpbxMenu.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.metroButton7);
-            this.groupBox1.Controls.Add(this.metroButton6);
-            this.groupBox1.Controls.Add(this.metroButton5);
-            this.groupBox1.Controls.Add(this.metroButton4);
-            this.groupBox1.Controls.Add(this.metroButton3);
-            this.groupBox1.Controls.Add(this.metroButton2);
-            this.groupBox1.Controls.Add(this.metroButton1);
-            this.groupBox1.Location = new System.Drawing.Point(736, 7);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(216, 579);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            // 
-            // metroButton6
-            // 
-            this.metroButton6.Highlight = true;
-            this.metroButton6.Location = new System.Drawing.Point(27, 511);
-            this.metroButton6.Name = "metroButton6";
-            this.metroButton6.Size = new System.Drawing.Size(169, 43);
-            this.metroButton6.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton6.TabIndex = 10;
-            this.metroButton6.Text = "Annuler";
-            this.metroButton6.UseSelectable = true;
-            // 
-            // metroButton5
-            // 
-            this.metroButton5.Highlight = true;
-            this.metroButton5.Location = new System.Drawing.Point(27, 431);
-            this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(169, 43);
-            this.metroButton5.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton5.TabIndex = 9;
-            this.metroButton5.Text = "Rechercher";
-            this.metroButton5.UseSelectable = true;
-            // 
-            // metroButton4
-            // 
-            this.metroButton4.Highlight = true;
-            this.metroButton4.Location = new System.Drawing.Point(27, 240);
-            this.metroButton4.Name = "metroButton4";
-            this.metroButton4.Size = new System.Drawing.Size(169, 43);
-            this.metroButton4.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton4.TabIndex = 8;
-            this.metroButton4.Text = "Supprimer";
-            this.metroButton4.UseSelectable = true;
-            // 
-            // metroButton3
-            // 
-            this.metroButton3.Highlight = true;
-            this.metroButton3.Location = new System.Drawing.Point(27, 341);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(169, 43);
-            this.metroButton3.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton3.TabIndex = 7;
-            this.metroButton3.Text = "Rechercher";
-            this.metroButton3.UseSelectable = true;
-            // 
-            // metroButton2
-            // 
-            this.metroButton2.Highlight = true;
-            this.metroButton2.Location = new System.Drawing.Point(27, 191);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(169, 43);
-            this.metroButton2.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton2.TabIndex = 6;
-            this.metroButton2.Text = "Modifier";
-            this.metroButton2.UseSelectable = true;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Highlight = true;
-            this.metroButton1.Location = new System.Drawing.Point(27, 45);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(169, 43);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton1.TabIndex = 5;
-            this.metroButton1.Text = "Ajouter Livre";
-            this.metroButton1.UseSelectable = true;
             // 
             // dataGridView1
             // 
@@ -450,7 +373,7 @@
             this.metroTextBox9.CustomButton.UseSelectable = true;
             this.metroTextBox9.CustomButton.Visible = false;
             this.metroTextBox9.Lines = new string[0];
-            this.metroTextBox9.Location = new System.Drawing.Point(517, 184);
+            this.metroTextBox9.Location = new System.Drawing.Point(499, 169);
             this.metroTextBox9.MaxLength = 32767;
             this.metroTextBox9.Name = "metroTextBox9";
             this.metroTextBox9.PasswordChar = '\0';
@@ -469,7 +392,7 @@
             // 
             this.metroLabel12.AutoSize = true;
             this.metroLabel12.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel12.Location = new System.Drawing.Point(343, 184);
+            this.metroLabel12.Location = new System.Drawing.Point(325, 169);
             this.metroLabel12.Name = "metroLabel12";
             this.metroLabel12.Size = new System.Drawing.Size(168, 19);
             this.metroLabel12.TabIndex = 20;
@@ -479,7 +402,7 @@
             // 
             this.metroLabel11.AutoSize = true;
             this.metroLabel11.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel11.Location = new System.Drawing.Point(426, 215);
+            this.metroLabel11.Location = new System.Drawing.Point(408, 200);
             this.metroLabel11.Name = "metroLabel11";
             this.metroLabel11.Size = new System.Drawing.Size(86, 19);
             this.metroLabel11.TabIndex = 22;
@@ -691,6 +614,50 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(517, 270);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(80, 17);
+            this.radioButton4.TabIndex = 40;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Très abimé ";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(517, 223);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(44, 17);
+            this.radioButton3.TabIndex = 39;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Bon";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(517, 247);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(57, 17);
+            this.radioButton2.TabIndex = 38;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Abimé ";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(517, 200);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(67, 17);
+            this.radioButton1.TabIndex = 37;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Très bon";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // metroTextBox26
             // 
             // 
@@ -771,92 +738,168 @@
             this.metroTextBox27.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.metroTextBox27.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroButton7
+            // gpbxMenu
             // 
-            this.metroButton7.Highlight = true;
-            this.metroButton7.Location = new System.Drawing.Point(27, 107);
-            this.metroButton7.Name = "metroButton7";
-            this.metroButton7.Size = new System.Drawing.Size(169, 43);
-            this.metroButton7.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton7.TabIndex = 11;
-            this.metroButton7.Text = "Ajouter Exemplaire";
-            this.metroButton7.UseSelectable = true;
+            this.gpbxMenu.BackColor = System.Drawing.Color.Transparent;
+            this.gpbxMenu.Controls.Add(this.metroButton2);
+            this.gpbxMenu.Controls.Add(this.btnQuitter);
+            this.gpbxMenu.Controls.Add(this.metroButton1);
+            this.gpbxMenu.Controls.Add(this.groupBox1);
+            this.gpbxMenu.Controls.Add(this.btnAnnuler);
+            this.gpbxMenu.Controls.Add(this.btnRechercheLivre);
+            this.gpbxMenu.Controls.Add(this.btnRecherEmp);
+            this.gpbxMenu.Controls.Add(this.btnSupprEmp);
+            this.gpbxMenu.Controls.Add(this.btnAjoutRetour);
+            this.gpbxMenu.Controls.Add(this.btnModifier);
+            this.gpbxMenu.Controls.Add(this.btnAjoutEmp);
+            this.gpbxMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gpbxMenu.Location = new System.Drawing.Point(740, 25);
+            this.gpbxMenu.Name = "gpbxMenu";
+            this.gpbxMenu.Size = new System.Drawing.Size(216, 596);
+            this.gpbxMenu.TabIndex = 31;
+            this.gpbxMenu.TabStop = false;
             // 
-            // radioButton1
+            // btnQuitter
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(535, 215);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(67, 17);
-            this.radioButton1.TabIndex = 37;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Très bon";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.btnQuitter.Highlight = true;
+            this.btnQuitter.Location = new System.Drawing.Point(25, 547);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(169, 43);
+            this.btnQuitter.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnQuitter.TabIndex = 7;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseSelectable = true;
             // 
-            // radioButton2
+            // btnAnnuler
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(535, 262);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(57, 17);
-            this.radioButton2.TabIndex = 38;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Abimé ";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.btnAnnuler.Highlight = true;
+            this.btnAnnuler.Location = new System.Drawing.Point(25, 454);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
+            this.btnAnnuler.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnAnnuler.TabIndex = 6;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseSelectable = true;
             // 
-            // radioButton3
+            // btnRechercheLivre
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(535, 238);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(44, 17);
-            this.radioButton3.TabIndex = 39;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Bon";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.btnRechercheLivre.Highlight = true;
+            this.btnRechercheLivre.Location = new System.Drawing.Point(25, 405);
+            this.btnRechercheLivre.Name = "btnRechercheLivre";
+            this.btnRechercheLivre.Size = new System.Drawing.Size(169, 43);
+            this.btnRechercheLivre.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnRechercheLivre.TabIndex = 5;
+            this.btnRechercheLivre.Text = "Rechercher livre ";
+            this.btnRechercheLivre.UseSelectable = true;
             // 
-            // radioButton4
+            // btnRecherEmp
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(535, 285);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(80, 17);
-            this.radioButton4.TabIndex = 40;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Très abimé ";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.btnRecherEmp.Highlight = true;
+            this.btnRecherEmp.Location = new System.Drawing.Point(25, 356);
+            this.btnRecherEmp.Name = "btnRecherEmp";
+            this.btnRecherEmp.Size = new System.Drawing.Size(169, 43);
+            this.btnRecherEmp.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnRecherEmp.TabIndex = 4;
+            this.btnRecherEmp.Text = "Rechercher emprunt";
+            this.btnRecherEmp.UseSelectable = true;
+            // 
+            // btnSupprEmp
+            // 
+            this.btnSupprEmp.Highlight = true;
+            this.btnSupprEmp.Location = new System.Drawing.Point(25, 307);
+            this.btnSupprEmp.Name = "btnSupprEmp";
+            this.btnSupprEmp.Size = new System.Drawing.Size(169, 43);
+            this.btnSupprEmp.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnSupprEmp.TabIndex = 3;
+            this.btnSupprEmp.Text = "Supprimer";
+            this.btnSupprEmp.UseSelectable = true;
+            // 
+            // btnModifier
+            // 
+            this.btnModifier.Highlight = true;
+            this.btnModifier.Location = new System.Drawing.Point(25, 175);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(169, 43);
+            this.btnModifier.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnModifier.TabIndex = 1;
+            this.btnModifier.Text = "Modifier Livre";
+            this.btnModifier.UseSelectable = true;
+            // 
+            // btnAjoutEmp
+            // 
+            this.btnAjoutEmp.Highlight = true;
+            this.btnAjoutEmp.Location = new System.Drawing.Point(25, 27);
+            this.btnAjoutEmp.Name = "btnAjoutEmp";
+            this.btnAjoutEmp.Size = new System.Drawing.Size(169, 43);
+            this.btnAjoutEmp.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnAjoutEmp.TabIndex = 0;
+            this.btnAjoutEmp.Text = "Ajouter Livre";
+            this.btnAjoutEmp.UseSelectable = true;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Highlight = true;
+            this.metroButton1.Location = new System.Drawing.Point(25, 73);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(169, 43);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton1.TabIndex = 9;
+            this.metroButton1.Text = "Ajouter Exemplaire";
+            this.metroButton1.UseSelectable = true;
+            // 
+            // btnAjoutRetour
+            // 
+            this.btnAjoutRetour.Highlight = true;
+            this.btnAjoutRetour.Location = new System.Drawing.Point(25, 224);
+            this.btnAjoutRetour.Name = "btnAjoutRetour";
+            this.btnAjoutRetour.Size = new System.Drawing.Size(169, 43);
+            this.btnAjoutRetour.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnAjoutRetour.TabIndex = 2;
+            this.btnAjoutRetour.Text = "Modifier exemplaire";
+            this.btnAjoutRetour.UseSelectable = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(0, 497);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(216, 36);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Highlight = true;
+            this.metroButton2.Location = new System.Drawing.Point(25, 122);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(169, 43);
+            this.metroButton2.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton2.TabIndex = 10;
+            this.metroButton2.Text = "Ajouter Auteur";
+            this.metroButton2.UseSelectable = true;
             // 
             // Frmlivre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(979, 644);
+            this.Controls.Add(this.gpbxMenu);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox1);
             this.Name = "Frmlivre";
             this.Text = "Livre";
-            this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            this.gpbxMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox1;
-        private MetroFramework.Controls.MetroButton metroButton6;
-        private MetroFramework.Controls.MetroButton metroButton5;
-        private MetroFramework.Controls.MetroButton metroButton4;
-        private MetroFramework.Controls.MetroButton metroButton3;
-        private MetroFramework.Controls.MetroButton metroButton2;
-        private MetroFramework.Controls.MetroButton metroButton1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroButton metroButton7;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
         private MetroFramework.Controls.MetroTextBox metroTextBox2;
         private MetroFramework.Controls.MetroTextBox metroTextBox3;
@@ -891,5 +934,17 @@
         private MetroFramework.Controls.MetroLabel metroLabel29;
         private MetroFramework.Controls.MetroLabel metroLabel30;
         private MetroFramework.Controls.MetroTextBox metroTextBox27;
+        private System.Windows.Forms.GroupBox gpbxMenu;
+        private MetroFramework.Controls.MetroButton btnQuitter;
+        private MetroFramework.Controls.MetroButton btnAnnuler;
+        private MetroFramework.Controls.MetroButton btnRechercheLivre;
+        private MetroFramework.Controls.MetroButton btnRecherEmp;
+        private MetroFramework.Controls.MetroButton btnSupprEmp;
+        private MetroFramework.Controls.MetroButton btnModifier;
+        private MetroFramework.Controls.MetroButton btnAjoutEmp;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MetroFramework.Controls.MetroButton btnAjoutRetour;
     }
 }
