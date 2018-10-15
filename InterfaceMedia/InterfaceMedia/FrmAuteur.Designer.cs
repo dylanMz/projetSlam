@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.grpBoxMenu = new System.Windows.Forms.GroupBox();
-            this.btnChercher = new MetroFramework.Controls.MetroButton();
             this.btnSauvegarder = new MetroFramework.Controls.MetroButton();
             this.btnAnnuler = new MetroFramework.Controls.MetroButton();
             this.btnSupprimer = new MetroFramework.Controls.MetroButton();
@@ -37,10 +36,8 @@
             this.btnModifier = new MetroFramework.Controls.MetroButton();
             this.btnAjouter = new MetroFramework.Controls.MetroButton();
             this.lblSeparation = new MetroFramework.Controls.MetroLabel();
-            this.lblAcceuil = new MetroFramework.Controls.MetroLabel();
             this.pnlAuteur = new MetroFramework.Controls.MetroPanel();
             this.grpBxAuteur = new System.Windows.Forms.GroupBox();
-            this.txtBxDateNaiss = new MetroFramework.Controls.MetroTextBox();
             this.dtDateNaiss = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.lblCode = new MetroFramework.Controls.MetroLabel();
@@ -52,7 +49,16 @@
             this.txtCode = new MetroFramework.Controls.MetroTextBox();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
             this.dgvAuteur = new System.Windows.Forms.DataGridView();
-            this.lblListeAuteur = new MetroFramework.Controls.MetroLabel();
+            this.btnChercher = new MetroFramework.Controls.MetroButton();
+            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroTextBox2 = new MetroFramework.Controls.MetroTextBox();
+            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
             this.grpBoxMenu.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
             this.grpBxAuteur.SuspendLayout();
@@ -63,6 +69,7 @@
             // 
             this.grpBoxMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpBoxMenu.Controls.Add(this.metroButton1);
             this.grpBoxMenu.Controls.Add(this.btnChercher);
             this.grpBoxMenu.Controls.Add(this.btnSauvegarder);
             this.grpBoxMenu.Controls.Add(this.btnAnnuler);
@@ -76,18 +83,10 @@
             this.grpBoxMenu.TabIndex = 1;
             this.grpBoxMenu.TabStop = false;
             // 
-            // btnChercher
-            // 
-            this.btnChercher.Location = new System.Drawing.Point(27, 449);
-            this.btnChercher.Name = "btnChercher";
-            this.btnChercher.Size = new System.Drawing.Size(169, 43);
-            this.btnChercher.TabIndex = 13;
-            this.btnChercher.Text = "Chercher";
-            this.btnChercher.UseSelectable = true;
-            // 
             // btnSauvegarder
             // 
-            this.btnSauvegarder.Location = new System.Drawing.Point(27, 363);
+            this.btnSauvegarder.Enabled = false;
+            this.btnSauvegarder.Location = new System.Drawing.Point(27, 216);
             this.btnSauvegarder.Name = "btnSauvegarder";
             this.btnSauvegarder.Size = new System.Drawing.Size(169, 43);
             this.btnSauvegarder.TabIndex = 11;
@@ -96,7 +95,8 @@
             // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Location = new System.Drawing.Point(27, 527);
+            this.btnAnnuler.Enabled = false;
+            this.btnAnnuler.Location = new System.Drawing.Point(27, 414);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
             this.btnAnnuler.TabIndex = 10;
@@ -105,7 +105,8 @@
             // 
             // btnSupprimer
             // 
-            this.btnSupprimer.Location = new System.Drawing.Point(27, 277);
+            this.btnSupprimer.Enabled = false;
+            this.btnSupprimer.Location = new System.Drawing.Point(27, 149);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(169, 43);
             this.btnSupprimer.TabIndex = 8;
@@ -114,7 +115,7 @@
             // 
             // btnRechercher
             // 
-            this.btnRechercher.Location = new System.Drawing.Point(27, 188);
+            this.btnRechercher.Location = new System.Drawing.Point(27, 284);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(169, 43);
             this.btnRechercher.TabIndex = 7;
@@ -123,7 +124,7 @@
             // 
             // btnModifier
             // 
-            this.btnModifier.Location = new System.Drawing.Point(27, 105);
+            this.btnModifier.Location = new System.Drawing.Point(27, 81);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(169, 43);
             this.btnModifier.TabIndex = 6;
@@ -149,24 +150,11 @@
             this.lblSeparation.TabIndex = 2;
             this.lblSeparation.Text = "|\r\n|";
             // 
-            // lblAcceuil
-            // 
-            this.lblAcceuil.AutoSize = true;
-            this.lblAcceuil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblAcceuil.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblAcceuil.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblAcceuil.Location = new System.Drawing.Point(140, 25);
-            this.lblAcceuil.Name = "lblAcceuil";
-            this.lblAcceuil.Size = new System.Drawing.Size(67, 25);
-            this.lblAcceuil.TabIndex = 5;
-            this.lblAcceuil.Text = "Acceuil";
-            // 
             // pnlAuteur
             // 
             this.pnlAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlAuteur.Controls.Add(this.lblListeAuteur);
             this.pnlAuteur.Controls.Add(this.grpBxAuteur);
             this.pnlAuteur.Controls.Add(this.dgvAuteur);
             this.pnlAuteur.HorizontalScrollbarBarColor = true;
@@ -182,7 +170,14 @@
             // 
             // grpBxAuteur
             // 
-            this.grpBxAuteur.Controls.Add(this.txtBxDateNaiss);
+            this.grpBxAuteur.Controls.Add(this.metroRadioButton2);
+            this.grpBxAuteur.Controls.Add(this.metroRadioButton1);
+            this.grpBxAuteur.Controls.Add(this.metroLabel3);
+            this.grpBxAuteur.Controls.Add(this.metroTextBox2);
+            this.grpBxAuteur.Controls.Add(this.metroLabel2);
+            this.grpBxAuteur.Controls.Add(this.metroTextBox1);
+            this.grpBxAuteur.Controls.Add(this.metroDateTime1);
+            this.grpBxAuteur.Controls.Add(this.metroLabel1);
             this.grpBxAuteur.Controls.Add(this.dtDateNaiss);
             this.grpBxAuteur.Controls.Add(this.metroLabel5);
             this.grpBxAuteur.Controls.Add(this.lblCode);
@@ -195,43 +190,14 @@
             this.grpBxAuteur.Controls.Add(this.txtNom);
             this.grpBxAuteur.Location = new System.Drawing.Point(3, 3);
             this.grpBxAuteur.Name = "grpBxAuteur";
-            this.grpBxAuteur.Size = new System.Drawing.Size(718, 360);
+            this.grpBxAuteur.Size = new System.Drawing.Size(718, 379);
             this.grpBxAuteur.TabIndex = 13;
             this.grpBxAuteur.TabStop = false;
             // 
-            // txtBxDateNaiss
-            // 
-            // 
-            // 
-            // 
-            this.txtBxDateNaiss.CustomButton.Image = null;
-            this.txtBxDateNaiss.CustomButton.Location = new System.Drawing.Point(147, 1);
-            this.txtBxDateNaiss.CustomButton.Name = "";
-            this.txtBxDateNaiss.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtBxDateNaiss.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtBxDateNaiss.CustomButton.TabIndex = 1;
-            this.txtBxDateNaiss.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtBxDateNaiss.CustomButton.UseSelectable = true;
-            this.txtBxDateNaiss.CustomButton.Visible = false;
-            this.txtBxDateNaiss.Lines = new string[0];
-            this.txtBxDateNaiss.Location = new System.Drawing.Point(141, 132);
-            this.txtBxDateNaiss.MaxLength = 32767;
-            this.txtBxDateNaiss.Name = "txtBxDateNaiss";
-            this.txtBxDateNaiss.PasswordChar = '\0';
-            this.txtBxDateNaiss.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtBxDateNaiss.SelectedText = "";
-            this.txtBxDateNaiss.SelectionLength = 0;
-            this.txtBxDateNaiss.SelectionStart = 0;
-            this.txtBxDateNaiss.ShortcutsEnabled = true;
-            this.txtBxDateNaiss.Size = new System.Drawing.Size(169, 23);
-            this.txtBxDateNaiss.TabIndex = 14;
-            this.txtBxDateNaiss.UseSelectable = true;
-            this.txtBxDateNaiss.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtBxDateNaiss.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // dtDateNaiss
             // 
-            this.dtDateNaiss.Location = new System.Drawing.Point(432, 126);
+            this.dtDateNaiss.Enabled = false;
+            this.dtDateNaiss.Location = new System.Drawing.Point(141, 149);
             this.dtDateNaiss.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtDateNaiss.Name = "dtDateNaiss";
             this.dtDateNaiss.Size = new System.Drawing.Size(200, 29);
@@ -241,7 +207,7 @@
             // 
             this.metroLabel5.AutoSize = true;
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel5.Location = new System.Drawing.Point(20, 185);
+            this.metroLabel5.Location = new System.Drawing.Point(20, 241);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(91, 19);
             this.metroLabel5.TabIndex = 12;
@@ -271,8 +237,9 @@
             this.txtBio.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtBio.CustomButton.UseSelectable = true;
             this.txtBio.CustomButton.Visible = false;
+            this.txtBio.Enabled = false;
             this.txtBio.Lines = new string[0];
-            this.txtBio.Location = new System.Drawing.Point(9, 207);
+            this.txtBio.Location = new System.Drawing.Point(6, 263);
             this.txtBio.MaxLength = 32767;
             this.txtBio.Multiline = true;
             this.txtBio.Name = "txtBio";
@@ -282,7 +249,7 @@
             this.txtBio.SelectionLength = 0;
             this.txtBio.SelectionStart = 0;
             this.txtBio.ShortcutsEnabled = true;
-            this.txtBio.Size = new System.Drawing.Size(703, 145);
+            this.txtBio.Size = new System.Drawing.Size(703, 110);
             this.txtBio.TabIndex = 11;
             this.txtBio.UseSelectable = true;
             this.txtBio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -292,7 +259,7 @@
             // 
             this.lblNom.AutoSize = true;
             this.lblNom.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblNom.Location = new System.Drawing.Point(20, 79);
+            this.lblNom.Location = new System.Drawing.Point(20, 64);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(50, 19);
             this.lblNom.TabIndex = 3;
@@ -302,7 +269,7 @@
             // 
             this.lblDateNais.AutoSize = true;
             this.lblDateNais.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblDateNais.Location = new System.Drawing.Point(20, 126);
+            this.lblDateNais.Location = new System.Drawing.Point(20, 159);
             this.lblDateNais.Name = "lblDateNais";
             this.lblDateNais.Size = new System.Drawing.Size(115, 19);
             this.lblDateNais.TabIndex = 4;
@@ -322,8 +289,9 @@
             this.txtPrenom.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtPrenom.CustomButton.UseSelectable = true;
             this.txtPrenom.CustomButton.Visible = false;
+            this.txtPrenom.Enabled = false;
             this.txtPrenom.Lines = new string[0];
-            this.txtPrenom.Location = new System.Drawing.Point(463, 79);
+            this.txtPrenom.Location = new System.Drawing.Point(478, 64);
             this.txtPrenom.MaxLength = 32767;
             this.txtPrenom.Name = "txtPrenom";
             this.txtPrenom.PasswordChar = '\0';
@@ -342,7 +310,7 @@
             // 
             this.lblPrenom.AutoSize = true;
             this.lblPrenom.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblPrenom.Location = new System.Drawing.Point(345, 79);
+            this.lblPrenom.Location = new System.Drawing.Point(357, 64);
             this.lblPrenom.Name = "lblPrenom";
             this.lblPrenom.Size = new System.Drawing.Size(70, 19);
             this.lblPrenom.TabIndex = 5;
@@ -362,6 +330,7 @@
             this.txtCode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtCode.CustomButton.UseSelectable = true;
             this.txtCode.CustomButton.Visible = false;
+            this.txtCode.Enabled = false;
             this.txtCode.Lines = new string[0];
             this.txtCode.Location = new System.Drawing.Point(141, 25);
             this.txtCode.MaxLength = 32767;
@@ -392,8 +361,9 @@
             this.txtNom.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtNom.CustomButton.UseSelectable = true;
             this.txtNom.CustomButton.Visible = false;
+            this.txtNom.Enabled = false;
             this.txtNom.Lines = new string[0];
-            this.txtNom.Location = new System.Drawing.Point(141, 79);
+            this.txtNom.Location = new System.Drawing.Point(141, 64);
             this.txtNom.MaxLength = 32767;
             this.txtNom.Name = "txtNom";
             this.txtNom.PasswordChar = '\0';
@@ -410,21 +380,158 @@
             // 
             // dgvAuteur
             // 
+            this.dgvAuteur.AllowUserToAddRows = false;
+            this.dgvAuteur.AllowUserToDeleteRows = false;
+            this.dgvAuteur.AllowUserToOrderColumns = true;
+            this.dgvAuteur.AllowUserToResizeRows = false;
             this.dgvAuteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAuteur.Location = new System.Drawing.Point(12, 388);
+            this.dgvAuteur.MultiSelect = false;
             this.dgvAuteur.Name = "dgvAuteur";
+            this.dgvAuteur.ReadOnly = true;
+            this.dgvAuteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAuteur.Size = new System.Drawing.Size(703, 205);
             this.dgvAuteur.TabIndex = 10;
             // 
-            // lblListeAuteur
+            // btnChercher
             // 
-            this.lblListeAuteur.AutoSize = true;
-            this.lblListeAuteur.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblListeAuteur.Location = new System.Drawing.Point(23, 366);
-            this.lblListeAuteur.Name = "lblListeAuteur";
-            this.lblListeAuteur.Size = new System.Drawing.Size(100, 19);
-            this.lblListeAuteur.TabIndex = 14;
-            this.lblListeAuteur.Text = "Liste auteurs :";
+            this.btnChercher.Location = new System.Drawing.Point(27, 350);
+            this.btnChercher.Name = "btnChercher";
+            this.btnChercher.Size = new System.Drawing.Size(169, 43);
+            this.btnChercher.TabIndex = 13;
+            this.btnChercher.Text = "Chercher";
+            this.btnChercher.UseSelectable = true;
+            // 
+            // metroDateTime1
+            // 
+            this.metroDateTime1.Enabled = false;
+            this.metroDateTime1.Location = new System.Drawing.Point(463, 194);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.Name = "metroDateTime1";
+            this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
+            this.metroDateTime1.TabIndex = 15;
+            // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.Location = new System.Drawing.Point(357, 159);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(90, 19);
+            this.metroLabel1.TabIndex = 14;
+            this.metroLabel1.Text = "Date décès :";
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.Location = new System.Drawing.Point(20, 102);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(103, 19);
+            this.metroLabel2.TabIndex = 16;
+            this.metroLabel2.Text = "Pseudonyme :";
+            // 
+            // metroTextBox1
+            // 
+            // 
+            // 
+            // 
+            this.metroTextBox1.CustomButton.Image = null;
+            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(147, 1);
+            this.metroTextBox1.CustomButton.Name = "";
+            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox1.CustomButton.TabIndex = 1;
+            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox1.CustomButton.UseSelectable = true;
+            this.metroTextBox1.CustomButton.Visible = false;
+            this.metroTextBox1.Enabled = false;
+            this.metroTextBox1.Lines = new string[0];
+            this.metroTextBox1.Location = new System.Drawing.Point(141, 102);
+            this.metroTextBox1.MaxLength = 32767;
+            this.metroTextBox1.Name = "metroTextBox1";
+            this.metroTextBox1.PasswordChar = '\0';
+            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox1.SelectedText = "";
+            this.metroTextBox1.SelectionLength = 0;
+            this.metroTextBox1.SelectionStart = 0;
+            this.metroTextBox1.ShortcutsEnabled = true;
+            this.metroTextBox1.Size = new System.Drawing.Size(169, 23);
+            this.metroTextBox1.TabIndex = 17;
+            this.metroTextBox1.UseSelectable = true;
+            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroLabel3
+            // 
+            this.metroLabel3.AutoSize = true;
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel3.Location = new System.Drawing.Point(20, 194);
+            this.metroLabel3.Name = "metroLabel3";
+            this.metroLabel3.Size = new System.Drawing.Size(48, 19);
+            this.metroLabel3.TabIndex = 18;
+            this.metroLabel3.Text = "Pays :";
+            // 
+            // metroTextBox2
+            // 
+            // 
+            // 
+            // 
+            this.metroTextBox2.CustomButton.Image = null;
+            this.metroTextBox2.CustomButton.Location = new System.Drawing.Point(147, 1);
+            this.metroTextBox2.CustomButton.Name = "";
+            this.metroTextBox2.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.metroTextBox2.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroTextBox2.CustomButton.TabIndex = 1;
+            this.metroTextBox2.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.metroTextBox2.CustomButton.UseSelectable = true;
+            this.metroTextBox2.CustomButton.Visible = false;
+            this.metroTextBox2.Enabled = false;
+            this.metroTextBox2.Lines = new string[0];
+            this.metroTextBox2.Location = new System.Drawing.Point(141, 194);
+            this.metroTextBox2.MaxLength = 32767;
+            this.metroTextBox2.Name = "metroTextBox2";
+            this.metroTextBox2.PasswordChar = '\0';
+            this.metroTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.metroTextBox2.SelectedText = "";
+            this.metroTextBox2.SelectionLength = 0;
+            this.metroTextBox2.SelectionStart = 0;
+            this.metroTextBox2.ShortcutsEnabled = true;
+            this.metroTextBox2.Size = new System.Drawing.Size(169, 23);
+            this.metroTextBox2.TabIndex = 19;
+            this.metroTextBox2.UseSelectable = true;
+            this.metroTextBox2.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.metroTextBox2.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // metroRadioButton1
+            // 
+            this.metroRadioButton1.AutoSize = true;
+            this.metroRadioButton1.Location = new System.Drawing.Point(478, 163);
+            this.metroRadioButton1.Name = "metroRadioButton1";
+            this.metroRadioButton1.Size = new System.Drawing.Size(56, 15);
+            this.metroRadioButton1.TabIndex = 20;
+            this.metroRadioButton1.Text = "Vivant";
+            this.metroRadioButton1.UseSelectable = true;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Enabled = false;
+            this.metroButton1.Location = new System.Drawing.Point(27, 477);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(169, 43);
+            this.metroButton1.TabIndex = 14;
+            this.metroButton1.Text = "Accueil";
+            this.metroButton1.UseSelectable = true;
+            // 
+            // metroRadioButton2
+            // 
+            this.metroRadioButton2.AutoSize = true;
+            this.metroRadioButton2.Location = new System.Drawing.Point(591, 163);
+            this.metroRadioButton2.Name = "metroRadioButton2";
+            this.metroRadioButton2.Size = new System.Drawing.Size(62, 15);
+            this.metroRadioButton2.TabIndex = 21;
+            this.metroRadioButton2.Text = "Décédé";
+            this.metroRadioButton2.UseSelectable = true;
             // 
             // FrmAuteur
             // 
@@ -432,14 +539,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 682);
             this.Controls.Add(this.pnlAuteur);
-            this.Controls.Add(this.lblAcceuil);
             this.Controls.Add(this.lblSeparation);
             this.Controls.Add(this.grpBoxMenu);
             this.Name = "FrmAuteur";
             this.Text = "Auteur";
             this.grpBoxMenu.ResumeLayout(false);
             this.pnlAuteur.ResumeLayout(false);
-            this.pnlAuteur.PerformLayout();
             this.grpBxAuteur.ResumeLayout(false);
             this.grpBxAuteur.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
@@ -457,8 +562,6 @@
         private MetroFramework.Controls.MetroButton btnModifier;
         private MetroFramework.Controls.MetroButton btnAjouter;
         private MetroFramework.Controls.MetroLabel lblSeparation;
-        private MetroFramework.Controls.MetroLabel lblAcceuil;
-        private MetroFramework.Controls.MetroButton btnChercher;
         private MetroFramework.Controls.MetroButton btnSauvegarder;
         private MetroFramework.Controls.MetroPanel pnlAuteur;
         private MetroFramework.Controls.MetroLabel metroLabel5;
@@ -473,7 +576,15 @@
         private MetroFramework.Controls.MetroLabel lblCode;
         private System.Windows.Forms.GroupBox grpBxAuteur;
         private MetroFramework.Controls.MetroDateTime dtDateNaiss;
-        private MetroFramework.Controls.MetroTextBox txtBxDateNaiss;
-        private MetroFramework.Controls.MetroLabel lblListeAuteur;
+        private MetroFramework.Controls.MetroButton btnChercher;
+        private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroTextBox metroTextBox2;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
     }
 }
