@@ -48,7 +48,6 @@
             this.gridEmprunteur = new MetroFramework.Controls.MetroGrid();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel_codepostal = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
@@ -56,7 +55,6 @@
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
             this.txtAdresse = new MetroFramework.Controls.MetroTextBox();
-            this.txtCreation = new MetroFramework.Controls.MetroTextBox();
             this.txtCodePostal = new MetroFramework.Controls.MetroTextBox();
             this.txtVille = new MetroFramework.Controls.MetroTextBox();
             this.txtTelephone = new MetroFramework.Controls.MetroTextBox();
@@ -264,16 +262,6 @@
             this.metroLabel4.TabIndex = 29;
             this.metroLabel4.Text = "Adresse :";
             // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(31, 234);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(68, 19);
-            this.metroLabel5.TabIndex = 30;
-            this.metroLabel5.Text = "Création :";
-            // 
             // metroLabel_codepostal
             // 
             this.metroLabel_codepostal.AutoSize = true;
@@ -383,36 +371,6 @@
             this.txtAdresse.UseSelectable = true;
             this.txtAdresse.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtAdresse.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // txtCreation
-            // 
-            // 
-            // 
-            // 
-            this.txtCreation.CustomButton.Image = null;
-            this.txtCreation.CustomButton.Location = new System.Drawing.Point(115, 1);
-            this.txtCreation.CustomButton.Name = "";
-            this.txtCreation.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtCreation.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtCreation.CustomButton.TabIndex = 1;
-            this.txtCreation.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtCreation.CustomButton.UseSelectable = true;
-            this.txtCreation.CustomButton.Visible = false;
-            this.txtCreation.Lines = new string[0];
-            this.txtCreation.Location = new System.Drawing.Point(112, 234);
-            this.txtCreation.MaxLength = 32767;
-            this.txtCreation.Name = "txtCreation";
-            this.txtCreation.PasswordChar = '\0';
-            this.txtCreation.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtCreation.SelectedText = "";
-            this.txtCreation.SelectionLength = 0;
-            this.txtCreation.SelectionStart = 0;
-            this.txtCreation.ShortcutsEnabled = true;
-            this.txtCreation.Size = new System.Drawing.Size(137, 23);
-            this.txtCreation.TabIndex = 38;
-            this.txtCreation.UseSelectable = true;
-            this.txtCreation.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtCreation.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtCodePostal
             // 
@@ -587,7 +545,6 @@
             this.Controls.Add(this.txtTelephone);
             this.Controls.Add(this.txtVille);
             this.Controls.Add(this.txtCodePostal);
-            this.Controls.Add(this.txtCreation);
             this.Controls.Add(this.txtAdresse);
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.metroLabel10);
@@ -595,7 +552,6 @@
             this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.metroLabel_codepostal);
-            this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.gridEmprunteur);
@@ -626,7 +582,6 @@
         private MetroFramework.Controls.MetroGrid gridEmprunteur;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel_codepostal;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel8;
@@ -634,7 +589,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroTextBox txtNom;
         private MetroFramework.Controls.MetroTextBox txtAdresse;
-        private MetroFramework.Controls.MetroTextBox txtCreation;
         private MetroFramework.Controls.MetroTextBox txtCodePostal;
         private MetroFramework.Controls.MetroTextBox txtVille;
         private MetroFramework.Controls.MetroTextBox txtTelephone;
