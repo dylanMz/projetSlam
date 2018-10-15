@@ -50,6 +50,7 @@
     <Compile Include="ConnexionBase.cs" />
     <Compile Include="Couverture.cs" />
     <Compile Include="Editeur.cs" />
+    <Compile Include="Emprunt.cs" />
     <Compile Include="Emprunteur.cs" />
     <Compile Include="Livre.cs" />
     <Compile Include="Metier_Couverture.cs" />
