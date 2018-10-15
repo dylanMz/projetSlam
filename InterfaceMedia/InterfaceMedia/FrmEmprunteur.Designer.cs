@@ -178,7 +178,7 @@
             this.groupBox1.Controls.Add(this.metroButton4);
             this.groupBox1.Location = new System.Drawing.Point(849, 17);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 526);
+            this.groupBox1.Size = new System.Drawing.Size(213, 562);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             // 
@@ -196,7 +196,7 @@
             // metroButton5
             // 
             this.metroButton5.Highlight = true;
-            this.metroButton5.Location = new System.Drawing.Point(25, 463);
+            this.metroButton5.Location = new System.Drawing.Point(27, 496);
             this.metroButton5.Name = "metroButton5";
             this.metroButton5.Size = new System.Drawing.Size(169, 43);
             this.metroButton5.Style = MetroFramework.MetroColorStyle.Red;
