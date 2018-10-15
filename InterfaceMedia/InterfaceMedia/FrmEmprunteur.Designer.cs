@@ -44,11 +44,11 @@
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.btnFamille = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnAnnuler = new MetroFramework.Controls.MetroButton();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.gridEmprunteur = new MetroFramework.Controls.MetroGrid();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel_codepostal = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
@@ -63,7 +63,6 @@
             this.txtFax = new MetroFramework.Controls.MetroTextBox();
             this.txtMail = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.BtnAnnuler = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridEmprunteur)).BeginInit();
@@ -192,6 +191,17 @@
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
             // 
+            // BtnAnnuler
+            // 
+            this.BtnAnnuler.Highlight = true;
+            this.BtnAnnuler.Location = new System.Drawing.Point(25, 345);
+            this.BtnAnnuler.Name = "BtnAnnuler";
+            this.BtnAnnuler.Size = new System.Drawing.Size(169, 43);
+            this.BtnAnnuler.Style = MetroFramework.MetroColorStyle.Red;
+            this.BtnAnnuler.TabIndex = 13;
+            this.BtnAnnuler.Text = "Annuler";
+            this.BtnAnnuler.UseSelectable = true;
+            // 
             // metroButton5
             // 
             this.metroButton5.Highlight = true;
@@ -265,16 +275,6 @@
             this.metroLabel4.Size = new System.Drawing.Size(64, 19);
             this.metroLabel4.TabIndex = 29;
             this.metroLabel4.Text = "Adresse :";
-            // 
-            // metroLabel5
-            // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(31, 234);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(68, 19);
-            this.metroLabel5.TabIndex = 30;
-            this.metroLabel5.Text = "Création :";
             // 
             // metroLabel_codepostal
             // 
@@ -578,17 +578,6 @@
             this.metroLabel2.TabIndex = 44;
             this.metroLabel2.Text = "Accueil";
             // 
-            // BtnAnnuler
-            // 
-            this.BtnAnnuler.Highlight = true;
-            this.BtnAnnuler.Location = new System.Drawing.Point(25, 345);
-            this.BtnAnnuler.Name = "BtnAnnuler";
-            this.BtnAnnuler.Size = new System.Drawing.Size(169, 43);
-            this.BtnAnnuler.Style = MetroFramework.MetroColorStyle.Red;
-            this.BtnAnnuler.TabIndex = 13;
-            this.BtnAnnuler.Text = "Annuler";
-            this.BtnAnnuler.UseSelectable = true;
-            // 
             // FrmEmprunteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -608,7 +597,6 @@
             this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.metroLabel_codepostal);
-            this.Controls.Add(this.metroLabel5);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.gridEmprunteur);
@@ -639,7 +627,6 @@
         private MetroFramework.Controls.MetroGrid gridEmprunteur;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel_codepostal;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel8;
