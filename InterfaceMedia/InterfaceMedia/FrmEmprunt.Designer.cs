@@ -53,13 +53,16 @@
             this.txtbxDateRetour = new MetroFramework.Controls.MetroTextBox();
             this.lblDateRetourRéel = new MetroFramework.Controls.MetroLabel();
             this.gpbxChoix = new System.Windows.Forms.GroupBox();
-            this.cbxNotRendu = new MetroFramework.Controls.MetroCheckBox();
-            this.cbxLivreEmp = new MetroFramework.Controls.MetroCheckBox();
-            this.txtbxDate = new MetroFramework.Controls.MetroTextBox();
             this.lblDate = new MetroFramework.Controls.MetroLabel();
+            this.btnQuitter = new MetroFramework.Controls.MetroButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
+            this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
+            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
             this.gpbxMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).BeginInit();
             this.gpbxChoix.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroLabel2
@@ -90,6 +93,7 @@
             // gpbxMenu
             // 
             this.gpbxMenu.BackColor = System.Drawing.Color.Transparent;
+            this.gpbxMenu.Controls.Add(this.groupBox1);
             this.gpbxMenu.Controls.Add(this.btnAnnuler);
             this.gpbxMenu.Controls.Add(this.btnRechercheLivre);
             this.gpbxMenu.Controls.Add(this.btnRecherEmp);
@@ -107,10 +111,10 @@
             // btnAnnuler
             // 
             this.btnAnnuler.Highlight = true;
-            this.btnAnnuler.Location = new System.Drawing.Point(25, 462);
+            this.btnAnnuler.Location = new System.Drawing.Point(25, 347);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
-            this.btnAnnuler.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnAnnuler.Style = MetroFramework.MetroColorStyle.Red;
             this.btnAnnuler.TabIndex = 6;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.UseSelectable = true;
@@ -118,18 +122,19 @@
             // btnRechercheLivre
             // 
             this.btnRechercheLivre.Highlight = true;
-            this.btnRechercheLivre.Location = new System.Drawing.Point(25, 395);
+            this.btnRechercheLivre.Location = new System.Drawing.Point(25, 274);
             this.btnRechercheLivre.Name = "btnRechercheLivre";
             this.btnRechercheLivre.Size = new System.Drawing.Size(169, 43);
             this.btnRechercheLivre.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnRechercheLivre.TabIndex = 5;
             this.btnRechercheLivre.Text = "Rechercher livre ";
             this.btnRechercheLivre.UseSelectable = true;
+            this.btnRechercheLivre.Click += new System.EventHandler(this.btnRechercheLivre_Click);
             // 
             // btnRecherEmp
             // 
             this.btnRecherEmp.Highlight = true;
-            this.btnRecherEmp.Location = new System.Drawing.Point(25, 326);
+            this.btnRecherEmp.Location = new System.Drawing.Point(25, 225);
             this.btnRecherEmp.Name = "btnRecherEmp";
             this.btnRecherEmp.Size = new System.Drawing.Size(169, 43);
             this.btnRecherEmp.Style = MetroFramework.MetroColorStyle.Blue;
@@ -140,7 +145,7 @@
             // btnSupprEmp
             // 
             this.btnSupprEmp.Highlight = true;
-            this.btnSupprEmp.Location = new System.Drawing.Point(25, 249);
+            this.btnSupprEmp.Location = new System.Drawing.Point(25, 117);
             this.btnSupprEmp.Name = "btnSupprEmp";
             this.btnSupprEmp.Size = new System.Drawing.Size(169, 43);
             this.btnSupprEmp.Style = MetroFramework.MetroColorStyle.Blue;
@@ -151,7 +156,7 @@
             // btnAjoutRetour
             // 
             this.btnAjoutRetour.Highlight = true;
-            this.btnAjoutRetour.Location = new System.Drawing.Point(25, 180);
+            this.btnAjoutRetour.Location = new System.Drawing.Point(25, 176);
             this.btnAjoutRetour.Name = "btnAjoutRetour";
             this.btnAjoutRetour.Size = new System.Drawing.Size(169, 43);
             this.btnAjoutRetour.Style = MetroFramework.MetroColorStyle.Blue;
@@ -162,7 +167,7 @@
             // btnModifier
             // 
             this.btnModifier.Highlight = true;
-            this.btnModifier.Location = new System.Drawing.Point(25, 108);
+            this.btnModifier.Location = new System.Drawing.Point(25, 68);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(169, 43);
             this.btnModifier.Style = MetroFramework.MetroColorStyle.Blue;
@@ -173,12 +178,12 @@
             // btnAjoutEmp
             // 
             this.btnAjoutEmp.Highlight = true;
-            this.btnAjoutEmp.Location = new System.Drawing.Point(25, 38);
+            this.btnAjoutEmp.Location = new System.Drawing.Point(25, 19);
             this.btnAjoutEmp.Name = "btnAjoutEmp";
             this.btnAjoutEmp.Size = new System.Drawing.Size(169, 43);
             this.btnAjoutEmp.Style = MetroFramework.MetroColorStyle.Blue;
             this.btnAjoutEmp.TabIndex = 0;
-            this.btnAjoutEmp.Text = "Ajouter un emprunt";
+            this.btnAjoutEmp.Text = "Ajouter";
             this.btnAjoutEmp.UseSelectable = true;
             // 
             // lblNumEmp
@@ -421,65 +426,16 @@
             // 
             // gpbxChoix
             // 
-            this.gpbxChoix.Controls.Add(this.cbxNotRendu);
-            this.gpbxChoix.Controls.Add(this.cbxLivreEmp);
-            this.gpbxChoix.Controls.Add(this.txtbxDate);
+            this.gpbxChoix.Controls.Add(this.metroDateTime1);
+            this.gpbxChoix.Controls.Add(this.metroRadioButton2);
+            this.gpbxChoix.Controls.Add(this.metroRadioButton1);
             this.gpbxChoix.Controls.Add(this.lblDate);
+            this.gpbxChoix.Enabled = false;
             this.gpbxChoix.Location = new System.Drawing.Point(23, 233);
             this.gpbxChoix.Name = "gpbxChoix";
             this.gpbxChoix.Size = new System.Drawing.Size(695, 100);
             this.gpbxChoix.TabIndex = 19;
             this.gpbxChoix.TabStop = false;
-            // 
-            // cbxNotRendu
-            // 
-            this.cbxNotRendu.AutoSize = true;
-            this.cbxNotRendu.Location = new System.Drawing.Point(339, 69);
-            this.cbxNotRendu.Name = "cbxNotRendu";
-            this.cbxNotRendu.Size = new System.Drawing.Size(276, 15);
-            this.cbxNotRendu.TabIndex = 18;
-            this.cbxNotRendu.Text = "Afficher les livres non rendus à une date donnée";
-            this.cbxNotRendu.UseSelectable = true;
-            // 
-            // cbxLivreEmp
-            // 
-            this.cbxLivreEmp.AutoSize = true;
-            this.cbxLivreEmp.Location = new System.Drawing.Point(336, 25);
-            this.cbxLivreEmp.Name = "cbxLivreEmp";
-            this.cbxLivreEmp.Size = new System.Drawing.Size(270, 15);
-            this.cbxLivreEmp.TabIndex = 17;
-            this.cbxLivreEmp.Text = "Afficher les livres empruntés à une date précise";
-            this.cbxLivreEmp.UseSelectable = true;
-            // 
-            // txtbxDate
-            // 
-            // 
-            // 
-            // 
-            this.txtbxDate.CustomButton.Image = null;
-            this.txtbxDate.CustomButton.Location = new System.Drawing.Point(91, 1);
-            this.txtbxDate.CustomButton.Name = "";
-            this.txtbxDate.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtbxDate.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtbxDate.CustomButton.TabIndex = 1;
-            this.txtbxDate.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtbxDate.CustomButton.UseSelectable = true;
-            this.txtbxDate.CustomButton.Visible = false;
-            this.txtbxDate.Lines = new string[0];
-            this.txtbxDate.Location = new System.Drawing.Point(158, 19);
-            this.txtbxDate.MaxLength = 32767;
-            this.txtbxDate.Name = "txtbxDate";
-            this.txtbxDate.PasswordChar = '\0';
-            this.txtbxDate.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtbxDate.SelectedText = "";
-            this.txtbxDate.SelectionLength = 0;
-            this.txtbxDate.SelectionStart = 0;
-            this.txtbxDate.ShortcutsEnabled = true;
-            this.txtbxDate.Size = new System.Drawing.Size(113, 23);
-            this.txtbxDate.TabIndex = 16;
-            this.txtbxDate.UseSelectable = true;
-            this.txtbxDate.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtbxDate.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // lblDate
             // 
@@ -489,6 +445,54 @@
             this.lblDate.Size = new System.Drawing.Size(36, 19);
             this.lblDate.TabIndex = 15;
             this.lblDate.Text = "Date";
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.Highlight = true;
+            this.btnQuitter.Location = new System.Drawing.Point(25, 15);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(169, 43);
+            this.btnQuitter.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnQuitter.TabIndex = 7;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseSelectable = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnQuitter);
+            this.groupBox1.Location = new System.Drawing.Point(0, 469);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(216, 64);
+            this.groupBox1.TabIndex = 8;
+            this.groupBox1.TabStop = false;
+            // 
+            // metroRadioButton1
+            // 
+            this.metroRadioButton1.AutoSize = true;
+            this.metroRadioButton1.Location = new System.Drawing.Point(336, 60);
+            this.metroRadioButton1.Name = "metroRadioButton1";
+            this.metroRadioButton1.Size = new System.Drawing.Size(276, 15);
+            this.metroRadioButton1.TabIndex = 19;
+            this.metroRadioButton1.Text = "Afficher les livres non rendus à une date donnée";
+            this.metroRadioButton1.UseSelectable = true;
+            // 
+            // metroRadioButton2
+            // 
+            this.metroRadioButton2.AutoSize = true;
+            this.metroRadioButton2.Location = new System.Drawing.Point(336, 27);
+            this.metroRadioButton2.Name = "metroRadioButton2";
+            this.metroRadioButton2.Size = new System.Drawing.Size(270, 15);
+            this.metroRadioButton2.TabIndex = 20;
+            this.metroRadioButton2.Text = "Afficher les livres empruntés à une date précise";
+            this.metroRadioButton2.UseSelectable = true;
+            // 
+            // metroDateTime1
+            // 
+            this.metroDateTime1.Location = new System.Drawing.Point(147, 21);
+            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
+            this.metroDateTime1.Name = "metroDateTime1";
+            this.metroDateTime1.Size = new System.Drawing.Size(149, 29);
+            this.metroDateTime1.TabIndex = 21;
             // 
             // FrmEmprunt
             // 
@@ -516,6 +520,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).EndInit();
             this.gpbxChoix.ResumeLayout(false);
             this.gpbxChoix.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -545,9 +550,11 @@
         private MetroFramework.Controls.MetroTextBox txtbxDateRetour;
         private MetroFramework.Controls.MetroLabel lblDateRetourRéel;
         private System.Windows.Forms.GroupBox gpbxChoix;
-        private MetroFramework.Controls.MetroCheckBox cbxNotRendu;
-        private MetroFramework.Controls.MetroCheckBox cbxLivreEmp;
-        private MetroFramework.Controls.MetroTextBox txtbxDate;
         private MetroFramework.Controls.MetroLabel lblDate;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private MetroFramework.Controls.MetroButton btnQuitter;
+        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
+        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
     }
 }
