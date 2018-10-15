@@ -19,6 +19,10 @@ namespace InterfaceMedia
 
         }
 
-
+        private void btnRechercheLivre_Click(object sender, EventArgs e)
+        {
+            gpbxChoix.Enabled = true;
+           // if()
+        }
     }
 }

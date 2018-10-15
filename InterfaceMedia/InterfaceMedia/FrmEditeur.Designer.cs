@@ -35,8 +35,7 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAnnuler = new MetroFramework.Controls.MetroButton();
-            this.btnAccueil = new MetroFramework.Controls.MetroButton();
+            this.btnQuitter = new MetroFramework.Controls.MetroButton();
             this.btnAjouter = new MetroFramework.Controls.MetroButton();
             this.btnSupprimer = new MetroFramework.Controls.MetroButton();
             this.btnRechercher = new MetroFramework.Controls.MetroButton();
@@ -59,6 +58,7 @@
             this.txtFax = new MetroFramework.Controls.MetroTextBox();
             this.txtMail = new MetroFramework.Controls.MetroTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAnnuler = new MetroFramework.Controls.MetroButton();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.metroGrid1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -90,7 +90,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnAnnuler);
-            this.groupBox1.Controls.Add(this.btnAccueil);
+            this.groupBox1.Controls.Add(this.btnQuitter);
             this.groupBox1.Controls.Add(this.btnAjouter);
             this.groupBox1.Controls.Add(this.btnSupprimer);
             this.groupBox1.Controls.Add(this.btnRechercher);
@@ -101,27 +101,16 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             // 
-            // btnAnnuler
+            // btnQuitter
             // 
-            this.btnAnnuler.Highlight = true;
-            this.btnAnnuler.Location = new System.Drawing.Point(25, 285);
-            this.btnAnnuler.Name = "btnAnnuler";
-            this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
-            this.btnAnnuler.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnAnnuler.TabIndex = 11;
-            this.btnAnnuler.Text = "Annuler";
-            this.btnAnnuler.UseSelectable = true;
-            // 
-            // btnAccueil
-            // 
-            this.btnAccueil.Highlight = true;
-            this.btnAccueil.Location = new System.Drawing.Point(25, 462);
-            this.btnAccueil.Name = "btnAccueil";
-            this.btnAccueil.Size = new System.Drawing.Size(169, 43);
-            this.btnAccueil.Style = MetroFramework.MetroColorStyle.Red;
-            this.btnAccueil.TabIndex = 10;
-            this.btnAccueil.Text = "Annuler";
-            this.btnAccueil.UseSelectable = true;
+            this.btnQuitter.Highlight = true;
+            this.btnQuitter.Location = new System.Drawing.Point(25, 462);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(169, 43);
+            this.btnQuitter.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnQuitter.TabIndex = 10;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.UseSelectable = true;
             // 
             // btnAjouter
             // 
@@ -540,6 +529,17 @@
             this.pictureBox1.TabIndex = 25;
             this.pictureBox1.TabStop = false;
             // 
+            // btnAnnuler
+            // 
+            this.btnAnnuler.Highlight = true;
+            this.btnAnnuler.Location = new System.Drawing.Point(25, 288);
+            this.btnAnnuler.Name = "btnAnnuler";
+            this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
+            this.btnAnnuler.Style = MetroFramework.MetroColorStyle.Red;
+            this.btnAnnuler.TabIndex = 11;
+            this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.UseSelectable = true;
+            // 
             // FrmEditeur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,7 +585,7 @@
         private MetroFramework.Controls.MetroButton btnRechercher;
         private MetroFramework.Controls.MetroButton btnModifier;
         private MetroFramework.Controls.MetroGrid metroGrid1;
-        private MetroFramework.Controls.MetroButton btnAccueil;
+        private MetroFramework.Controls.MetroButton btnQuitter;
         private MetroFramework.Controls.MetroButton btnAjouter;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel4;
