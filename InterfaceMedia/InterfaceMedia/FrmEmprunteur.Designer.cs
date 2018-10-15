@@ -39,8 +39,8 @@
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.btnFamille = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnAnnuler = new MetroFramework.Controls.MetroButton();
             this.metroButton5 = new MetroFramework.Controls.MetroButton();
+            this.BtnAnnuler = new MetroFramework.Controls.MetroButton();
             this.gridEmprunteur = new MetroFramework.Controls.MetroGrid();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
@@ -131,9 +131,20 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Location = new System.Drawing.Point(865, 23);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 526);
+            this.groupBox1.Size = new System.Drawing.Size(213, 553);
             this.groupBox1.TabIndex = 26;
             this.groupBox1.TabStop = false;
+            // 
+            // metroButton5
+            // 
+            this.metroButton5.Highlight = true;
+            this.metroButton5.Location = new System.Drawing.Point(25, 493);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(169, 43);
+            this.metroButton5.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton5.TabIndex = 12;
+            this.metroButton5.Text = "Quitter";
+            this.metroButton5.UseSelectable = true;
             // 
             // BtnAnnuler
             // 
@@ -145,17 +156,6 @@
             this.BtnAnnuler.TabIndex = 13;
             this.BtnAnnuler.Text = "Annuler";
             this.BtnAnnuler.UseSelectable = true;
-            // 
-            // metroButton5
-            // 
-            this.metroButton5.Highlight = true;
-            this.metroButton5.Location = new System.Drawing.Point(25, 465);
-            this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(169, 43);
-            this.metroButton5.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroButton5.TabIndex = 12;
-            this.metroButton5.Text = "Quitter";
-            this.metroButton5.UseSelectable = true;
             // 
             // gridEmprunteur
             // 
