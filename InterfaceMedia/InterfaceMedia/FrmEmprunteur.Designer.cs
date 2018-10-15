@@ -52,7 +52,6 @@
             this.metroLabel_codepostal = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel8 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel9 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel10 = new MetroFramework.Controls.MetroLabel();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
             this.txtAdresse = new MetroFramework.Controls.MetroTextBox();
@@ -303,16 +302,6 @@
             this.metroLabel8.Size = new System.Drawing.Size(78, 19);
             this.metroLabel8.TabIndex = 33;
             this.metroLabel8.Text = "Téléphone :";
-            // 
-            // metroLabel9
-            // 
-            this.metroLabel9.AutoSize = true;
-            this.metroLabel9.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel9.Location = new System.Drawing.Point(540, 112);
-            this.metroLabel9.Name = "metroLabel9";
-            this.metroLabel9.Size = new System.Drawing.Size(77, 19);
-            this.metroLabel9.TabIndex = 34;
-            this.metroLabel9.Text = "Date Naiss:";
             // 
             // metroLabel10
             // 
@@ -591,7 +580,6 @@
             this.Controls.Add(this.txtAdresse);
             this.Controls.Add(this.txtNom);
             this.Controls.Add(this.metroLabel10);
-            this.Controls.Add(this.metroLabel9);
             this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.metroLabel7);
             this.Controls.Add(this.metroLabel_codepostal);
@@ -630,7 +618,6 @@
         private MetroFramework.Controls.MetroLabel metroLabel_codepostal;
         private MetroFramework.Controls.MetroLabel metroLabel7;
         private MetroFramework.Controls.MetroLabel metroLabel8;
-        private MetroFramework.Controls.MetroLabel metroLabel9;
         private MetroFramework.Controls.MetroLabel metroLabel10;
         private MetroFramework.Controls.MetroTextBox txtNom;
         private MetroFramework.Controls.MetroTextBox txtAdresse;
