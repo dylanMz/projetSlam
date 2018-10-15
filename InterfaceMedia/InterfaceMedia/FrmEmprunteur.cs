@@ -19,10 +19,10 @@ namespace InterfaceMedia
         public FrmEmprunteur()
         {
             InitializeComponent();
-            uneconnexion = new ConnexionBase();
-            unEmprunteur = new Metier_Emprunteur(uneconnexion);
-            unEmprunteur.Recup_TableEmprunteur();
-            gridEmprunteur.DataSource = unEmprunteur.lesEmprunteurs;
+           // uneconnexion = new ConnexionBase();
+           // unEmprunteur = new Metier_Emprunteur(uneconnexion);
+           // unEmprunteur.Recup_TableEmprunteur();
+           // gridEmprunteur.DataSource = unEmprunteur.lesEmprunteurs;
 
         }
     }
