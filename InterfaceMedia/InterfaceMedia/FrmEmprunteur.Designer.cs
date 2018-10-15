@@ -184,7 +184,7 @@
             this.gridEmprunteur.EnableHeadersVisualStyles = false;
             this.gridEmprunteur.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.gridEmprunteur.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.gridEmprunteur.Location = new System.Drawing.Point(81, 326);
+            this.gridEmprunteur.Location = new System.Drawing.Point(111, 326);
             this.gridEmprunteur.Name = "gridEmprunteur";
             this.gridEmprunteur.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
