@@ -50,15 +50,15 @@
             this.metroLabel_codepostal = new MetroFramework.Controls.MetroLabel();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
+            this.metroButton4 = new MetroFramework.Controls.MetroButton();
+            this.metroButton3 = new MetroFramework.Controls.MetroButton();
+            this.metroButton2 = new MetroFramework.Controls.MetroButton();
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.btnFamille = new MetroFramework.Controls.MetroButton();
+            this.BtnAnnuler = new MetroFramework.Controls.MetroButton();
+            this.metroButton5 = new MetroFramework.Controls.MetroButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.metroButton5 = new MetroFramework.Controls.MetroButton();
-            this.BtnAnnuler = new MetroFramework.Controls.MetroButton();
-            this.btnFamille = new MetroFramework.Controls.MetroButton();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.metroButton3 = new MetroFramework.Controls.MetroButton();
-            this.metroButton4 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunteur)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -90,8 +90,8 @@
             this.GridEmprunteur.DefaultCellStyle = dataGridViewCellStyle2;
             this.GridEmprunteur.EnableHeadersVisualStyles = false;
             this.GridEmprunteur.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.GridEmprunteur.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.GridEmprunteur.Location = new System.Drawing.Point(95, 371);
+            this.GridEmprunteur.GridColor = System.Drawing.Color.Gray;
+            this.GridEmprunteur.Location = new System.Drawing.Point(54, 316);
             this.GridEmprunteur.Name = "GridEmprunteur";
             this.GridEmprunteur.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -104,7 +104,7 @@
             this.GridEmprunteur.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridEmprunteur.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEmprunteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridEmprunteur.Size = new System.Drawing.Size(665, 177);
+            this.GridEmprunteur.Size = new System.Drawing.Size(776, 240);
             this.GridEmprunteur.TabIndex = 89;
             // 
             // metroDateTime3
@@ -401,101 +401,10 @@
             this.metroLabel3.TabIndex = 71;
             this.metroLabel3.Text = "Nom :";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Controls.Add(this.BtnAnnuler);
-            this.groupBox1.Controls.Add(this.btnFamille);
-            this.groupBox1.Controls.Add(this.metroButton1);
-            this.groupBox1.Controls.Add(this.metroButton2);
-            this.groupBox1.Controls.Add(this.metroButton3);
-            this.groupBox1.Controls.Add(this.metroButton4);
-            this.groupBox1.Location = new System.Drawing.Point(826, 11);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(213, 562);
-            this.groupBox1.TabIndex = 70;
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.metroButton5);
-            this.groupBox2.Location = new System.Drawing.Point(6, 456);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 100);
-            this.groupBox2.TabIndex = 14;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
-            // metroButton5
-            // 
-            this.metroButton5.Highlight = true;
-            this.metroButton5.Location = new System.Drawing.Point(18, 18);
-            this.metroButton5.Name = "metroButton5";
-            this.metroButton5.Size = new System.Drawing.Size(169, 43);
-            this.metroButton5.Style = MetroFramework.MetroColorStyle.Red;
-            this.metroButton5.TabIndex = 12;
-            this.metroButton5.Text = "Quitter";
-            this.metroButton5.UseSelectable = true;
-            // 
-            // BtnAnnuler
-            // 
-            this.BtnAnnuler.Highlight = true;
-            this.BtnAnnuler.Location = new System.Drawing.Point(25, 375);
-            this.BtnAnnuler.Name = "BtnAnnuler";
-            this.BtnAnnuler.Size = new System.Drawing.Size(169, 43);
-            this.BtnAnnuler.Style = MetroFramework.MetroColorStyle.Red;
-            this.BtnAnnuler.TabIndex = 13;
-            this.BtnAnnuler.Text = "Annuler";
-            this.BtnAnnuler.UseSelectable = true;
-            // 
-            // btnFamille
-            // 
-            this.btnFamille.Highlight = true;
-            this.btnFamille.Location = new System.Drawing.Point(25, 285);
-            this.btnFamille.Name = "btnFamille";
-            this.btnFamille.Size = new System.Drawing.Size(169, 43);
-            this.btnFamille.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnFamille.TabIndex = 11;
-            this.btnFamille.Text = "Chef de Famille";
-            this.btnFamille.UseSelectable = true;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Highlight = true;
-            this.metroButton1.Location = new System.Drawing.Point(25, 29);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(169, 43);
-            this.metroButton1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton1.TabIndex = 9;
-            this.metroButton1.Text = "Ajouter";
-            this.metroButton1.UseSelectable = true;
-            // 
-            // metroButton2
-            // 
-            this.metroButton2.Highlight = true;
-            this.metroButton2.Location = new System.Drawing.Point(25, 159);
-            this.metroButton2.Name = "metroButton2";
-            this.metroButton2.Size = new System.Drawing.Size(169, 43);
-            this.metroButton2.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton2.TabIndex = 8;
-            this.metroButton2.Text = "Supprimer";
-            this.metroButton2.UseSelectable = true;
-            // 
-            // metroButton3
-            // 
-            this.metroButton3.Highlight = true;
-            this.metroButton3.Location = new System.Drawing.Point(25, 223);
-            this.metroButton3.Name = "metroButton3";
-            this.metroButton3.Size = new System.Drawing.Size(169, 43);
-            this.metroButton3.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroButton3.TabIndex = 7;
-            this.metroButton3.Text = "Rechercher";
-            this.metroButton3.UseSelectable = true;
-            // 
             // metroButton4
             // 
             this.metroButton4.Highlight = true;
-            this.metroButton4.Location = new System.Drawing.Point(25, 95);
+            this.metroButton4.Location = new System.Drawing.Point(6, 91);
             this.metroButton4.Name = "metroButton4";
             this.metroButton4.Size = new System.Drawing.Size(169, 43);
             this.metroButton4.Style = MetroFramework.MetroColorStyle.Blue;
@@ -503,11 +412,102 @@
             this.metroButton4.Text = "Modifier";
             this.metroButton4.UseSelectable = true;
             // 
+            // metroButton3
+            // 
+            this.metroButton3.Highlight = true;
+            this.metroButton3.Location = new System.Drawing.Point(6, 211);
+            this.metroButton3.Name = "metroButton3";
+            this.metroButton3.Size = new System.Drawing.Size(169, 43);
+            this.metroButton3.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton3.TabIndex = 7;
+            this.metroButton3.Text = "Rechercher";
+            this.metroButton3.UseSelectable = true;
+            // 
+            // metroButton2
+            // 
+            this.metroButton2.Highlight = true;
+            this.metroButton2.Location = new System.Drawing.Point(6, 151);
+            this.metroButton2.Name = "metroButton2";
+            this.metroButton2.Size = new System.Drawing.Size(169, 43);
+            this.metroButton2.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton2.TabIndex = 8;
+            this.metroButton2.Text = "Supprimer";
+            this.metroButton2.UseSelectable = true;
+            // 
+            // metroButton1
+            // 
+            this.metroButton1.Highlight = true;
+            this.metroButton1.Location = new System.Drawing.Point(6, 27);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(169, 43);
+            this.metroButton1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroButton1.TabIndex = 9;
+            this.metroButton1.Text = "Ajouter";
+            this.metroButton1.UseSelectable = true;
+            // 
+            // btnFamille
+            // 
+            this.btnFamille.Highlight = true;
+            this.btnFamille.Location = new System.Drawing.Point(6, 270);
+            this.btnFamille.Name = "btnFamille";
+            this.btnFamille.Size = new System.Drawing.Size(169, 43);
+            this.btnFamille.Style = MetroFramework.MetroColorStyle.Blue;
+            this.btnFamille.TabIndex = 11;
+            this.btnFamille.Text = "Chef de Famille";
+            this.btnFamille.UseSelectable = true;
+            // 
+            // BtnAnnuler
+            // 
+            this.BtnAnnuler.Highlight = true;
+            this.BtnAnnuler.Location = new System.Drawing.Point(6, 361);
+            this.BtnAnnuler.Name = "BtnAnnuler";
+            this.BtnAnnuler.Size = new System.Drawing.Size(169, 43);
+            this.BtnAnnuler.Style = MetroFramework.MetroColorStyle.Red;
+            this.BtnAnnuler.TabIndex = 13;
+            this.BtnAnnuler.Text = "Annuler";
+            this.BtnAnnuler.UseSelectable = true;
+            // 
+            // metroButton5
+            // 
+            this.metroButton5.Highlight = true;
+            this.metroButton5.Location = new System.Drawing.Point(5, 19);
+            this.metroButton5.Name = "metroButton5";
+            this.metroButton5.Size = new System.Drawing.Size(169, 43);
+            this.metroButton5.Style = MetroFramework.MetroColorStyle.Red;
+            this.metroButton5.TabIndex = 12;
+            this.metroButton5.Text = "Quitter";
+            this.metroButton5.UseSelectable = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.metroButton1);
+            this.groupBox1.Controls.Add(this.BtnAnnuler);
+            this.groupBox1.Controls.Add(this.metroButton3);
+            this.groupBox1.Controls.Add(this.metroButton2);
+            this.groupBox1.Controls.Add(this.btnFamille);
+            this.groupBox1.Controls.Add(this.metroButton4);
+            this.groupBox1.Location = new System.Drawing.Point(857, 21);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(181, 535);
+            this.groupBox1.TabIndex = 90;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.metroButton5);
+            this.groupBox2.Location = new System.Drawing.Point(1, 457);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(180, 78);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            // 
             // FrmEmprunteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1047, 579);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.GridEmprunteur);
             this.Controls.Add(this.metroDateTime3);
             this.Controls.Add(this.metroLabel1);
@@ -527,7 +527,6 @@
             this.Controls.Add(this.metroLabel_codepostal);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
-            this.Controls.Add(this.groupBox1);
             this.Name = "FrmEmprunteur";
             this.Text = "Emprunteur";
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunteur)).EndInit();
@@ -559,14 +558,14 @@
         private MetroFramework.Controls.MetroLabel metroLabel_codepostal;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroLabel metroLabel3;
+        private MetroFramework.Controls.MetroButton metroButton4;
+        private MetroFramework.Controls.MetroButton metroButton3;
+        private MetroFramework.Controls.MetroButton metroButton2;
+        private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroButton btnFamille;
+        private MetroFramework.Controls.MetroButton BtnAnnuler;
+        private MetroFramework.Controls.MetroButton metroButton5;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private MetroFramework.Controls.MetroButton metroButton5;
-        private MetroFramework.Controls.MetroButton BtnAnnuler;
-        private MetroFramework.Controls.MetroButton btnFamille;
-        private MetroFramework.Controls.MetroButton metroButton1;
-        private MetroFramework.Controls.MetroButton metroButton2;
-        private MetroFramework.Controls.MetroButton metroButton3;
-        private MetroFramework.Controls.MetroButton metroButton4;
     }
 }
