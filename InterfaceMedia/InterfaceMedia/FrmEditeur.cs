@@ -17,5 +17,10 @@ namespace InterfaceMedia
         {
             InitializeComponent();
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            btnAjouterEdit.Style = MetroFramework.MetroColorStyle.Green;
+        }
     }
 }
