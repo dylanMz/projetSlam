@@ -35,5 +35,10 @@ namespace InterfaceMedia
         {
             GridEmprunteur.DataSource = lesemprunteur;
         }
+
+        private void CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
+        }
     }
 }
