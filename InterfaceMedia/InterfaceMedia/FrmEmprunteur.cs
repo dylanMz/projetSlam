@@ -22,8 +22,18 @@ namespace InterfaceMedia
             uneconnexion = new ConnexionBase();
             unEmprunteur = new Metier_Emprunteur(uneconnexion);
             unEmprunteur.Recup_TableEmprunteur();
-            GridEmprunteur.DataSource = unEmprunteur.lesEmprunteurs;
+            RempGridEmprunteur(unEmprunteur.lesEmprunteurs);
 
+        }
+
+        private void metrotileQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void RempGridEmprunteur(List<Emprunteur> lesemprunteur)
+        {
+            GridEmprunteur.DataSource = lesemprunteur;
         }
     }
 }
