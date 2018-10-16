@@ -40,5 +40,33 @@ namespace InterfaceMedia
         {
             txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
         }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            if (btnAjouter.Text == "Ajouter")
+            {
+                groupAjouterEmp.Visible = true;
+                btnAjouter.BackColor = Color.Green;
+                btnAjouter.Text = "Valider";
+                btnAnnuler.Visible = true;
+
+                //Desactive tous les autres boutons
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnRechercher.Enabled = false;
+            }else if (btnAjouter.Text == "Valider")
+            {
+                groupAjouterEmp.Visible = false;
+                btnAjouter.Text = "Ajouter";
+                btnAjouter.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnRechercher.Enabled = true;
+
+            }
+        }
     }
 }
