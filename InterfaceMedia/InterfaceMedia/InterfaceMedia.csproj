@@ -150,5 +150,8 @@
   <ItemGroup>
     <None Include="Resources\Quitter5.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuitterIcone.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

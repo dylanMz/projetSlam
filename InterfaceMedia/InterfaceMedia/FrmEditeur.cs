@@ -18,20 +18,64 @@ namespace InterfaceMedia
             InitializeComponent();
         }
 
-        private void btnAjoutEdit_Click(object sender, EventArgs e)
+        private void btnAjouter_Click(object sender, EventArgs e)
         {
-            //btnAjoutEdit.Style = ;
-            if (btnAjoutEdit.Text == "Ajouter")
+            if (btnAjouter.Text == "Ajouter")
             {
-                btnAjoutEdit.Style = MetroFramework.MetroColorStyle.Green;
-                btnAjoutEdit.Text = "Valider";
+                btnAjouter.BackColor = Color.Green;
+                btnAjouter.Text = "Valider";
+                btnAnnuler.Visible = true;
 
+                //Desactive tous les autres boutons
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnRechercher.Enabled = false;
             }
 
-            else if (btnAjoutEdit.Text == "Valider")
+            else if (btnAjouter.Text == "Valider")
             {
-                btnAjoutEdit.Style = MetroFramework.MetroColorStyle.Blue;
+                btnAjouter.Text = "Ajouter";
+                btnAjouter.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnRechercher.Enabled = true;
+
             }
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            if (btnModifier.Text == "Modifier")
+            {
+                btnModifier.BackColor = Color.Green;
+                btnModifier.Text = "Valider";
+                btnAnnuler.Visible = true;
+
+                //Desactive tous les autres boutons
+                btnAjouter.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnRechercher.Enabled = false;
+            }
+
+            else if (btnModifier.Text == "Valider")
+            {
+                btnModifier.Text = "Modifier";
+                btnModifier.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnAjouter.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnRechercher.Enabled = true;
+            }
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
