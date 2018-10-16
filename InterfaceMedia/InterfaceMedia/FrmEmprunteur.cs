@@ -45,7 +45,7 @@ namespace InterfaceMedia
         {
             if (btnAjouter.Text == "Ajouter")
             {
-                groupAjouterEmp.Visible = true;
+                groupAjouterEmp.Enabled = true;
                 btnAjouter.BackColor = Color.Green;
                 btnAjouter.Text = "Valider";
                 btnAnnuler.Visible = true;
@@ -56,7 +56,7 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = false;
             }else if (btnAjouter.Text == "Valider")
             {
-                groupAjouterEmp.Visible = false;
+                groupAjouterEmp.Enabled = false;
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
