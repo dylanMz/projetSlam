@@ -35,7 +35,7 @@ namespace InterfaceMedia
 
                 //Les textbox à remplir pour l'insertion se déverouille
                 txtNom.Enabled = true;
-                txtCreation.Enabled = true;
+                DateTimeCreation.Enabled = true;
                 txtMail.Enabled = true;
                 txtCodePostal.Enabled = true;
                 txtAdr.Enabled = true;
@@ -45,7 +45,7 @@ namespace InterfaceMedia
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtNom.BackColor = Color.White;
-                txtCreation.BackColor = Color.White;
+                DateTimeCreation.BackColor = Color.White;
                 txtMail.BackColor = Color.White;
                 txtCodePostal.BackColor = Color.White;
                 txtAdr.BackColor = Color.White;
@@ -68,7 +68,7 @@ namespace InterfaceMedia
 
                 //Les textbox sont inacessibles.
                 txtNom.Enabled = false;
-                txtCreation.Enabled = false;
+                DateTimeCreation.Enabled = false;
                 txtMail.Enabled = false;
                 txtCodePostal.Enabled = false;
                 txtAdr.Enabled = false;
@@ -78,7 +78,7 @@ namespace InterfaceMedia
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 txtNom.BackColor = Color.Silver;
-                txtCreation.BackColor = Color.Silver;
+                DateTimeCreation.BackColor = Color.Silver;
                 txtMail.BackColor = Color.Silver;
                 txtCodePostal.BackColor = Color.Silver;
                 txtAdr.BackColor = Color.Silver;
@@ -106,7 +106,7 @@ namespace InterfaceMedia
 
                 //Les textbox à remplir pour l'insertion se déverouille
                 txtNom.Enabled = true;
-                txtCreation.Enabled = true;
+                DateTimeCreation.Enabled = true;
                 txtMail.Enabled = true;
                 txtCodePostal.Enabled = true;
                 txtAdr.Enabled = true;
@@ -116,7 +116,7 @@ namespace InterfaceMedia
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtNom.BackColor = Color.White;
-                txtCreation.BackColor = Color.White;
+                DateTimeCreation.BackColor = Color.White;
                 txtMail.BackColor = Color.White;
                 txtCodePostal.BackColor = Color.White;
                 txtAdr.BackColor = Color.White;
@@ -138,7 +138,7 @@ namespace InterfaceMedia
 
                 //Les textbox sont inacessibles.
                 txtNom.Enabled = false;
-                txtCreation.Enabled = false;
+                DateTimeCreation.Enabled = false;
                 txtMail.Enabled = false;
                 txtCodePostal.Enabled = false;
                 txtAdr.Enabled = false;
@@ -148,7 +148,7 @@ namespace InterfaceMedia
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 txtNom.BackColor = Color.Silver;
-                txtCreation.BackColor = Color.Silver;
+                DateTimeCreation.BackColor = Color.Silver;
                 txtMail.BackColor = Color.Silver;
                 txtCodePostal.BackColor = Color.Silver;
                 txtAdr.BackColor = Color.Silver;
@@ -256,7 +256,7 @@ namespace InterfaceMedia
 
             //Les textbox sont inacessibles.
             txtNom.Enabled = false;
-            txtCreation.Enabled = false;
+            DateTimeCreation.Enabled = false;
             txtMail.Enabled = false;
             txtCodePostal.Enabled = false;
             txtAdr.Enabled = false;
@@ -266,7 +266,7 @@ namespace InterfaceMedia
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
             txtNom.BackColor = Color.Silver;
-            txtCreation.BackColor = Color.Silver;
+            DateTimeCreation.BackColor = Color.Silver;
             txtMail.BackColor = Color.Silver;
             txtCodePostal.BackColor = Color.Silver;
             txtAdr.BackColor = Color.Silver;

@@ -63,6 +63,16 @@ namespace InterfaceMedia.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ecour_icon {
+            get {
+                object obj = ResourceManager.GetObject("ecour-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Quitter5 {
             get {
                 object obj = ResourceManager.GetObject("Quitter5", resourceCulture);
