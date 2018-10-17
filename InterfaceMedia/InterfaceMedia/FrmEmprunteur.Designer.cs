@@ -32,10 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GridEmprunteur = new MetroFramework.Controls.MetroGrid();
-            this.metroDateTime3 = new MetroFramework.Controls.MetroDateTime();
+            this.DateTimeRenouvellement = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroDateTime2 = new MetroFramework.Controls.MetroDateTime();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.DateTimeAdhesion = new MetroFramework.Controls.MetroDateTime();
+            this.DateTimeNaissance = new MetroFramework.Controls.MetroDateTime();
             this.txtPrenom = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.txtMail = new MetroFramework.Controls.MetroTextBox();
@@ -116,14 +116,14 @@
             this.GridEmprunteur.TabIndex = 89;
             this.GridEmprunteur.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
-            // metroDateTime3
+            // DateTimeRenouvellement
             // 
-            this.metroDateTime3.Location = new System.Drawing.Point(588, 124);
-            this.metroDateTime3.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime3.Name = "metroDateTime3";
-            this.metroDateTime3.Size = new System.Drawing.Size(200, 29);
-            this.metroDateTime3.TabIndex = 88;
-            this.metroDateTime3.UseCustomBackColor = true;
+            this.DateTimeRenouvellement.Location = new System.Drawing.Point(588, 124);
+            this.DateTimeRenouvellement.MinimumSize = new System.Drawing.Size(0, 29);
+            this.DateTimeRenouvellement.Name = "DateTimeRenouvellement";
+            this.DateTimeRenouvellement.Size = new System.Drawing.Size(200, 29);
+            this.DateTimeRenouvellement.TabIndex = 88;
+            this.DateTimeRenouvellement.UseCustomBackColor = true;
             // 
             // metroLabel1
             // 
@@ -136,24 +136,24 @@
             this.metroLabel1.Text = "Renouvellement adhésion :";
             this.metroLabel1.UseCustomBackColor = true;
             // 
-            // metroDateTime2
+            // DateTimeAdhesion
             // 
-            this.metroDateTime2.Location = new System.Drawing.Point(588, 47);
-            this.metroDateTime2.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime2.Name = "metroDateTime2";
-            this.metroDateTime2.Size = new System.Drawing.Size(200, 29);
-            this.metroDateTime2.TabIndex = 86;
-            this.metroDateTime2.UseCustomBackColor = true;
+            this.DateTimeAdhesion.Location = new System.Drawing.Point(588, 47);
+            this.DateTimeAdhesion.MinimumSize = new System.Drawing.Size(0, 29);
+            this.DateTimeAdhesion.Name = "DateTimeAdhesion";
+            this.DateTimeAdhesion.Size = new System.Drawing.Size(200, 29);
+            this.DateTimeAdhesion.TabIndex = 86;
+            this.DateTimeAdhesion.UseCustomBackColor = true;
             // 
-            // metroDateTime1
+            // DateTimeNaissance
             // 
-            this.metroDateTime1.CalendarTitleBackColor = System.Drawing.Color.Silver;
-            this.metroDateTime1.Location = new System.Drawing.Point(106, 183);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
-            this.metroDateTime1.TabIndex = 85;
-            this.metroDateTime1.UseCustomBackColor = true;
+            this.DateTimeNaissance.CalendarTitleBackColor = System.Drawing.Color.Silver;
+            this.DateTimeNaissance.Location = new System.Drawing.Point(106, 183);
+            this.DateTimeNaissance.MinimumSize = new System.Drawing.Size(0, 29);
+            this.DateTimeNaissance.Name = "DateTimeNaissance";
+            this.DateTimeNaissance.Size = new System.Drawing.Size(200, 29);
+            this.DateTimeNaissance.TabIndex = 85;
+            this.DateTimeNaissance.UseCustomBackColor = true;
             // 
             // txtPrenom
             // 
@@ -622,10 +622,10 @@
             this.groupAjouterEmp.Controls.Add(this.metroLabel11);
             this.groupAjouterEmp.Controls.Add(this.metroLabel5);
             this.groupAjouterEmp.Controls.Add(this.metroLabel2);
-            this.groupAjouterEmp.Controls.Add(this.metroDateTime3);
+            this.groupAjouterEmp.Controls.Add(this.DateTimeRenouvellement);
             this.groupAjouterEmp.Controls.Add(this.metroLabel1);
-            this.groupAjouterEmp.Controls.Add(this.metroDateTime2);
-            this.groupAjouterEmp.Controls.Add(this.metroDateTime1);
+            this.groupAjouterEmp.Controls.Add(this.DateTimeAdhesion);
+            this.groupAjouterEmp.Controls.Add(this.DateTimeNaissance);
             this.groupAjouterEmp.Controls.Add(this.txtPrenom);
             this.groupAjouterEmp.Controls.Add(this.metroLabel6);
             this.groupAjouterEmp.Controls.Add(this.txtMail);
@@ -670,10 +670,10 @@
         #endregion
 
         private MetroFramework.Controls.MetroGrid GridEmprunteur;
-        private MetroFramework.Controls.MetroDateTime metroDateTime3;
+        private MetroFramework.Controls.MetroDateTime DateTimeRenouvellement;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroDateTime metroDateTime2;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroDateTime DateTimeAdhesion;
+        private MetroFramework.Controls.MetroDateTime DateTimeNaissance;
         private MetroFramework.Controls.MetroTextBox txtPrenom;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroTextBox txtMail;
