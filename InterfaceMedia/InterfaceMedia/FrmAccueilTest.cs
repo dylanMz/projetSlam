@@ -8,12 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using System.Threading;
 
 
 namespace InterfaceMedia
 {
     public partial class FrmAccueilTest : MetroForm
     {
+
+        Thread th;
+
         public FrmAccueilTest()
         {
             InitializeComponent();
@@ -28,14 +32,20 @@ namespace InterfaceMedia
         {
             FrmEditeur wFrmEidteur = new FrmEditeur();
             wFrmEidteur.ShowDialog();
-            Form.ActiveForm.Close();
+
         }
 
         private void metroTileEmprunteur_Click(object sender, EventArgs e)
         {
-            FrmEmprunteur wFrmEmprunteur = new FrmEmprunteur();
-            wFrmEmprunteur.ShowDialog();
-            Form.ActiveForm.Close();
+            this.Close();
+            th = new Thread(openformEmprunteur);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void openformEmprunteur()
+        {
+            Application.Run(new FrmEmprunteur());
         }
     }
 }

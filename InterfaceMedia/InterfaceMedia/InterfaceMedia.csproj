@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>InterfaceMedia.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="LibMedia">
       <HintPath>..\..\LibMedia\LibMedia\bin\Debug\LibMedia.dll</HintPath>
