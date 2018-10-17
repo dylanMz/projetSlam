@@ -55,7 +55,16 @@ namespace InterfaceMedia
                 btnSupprimer.Enabled = false;
                 btnFamille.Enabled = false;
                 btnRechercher.Enabled = false;
-            }else if (btnAjouter.Text == "Valider")
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+                txtNom.BackColor = Color.White;
+                txtPrenom.BackColor = Color.White;
+                txtMail.BackColor = Color.White;
+                txtCodePostal.BackColor = Color.White;
+                txtAdresse.BackColor = Color.White;
+                txtVille.BackColor = Color.White;
+            }
+            else if (btnAjouter.Text == "Valider")
             {
                 groupAjouterEmp.Enabled = false;
                 btnAjouter.Text = "Ajouter";
@@ -67,6 +76,14 @@ namespace InterfaceMedia
                 btnModifier.Enabled = true;
                 btnSupprimer.Enabled = true;
                 btnRechercher.Enabled = true;
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+                txtNom.BackColor = Color.Silver;
+                txtPrenom.BackColor = Color.Silver;
+                txtMail.BackColor = Color.Silver;
+                txtCodePostal.BackColor = Color.Silver;
+                txtAdresse.BackColor = Color.Silver;
+                txtVille.BackColor = Color.Silver;
 
             }
         }
