@@ -63,6 +63,7 @@ namespace InterfaceMedia
                 txtCodePostal.BackColor = Color.White;
                 txtAdresse.BackColor = Color.White;
                 txtVille.BackColor = Color.White;
+                DateTimeNaissance.CalendarTitleBackColor = Color.Silver;
             }
             else if (btnAjouter.Text == "Valider")
             {
