@@ -53,6 +53,7 @@ namespace InterfaceMedia
                 //Desactive tous les autres boutons
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = false;
+                btnFamille.Enabled = false;
                 btnRechercher.Enabled = false;
             }else if (btnAjouter.Text == "Valider")
             {
@@ -62,6 +63,7 @@ namespace InterfaceMedia
                 btnAnnuler.Visible = false;
 
                 //Re active les boutons
+                btnFamille.Enabled = true;
                 btnModifier.Enabled = true;
                 btnSupprimer.Enabled = true;
                 btnRechercher.Enabled = true;
