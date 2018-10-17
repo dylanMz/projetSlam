@@ -40,7 +40,7 @@ namespace LibMedia
             {
                 MySqlCommand EmprunteurSql = new MySqlCommand();
                 //Nom procedure
-                EmprunteurSql.CommandText = "Afficher_Emprunteur";
+                EmprunteurSql.CommandText = "proc_afficher_emprunteur";
                 EmprunteurSql.CommandType = CommandType.StoredProcedure;
                 EmprunteurSql.Connection = uneconnexion.getConnexion();
                 _unReader = EmprunteurSql.ExecuteReader();
