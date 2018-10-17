@@ -165,5 +165,14 @@
   <ItemGroup>
     <None Include="Resources\ecour-icon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconHome.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconHomeV2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\maxresdefault.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

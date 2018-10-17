@@ -28,14 +28,14 @@ namespace InterfaceMedia
         {
             FrmEditeur wFrmEidteur = new FrmEditeur();
             wFrmEidteur.ShowDialog();
-            this.Close();
+            Form.ActiveForm.Close();
         }
 
-        private void metroTile1_Click(object sender, EventArgs e)
+        private void metroTileEmprunteur_Click(object sender, EventArgs e)
         {
             FrmEmprunteur wFrmEmprunteur = new FrmEmprunteur();
             wFrmEmprunteur.ShowDialog();
-            this.Close();
+            Form.ActiveForm.Close();
         }
     }
 }

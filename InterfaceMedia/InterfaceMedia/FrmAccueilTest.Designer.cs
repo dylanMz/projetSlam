@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroTile1 = new MetroFramework.Controls.MetroTile();
+            this.metroTileEmprunteur = new MetroFramework.Controls.MetroTile();
             this.metroTile2 = new MetroFramework.Controls.MetroTile();
-            this.MetroTileEditeur = new MetroFramework.Controls.MetroTile();
+            this.metroTileEditeur = new MetroFramework.Controls.MetroTile();
             this.metroTile4 = new MetroFramework.Controls.MetroTile();
             this.metroTile5 = new MetroFramework.Controls.MetroTile();
             this.metroTile6 = new MetroFramework.Controls.MetroTile();
@@ -41,8 +41,8 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroTile7 = new MetroFramework.Controls.MetroTile();
+            this.lblUtilisateur = new MetroFramework.Controls.MetroLabel();
+            this.btnAdmin = new MetroFramework.Controls.MetroTile();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -51,16 +51,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
-            // metroTile1
+            // metroTileEmprunteur
             // 
-            this.metroTile1.ActiveControl = null;
-            this.metroTile1.Location = new System.Drawing.Point(144, 350);
-            this.metroTile1.Name = "metroTile1";
-            this.metroTile1.Size = new System.Drawing.Size(348, 81);
-            this.metroTile1.TabIndex = 0;
-            this.metroTile1.Text = "Emprunteur";
-            this.metroTile1.UseSelectable = true;
-            this.metroTile1.Click += new System.EventHandler(this.metroTile1_Click);
+            this.metroTileEmprunteur.ActiveControl = null;
+            this.metroTileEmprunteur.Location = new System.Drawing.Point(144, 350);
+            this.metroTileEmprunteur.Name = "metroTileEmprunteur";
+            this.metroTileEmprunteur.Size = new System.Drawing.Size(348, 81);
+            this.metroTileEmprunteur.TabIndex = 0;
+            this.metroTileEmprunteur.Text = "Emprunteur";
+            this.metroTileEmprunteur.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTileEmprunteur.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.metroTileEmprunteur.UseSelectable = true;
+            this.metroTileEmprunteur.Click += new System.EventHandler(this.metroTileEmprunteur_Click);
             // 
             // metroTile2
             // 
@@ -70,18 +72,22 @@
             this.metroTile2.Size = new System.Drawing.Size(348, 81);
             this.metroTile2.TabIndex = 1;
             this.metroTile2.Text = "Emprunt";
+            this.metroTile2.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile2.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.metroTile2.UseSelectable = true;
             // 
-            // MetroTileEditeur
+            // metroTileEditeur
             // 
-            this.MetroTileEditeur.ActiveControl = null;
-            this.MetroTileEditeur.Location = new System.Drawing.Point(144, 98);
-            this.MetroTileEditeur.Name = "MetroTileEditeur";
-            this.MetroTileEditeur.Size = new System.Drawing.Size(348, 81);
-            this.MetroTileEditeur.TabIndex = 2;
-            this.MetroTileEditeur.Text = "Editeur";
-            this.MetroTileEditeur.UseSelectable = true;
-            this.MetroTileEditeur.Click += new System.EventHandler(this.MetroTileEditeur_Click);
+            this.metroTileEditeur.ActiveControl = null;
+            this.metroTileEditeur.Location = new System.Drawing.Point(144, 98);
+            this.metroTileEditeur.Name = "metroTileEditeur";
+            this.metroTileEditeur.Size = new System.Drawing.Size(348, 81);
+            this.metroTileEditeur.TabIndex = 2;
+            this.metroTileEditeur.Text = "Editeur";
+            this.metroTileEditeur.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTileEditeur.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.metroTileEditeur.UseSelectable = true;
+            this.metroTileEditeur.Click += new System.EventHandler(this.MetroTileEditeur_Click);
             // 
             // metroTile4
             // 
@@ -91,6 +97,8 @@
             this.metroTile4.Size = new System.Drawing.Size(348, 81);
             this.metroTile4.TabIndex = 3;
             this.metroTile4.Text = "Auteur";
+            this.metroTile4.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile4.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.metroTile4.UseSelectable = true;
             // 
             // metroTile5
@@ -101,6 +109,8 @@
             this.metroTile5.Size = new System.Drawing.Size(348, 81);
             this.metroTile5.TabIndex = 4;
             this.metroTile5.Text = "Livre";
+            this.metroTile5.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile5.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.metroTile5.UseSelectable = true;
             // 
             // metroTile6
@@ -111,6 +121,8 @@
             this.metroTile6.Size = new System.Drawing.Size(348, 81);
             this.metroTile6.TabIndex = 5;
             this.metroTile6.Text = "Couverture";
+            this.metroTile6.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metroTile6.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.metroTile6.UseSelectable = true;
             // 
             // pictureBox1
@@ -181,35 +193,35 @@
             this.btnQuitter.UseTileImage = true;
             this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
-            // metroLabel1
+            // lblUtilisateur
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(904, 19);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(90, 25);
-            this.metroLabel1.TabIndex = 17;
-            this.metroLabel1.Text = "Utilisateur";
+            this.lblUtilisateur.AutoSize = true;
+            this.lblUtilisateur.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.lblUtilisateur.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblUtilisateur.Location = new System.Drawing.Point(904, 19);
+            this.lblUtilisateur.Name = "lblUtilisateur";
+            this.lblUtilisateur.Size = new System.Drawing.Size(90, 25);
+            this.lblUtilisateur.TabIndex = 17;
+            this.lblUtilisateur.Text = "Utilisateur";
             // 
-            // metroTile7
+            // btnAdmin
             // 
-            this.metroTile7.ActiveControl = null;
-            this.metroTile7.BackColor = System.Drawing.Color.Peru;
-            this.metroTile7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metroTile7.Location = new System.Drawing.Point(23, 492);
-            this.metroTile7.Name = "metroTile7";
-            this.metroTile7.Size = new System.Drawing.Size(215, 55);
-            this.metroTile7.TabIndex = 18;
-            this.metroTile7.Text = "Administration";
-            this.metroTile7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.metroTile7.TileImage = global::InterfaceMedia.Properties.Resources.ecour_icon;
-            this.metroTile7.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.metroTile7.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.metroTile7.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.metroTile7.UseCustomBackColor = true;
-            this.metroTile7.UseSelectable = true;
-            this.metroTile7.UseTileImage = true;
+            this.btnAdmin.ActiveControl = null;
+            this.btnAdmin.BackColor = System.Drawing.Color.Peru;
+            this.btnAdmin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdmin.Location = new System.Drawing.Point(23, 492);
+            this.btnAdmin.Name = "btnAdmin";
+            this.btnAdmin.Size = new System.Drawing.Size(215, 55);
+            this.btnAdmin.TabIndex = 18;
+            this.btnAdmin.Text = "Administration";
+            this.btnAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAdmin.TileImage = global::InterfaceMedia.Properties.Resources.ecour_icon;
+            this.btnAdmin.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAdmin.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnAdmin.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnAdmin.UseCustomBackColor = true;
+            this.btnAdmin.UseSelectable = true;
+            this.btnAdmin.UseTileImage = true;
             // 
             // FrmAccueilTest
             // 
@@ -220,8 +232,8 @@
             this.BackImage = global::InterfaceMedia.Properties.Resources.Quitter5;
             this.BackImagePadding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.ClientSize = new System.Drawing.Size(1080, 570);
-            this.Controls.Add(this.metroTile7);
-            this.Controls.Add(this.metroLabel1);
+            this.Controls.Add(this.btnAdmin);
+            this.Controls.Add(this.lblUtilisateur);
             this.Controls.Add(this.btnQuitter);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
@@ -232,9 +244,9 @@
             this.Controls.Add(this.metroTile6);
             this.Controls.Add(this.metroTile5);
             this.Controls.Add(this.metroTile4);
-            this.Controls.Add(this.MetroTileEditeur);
+            this.Controls.Add(this.metroTileEditeur);
             this.Controls.Add(this.metroTile2);
-            this.Controls.Add(this.metroTile1);
+            this.Controls.Add(this.metroTileEmprunteur);
             this.Name = "FrmAccueilTest";
             this.Text = "Accueil";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -250,9 +262,9 @@
 
         #endregion
 
-        private MetroFramework.Controls.MetroTile metroTile1;
+        private MetroFramework.Controls.MetroTile metroTileEmprunteur;
         private MetroFramework.Controls.MetroTile metroTile2;
-        private MetroFramework.Controls.MetroTile MetroTileEditeur;
+        private MetroFramework.Controls.MetroTile metroTileEditeur;
         private MetroFramework.Controls.MetroTile metroTile4;
         private MetroFramework.Controls.MetroTile metroTile5;
         private MetroFramework.Controls.MetroTile metroTile6;
@@ -263,7 +275,7 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private MetroFramework.Controls.MetroTile btnQuitter;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTile metroTile7;
+        private MetroFramework.Controls.MetroLabel lblUtilisateur;
+        private MetroFramework.Controls.MetroTile btnAdmin;
     }
 }
