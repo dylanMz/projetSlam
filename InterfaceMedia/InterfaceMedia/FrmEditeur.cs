@@ -7,20 +7,33 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LibMedia;
 using MetroFramework.Forms;
 
 namespace InterfaceMedia
 {
     public partial class FrmEditeur : MetroForm
     {
+        private Metier_Editeur unEditeur;
+        private ConnexionBase uneconnexion;
+
         public FrmEditeur()
         {
             InitializeComponent();
+            uneconnexion = new ConnexionBase();
+            unEditeur = new Metier_Editeur(uneconnexion);
+            GridEditeur.DataSource = unEditeur.Recup_Table_Editeur("proc_affiche_editeur","editeur");
+
+            
+            DateTimeCreation.Format = DateTimePickerFormat.Custom;
+            DateTimeCreation.CustomFormat = "yyyy";
+            DateTimeCreation.ShowUpDown = true;
         }
+
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            if (btnAjouter.Text == "Ajouter")
+            if (btnAjouter.Text.Equals("Ajouter"))
             {
                 btnAjouter.BackColor = Color.Green;
                 btnAjouter.Text = "Valider";
@@ -55,7 +68,7 @@ namespace InterfaceMedia
 
             }
 
-            else if (btnAjouter.Text == "Valider")
+            else if (btnAjouter.Text.Equals("Valider"))
             {
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
@@ -91,7 +104,7 @@ namespace InterfaceMedia
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            if (btnModifier.Text == "Modifier")
+            if (btnModifier.Text.Equals("Modifier"))
             {
                 btnModifier.BackColor = Color.Green;
                 btnModifier.Text = "Valider";
@@ -125,7 +138,7 @@ namespace InterfaceMedia
                 txtVille.BackColor = Color.White;
             }
 
-            else if (btnModifier.Text == "Valider")
+            else if (btnModifier.Text.Equals("Valider"))
             {
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
@@ -158,11 +171,9 @@ namespace InterfaceMedia
             }
         }
 
-
-
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            if (btnSupprimer.Text == "Supprimer")
+            if (btnSupprimer.Text.Equals("Supprimer"))
             {
                 btnSupprimer.BackColor = Color.Green;
                 btnSupprimer.Text = "Valider";
@@ -176,7 +187,7 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = false;
             }
 
-            else if (btnSupprimer.Text == "Valider")
+            else if (btnSupprimer.Text.Equals("Valider"))
             {
                 btnSupprimer.Text = "Supprimer";
                 btnSupprimer.BackColor = Color.SteelBlue;
@@ -191,7 +202,7 @@ namespace InterfaceMedia
 
         private void btnRechercher_Click(object sender, EventArgs e)
         {
-            if (btnRechercher.Text == "Rechercher")
+            if (btnRechercher.Text.Equals("Rechercher"))
             {
                 btnRechercher.BackColor = Color.Green;
                 btnRechercher.Text = "Valider";
@@ -211,7 +222,7 @@ namespace InterfaceMedia
                 btnModifier.Enabled = false;
             }
 
-            else if (btnRechercher.Text == "Valider")
+            else if (btnRechercher.Text.Equals("Valider"))
             {
                 btnRechercher.Text = "Rechercher";
                 btnRechercher.BackColor = Color.SteelBlue;
@@ -264,6 +275,18 @@ namespace InterfaceMedia
             txtFax.Enabled = false;
             txtVille.Enabled = false;
 
+            //Reinistialisation des textbox
+            txtCode.Text = "";
+            txtNom.Text = "";
+            DateTimeCreation.Text = "";
+            txtMail.Text = "";
+            txtCodePostal.Text = "";
+            txtAdr.Text = "";
+            txtTel.Text = "";
+            txtFax.Text = "";
+            txtVille.Text = "";
+
+
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
             txtNom.BackColor = Color.Silver;
             DateTimeCreation.BackColor = Color.Silver;
@@ -286,6 +309,26 @@ namespace InterfaceMedia
             FrmAccueilTest wAccueilTest = new FrmAccueilTest();
             wAccueilTest.ShowDialog();
             Form.ActiveForm.Close();
+        }
+
+        //Affiche dans les textbox les valeurs de la ligne sélectionné.
+        private void GridEditeur_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCode.Text = GridEditeur.CurrentRow.Cells["EditeurNum"].Value.ToString();
+            txtNom.Text = GridEditeur.CurrentRow.Cells["EditeurNom"].Value.ToString();
+            //DateTimeCreation.Text = GridEditeur.CurrentRow.Cells["EditeurCreation"].Value.ToString();
+            txtVille.Text = GridEditeur.CurrentRow.Cells["EditeurVille"].Value.ToString();
+            txtAdr.Text = GridEditeur.CurrentRow.Cells["EditeurAdresse"].Value.ToString();
+            txtCodePostal.Text = GridEditeur.CurrentRow.Cells["EditeurCP"].Value.ToString();
+            txtTel.Text = GridEditeur.CurrentRow.Cells["EditeurTel"].Value.ToString();
+            txtFax.Text = GridEditeur.CurrentRow.Cells["EditeurFax"].Value.ToString();
+            txtMail.Text = GridEditeur.CurrentRow.Cells["EditeurMail"].Value.ToString();
+
+
+
+
+
+
         }
     }
 }

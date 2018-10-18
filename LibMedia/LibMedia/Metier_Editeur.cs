@@ -33,19 +33,20 @@ namespace LibMedia
         #region Méthode
 
         //Affiche la table Vendeur.
-        public void Recup_Table_Editeur()
+        public DataTable Recup_Table_Editeur(String nomProc, String wTable)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
-                String wTable = "editeur";
                 MySqlCommand EditeurMysql = new MySqlCommand();
-                EditeurMysql.CommandText = "proc_affiche_editeur";
+                EditeurMysql.CommandText = nomProc;
                 EditeurMysql.CommandType = CommandType.StoredProcedure;
                 EditeurMysql.Connection = uneconnexion.getConnexion();
                 _unAdapter = new MySqlDataAdapter(EditeurMysql);
                 _unDataset = new DataSet();
                 _unAdapter.Fill(_unDataset, wTable);
+                uneconnexion.closeConnexion();
             }
+            return (_unDataset.Tables[wTable]);
         }
 
        public void modifier_ajouter_editeur(String nomProc, String wEditeurNom, int wEditeurCreation, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurTel, String wEditeurFax, String wEditeurMail)
