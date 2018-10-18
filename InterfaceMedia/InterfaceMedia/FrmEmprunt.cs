@@ -8,15 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using LibMedia;
 
 namespace InterfaceMedia
 {
     public partial class FrmEmprunt : MetroForm
     {
+
+        private Crud_Emprunt Ajout;
+
+
         public FrmEmprunt()
         {
             InitializeComponent();
-
+            Ajout = new Crud_Emprunt();
         }
 
         private void btnRechercheLivre_Click(object sender, EventArgs e)
@@ -66,6 +71,8 @@ namespace InterfaceMedia
 
             else if (btnAjouter.Text.Equals("Valider"))
             {
+                Emprunt lEmprunt = new Emprunt();
+
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
