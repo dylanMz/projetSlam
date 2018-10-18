@@ -17,5 +17,21 @@ namespace InterfaceMedia
         {
             InitializeComponent();
         }
+
+        private void btnAjoutEdit_Click(object sender, EventArgs e)
+        {
+            //btnAjoutEdit.Style = ;
+            if (btnAjoutEdit.Text == "Ajouter")
+            {
+                btnAjoutEdit.Style = MetroFramework.MetroColorStyle.Green;
+                btnAjoutEdit.Text = "Valider";
+
+            }
+
+            else if (btnAjoutEdit.Text == "Valider")
+            {
+                btnAjoutEdit.Style = MetroFramework.MetroColorStyle.Blue;
+            }
+        }
     }
 }
