@@ -77,7 +77,7 @@ namespace LibMedia
             {
                 while (reader.Read())
                 {
-                    unLivre = new Livre(reader.GetInt16(1), reader.GetString(2), reader.GetInt16(3), reader.GetInt16(4), reader.GetString(5), reader.GetString(6), reader.GetString(7));
+                    unLivre = new Livre(reader.GetInt16(1), reader.GetString(2), reader.GetString(3), reader.GetInt16(4), reader.GetInt16(5), reader.GetInt16(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetInt16(11), reader.GetInt16(12));
                     bibliotheque.Add(unLivre);
 
                 }
