@@ -29,16 +29,11 @@
         private void InitializeComponent()
         {
             this.grpBoxMenu = new System.Windows.Forms.GroupBox();
-            this.btnChercher = new MetroFramework.Controls.MetroButton();
-            this.btnSauvegarder = new MetroFramework.Controls.MetroButton();
-            this.btnAnnuler = new MetroFramework.Controls.MetroButton();
-            this.btnSupprimer = new MetroFramework.Controls.MetroButton();
-            this.btnRechercher = new MetroFramework.Controls.MetroButton();
-            this.btnModifier = new MetroFramework.Controls.MetroButton();
-            this.btnAjouter = new MetroFramework.Controls.MetroButton();
+            this.btnAnnuler = new MetroFramework.Controls.MetroTile();
             this.lblSeparation = new MetroFramework.Controls.MetroLabel();
             this.pnlAuteur = new MetroFramework.Controls.MetroPanel();
             this.grpBxAuteur = new System.Windows.Forms.GroupBox();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -57,119 +52,53 @@
             this.txtCode = new MetroFramework.Controls.MetroTextBox();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
             this.dgvAuteur = new System.Windows.Forms.DataGridView();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.grpBxQuitter = new System.Windows.Forms.GroupBox();
-            this.btnQuitter = new MetroFramework.Controls.MetroButton();
+            this.btnQuitter = new MetroFramework.Controls.MetroTile();
+            this.picHome = new System.Windows.Forms.PictureBox();
+            this.btnRechercher = new MetroFramework.Controls.MetroTile();
+            this.btnAjouter = new MetroFramework.Controls.MetroTile();
+            this.btnModifier = new MetroFramework.Controls.MetroTile();
+            this.btnSupprimer = new MetroFramework.Controls.MetroTile();
+            this.btnValider = new MetroFramework.Controls.MetroTile();
             this.grpBoxMenu.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
             this.grpBxAuteur.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
             this.grpBxQuitter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBoxMenu
             // 
             this.grpBoxMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpBoxMenu.Controls.Add(this.btnChercher);
-            this.grpBoxMenu.Controls.Add(this.btnSauvegarder);
-            this.grpBoxMenu.Controls.Add(this.btnAnnuler);
-            this.grpBoxMenu.Controls.Add(this.btnRechercher);
+            this.grpBoxMenu.Controls.Add(this.btnValider);
+            this.grpBoxMenu.Controls.Add(this.btnSupprimer);
             this.grpBoxMenu.Controls.Add(this.btnModifier);
             this.grpBoxMenu.Controls.Add(this.btnAjouter);
-            this.grpBoxMenu.Controls.Add(this.btnSupprimer);
+            this.grpBoxMenu.Controls.Add(this.btnRechercher);
+            this.grpBoxMenu.Controls.Add(this.btnAnnuler);
             this.grpBoxMenu.Location = new System.Drawing.Point(737, 63);
             this.grpBoxMenu.Name = "grpBoxMenu";
             this.grpBoxMenu.Size = new System.Drawing.Size(216, 519);
             this.grpBoxMenu.TabIndex = 1;
             this.grpBoxMenu.TabStop = false;
             // 
-            // btnChercher
-            // 
-            this.btnChercher.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnChercher.Highlight = true;
-            this.btnChercher.Location = new System.Drawing.Point(24, 393);
-            this.btnChercher.Name = "btnChercher";
-            this.btnChercher.Size = new System.Drawing.Size(169, 43);
-            this.btnChercher.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnChercher.TabIndex = 13;
-            this.btnChercher.Text = "Chercher";
-            this.btnChercher.UseSelectable = true;
-            // 
-            // btnSauvegarder
-            // 
-            this.btnSauvegarder.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSauvegarder.Enabled = false;
-            this.btnSauvegarder.Highlight = true;
-            this.btnSauvegarder.Location = new System.Drawing.Point(24, 255);
-            this.btnSauvegarder.Name = "btnSauvegarder";
-            this.btnSauvegarder.Size = new System.Drawing.Size(169, 43);
-            this.btnSauvegarder.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnSauvegarder.TabIndex = 11;
-            this.btnSauvegarder.Text = "Sauvegarder";
-            this.btnSauvegarder.UseSelectable = true;
-            // 
             // btnAnnuler
             // 
-            this.btnAnnuler.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAnnuler.Enabled = false;
-            this.btnAnnuler.Highlight = true;
-            this.btnAnnuler.Location = new System.Drawing.Point(24, 458);
+            this.btnAnnuler.ActiveControl = null;
+            this.btnAnnuler.BackColor = System.Drawing.Color.Tomato;
+            this.btnAnnuler.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAnnuler.Location = new System.Drawing.Point(24, 463);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
-            this.btnAnnuler.Style = MetroFramework.MetroColorStyle.Red;
-            this.btnAnnuler.TabIndex = 10;
+            this.btnAnnuler.TabIndex = 14;
             this.btnAnnuler.Text = "Annuler";
+            this.btnAnnuler.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAnnuler.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnAnnuler.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnAnnuler.UseCustomBackColor = true;
             this.btnAnnuler.UseSelectable = true;
-            // 
-            // btnSupprimer
-            // 
-            this.btnSupprimer.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnSupprimer.Enabled = false;
-            this.btnSupprimer.Highlight = true;
-            this.btnSupprimer.Location = new System.Drawing.Point(24, 183);
-            this.btnSupprimer.Name = "btnSupprimer";
-            this.btnSupprimer.Size = new System.Drawing.Size(169, 43);
-            this.btnSupprimer.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnSupprimer.TabIndex = 8;
-            this.btnSupprimer.Text = "Supprimer";
-            this.btnSupprimer.UseSelectable = true;
-            // 
-            // btnRechercher
-            // 
-            this.btnRechercher.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnRechercher.Highlight = true;
-            this.btnRechercher.Location = new System.Drawing.Point(24, 323);
-            this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(169, 43);
-            this.btnRechercher.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnRechercher.TabIndex = 7;
-            this.btnRechercher.Text = "Rechercher";
-            this.btnRechercher.UseSelectable = true;
-            // 
-            // btnModifier
-            // 
-            this.btnModifier.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnModifier.Highlight = true;
-            this.btnModifier.Location = new System.Drawing.Point(24, 105);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(169, 43);
-            this.btnModifier.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnModifier.TabIndex = 6;
-            this.btnModifier.Text = "Modifier";
-            this.btnModifier.UseSelectable = true;
-            // 
-            // btnAjouter
-            // 
-            this.btnAjouter.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAjouter.Highlight = true;
-            this.btnAjouter.Location = new System.Drawing.Point(24, 28);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(169, 43);
-            this.btnAjouter.Style = MetroFramework.MetroColorStyle.Blue;
-            this.btnAjouter.TabIndex = 5;
-            this.btnAjouter.Text = "Ajouter";
-            this.btnAjouter.UseSelectable = true;
             // 
             // lblSeparation
             // 
@@ -227,6 +156,16 @@
             this.grpBxAuteur.Size = new System.Drawing.Size(718, 379);
             this.grpBxAuteur.TabIndex = 13;
             this.grpBxAuteur.TabStop = false;
+            // 
+            // metroComboBox1
+            // 
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Location = new System.Drawing.Point(141, 194);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(169, 29);
+            this.metroComboBox1.TabIndex = 22;
+            this.metroComboBox1.UseSelectable = true;
             // 
             // metroRadioButton2
             // 
@@ -523,16 +462,6 @@
             this.dgvAuteur.Size = new System.Drawing.Size(703, 205);
             this.dgvAuteur.TabIndex = 10;
             // 
-            // metroComboBox1
-            // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(141, 194);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(169, 29);
-            this.metroComboBox1.TabIndex = 22;
-            this.metroComboBox1.UseSelectable = true;
-            // 
             // grpBxQuitter
             // 
             this.grpBxQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -545,21 +474,119 @@
             // 
             // btnQuitter
             // 
-            this.btnQuitter.Enabled = false;
-            this.btnQuitter.Highlight = true;
-            this.btnQuitter.Location = new System.Drawing.Point(24, 20);
+            this.btnQuitter.ActiveControl = null;
+            this.btnQuitter.BackColor = System.Drawing.Color.Tomato;
+            this.btnQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuitter.Location = new System.Drawing.Point(24, 19);
             this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(169, 43);
-            this.btnQuitter.Style = MetroFramework.MetroColorStyle.Red;
-            this.btnQuitter.TabIndex = 15;
+            this.btnQuitter.Size = new System.Drawing.Size(169, 44);
+            this.btnQuitter.TabIndex = 16;
             this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnQuitter.TileImage = global::InterfaceMedia.Properties.Resources.QuitterIcone;
+            this.btnQuitter.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnQuitter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnQuitter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnQuitter.UseCustomBackColor = true;
             this.btnQuitter.UseSelectable = true;
+            this.btnQuitter.UseTileImage = true;
+            // 
+            // picHome
+            // 
+            this.picHome.Image = global::InterfaceMedia.Properties.Resources.maxresdefault;
+            this.picHome.Location = new System.Drawing.Point(130, 16);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(75, 41);
+            this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHome.TabIndex = 30;
+            this.picHome.TabStop = false;
+            // 
+            // btnRechercher
+            // 
+            this.btnRechercher.ActiveControl = null;
+            this.btnRechercher.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnRechercher.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRechercher.Location = new System.Drawing.Point(24, 286);
+            this.btnRechercher.Name = "btnRechercher";
+            this.btnRechercher.Size = new System.Drawing.Size(169, 43);
+            this.btnRechercher.TabIndex = 31;
+            this.btnRechercher.Text = "Rechercher";
+            this.btnRechercher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRechercher.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnRechercher.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnRechercher.UseCustomBackColor = true;
+            this.btnRechercher.UseSelectable = true;
+            // 
+            // btnAjouter
+            // 
+            this.btnAjouter.ActiveControl = null;
+            this.btnAjouter.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAjouter.Location = new System.Drawing.Point(24, 19);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(169, 43);
+            this.btnAjouter.TabIndex = 31;
+            this.btnAjouter.Text = "Ajouter";
+            this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAjouter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnAjouter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnAjouter.UseCustomBackColor = true;
+            this.btnAjouter.UseSelectable = true;
+            // 
+            // btnModifier
+            // 
+            this.btnModifier.ActiveControl = null;
+            this.btnModifier.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnModifier.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModifier.Location = new System.Drawing.Point(24, 85);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(169, 43);
+            this.btnModifier.TabIndex = 32;
+            this.btnModifier.Text = "Modifier";
+            this.btnModifier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnModifier.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnModifier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnModifier.UseCustomBackColor = true;
+            this.btnModifier.UseSelectable = true;
+            // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.ActiveControl = null;
+            this.btnSupprimer.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSupprimer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSupprimer.Location = new System.Drawing.Point(24, 152);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(169, 43);
+            this.btnSupprimer.TabIndex = 33;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSupprimer.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnSupprimer.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnSupprimer.UseCustomBackColor = true;
+            this.btnSupprimer.UseSelectable = true;
+            // 
+            // btnValider
+            // 
+            this.btnValider.ActiveControl = null;
+            this.btnValider.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnValider.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnValider.Location = new System.Drawing.Point(24, 220);
+            this.btnValider.Name = "btnValider";
+            this.btnValider.Size = new System.Drawing.Size(169, 43);
+            this.btnValider.TabIndex = 34;
+            this.btnValider.Text = "Valider";
+            this.btnValider.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnValider.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnValider.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnValider.UseCustomBackColor = true;
+            this.btnValider.UseSelectable = true;
             // 
             // FrmAuteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 694);
+            this.Controls.Add(this.picHome);
             this.Controls.Add(this.grpBxQuitter);
             this.Controls.Add(this.pnlAuteur);
             this.Controls.Add(this.lblSeparation);
@@ -572,6 +599,7 @@
             this.grpBxAuteur.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
             this.grpBxQuitter.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,13 +608,7 @@
         #endregion
 
         private System.Windows.Forms.GroupBox grpBoxMenu;
-        private MetroFramework.Controls.MetroButton btnAnnuler;
-        private MetroFramework.Controls.MetroButton btnSupprimer;
-        private MetroFramework.Controls.MetroButton btnRechercher;
-        private MetroFramework.Controls.MetroButton btnModifier;
-        private MetroFramework.Controls.MetroButton btnAjouter;
         private MetroFramework.Controls.MetroLabel lblSeparation;
-        private MetroFramework.Controls.MetroButton btnSauvegarder;
         private MetroFramework.Controls.MetroPanel pnlAuteur;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroTextBox txtBio;
@@ -600,7 +622,6 @@
         private MetroFramework.Controls.MetroLabel lblCode;
         private System.Windows.Forms.GroupBox grpBxAuteur;
         private MetroFramework.Controls.MetroDateTime dtDateNaiss;
-        private MetroFramework.Controls.MetroButton btnChercher;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox metroTextBox1;
@@ -610,6 +631,13 @@
         private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
         private System.Windows.Forms.GroupBox grpBxQuitter;
-        private MetroFramework.Controls.MetroButton btnQuitter;
+        private MetroFramework.Controls.MetroTile btnQuitter;
+        private System.Windows.Forms.PictureBox picHome;
+        private MetroFramework.Controls.MetroTile btnAnnuler;
+        private MetroFramework.Controls.MetroTile btnRechercher;
+        private MetroFramework.Controls.MetroTile btnAjouter;
+        private MetroFramework.Controls.MetroTile btnModifier;
+        private MetroFramework.Controls.MetroTile btnSupprimer;
+        private MetroFramework.Controls.MetroTile btnValider;
     }
 }
