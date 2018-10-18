@@ -41,62 +41,62 @@ namespace LibMedia
         //Accesseur
 
 
-        public int NumEmprunteur
+        public int Numéro
         {
             get { return emp_num; }
             set { emp_num = value; }
         }
 
 
-        public String NomEmprunteur
+        public String Nom
         {
             get { return emp_nom; }
             set { emp_nom = value; }
         }
 
-        public String PrenomEmprunteur
+        public String Prénom
         {
             get { return emp_prenom; }
             set { emp_prenom = value; }
         }
 
-        public String RueEmprunteur
+        public String Rue
         {
             get { return emp_rue; }
             set { emp_rue = value; }
         }
 
-        public String CodePostalEmprunteur
+        public String Code_Postal
         {
             get { return emp_code_postal; }
             set { emp_code_postal = value; }
         }
 
-        public String VilleEmprunteur
+        public String Ville
         {
             get { return emp_ville; }
             set { emp_ville = value; }
         }
 
-        public DateTime DateNaissEmprunteur
+        public DateTime Naissance
         {
             get { return emp_date_naiss; }
             set { emp_date_naiss = value; }
         }
 
-        public String MailEmprunteur
+        public String Mail
         {
             get { return emp_mail; }
             set { emp_mail = value; }
         }
 
-        public DateTime premAdhEmprunteur
+        public DateTime Adhésion
         {
             get { return emp_prem_adh; }
             set { emp_prem_adh = value; }
         }
 
-        public DateTime renAdhEmprunteur
+        public DateTime Renouvellement_Adhésion
         {
             get { return emp_ren_adh; }
             set { emp_ren_adh = value; }
