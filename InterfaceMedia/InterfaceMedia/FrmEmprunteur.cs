@@ -20,7 +20,6 @@ namespace InterfaceMedia
         private String dateadh;
         private Crud_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
-        private List<KeyValuePair<string, object>> parametresString;
 
         public FrmEmprunteur()
         {
@@ -42,6 +41,7 @@ namespace InterfaceMedia
             GridEmprunteur.DataSource = lesemprunteur;
         }
 
+        //au clic dans le dataGrid rempli les informations dans les textbox ou datetime 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
             id = GridEmprunteur.CurrentRow.Cells["numéro"].Value.ToString(); ;
@@ -75,6 +75,16 @@ namespace InterfaceMedia
             {
                 groupAjouterEmp.Enabled = true;
                 btnAjouter.BackColor = Color.Green;
+
+                //vide les controls du groupbox
+                foreach (Control c in groupAjouterEmp.Controls)
+                {
+                    if (c.GetType() == typeof(MetroFramework.Controls.MetroTextBox))
+                        c.Text = "";
+
+                }
+
+                
                 btnAjouter.Text = "Valider";
                 btnAnnuler.Visible = true;
 
@@ -84,17 +94,21 @@ namespace InterfaceMedia
                 btnFamille.Enabled = false;
                 btnRechercher.Enabled = false;
 
+
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtNom.BackColor = Color.White;
-                txtPrenom.BackColor = Color.White;
-                txtMail.BackColor = Color.White;
-                txtCodePostal.BackColor = Color.White;
-                txtAdresse.BackColor = Color.White;
-                txtVille.BackColor = Color.White;
-                DateTimeNaissance.CalendarTitleBackColor = Color.Silver;
+                groupAjouterEmp.BackColor = Color.White;
+                //txtNom.BackColor = Color.White;
+                //txtPrenom.BackColor = Color.White;
+                //txtMail.BackColor = Color.White;
+                //txtCodePostal.BackColor = Color.White;
+                //txtAdresse.BackColor = Color.White;
+                //txtVille.BackColor = Color.White;
+                //DateTimeNaissance.CalendarTitleBackColor = Color.Silver;
             }
             else if (btnAjouter.Text.Equals("Valider"))
             {
+                utilisemethodeprocedure("proc_insert_emprunteur");
+
                 groupAjouterEmp.Enabled = false;
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
@@ -107,12 +121,16 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = true;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtNom.BackColor = Color.Silver;
-                txtPrenom.BackColor = Color.Silver;
-                txtMail.BackColor = Color.Silver;
-                txtCodePostal.BackColor = Color.Silver;
-                txtAdresse.BackColor = Color.Silver;
-                txtVille.BackColor = Color.Silver;
+                groupAjouterEmp.BackColor = Color.Silver;
+                //txtNom.BackColor = Color.Silver;
+                //txtPrenom.BackColor = Color.Silver;
+                //txtMail.BackColor = Color.Silver;
+                //txtCodePostal.BackColor = Color.Silver;
+                //txtAdresse.BackColor = Color.Silver;
+                //txtVille.BackColor = Color.Silver;
+
+                //met à jour le datagrid
+                RefreshGrid();
 
             }
         }
@@ -191,6 +209,8 @@ namespace InterfaceMedia
                 //DateTimeAdhesion.BackColor = Color.Silver;
                 //txtVille.BackColor = Color.Silver;
 
+
+                //met à jour le datagrid
                 RefreshGrid();
                
             }

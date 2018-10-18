@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GridEmprunteur = new MetroFramework.Controls.MetroGrid();
             this.DateTimeRenouvellement = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lblrenouvellement = new MetroFramework.Controls.MetroLabel();
             this.DateTimeAdhesion = new MetroFramework.Controls.MetroDateTime();
             this.DateTimeNaissance = new MetroFramework.Controls.MetroDateTime();
             this.txtPrenom = new MetroFramework.Controls.MetroTextBox();
@@ -128,16 +128,16 @@
             this.DateTimeRenouvellement.TabIndex = 88;
             this.DateTimeRenouvellement.UseCustomBackColor = true;
             // 
-            // metroLabel1
+            // lblrenouvellement
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(659, 93);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(173, 19);
-            this.metroLabel1.TabIndex = 87;
-            this.metroLabel1.Text = "Renouvellement adhésion :";
-            this.metroLabel1.UseCustomBackColor = true;
+            this.lblrenouvellement.AutoSize = true;
+            this.lblrenouvellement.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblrenouvellement.Location = new System.Drawing.Point(659, 93);
+            this.lblrenouvellement.Name = "lblrenouvellement";
+            this.lblrenouvellement.Size = new System.Drawing.Size(173, 19);
+            this.lblrenouvellement.TabIndex = 87;
+            this.lblrenouvellement.Text = "Renouvellement adhésion :";
+            this.lblrenouvellement.UseCustomBackColor = true;
             // 
             // DateTimeAdhesion
             // 
@@ -627,7 +627,7 @@
             this.groupAjouterEmp.Controls.Add(this.metroLabel5);
             this.groupAjouterEmp.Controls.Add(this.metroLabel2);
             this.groupAjouterEmp.Controls.Add(this.DateTimeRenouvellement);
-            this.groupAjouterEmp.Controls.Add(this.metroLabel1);
+            this.groupAjouterEmp.Controls.Add(this.lblrenouvellement);
             this.groupAjouterEmp.Controls.Add(this.DateTimeAdhesion);
             this.groupAjouterEmp.Controls.Add(this.DateTimeNaissance);
             this.groupAjouterEmp.Controls.Add(this.txtPrenom);
@@ -690,7 +690,7 @@
 
         private MetroFramework.Controls.MetroGrid GridEmprunteur;
         private MetroFramework.Controls.MetroDateTime DateTimeRenouvellement;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel lblrenouvellement;
         private MetroFramework.Controls.MetroDateTime DateTimeAdhesion;
         private MetroFramework.Controls.MetroDateTime DateTimeNaissance;
         private MetroFramework.Controls.MetroTextBox txtPrenom;

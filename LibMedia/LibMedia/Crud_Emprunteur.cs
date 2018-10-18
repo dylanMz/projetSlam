@@ -77,6 +77,11 @@ namespace LibMedia
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
                 unecommandeSql.Parameters["wid"].Value = wid;
 
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
+                unecommandeSql.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
+
                 unecommandeSql.ExecuteNonQuery();
 
                 //gestion d'erreurs 
