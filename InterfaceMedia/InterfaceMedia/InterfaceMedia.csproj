@@ -140,6 +140,10 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -158,24 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Quitter5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\QuitterIcone.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ecour-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconHome.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconHomeV2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\maxresdefault.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

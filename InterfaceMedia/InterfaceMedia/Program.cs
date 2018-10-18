@@ -16,7 +16,7 @@ namespace InterfaceMedia
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmAccueilTest());
+            Application.Run(new FrmEditeur());
         }
     }
 }

@@ -16,13 +16,16 @@ namespace InterfaceMedia
     public partial class FrmEmprunteur : MetroForm
     {
         Thread th;
-        private Metier_Emprunteur unEmprunteur;
+        private Crud_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
+        private List<KeyValuePair<string, object>> parametresString;
+        private List<KeyValuePair<DateTime, object>> parametresDateTime;
+
         public FrmEmprunteur()
         {
             InitializeComponent();
             uneconnexion = new ConnexionBase();
-            unEmprunteur = new Metier_Emprunteur(uneconnexion);
+            unEmprunteur = new Crud_Emprunteur(uneconnexion);
             unEmprunteur.Recup_TableEmprunteur();
             RempGridEmprunteur(unEmprunteur.lesEmprunteurs);
 
@@ -140,6 +143,13 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
+
+                if (uneconnexion.OuvrirConnexion() == true)
+                {
+                    String recupcode = null;
+                    unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString, parametresDateTime);
+
+                }
                 groupAjouterEmp.Enabled = false;
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
