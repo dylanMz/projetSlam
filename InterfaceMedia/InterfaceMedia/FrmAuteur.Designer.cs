@@ -35,13 +35,14 @@
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
             this.pnlAuteur = new MetroFramework.Controls.MetroPanel();
             this.grpAuteur = new System.Windows.Forms.GroupBox();
-            this.cmbPays = new MetroFramework.Controls.MetroComboBox();
-            this.rdoDecede = new MetroFramework.Controls.MetroRadioButton();
+            this.grpStatut = new System.Windows.Forms.GroupBox();
             this.rdoVivant = new MetroFramework.Controls.MetroRadioButton();
+            this.dtStatut = new MetroFramework.Controls.MetroDateTime();
+            this.rdoDecede = new MetroFramework.Controls.MetroRadioButton();
+            this.cmbPays = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtPseudo = new MetroFramework.Controls.MetroTextBox();
-            this.dtStatut = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dtDateNaiss = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -60,6 +61,7 @@
             this.grpMenu.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
             this.grpAuteur.SuspendLayout();
+            this.grpStatut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
             this.grpQuitter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -170,13 +172,11 @@
             this.grpAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpAuteur.Controls.Add(this.grpStatut);
             this.grpAuteur.Controls.Add(this.cmbPays);
-            this.grpAuteur.Controls.Add(this.rdoDecede);
-            this.grpAuteur.Controls.Add(this.rdoVivant);
             this.grpAuteur.Controls.Add(this.metroLabel3);
             this.grpAuteur.Controls.Add(this.metroLabel2);
             this.grpAuteur.Controls.Add(this.txtPseudo);
-            this.grpAuteur.Controls.Add(this.dtStatut);
             this.grpAuteur.Controls.Add(this.metroLabel1);
             this.grpAuteur.Controls.Add(this.dtDateNaiss);
             this.grpAuteur.Controls.Add(this.metroLabel5);
@@ -194,6 +194,57 @@
             this.grpAuteur.TabIndex = 13;
             this.grpAuteur.TabStop = false;
             // 
+            // grpStatut
+            // 
+            this.grpStatut.Controls.Add(this.rdoVivant);
+            this.grpStatut.Controls.Add(this.dtStatut);
+            this.grpStatut.Controls.Add(this.rdoDecede);
+            this.grpStatut.Location = new System.Drawing.Point(447, 137);
+            this.grpStatut.Name = "grpStatut";
+            this.grpStatut.Size = new System.Drawing.Size(212, 100);
+            this.grpStatut.TabIndex = 17;
+            this.grpStatut.TabStop = false;
+            // 
+            // rdoVivant
+            // 
+            this.rdoVivant.AutoSize = true;
+            this.rdoVivant.BackColor = System.Drawing.Color.Silver;
+            this.rdoVivant.Enabled = false;
+            this.rdoVivant.Location = new System.Drawing.Point(6, 26);
+            this.rdoVivant.Name = "rdoVivant";
+            this.rdoVivant.Size = new System.Drawing.Size(56, 15);
+            this.rdoVivant.TabIndex = 6;
+            this.rdoVivant.Text = "Vivant";
+            this.rdoVivant.UseCustomBackColor = true;
+            this.rdoVivant.UseSelectable = true;
+            this.rdoVivant.CheckedChanged += new System.EventHandler(this.rdoVivant_CheckedChanged);
+            // 
+            // dtStatut
+            // 
+            this.dtStatut.CalendarTrailingForeColor = System.Drawing.Color.Silver;
+            this.dtStatut.Enabled = false;
+            this.dtStatut.Location = new System.Drawing.Point(6, 57);
+            this.dtStatut.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtStatut.Name = "dtStatut";
+            this.dtStatut.Size = new System.Drawing.Size(200, 29);
+            this.dtStatut.TabIndex = 8;
+            this.dtStatut.UseCustomBackColor = true;
+            this.dtStatut.Visible = false;
+            // 
+            // rdoDecede
+            // 
+            this.rdoDecede.AutoSize = true;
+            this.rdoDecede.BackColor = System.Drawing.Color.Silver;
+            this.rdoDecede.Enabled = false;
+            this.rdoDecede.Location = new System.Drawing.Point(119, 26);
+            this.rdoDecede.Name = "rdoDecede";
+            this.rdoDecede.Size = new System.Drawing.Size(62, 15);
+            this.rdoDecede.TabIndex = 7;
+            this.rdoDecede.Text = "Décédé";
+            this.rdoDecede.UseCustomBackColor = true;
+            this.rdoDecede.UseSelectable = true;
+            this.rdoDecede.CheckedChanged += new System.EventHandler(this.rdoDecede_CheckedChanged);
+            // 
             // cmbPays
             // 
             this.cmbPays.BackColor = System.Drawing.Color.Silver;
@@ -206,32 +257,7 @@
             this.cmbPays.TabIndex = 9;
             this.cmbPays.UseCustomBackColor = true;
             this.cmbPays.UseSelectable = true;
-            // 
-            // rdoDecede
-            // 
-            this.rdoDecede.AutoSize = true;
-            this.rdoDecede.BackColor = System.Drawing.Color.Silver;
-            this.rdoDecede.Enabled = false;
-            this.rdoDecede.Location = new System.Drawing.Point(585, 163);
-            this.rdoDecede.Name = "rdoDecede";
-            this.rdoDecede.Size = new System.Drawing.Size(62, 15);
-            this.rdoDecede.TabIndex = 7;
-            this.rdoDecede.Text = "Décédé";
-            this.rdoDecede.UseCustomBackColor = true;
-            this.rdoDecede.UseSelectable = true;
-            // 
-            // rdoVivant
-            // 
-            this.rdoVivant.AutoSize = true;
-            this.rdoVivant.BackColor = System.Drawing.Color.Silver;
-            this.rdoVivant.Enabled = false;
-            this.rdoVivant.Location = new System.Drawing.Point(472, 163);
-            this.rdoVivant.Name = "rdoVivant";
-            this.rdoVivant.Size = new System.Drawing.Size(56, 15);
-            this.rdoVivant.TabIndex = 6;
-            this.rdoVivant.Text = "Vivant";
-            this.rdoVivant.UseCustomBackColor = true;
-            this.rdoVivant.UseSelectable = true;
+            this.cmbPays.SelectedIndexChanged += new System.EventHandler(this.cmbPays_SelectedIndexChanged);
             // 
             // metroLabel3
             // 
@@ -286,18 +312,6 @@
             this.txtPseudo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPseudo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // dtStatut
-            // 
-            this.dtStatut.CalendarTrailingForeColor = System.Drawing.Color.Silver;
-            this.dtStatut.Enabled = false;
-            this.dtStatut.Location = new System.Drawing.Point(472, 194);
-            this.dtStatut.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtStatut.Name = "dtStatut";
-            this.dtStatut.Size = new System.Drawing.Size(200, 29);
-            this.dtStatut.TabIndex = 8;
-            this.dtStatut.UseCustomBackColor = true;
-            this.dtStatut.Visible = false;
-            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
@@ -348,7 +362,7 @@
             // 
             // 
             this.txtBio.CustomButton.Image = null;
-            this.txtBio.CustomButton.Location = new System.Drawing.Point(598, 2);
+            this.txtBio.CustomButton.Location = new System.Drawing.Point(595, 2);
             this.txtBio.CustomButton.Name = "";
             this.txtBio.CustomButton.Size = new System.Drawing.Size(105, 105);
             this.txtBio.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -358,7 +372,7 @@
             this.txtBio.CustomButton.Visible = false;
             this.txtBio.Enabled = false;
             this.txtBio.Lines = new string[0];
-            this.txtBio.Location = new System.Drawing.Point(6, 263);
+            this.txtBio.Location = new System.Drawing.Point(9, 263);
             this.txtBio.MaxLength = 32767;
             this.txtBio.Multiline = true;
             this.txtBio.Name = "txtBio";
@@ -368,7 +382,7 @@
             this.txtBio.SelectionLength = 0;
             this.txtBio.SelectionStart = 0;
             this.txtBio.ShortcutsEnabled = true;
-            this.txtBio.Size = new System.Drawing.Size(706, 110);
+            this.txtBio.Size = new System.Drawing.Size(703, 110);
             this.txtBio.TabIndex = 10;
             this.txtBio.UseSelectable = true;
             this.txtBio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -577,6 +591,8 @@
             this.pnlAuteur.ResumeLayout(false);
             this.grpAuteur.ResumeLayout(false);
             this.grpAuteur.PerformLayout();
+            this.grpStatut.ResumeLayout(false);
+            this.grpStatut.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
             this.grpQuitter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
@@ -615,5 +631,6 @@
         private MetroFramework.Controls.MetroTile btnRechercher;
         private MetroFramework.Controls.MetroTile btnAjouter;
         private MetroFramework.Controls.MetroTile btnModifier;
+        private System.Windows.Forms.GroupBox grpStatut;
     }
 }
