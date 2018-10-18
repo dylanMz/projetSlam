@@ -8,7 +8,7 @@ using MySql.Data.MySqlClient;
 
 namespace LibMedia
 {
-    class CRUD_Couverture
+    public class CRUD_Couverture
     {
         private MySqlCommand cmdAjouter;
         private MySqlCommand cmdModifier;

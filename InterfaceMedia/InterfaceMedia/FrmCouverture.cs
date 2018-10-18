@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using LibMedia.LaibrairieClasses;
 
 namespace InterfaceMedia
 {
     public partial class FrmCouverture : MetroForm
     {
+
         public FrmCouverture()
         {
             InitializeComponent();
@@ -52,6 +54,7 @@ namespace InterfaceMedia
                 txtBoxTitre.BackColor = Color.White;
                 txtBoxAuteur.BackColor = Color.White;
                 txtBoxEditeur.BackColor = Color.White;
+
 
             }
 
