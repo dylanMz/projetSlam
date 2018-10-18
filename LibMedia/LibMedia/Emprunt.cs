@@ -49,6 +49,22 @@ namespace LibMedia
             set { _dateRetourPrevu = value; }
         }
 
+        public Emprunt(int EmpNum, string ExRef, DateTime dtEmp, DateTime dtRet, DateTime dtRetPrev)
+        {
+            _numEmp = EmpNum;
+            _refEx = ExRef;
+            _dateEmp = dtEmp;
+            _dateRetour = dtRet;
+            _dateRetourPrevu = dtRetPrev;
+        }
+
+        public Emprunt(int EmpNum, string ExRef, DateTime dtEmp)
+        {
+            _numEmp = EmpNum;
+            _refEx = ExRef;
+            _dateEmp = dtEmp;
+            _dateRetourPrevu = dtEmp.AddDays(15);
+        }
 
     }
 }
