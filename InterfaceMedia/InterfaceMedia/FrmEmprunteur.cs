@@ -48,7 +48,7 @@ namespace InterfaceMedia
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            if (btnAjouter.Text == "Ajouter")
+            if (btnAjouter.Text.Equals("Ajouter"))
             {
                 groupAjouterEmp.Enabled = true;
                 btnAjouter.BackColor = Color.Green;
@@ -70,7 +70,7 @@ namespace InterfaceMedia
                 txtVille.BackColor = Color.White;
                 DateTimeNaissance.CalendarTitleBackColor = Color.Silver;
             }
-            else if (btnAjouter.Text == "Valider")
+            else if (btnAjouter.Text.Equals("Valider"))
             {
                 groupAjouterEmp.Enabled = false;
                 btnAjouter.Text = "Ajouter";
@@ -138,7 +138,7 @@ namespace InterfaceMedia
                 //DateTimeAdhesion.BackColor = Color.White;
                 //txtVille.BackColor = Color.White;
             }
-            else if (btnModifier.Text == "Valider")
+            else if (btnModifier.Text.Equals("Valider"))
             {
                 groupAjouterEmp.Enabled = false;
                 btnModifier.Text = "Modifier";
