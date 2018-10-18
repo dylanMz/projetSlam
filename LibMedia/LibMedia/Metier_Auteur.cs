@@ -14,6 +14,7 @@ namespace LibMedia
         private MySqlCommand ajouterAut;
         private MySqlCommand modifierAut;
         private MySqlCommand rechercheAut;
+        private MySqlCommand PaysAut;
         private ConnexionBase connexion;
         #endregion
 
@@ -122,6 +123,20 @@ namespace LibMedia
             //Pseudo
             modifierAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
             modifierAut.Parameters["wpseudo"].Value = unPseudo;
+        }
+
+        public void PaysAuteur()
+        {
+            //déclaration et instanciation
+            PaysAut = new MySqlCommand();
+            //associer à la property CommandText la P.stockée
+            rechercheAut.CommandText = "proc_selection_pays_auteur";
+            //associer au type du command le fait que c’est une procédure stockée
+            rechercheAut.CommandType = CommandType.StoredProcedure;
+            //associer la connection du command et celle en cours
+            rechercheAut.Connection = connexion.getConnexion();
+
+
         }
         #endregion
     }
