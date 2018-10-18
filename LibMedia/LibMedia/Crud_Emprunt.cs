@@ -67,6 +67,20 @@ namespace LibMedia
             laConnexion.closeConnexion();       //Ferme la connexion
         }
 
+        public void deleteEmprunt(Emprunt unEmprunt)
+        {
+            laConnexion.OuvrirConnexion();
+            uneCmdSql = new MySqlCommand();
+            uneCmdSql.CommandText = "proc_delete_emprunt";  //Nom de la rpocédure sur MySql
+            uneCmdSql.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
+            uneCmdSql.Connection = laConnexion.getConnexion();
+            uneCmdSql.Parameters.Add(new MySqlParameter("numEmp", MySqlDbType.Int16));  // c'est deux ligne pour chaque parametre de la procedure
+            uneCmdSql.Parameters["numEmp"].Value = unEmprunt.numEmp;
+            uneCmdSql.Parameters.Add(new MySqlParameter("refEx", MySqlDbType.String));
+            uneCmdSql.Parameters["refEx"].Value = unEmprunt.refEx;
+            uneCmdSql.ExecuteNonQuery();       //Execute la requete
+            laConnexion.closeConnexion();       //Ferme la connexion
+        }
 
         public void afficheEmprunt(Emprunt unEmprunt)
         {
@@ -85,7 +99,7 @@ namespace LibMedia
         {
             laConnexion.OuvrirConnexion();
             uneCmdSql = new MySqlCommand();
-            uneCmdSql.CommandText = "proc_modif_date_retour";  //Nom de la rpocédure sur MySql
+            uneCmdSql.CommandText = "proc_modif_date_retour_emprunt";  //Nom de la rpocédure sur MySql
             uneCmdSql.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
             uneCmdSql.Connection = laConnexion.getConnexion();
             uneCmdSql.Parameters.Add(new MySqlParameter("numEmp", MySqlDbType.Int16));  // c'est deux ligne pour chaque parametre de la procedure
