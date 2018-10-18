@@ -21,6 +21,7 @@ namespace InterfaceMedia
             InitializeComponent();
         }
 
+        //bouton ajouter
         private void btnAjouter_Click(object sender, EventArgs e)
         {
             if (btnAjouter.Text == "Ajouter")
@@ -89,6 +90,7 @@ namespace InterfaceMedia
             }
         }
 
+        //bouton modifier
         private void btnModifier_Click(object sender, EventArgs e)
         {
             if (btnModifier.Text == "Modifier")
@@ -154,10 +156,9 @@ namespace InterfaceMedia
                 rdoDecede.BackColor = Color.Silver;
                 cmbPays.BackColor = Color.Silver;
             }
-
-
         }
 
+        //bouton rechercher
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             if (btnRechercher.Text == "Rechercher")
@@ -204,6 +205,7 @@ namespace InterfaceMedia
             }
         }
 
+        //bouton annuler
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             //les boutons sont remis par defaut
@@ -245,11 +247,13 @@ namespace InterfaceMedia
             btnAnnuler.Visible = false;
         }
 
+        //bouton quitter
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //image retour menu home
         private void picHome_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -258,9 +262,36 @@ namespace InterfaceMedia
             th.Start();
         }
 
+        //ouverture du formulaire accueil
         private void openformAccueil()
         {
             Application.Run(new FrmCouverture());
+        }
+
+        private void rdoDecede_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dtStatut.Visible == false)
+            {
+                //Affiche et deverouille le dateTime de décés.
+                dtStatut.Visible = true;
+                dtStatut.Enabled = true;
+            }
+            
+        }
+
+        private void rdoVivant_CheckedChanged(object sender, EventArgs e)
+        {
+            if (dtStatut.Visible == true)
+            {
+                //rend invisible et verouille le dateTime de décés
+                dtStatut.Visible = false;
+                dtStatut.Enabled = false;
+            }
+        }
+
+        private void cmbPays_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

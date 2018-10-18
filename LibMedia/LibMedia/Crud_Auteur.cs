@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace LibMedia
 {
-    public class Metier_Auteur
+    public class Crud_Auteur
     {
         #region propriété
         private MySqlCommand ajouterAut;
         private MySqlCommand modifierAut;
         private MySqlCommand rechercheAut;
-        private MySqlCommand PaysAut;
+        private MySqlCommand paysAut;
         private ConnexionBase connexion;
         #endregion
 
         #region constructeur
-        public Metier_Auteur()
+        public Crud_Auteur()
         {
             connexion = new ConnexionBase();
         }
@@ -125,18 +125,17 @@ namespace LibMedia
             modifierAut.Parameters["wpseudo"].Value = unPseudo;
         }
 
-        public void PaysAuteur()
+        //pays_auteur
+        public void paysAuteur()
         {
             //déclaration et instanciation
-            PaysAut = new MySqlCommand();
+            paysAut = new MySqlCommand();
             //associer à la property CommandText la P.stockée
             rechercheAut.CommandText = "proc_selection_pays_auteur";
             //associer au type du command le fait que c’est une procédure stockée
-            rechercheAut.CommandType = CommandType.StoredProcedure;
+            paysAut.CommandType = CommandType.StoredProcedure;
             //associer la connection du command et celle en cours
-            rechercheAut.Connection = connexion.getConnexion();
-
-
+            paysAut.Connection = connexion.getConnexion();
         }
         #endregion
     }
