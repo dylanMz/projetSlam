@@ -53,7 +53,7 @@
     <Compile Include="Emprunt.cs" />
     <Compile Include="Emprunteur.cs" />
     <Compile Include="Livre.cs" />
-    <Compile Include="Metier_Couverture.cs" />
+    <Compile Include="CRUD_Couverture.cs" />
     <Compile Include="Metier_Editeur.cs" />
     <Compile Include="Metier_Emprunteur.cs" />
     <Compile Include="Metier_Auteur.cs" />
