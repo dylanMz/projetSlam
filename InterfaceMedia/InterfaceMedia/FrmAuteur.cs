@@ -217,6 +217,7 @@ namespace InterfaceMedia
             btnRechercher.Text = "Rechercher";
 
             //Les textbox sont inacessibles.
+            txtCode.Enabled = false;
             txtNom.Enabled = false;
             txtPrenom.Enabled = false;
             txtPseudo.Enabled = false;
@@ -227,6 +228,7 @@ namespace InterfaceMedia
             cmbPays.Enabled = false;
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
+            txtCode.BackColor = Color.Silver;
             txtNom.BackColor = Color.Silver;
             txtPrenom.BackColor = Color.Silver;
             txtPseudo.BackColor = Color.Silver;

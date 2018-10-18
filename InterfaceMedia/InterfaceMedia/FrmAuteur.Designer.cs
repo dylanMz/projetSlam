@@ -33,7 +33,6 @@
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.btnRechercher = new MetroFramework.Controls.MetroTile();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
-            this.lblSeparation = new MetroFramework.Controls.MetroLabel();
             this.pnlAuteur = new MetroFramework.Controls.MetroPanel();
             this.grpAuteur = new System.Windows.Forms.GroupBox();
             this.cmbPays = new MetroFramework.Controls.MetroComboBox();
@@ -147,16 +146,6 @@
             this.btnAnnuler.UseCustomBackColor = true;
             this.btnAnnuler.UseSelectable = true;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
-            // 
-            // lblSeparation
-            // 
-            this.lblSeparation.AutoSize = true;
-            this.lblSeparation.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.lblSeparation.Location = new System.Drawing.Point(110, 14);
-            this.lblSeparation.Name = "lblSeparation";
-            this.lblSeparation.Size = new System.Drawing.Size(14, 38);
-            this.lblSeparation.TabIndex = 2;
-            this.lblSeparation.Text = "|\r\n|";
             // 
             // pnlAuteur
             // 
@@ -565,7 +554,7 @@
             // picHome
             // 
             this.picHome.Image = global::InterfaceMedia.Properties.Resources.maxresdefault;
-            this.picHome.Location = new System.Drawing.Point(130, 16);
+            this.picHome.Location = new System.Drawing.Point(111, 16);
             this.picHome.Name = "picHome";
             this.picHome.Size = new System.Drawing.Size(75, 41);
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -581,7 +570,6 @@
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.grpQuitter);
             this.Controls.Add(this.pnlAuteur);
-            this.Controls.Add(this.lblSeparation);
             this.Controls.Add(this.grpMenu);
             this.Name = "FrmAuteur";
             this.Text = "Auteur";
@@ -593,14 +581,12 @@
             this.grpQuitter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.GroupBox grpMenu;
-        private MetroFramework.Controls.MetroLabel lblSeparation;
         private MetroFramework.Controls.MetroPanel pnlAuteur;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroTextBox txtBio;
