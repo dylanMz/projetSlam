@@ -14,7 +14,7 @@ namespace InterfaceMedia
 {
     public partial class FrmCouverture : MetroForm
     {
-
+        private CRUD_Couverture uneCouverture;
         public FrmCouverture()
         {
             InitializeComponent();
