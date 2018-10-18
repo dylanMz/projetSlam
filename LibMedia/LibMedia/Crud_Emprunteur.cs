@@ -13,7 +13,6 @@ namespace LibMedia
         #region Proprietés
         private ConnexionBase uneconnexion;
         private List<Emprunteur> _desEmprunteurs;
-        private DataSet _unDataSet;
         private MySqlDataReader _unReader;
         #endregion
 
