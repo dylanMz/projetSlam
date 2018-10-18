@@ -15,6 +15,7 @@ namespace LibMedia
         private MySqlCommand modifierAut;
         private MySqlCommand rechercheAut;
         private MySqlCommand paysAut;
+        private MySqlCommand afficheAut;
         private ConnexionBase connexion;
         #endregion
 
@@ -131,11 +132,24 @@ namespace LibMedia
             //déclaration et instanciation
             paysAut = new MySqlCommand();
             //associer à la property CommandText la P.stockée
-            rechercheAut.CommandText = "proc_selection_pays_auteur";
+            paysAut.CommandText = "proc_selection_pays_auteur";
             //associer au type du command le fait que c’est une procédure stockée
             paysAut.CommandType = CommandType.StoredProcedure;
             //associer la connection du command et celle en cours
             paysAut.Connection = connexion.getConnexion();
+        }
+
+        //affiche_auteur
+        public void afficheAuteur()
+        {
+            //déclaration et instanciation
+            afficheAut = new MySqlCommand();
+            //associer à la property CommandText la P.stockée
+            afficheAut.CommandText = "proc_affiche_auteur";
+            //associer au type du command le fait que c’est une procédure stockée
+            afficheAut.CommandType = CommandType.StoredProcedure;
+            //associer la connection du command et celle en cours
+            afficheAut.Connection = connexion.getConnexion();
         }
         #endregion
     }

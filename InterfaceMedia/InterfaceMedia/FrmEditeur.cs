@@ -109,12 +109,24 @@ namespace InterfaceMedia
                 txtTel.BackColor = Color.Silver;
                 txtFax.BackColor = Color.Silver;
                 txtVille.BackColor = Color.Silver;
-
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
                 //Ajout d'un editeur
-                unEditeur.modifier_ajouter_editeur("Proc_insert_editeur", txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
+                unEditeur.modifier_ajouter_editeur("proc_insert_editeur", txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
 
+
+                //Reinistialisation des textbox
+                txtCode.Text = "";
+                txtNom.Text = "";
+                DateTimeCreation.Text = "";
+                txtMail.Text = "";
+                txtCodePostal.Text = "";
+                txtAdr.Text = "";
+                txtTel.Text = "";
+                txtFax.Text = "";
+                txtVille.Text = "";
+
+                GridEditeur.DataSource = unEditeur.Recup_Table_Editeur("proc_affiche_editeur", "editeur");
 
             }
         }
