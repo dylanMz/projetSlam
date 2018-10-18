@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
-using LibMedia.LaibrairieClasses;
+using LibMedia;
 
 namespace InterfaceMedia
 {
     public partial class FrmCouverture : MetroForm
     {
-
+        private CRUD_Couverture uneCouverture;
         public FrmCouverture()
         {
             InitializeComponent();
