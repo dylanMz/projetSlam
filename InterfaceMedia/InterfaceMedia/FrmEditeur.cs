@@ -14,14 +14,15 @@ namespace InterfaceMedia
 {
     public partial class FrmEditeur : MetroForm
     {
-        private Metier_Editeur unEditeur;
+        private Crud_Editeur unEditeur;
         private ConnexionBase uneconnexion;
+        private int uneDateCreation;
 
         public FrmEditeur()
         {
             InitializeComponent();
             uneconnexion = new ConnexionBase();
-            unEditeur = new Metier_Editeur(uneconnexion);
+            unEditeur = new Crud_Editeur(uneconnexion);
             GridEditeur.DataSource = unEditeur.Recup_Table_Editeur("proc_affiche_editeur","editeur");
 
             
@@ -66,6 +67,16 @@ namespace InterfaceMedia
                 txtFax.BackColor = Color.White;
                 txtVille.BackColor = Color.White;
 
+                //Reinistialisation des textbox
+                txtCode.Text = "";
+                txtNom.Text = "";
+                DateTimeCreation.Text = "";
+                txtMail.Text = "";
+                txtCodePostal.Text = "";
+                txtAdr.Text = "";
+                txtTel.Text = "";
+                txtFax.Text = "";
+                txtVille.Text = "";
             }
 
             else if (btnAjouter.Text.Equals("Valider"))
@@ -98,6 +109,12 @@ namespace InterfaceMedia
                 txtTel.BackColor = Color.Silver;
                 txtFax.BackColor = Color.Silver;
                 txtVille.BackColor = Color.Silver;
+
+                uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
+
+                //Ajout d'un editeur
+                unEditeur.modifier_ajouter_editeur("Proc_insert_editeur", txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
+
 
             }
         }
@@ -316,7 +333,9 @@ namespace InterfaceMedia
         {
             txtCode.Text = GridEditeur.CurrentRow.Cells["EditeurNum"].Value.ToString();
             txtNom.Text = GridEditeur.CurrentRow.Cells["EditeurNom"].Value.ToString();
+
             //DateTimeCreation.Text = GridEditeur.CurrentRow.Cells["EditeurCreation"].Value.ToString();
+
             txtVille.Text = GridEditeur.CurrentRow.Cells["EditeurVille"].Value.ToString();
             txtAdr.Text = GridEditeur.CurrentRow.Cells["EditeurAdresse"].Value.ToString();
             txtCodePostal.Text = GridEditeur.CurrentRow.Cells["EditeurCP"].Value.ToString();

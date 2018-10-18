@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibMedia
 {
-    public class Metier_Editeur
+    public class Crud_Editeur
     {
         #region Propriétés
         private ConnexionBase uneconnexion;
@@ -18,13 +18,13 @@ namespace LibMedia
         #endregion
 
         #region Constructeur.s
-        public Metier_Editeur(ConnexionBase connexion_en_cours)
+        public Crud_Editeur(ConnexionBase connexion_en_cours)
         {
             uneconnexion = connexion_en_cours;
 
         }
 
-        public Metier_Editeur()
+        public Crud_Editeur()
         {
             uneconnexion = new ConnexionBase();
         }
@@ -49,7 +49,7 @@ namespace LibMedia
             return (_unDataset.Tables[wTable]);
         }
 
-       public void modifier_ajouter_editeur(String nomProc, String wEditeurNom, int wEditeurCreation, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurTel, String wEditeurFax, String wEditeurMail)
+       public void modifier_ajouter_editeur(String nomProc, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
         {
             MySqlCommand unComdeSql = new MySqlCommand();
             unComdeSql.CommandText = nomProc;
