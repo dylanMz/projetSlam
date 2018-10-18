@@ -54,7 +54,7 @@ namespace LibMedia
             }
         }
 
-        public void connectprocedure(String nomprocedure, ref string codeErreur, List<KeyValuePair<String, Object>> parametresString, List<KeyValuePair<DateTime, Object>> parametresDateTime)
+        public void connectprocedure(String nomprocedure, ref string codeErreur, List<KeyValuePair<String, Object>> parametresString)
         {
             codeErreur = "0";
             MySqlCommand unecommandeSql = new MySqlCommand();
