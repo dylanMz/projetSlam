@@ -57,12 +57,14 @@
             this.grpQuitter = new System.Windows.Forms.GroupBox();
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
+            this.grpStatut = new System.Windows.Forms.GroupBox();
             this.grpMenu.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
             this.grpAuteur.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
             this.grpQuitter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
+            this.grpStatut.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpMenu
@@ -170,13 +172,11 @@
             this.grpAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpAuteur.Controls.Add(this.grpStatut);
             this.grpAuteur.Controls.Add(this.cmbPays);
-            this.grpAuteur.Controls.Add(this.rdoDecede);
-            this.grpAuteur.Controls.Add(this.rdoVivant);
             this.grpAuteur.Controls.Add(this.metroLabel3);
             this.grpAuteur.Controls.Add(this.metroLabel2);
             this.grpAuteur.Controls.Add(this.txtPseudo);
-            this.grpAuteur.Controls.Add(this.dtStatut);
             this.grpAuteur.Controls.Add(this.metroLabel1);
             this.grpAuteur.Controls.Add(this.dtDateNaiss);
             this.grpAuteur.Controls.Add(this.metroLabel5);
@@ -206,32 +206,35 @@
             this.cmbPays.TabIndex = 9;
             this.cmbPays.UseCustomBackColor = true;
             this.cmbPays.UseSelectable = true;
+            this.cmbPays.SelectedIndexChanged += new System.EventHandler(this.cmbPays_SelectedIndexChanged);
             // 
             // rdoDecede
             // 
             this.rdoDecede.AutoSize = true;
             this.rdoDecede.BackColor = System.Drawing.Color.Silver;
             this.rdoDecede.Enabled = false;
-            this.rdoDecede.Location = new System.Drawing.Point(585, 163);
+            this.rdoDecede.Location = new System.Drawing.Point(119, 26);
             this.rdoDecede.Name = "rdoDecede";
             this.rdoDecede.Size = new System.Drawing.Size(62, 15);
             this.rdoDecede.TabIndex = 7;
             this.rdoDecede.Text = "Décédé";
             this.rdoDecede.UseCustomBackColor = true;
             this.rdoDecede.UseSelectable = true;
+            this.rdoDecede.CheckedChanged += new System.EventHandler(this.rdoDecede_CheckedChanged);
             // 
             // rdoVivant
             // 
             this.rdoVivant.AutoSize = true;
             this.rdoVivant.BackColor = System.Drawing.Color.Silver;
             this.rdoVivant.Enabled = false;
-            this.rdoVivant.Location = new System.Drawing.Point(472, 163);
+            this.rdoVivant.Location = new System.Drawing.Point(6, 26);
             this.rdoVivant.Name = "rdoVivant";
             this.rdoVivant.Size = new System.Drawing.Size(56, 15);
             this.rdoVivant.TabIndex = 6;
             this.rdoVivant.Text = "Vivant";
             this.rdoVivant.UseCustomBackColor = true;
             this.rdoVivant.UseSelectable = true;
+            this.rdoVivant.CheckedChanged += new System.EventHandler(this.rdoVivant_CheckedChanged);
             // 
             // metroLabel3
             // 
@@ -290,7 +293,7 @@
             // 
             this.dtStatut.CalendarTrailingForeColor = System.Drawing.Color.Silver;
             this.dtStatut.Enabled = false;
-            this.dtStatut.Location = new System.Drawing.Point(472, 194);
+            this.dtStatut.Location = new System.Drawing.Point(6, 57);
             this.dtStatut.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtStatut.Name = "dtStatut";
             this.dtStatut.Size = new System.Drawing.Size(200, 29);
@@ -562,6 +565,17 @@
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
+            // grpStatut
+            // 
+            this.grpStatut.Controls.Add(this.rdoVivant);
+            this.grpStatut.Controls.Add(this.dtStatut);
+            this.grpStatut.Controls.Add(this.rdoDecede);
+            this.grpStatut.Location = new System.Drawing.Point(447, 137);
+            this.grpStatut.Name = "grpStatut";
+            this.grpStatut.Size = new System.Drawing.Size(212, 100);
+            this.grpStatut.TabIndex = 17;
+            this.grpStatut.TabStop = false;
+            // 
             // FrmAuteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -580,6 +594,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
             this.grpQuitter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
+            this.grpStatut.ResumeLayout(false);
+            this.grpStatut.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -615,5 +631,6 @@
         private MetroFramework.Controls.MetroTile btnRechercher;
         private MetroFramework.Controls.MetroTile btnAjouter;
         private MetroFramework.Controls.MetroTile btnModifier;
+        private System.Windows.Forms.GroupBox grpStatut;
     }
 }
