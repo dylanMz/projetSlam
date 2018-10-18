@@ -35,7 +35,7 @@ namespace InterfaceMedia
         }
 
         
-
+        //Rempli le Grid avec les emprunteurs
         private void RempGridEmprunteur(List<Emprunteur> lesemprunteur)
         {
             GridEmprunteur.DataSource = lesemprunteur;
@@ -48,7 +48,7 @@ namespace InterfaceMedia
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            if (btnAjouter.Text == "Ajouter")
+            if (btnAjouter.Text.Equals("Ajouter"))
             {
                 groupAjouterEmp.Enabled = true;
                 btnAjouter.BackColor = Color.Green;
@@ -70,7 +70,7 @@ namespace InterfaceMedia
                 txtVille.BackColor = Color.White;
                 DateTimeNaissance.CalendarTitleBackColor = Color.Silver;
             }
-            else if (btnAjouter.Text == "Valider")
+            else if (btnAjouter.Text.Equals("Valider"))
             {
                 groupAjouterEmp.Enabled = false;
                 btnAjouter.Text = "Ajouter";
@@ -105,6 +105,95 @@ namespace InterfaceMedia
         private void openformAccueil()
         {
             Application.Run(new FrmAccueilTest());
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            if (btnModifier.Text.Equals("Modifier"))
+            {
+                groupAjouterEmp.Enabled = true;
+                btnModifier.BackColor = Color.Green;
+                btnModifier.Text = "Valider";
+
+                //le bouton annuler apparait
+                btnAnnuler.Visible = true;
+
+                //Desactive tous les autres boutons
+                btnAjouter.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnRechercher.Enabled = false;
+                btnFamille.Enabled = false;
+
+
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+                groupAjouterEmp.BackColor = Color.White;
+                //txtNom.BackColor = Color.White;
+                //DateTimeRenouvellement.BackColor = Color.White;
+                //txtMail.BackColor = Color.White;
+                //txtCodePostal.BackColor = Color.White;
+                //txtPrenom.BackColor = Color.White;
+                //txtAdresse.BackColor = Color.White;
+                //DateTimeNaissance.BackColor = Color.White;
+                //DateTimeAdhesion.BackColor = Color.White;
+                //txtVille.BackColor = Color.White;
+            }
+            else if (btnModifier.Text.Equals("Valider"))
+            {
+                groupAjouterEmp.Enabled = false;
+                btnModifier.Text = "Modifier";
+                btnModifier.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnAjouter.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnRechercher.Enabled = true;
+                btnFamille.Enabled = true;
+
+
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                groupAjouterEmp.BackColor = Color.Silver;
+                //txtNom.BackColor = Color.Silver;
+                //txtPrenom.BackColor = Color.Silver;
+                //txtMail.BackColor = Color.Silver;
+                //txtCodePostal.BackColor = Color.Silver;
+                //txtAdresse.BackColor = Color.Silver;
+                //DateTimeRenouvellement.BackColor = Color.Silver;
+                //DateTimeNaissance.BackColor = Color.Silver;
+                //DateTimeAdhesion.BackColor = Color.Silver;
+                //txtVille.BackColor = Color.Silver;
+            }
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            //les boutons sont remis par defaut
+            btnAjouter.BackColor = Color.SteelBlue;
+            btnModifier.BackColor = Color.SteelBlue;
+            btnSupprimer.BackColor = Color.SteelBlue;
+            btnRechercher.BackColor = Color.SteelBlue;
+
+            btnAjouter.Enabled = true;
+            btnModifier.Enabled = true;
+            btnSupprimer.Enabled = true;
+            btnRechercher.Enabled = true;
+            btnFamille.Enabled = true;
+
+            btnAjouter.Text = "Ajouter";
+            btnModifier.Text = "Modifier";
+            btnSupprimer.Text = "Supprimer";
+            btnRechercher.Text = "Rechercher";
+
+            //Les textbox sont inacessibles.
+            groupAjouterEmp.Enabled = false;
+
+            //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
+            groupAjouterEmp.BackColor = Color.Silver;
+
+            //le bouton annuler disparait
+            btnAnnuler.Visible = false;
         }
     }
 }

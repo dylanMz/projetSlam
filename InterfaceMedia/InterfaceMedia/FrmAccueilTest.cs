@@ -30,8 +30,10 @@ namespace InterfaceMedia
 
         private void MetroTileEditeur_Click(object sender, EventArgs e)
         {
-            FrmEditeur wFrmEidteur = new FrmEditeur();
-            wFrmEidteur.ShowDialog();
+            this.Close();
+            th = new Thread(openformEditeur);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
 
         }
 
@@ -43,9 +45,68 @@ namespace InterfaceMedia
             th.Start();
         }
 
+        private void metroTileAuteur_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openformAuteur);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void metroTileLivre_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openformLivre);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void metroTileCouverture_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openformCouverture);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void metroTileEmprunt_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openformEmprunt);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
         private void openformEmprunteur()
         {
             Application.Run(new FrmEmprunteur());
         }
+
+        private void openformAuteur()
+        {
+            Application.Run(new FrmAuteur());
+        }
+
+        private void openformEditeur()
+        {
+            Application.Run(new FrmEditeur());
+        }
+
+        private void openformLivre()
+        {
+            Application.Run(new Frmlivre());
+        }
+
+        private void openformEmprunt()
+        {
+            Application.Run(new FrmEmprunt());
+        }
+
+        private void openformCouverture()
+        {
+            Application.Run(new FrmCouverture());
+        }
+
+
     }
 }
