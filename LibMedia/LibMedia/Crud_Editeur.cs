@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibMedia
 {
-    public class Metier_Editeur
+    public class Crud_Editeur
     {
         #region Propriétés
         private ConnexionBase uneconnexion;
@@ -18,13 +18,13 @@ namespace LibMedia
         #endregion
 
         #region Constructeur.s
-        public Metier_Editeur(ConnexionBase connexion_en_cours)
+        public Crud_Editeur(ConnexionBase connexion_en_cours)
         {
             uneconnexion = connexion_en_cours;
 
         }
 
-        public Metier_Editeur()
+        public Crud_Editeur()
         {
             uneconnexion = new ConnexionBase();
         }
@@ -33,22 +33,23 @@ namespace LibMedia
         #region Méthode
 
         //Affiche la table Vendeur.
-        public void Recup_Table_Editeur()
+        public DataTable Recup_Table_Editeur(String nomProc, String wTable)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
-                String wTable = "editeur";
                 MySqlCommand EditeurMysql = new MySqlCommand();
-                EditeurMysql.CommandText = "proc_affiche_editeur";
+                EditeurMysql.CommandText = nomProc;
                 EditeurMysql.CommandType = CommandType.StoredProcedure;
                 EditeurMysql.Connection = uneconnexion.getConnexion();
                 _unAdapter = new MySqlDataAdapter(EditeurMysql);
                 _unDataset = new DataSet();
                 _unAdapter.Fill(_unDataset, wTable);
+                uneconnexion.closeConnexion();
             }
+            return (_unDataset.Tables[wTable]);
         }
 
-       public void modifier_ajouter_editeur(String nomProc, String wEditeurNom, int wEditeurCreation, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurTel, String wEditeurFax, String wEditeurMail)
+       public void modifier_ajouter_editeur(String nomProc, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
         {
             MySqlCommand unComdeSql = new MySqlCommand();
             unComdeSql.CommandText = nomProc;
@@ -79,6 +80,7 @@ namespace LibMedia
             unComdeSql.Parameters.Add(new MySqlParameter("EditeurMail", MySqlDbType.String));
             unComdeSql.Parameters["EditeurMail"].Value = wEditeurMail;
         }
+        //test
         #endregion
     }
 }

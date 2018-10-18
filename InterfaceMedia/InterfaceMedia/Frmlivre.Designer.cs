@@ -34,9 +34,11 @@
             this.btnSupprimer = new MetroFramework.Controls.MetroTile();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.metrotileQuitter = new MetroFramework.Controls.MetroTile();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.cmbbxauteur = new MetroFramework.Controls.MetroComboBox();
+            this.cmbbxserie = new MetroFramework.Controls.MetroComboBox();
+            this.cmbbxediteur = new MetroFramework.Controls.MetroComboBox();
             this.rdbtnta = new System.Windows.Forms.RadioButton();
             this.lblexemp = new MetroFramework.Controls.MetroLabel();
             this.txtbxreferencerexemp = new MetroFramework.Controls.MetroTextBox();
@@ -70,12 +72,8 @@
             this.lbltitre = new MetroFramework.Controls.MetroLabel();
             this.txtbxtitre = new MetroFramework.Controls.MetroTextBox();
             this.dtgrvLivre = new System.Windows.Forms.DataGridView();
-            this.cmbbxediteur = new MetroFramework.Controls.MetroComboBox();
-            this.cmbbxserie = new MetroFramework.Controls.MetroComboBox();
-            this.cmbbxauteur = new MetroFramework.Controls.MetroComboBox();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrvLivre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -83,12 +81,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.metrotileQuitter);
             this.groupBox1.Controls.Add(this.btnAnnuler);
             this.groupBox1.Controls.Add(this.btnRechercher);
             this.groupBox1.Controls.Add(this.btnSupprimer);
             this.groupBox1.Controls.Add(this.btnModifier);
             this.groupBox1.Controls.Add(this.btnAjouter);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(768, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(181, 591);
@@ -111,6 +109,7 @@
             this.btnAnnuler.UseCustomBackColor = true;
             this.btnAnnuler.UseSelectable = true;
             this.btnAnnuler.Visible = false;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnRechercher
             // 
@@ -127,6 +126,7 @@
             this.btnRechercher.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnRechercher.UseCustomBackColor = true;
             this.btnRechercher.UseSelectable = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // btnSupprimer
             // 
@@ -143,6 +143,7 @@
             this.btnSupprimer.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnSupprimer.UseCustomBackColor = true;
             this.btnSupprimer.UseSelectable = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnModifier
             // 
@@ -175,15 +176,7 @@
             this.btnAjouter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnAjouter.UseCustomBackColor = true;
             this.btnAjouter.UseSelectable = true;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.metrotileQuitter);
-            this.groupBox2.Location = new System.Drawing.Point(1, 492);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 78);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // metrotileQuitter
             // 
@@ -191,7 +184,7 @@
             this.metrotileQuitter.BackColor = System.Drawing.Color.Tomato;
             this.metrotileQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metrotileQuitter.ForeColor = System.Drawing.Color.White;
-            this.metrotileQuitter.Location = new System.Drawing.Point(6, 19);
+            this.metrotileQuitter.Location = new System.Drawing.Point(6, 532);
             this.metrotileQuitter.Name = "metrotileQuitter";
             this.metrotileQuitter.Size = new System.Drawing.Size(168, 44);
             this.metrotileQuitter.Style = MetroFramework.MetroColorStyle.Blue;
@@ -254,6 +247,45 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // cmbbxauteur
+            // 
+            this.cmbbxauteur.BackColor = System.Drawing.Color.Silver;
+            this.cmbbxauteur.Enabled = false;
+            this.cmbbxauteur.FormattingEnabled = true;
+            this.cmbbxauteur.ItemHeight = 23;
+            this.cmbbxauteur.Location = new System.Drawing.Point(233, 248);
+            this.cmbbxauteur.Name = "cmbbxauteur";
+            this.cmbbxauteur.Size = new System.Drawing.Size(121, 29);
+            this.cmbbxauteur.TabIndex = 76;
+            this.cmbbxauteur.UseCustomBackColor = true;
+            this.cmbbxauteur.UseSelectable = true;
+            // 
+            // cmbbxserie
+            // 
+            this.cmbbxserie.BackColor = System.Drawing.Color.Silver;
+            this.cmbbxserie.Enabled = false;
+            this.cmbbxserie.FormattingEnabled = true;
+            this.cmbbxserie.ItemHeight = 23;
+            this.cmbbxserie.Location = new System.Drawing.Point(233, 208);
+            this.cmbbxserie.Name = "cmbbxserie";
+            this.cmbbxserie.Size = new System.Drawing.Size(121, 29);
+            this.cmbbxserie.TabIndex = 75;
+            this.cmbbxserie.UseCustomBackColor = true;
+            this.cmbbxserie.UseSelectable = true;
+            // 
+            // cmbbxediteur
+            // 
+            this.cmbbxediteur.BackColor = System.Drawing.Color.Silver;
+            this.cmbbxediteur.Enabled = false;
+            this.cmbbxediteur.FormattingEnabled = true;
+            this.cmbbxediteur.ItemHeight = 23;
+            this.cmbbxediteur.Location = new System.Drawing.Point(233, 169);
+            this.cmbbxediteur.Name = "cmbbxediteur";
+            this.cmbbxediteur.Size = new System.Drawing.Size(121, 29);
+            this.cmbbxediteur.TabIndex = 74;
+            this.cmbbxediteur.UseCustomBackColor = true;
+            this.cmbbxediteur.UseSelectable = true;
             // 
             // rdbtnta
             // 
@@ -872,45 +904,6 @@
             this.dtgrvLivre.Size = new System.Drawing.Size(697, 196);
             this.dtgrvLivre.TabIndex = 102;
             // 
-            // cmbbxediteur
-            // 
-            this.cmbbxediteur.BackColor = System.Drawing.Color.Silver;
-            this.cmbbxediteur.Enabled = false;
-            this.cmbbxediteur.FormattingEnabled = true;
-            this.cmbbxediteur.ItemHeight = 23;
-            this.cmbbxediteur.Location = new System.Drawing.Point(233, 169);
-            this.cmbbxediteur.Name = "cmbbxediteur";
-            this.cmbbxediteur.Size = new System.Drawing.Size(121, 29);
-            this.cmbbxediteur.TabIndex = 74;
-            this.cmbbxediteur.UseCustomBackColor = true;
-            this.cmbbxediteur.UseSelectable = true;
-            // 
-            // cmbbxserie
-            // 
-            this.cmbbxserie.BackColor = System.Drawing.Color.Silver;
-            this.cmbbxserie.Enabled = false;
-            this.cmbbxserie.FormattingEnabled = true;
-            this.cmbbxserie.ItemHeight = 23;
-            this.cmbbxserie.Location = new System.Drawing.Point(233, 208);
-            this.cmbbxserie.Name = "cmbbxserie";
-            this.cmbbxserie.Size = new System.Drawing.Size(121, 29);
-            this.cmbbxserie.TabIndex = 75;
-            this.cmbbxserie.UseCustomBackColor = true;
-            this.cmbbxserie.UseSelectable = true;
-            // 
-            // cmbbxauteur
-            // 
-            this.cmbbxauteur.BackColor = System.Drawing.Color.Silver;
-            this.cmbbxauteur.Enabled = false;
-            this.cmbbxauteur.FormattingEnabled = true;
-            this.cmbbxauteur.ItemHeight = 23;
-            this.cmbbxauteur.Location = new System.Drawing.Point(233, 248);
-            this.cmbbxauteur.Name = "cmbbxauteur";
-            this.cmbbxauteur.Size = new System.Drawing.Size(121, 29);
-            this.cmbbxauteur.TabIndex = 76;
-            this.cmbbxauteur.UseCustomBackColor = true;
-            this.cmbbxauteur.UseSelectable = true;
-            // 
             // picHome
             // 
             this.picHome.Image = global::InterfaceMedia.Properties.Resources.maxresdefault;
@@ -933,7 +926,6 @@
             this.Name = "Frmlivre";
             this.Text = "Livre";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrvLivre)).EndInit();
@@ -950,7 +942,6 @@
         private MetroFramework.Controls.MetroTile btnSupprimer;
         private MetroFramework.Controls.MetroTile btnModifier;
         private MetroFramework.Controls.MetroTile btnAjouter;
-        private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroTile metrotileQuitter;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private System.Windows.Forms.RadioButton rdbtnta;

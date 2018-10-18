@@ -107,6 +107,9 @@ namespace InterfaceMedia
             Application.Run(new FrmCouverture());
         }
 
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

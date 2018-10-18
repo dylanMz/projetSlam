@@ -24,5 +24,22 @@ namespace InterfaceMedia
             gpbxChoix.Enabled = true;
            // if()
         }
+
+        private void btnAjoutEmp_Click(object sender, EventArgs e)
+        {
+            
+
+            if(btnAjoutEmp.Text == "Ajouter")
+            {
+                btnAjoutEmp.Text = "Valider";
+                btnAjoutEmp.Style = MetroFramework.MetroColorStyle.Green;
+            }
+            else
+            {
+
+            }
+        }
+
+
     }
 }

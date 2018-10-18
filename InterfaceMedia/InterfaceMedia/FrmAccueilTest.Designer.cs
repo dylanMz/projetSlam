@@ -226,6 +226,7 @@
             this.btnAdmin.UseCustomBackColor = true;
             this.btnAdmin.UseSelectable = true;
             this.btnAdmin.UseTileImage = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // FrmAccueilTest
             // 
@@ -233,7 +234,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::InterfaceMedia.Properties.Resources.Quitter5;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BackImage = global::InterfaceMedia.Properties.Resources.Quitter5;
             this.BackImagePadding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.ClientSize = new System.Drawing.Size(1080, 570);
             this.Controls.Add(this.btnAdmin);
@@ -252,6 +252,7 @@
             this.Controls.Add(this.metroTileEmprunt);
             this.Controls.Add(this.metroTileEmprunteur);
             this.Name = "FrmAccueilTest";
+            this.Resizable = false;
             this.Text = "Accueil";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
