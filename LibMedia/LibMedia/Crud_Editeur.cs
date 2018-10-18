@@ -50,9 +50,9 @@ namespace LibMedia
         }
 
         //Ajout ou modification d'un editeur
-        public void modifier_ajouter_editeur(String nomProc, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
+        public void modifier_ajouter_editeur(String nomProc, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation, String wUnCodeSortie)
         {
-            if (uneConnexion.OuvrirConnexion() == true)
+            if (uneconnexion.OuvrirConnexion() == true)
             {
                 MySqlCommand unComdeSql = new MySqlCommand();
                 unComdeSql.CommandText = nomProc;
@@ -83,9 +83,16 @@ namespace LibMedia
                 unComdeSql.Parameters.Add(new MySqlParameter("wcreation", MySqlDbType.Int16));
                 unComdeSql.Parameters["wcreation"].Value = wEditeurCreation;
 
+
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
+                unComdeSql.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
+
                 unComdeSql.ExecuteNonQuery();
 
                 uneconnexion.closeConnexion();
+
 
             }
         }

@@ -16,16 +16,19 @@ namespace InterfaceMedia
     {
         private Crud_Editeur unEditeur;
         private ConnexionBase uneconnexion;
+
         private int uneDateCreation;
+
+        private String unCodeSortie;
 
         public FrmEditeur()
         {
             InitializeComponent();
+
             uneconnexion = new ConnexionBase();
             unEditeur = new Crud_Editeur(uneconnexion);
-            GridEditeur.DataSource = unEditeur.Recup_Table_Editeur("proc_affiche_editeur","editeur");
 
-            
+            GridEditeur.DataSource = unEditeur.Recup_Table_Editeur("proc_affiche_editeur", "editeur");
             DateTimeCreation.Format = DateTimePickerFormat.Custom;
             DateTimeCreation.CustomFormat = "yyyy";
             DateTimeCreation.ShowUpDown = true;
@@ -81,6 +84,8 @@ namespace InterfaceMedia
 
             else if (btnAjouter.Text.Equals("Valider"))
             {
+                unCodeSortie = "";
+
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
@@ -112,7 +117,7 @@ namespace InterfaceMedia
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
                 //Ajout d'un editeur
-                unEditeur.modifier_ajouter_editeur("proc_insert_editeur", txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
+                unEditeur.modifier_ajouter_editeur("proc_insert_editeur", txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation, unCodeSortie);
 
 
                 //Reinistialisation des textbox
