@@ -17,9 +17,15 @@ namespace InterfaceMedia
     {
         Thread th;
         private Crud_Auteur wpaysAuteur;
+        private ConnexionBase uneconnexion;
+        private Crud_Auteur unAuteur;
+
         public FrmAuteur()
         {
             InitializeComponent();
+            uneconnexion = new ConnexionBase();
+            unAuteur = new Crud_Auteur(uneconnexion);
+            dgvAuteur.DataSource = unAuteur.Recup_Table_Editeur("proc_affiche_editeur", "editeur");
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
