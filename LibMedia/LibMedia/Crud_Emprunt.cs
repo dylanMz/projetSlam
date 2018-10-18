@@ -82,7 +82,7 @@ namespace LibMedia
             laConnexion.closeConnexion();       //Ferme la connexion
         }
 
-        public void afficheEmprunt(Emprunt unEmprunt)
+        public DataTable afficheEmprunt()
         {
             laConnexion.OuvrirConnexion();
             uneCmdSql = new MySqlCommand();
@@ -90,8 +90,17 @@ namespace LibMedia
             uneCmdSql.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
             uneCmdSql.Connection = laConnexion.getConnexion();
 
-            uneCmdSql.ExecuteNonQuery();       //Execute la requete
-            laConnexion.closeConnexion();       //Ferme la connexion
+            MySqlDataAdapter unAdapter = new MySqlDataAdapter(uneCmdSql);
+            DataSet unDataset = new DataSet();
+            DataTable uneTable;
+            uneTable = new DataTable();
+            unAdapter.Fill(unDataset, "emprunter");
+            uneTable = unDataset.Tables["emprunter"];
+
+            laConnexion.closeConnexion();
+
+            return uneTable;
+
         }
 
 
@@ -112,7 +121,7 @@ namespace LibMedia
             laConnexion.closeConnexion();       //Ferme la connexion
         }
 
-        public void rechercheDate_Emprunt(Emprunt unEmprunt)
+        public DataTable rechercheDate_Emprunt(Emprunt unEmprunt)
         {
             laConnexion.OuvrirConnexion();
             uneCmdSql = new MySqlCommand();
@@ -121,11 +130,20 @@ namespace LibMedia
             uneCmdSql.Connection = laConnexion.getConnexion();
             uneCmdSql.Parameters.Add(new MySqlParameter("dateEmp", MySqlDbType.Date));
             uneCmdSql.Parameters["dateEmp"].Value = unEmprunt.dateEmp;
-            uneCmdSql.ExecuteNonQuery();       //Execute la requete
-            laConnexion.closeConnexion();       //Ferme la connexion
+
+            MySqlDataAdapter unAdapter = new MySqlDataAdapter(uneCmdSql);
+            DataSet unDataset = new DataSet();
+            DataTable uneTable;
+            uneTable = new DataTable();
+            unAdapter.Fill(unDataset, "date_emprunt");
+            uneTable = unDataset.Tables["date_emprunt"];
+
+            laConnexion.closeConnexion();
+
+            return uneTable;
         }
 
-        public void rechercheEmprunt(Emprunt unEmprunt)
+        public DataTable rechercheEmprunt(Emprunt unEmprunt)
         {
             laConnexion.OuvrirConnexion();
             uneCmdSql = new MySqlCommand();
@@ -136,14 +154,24 @@ namespace LibMedia
             uneCmdSql.Parameters["RefExemp"].Value = unEmprunt.refEx;
             uneCmdSql.Parameters.Add(new MySqlParameter("NumEmp", MySqlDbType.String));
             uneCmdSql.Parameters["NumEmp"].Value = unEmprunt.numEmp;
-            uneCmdSql.ExecuteNonQuery();       //Execute la requete
-            laConnexion.closeConnexion();       //Ferme la connexion
+
+            MySqlDataAdapter unAdapter = new MySqlDataAdapter(uneCmdSql);
+            DataSet unDataset = new DataSet();
+            DataTable uneTable;
+            uneTable = new DataTable();
+            unAdapter.Fill(unDataset, "Emprunt");
+            uneTable = unDataset.Tables["Emprunt"];
+
+            laConnexion.closeConnexion();
+
+            return uneTable;
         }
 
         
 
-        public void rechercheNonRendu(Emprunt unEmprunt)
+        public DataTable rechercheNonRendu(Emprunt unEmprunt)
         {
+
             laConnexion.OuvrirConnexion();
             uneCmdSql = new MySqlCommand();
             uneCmdSql.CommandText = "proc_recherche_non_rendu_emprunt";  //Nom de la rpocédure sur MySql
@@ -151,8 +179,17 @@ namespace LibMedia
             uneCmdSql.Connection = laConnexion.getConnexion();
             uneCmdSql.Parameters.Add(new MySqlParameter("dateD", MySqlDbType.Int16));  // c'est deux ligne pour chaque parametre de la procedure
             uneCmdSql.Parameters["dateD"].Value = unEmprunt.dateRetourPrevu;
-            uneCmdSql.ExecuteNonQuery();       //Execute la requete
-            laConnexion.closeConnexion();       //Ferme la connexion
+
+            MySqlDataAdapter unAdapter = new MySqlDataAdapter(uneCmdSql);
+            DataSet unDataset = new DataSet();
+            DataTable uneTable;
+            uneTable = new DataTable();
+            unAdapter.Fill(unDataset, "NonRendu");
+            uneTable = unDataset.Tables["NonRendu"];
+
+            laConnexion.closeConnexion();
+
+            return uneTable;
         }
 
 

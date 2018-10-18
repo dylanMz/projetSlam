@@ -49,6 +49,7 @@
     <Compile Include="Auteur.cs" />
     <Compile Include="ConnexionBase.cs" />
     <Compile Include="Couverture.cs" />
+    <Compile Include="Crud_livre.cs" />
     <Compile Include="Editeur.cs" />
     <Compile Include="Emprunt.cs" />
     <Compile Include="Emprunteur.cs" />
@@ -57,7 +58,7 @@
     <Compile Include="Crud_Emprunt.cs" />
     <Compile Include="Crud_Emprunteur.cs" />
     <Compile Include="CRUD_Couverture.cs" />
-    <Compile Include="Metier_Auteur.cs" />
+    <Compile Include="Crud_Auteur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
