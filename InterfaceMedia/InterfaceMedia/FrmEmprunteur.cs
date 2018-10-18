@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibMedia;
@@ -14,6 +15,7 @@ namespace InterfaceMedia
 {
     public partial class FrmEmprunteur : MetroForm
     {
+        Thread th;
         private Metier_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
         public FrmEmprunteur()
@@ -29,7 +31,10 @@ namespace InterfaceMedia
         private void metrotileQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
+            
         }
+
+        
 
         private void RempGridEmprunteur(List<Emprunteur> lesemprunteur)
         {
@@ -91,9 +96,15 @@ namespace InterfaceMedia
 
         private void picHome_Click(object sender, EventArgs e)
         {
-            FrmAccueilTest wAccueilTest = new FrmAccueilTest();
-            wAccueilTest.Show();
+            this.Close();
+            th = new Thread(openformAccueil);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
 
+        }
+        private void openformAccueil()
+        {
+            Application.Run(new FrmAccueilTest());
         }
     }
 }
