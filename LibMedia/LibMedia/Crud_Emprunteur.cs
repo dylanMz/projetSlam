@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LibMedia
 {
-    public class Metier_Emprunteur
+    public class Crud_Emprunteur
     {
         #region Proprietés
         private ConnexionBase uneconnexion;
@@ -19,13 +19,13 @@ namespace LibMedia
 
         #region Constructeur
 
-        public Metier_Emprunteur(ConnexionBase connexion_en_cours)
+        public Crud_Emprunteur(ConnexionBase connexion_en_cours)
         {
             uneconnexion = connexion_en_cours;
             _desEmprunteurs = new List<Emprunteur>();
 
         }
-        public Metier_Emprunteur()
+        public Crud_Emprunteur()
         {
             uneconnexion = new ConnexionBase();
             _desEmprunteurs = new List<Emprunteur>();
@@ -52,6 +52,32 @@ namespace LibMedia
                 _unReader.Close();
                 uneconnexion.closeConnexion();
             }
+        }
+
+        public void connectprocedure(String nomprocedure, ref string codeErreur, List<KeyValuePair<String, Object>> parametresString, List<KeyValuePair<DateTime, Object>> parametresDateTime)
+        {
+            codeErreur = "0";
+            MySqlCommand unecommandeSql = new MySqlCommand();
+            unecommandeSql.CommandText = nomprocedure;
+            unecommandeSql.CommandType = CommandType.StoredProcedure;
+            unecommandeSql.Connection = uneconnexion.getConnexion();
+
+            foreach(KeyValuePair<String, Object> unParametre in parametresString)
+            {
+                unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.String));
+                unecommandeSql.Parameters[unParametre.Key].Value = unParametre.Value;
+            }
+
+            //gestion d'erreurs 
+            try
+            {
+                unecommandeSql.ExecuteNonQuery();
+            }
+            catch (MySqlException myException)
+            {
+                codeErreur = myException.Number.ToString();
+            }
+
         }
         
         #region Accesseur
