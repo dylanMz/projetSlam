@@ -108,30 +108,10 @@ namespace InterfaceMedia
                 txtBoxAuteur.BackColor = Color.White;
                 txtBoxEditeur.BackColor = Color.White;
 
-            }
-
-            else if (btnModifier.Text.Equals("Valider"))
-            {
-                btnModifier.Text = "Modifier";
-                btnModifier.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnAjouter.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnRechercher.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtBoxCode.Enabled = false;
-                txtBoxTitre.Enabled = false;
-                txtBoxAuteur.Enabled = false;
-                txtBoxEditeur.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtBoxCode.BackColor = Color.Silver;
-                txtBoxTitre.BackColor = Color.Silver;
-                txtBoxAuteur.BackColor = Color.Silver;
-                txtBoxEditeur.BackColor = Color.Silver;
+                OpenFileDialog openFile = new OpenFileDialog();
+                openFile.DefaultExt = "C:/Users/h.zagorjewsky/Source/Repos/dylanMz/projetSlam/InterfaceMedia/InterfaceMedia/Resources";
+                openFile.Filter = "Fichier MapInfoFormat (*.jpeg)|*.jpeg";
+                openFile.ShowDialog();
             }
         }
 

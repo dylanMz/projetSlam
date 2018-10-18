@@ -17,22 +17,37 @@ namespace LibMedia
             private int bd_num_tome;
             private int bd_annee_parution;
             private String bd_image;
-            private String bd_serie;
-            private String edi_code;
-
+            private int num_serie;
+         
+            private String bd_isbn;
+            private int bd_pages;
+            private String bd_couleur;
+            private String bd_commentaires;
+            private String bd_format;
+            private int num_editeur;
                 #endregion
 
 
             #region Constructeur
-         public Livre(int wbd_code, String wbd_titre, int wbd_num_tome, int wbd_annee_parution, String wbd_image, String wbd_serie, String wedi_code)
+         public Livre(int wbd_code, String wbd_titre,String wBdisbn, int wbd_num_tome ,int wbd_annee_parution,int wpages, String wbd_image,String wcouleur,String wCommentaires,String wFormat ,int wbd_serie, int wedi_code)
             {
                 bd_code = wbd_code;
                 bd_titre = wbd_titre;
                 bd_num_tome = wbd_num_tome;
                 bd_annee_parution = wbd_annee_parution;
                 bd_image = wbd_image;
-                bd_serie = wbd_serie;
-                edi_code = wedi_code;
+                num_serie = wbd_serie;
+                num_editeur = wedi_code;
+
+                bd_isbn = wBdisbn;
+                bd_pages = wpages;
+                bd_couleur = wcouleur;
+                bd_commentaires = wCommentaires;
+                bd_format = wFormat;
+
+
+
+
 
             }
             #endregion
@@ -80,21 +95,57 @@ namespace LibMedia
 
          
 
-            public String wbd_serie
+            public int wbd_serie
             {
-                get { return bd_serie; }
-                set { bd_serie = value; }
+                get { return num_serie; }
+                set { num_serie = value; }
             }
             
 
-            public String wedi_code
+            public int wedi_code
             {
-                get { return edi_code; }
-                set { edi_code = value; }
+                get { return num_editeur; }
+                set { num_editeur = value; }
             }
 
+            
 
+            public int wpages
+            {
+                get { return bd_pages; }
+                set { bd_pages = value; }
+            }
 
+            
+
+            public String wisbn
+            {
+                get { return bd_isbn; }
+                set { bd_isbn = value; }
+            }
+
+      
+
+            public String wcouleur
+            {
+                get { return bd_couleur; }
+                set { bd_couleur = value; }
+            }
+           
+
+            public String wcommentaires
+            {
+                get { return bd_commentaires; }
+                set { bd_commentaires = value; }
+            }
+
+            
+
+            public String wFormat
+            {
+                get { return bd_format;  }
+                set { bd_format =  value; }
+            }
 
 
             #endregion
