@@ -16,6 +16,8 @@ namespace LibMedia
         private MySqlCommand rechercheAut;
         private MySqlCommand paysAut;
         private MySqlCommand afficheAut;
+        private MySqlDataAdapter unAdapter;
+        private DataSet unDataset;
         private ConnexionBase connexion;
         #endregion
 
@@ -140,7 +142,7 @@ namespace LibMedia
         }
 
         //affiche_auteur
-        public void afficheAuteur()
+        public DataTable afficheAuteur()
         {
             //déclaration et instanciation
             afficheAut = new MySqlCommand();
@@ -150,6 +152,15 @@ namespace LibMedia
             afficheAut.CommandType = CommandType.StoredProcedure;
             //associer la connection du command et celle en cours
             afficheAut.Connection = connexion.getConnexion();
+
+            if (connexion.OuvrirConnexion() == true)
+            {
+                unAdapter = new MySqlDataAdapter(afficheAut);
+                unDataset = new DataSet();
+                unAdapter.Fill(unDataset);
+                connexion.closeConnexion();
+            }
+            return (unDataset.Tables["auteur"]);
         }
         #endregion
     }
