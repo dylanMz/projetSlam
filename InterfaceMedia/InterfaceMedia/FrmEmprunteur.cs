@@ -48,7 +48,7 @@ namespace InterfaceMedia
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            if (btnAjouter.Text == "Ajouter")
+            if (btnAjouter.Text.Equals("Ajouter"))
             {
                 groupAjouterEmp.Enabled = true;
                 btnAjouter.BackColor = Color.Green;
@@ -70,7 +70,7 @@ namespace InterfaceMedia
                 txtVille.BackColor = Color.White;
                 DateTimeNaissance.CalendarTitleBackColor = Color.Silver;
             }
-            else if (btnAjouter.Text == "Valider")
+            else if (btnAjouter.Text.Equals("Valider"))
             {
                 groupAjouterEmp.Enabled = false;
                 btnAjouter.Text = "Ajouter";
@@ -127,16 +127,18 @@ namespace InterfaceMedia
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtNom.BackColor = Color.White;
-                DateTimeRenouvellement.BackColor = Color.White;
-                txtMail.BackColor = Color.White;
-                txtCodePostal.BackColor = Color.White;
-                txtPrenom.BackColor = Color.White;
-                txtAdresse.BackColor = Color.White;
-                DateTimeNaissance.BackColor = Color.White;
-                DateTimeAdhesion.BackColor = Color.White;
-                txtVille.BackColor = Color.White;
-            }else if (btnModifier.Text == "Valider")
+                groupAjouterEmp.BackColor = Color.White;
+                //txtNom.BackColor = Color.White;
+                //DateTimeRenouvellement.BackColor = Color.White;
+                //txtMail.BackColor = Color.White;
+                //txtCodePostal.BackColor = Color.White;
+                //txtPrenom.BackColor = Color.White;
+                //txtAdresse.BackColor = Color.White;
+                //DateTimeNaissance.BackColor = Color.White;
+                //DateTimeAdhesion.BackColor = Color.White;
+                //txtVille.BackColor = Color.White;
+            }
+            else if (btnModifier.Text.Equals("Valider"))
             {
                 groupAjouterEmp.Enabled = false;
                 btnModifier.Text = "Modifier";
@@ -152,16 +154,46 @@ namespace InterfaceMedia
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtNom.BackColor = Color.Silver;
-                txtPrenom.BackColor = Color.Silver;
-                txtMail.BackColor = Color.Silver;
-                txtCodePostal.BackColor = Color.Silver;
-                txtAdresse.BackColor = Color.Silver;
-                DateTimeRenouvellement.BackColor = Color.Silver;
-                DateTimeNaissance.BackColor = Color.Silver;
-                DateTimeAdhesion.BackColor = Color.Silver;
-                txtVille.BackColor = Color.Silver;
+                groupAjouterEmp.BackColor = Color.Silver;
+                //txtNom.BackColor = Color.Silver;
+                //txtPrenom.BackColor = Color.Silver;
+                //txtMail.BackColor = Color.Silver;
+                //txtCodePostal.BackColor = Color.Silver;
+                //txtAdresse.BackColor = Color.Silver;
+                //DateTimeRenouvellement.BackColor = Color.Silver;
+                //DateTimeNaissance.BackColor = Color.Silver;
+                //DateTimeAdhesion.BackColor = Color.Silver;
+                //txtVille.BackColor = Color.Silver;
             }
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
+            //les boutons sont remis par defaut
+            btnAjouter.BackColor = Color.SteelBlue;
+            btnModifier.BackColor = Color.SteelBlue;
+            btnSupprimer.BackColor = Color.SteelBlue;
+            btnRechercher.BackColor = Color.SteelBlue;
+
+            btnAjouter.Enabled = true;
+            btnModifier.Enabled = true;
+            btnSupprimer.Enabled = true;
+            btnRechercher.Enabled = true;
+            btnFamille.Enabled = true;
+
+            btnAjouter.Text = "Ajouter";
+            btnModifier.Text = "Modifier";
+            btnSupprimer.Text = "Supprimer";
+            btnRechercher.Text = "Rechercher";
+
+            //Les textbox sont inacessibles.
+            groupAjouterEmp.Enabled = false;
+
+            //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
+            groupAjouterEmp.BackColor = Color.Silver;
+
+            //le bouton annuler disparait
+            btnAnnuler.Visible = false;
         }
     }
 }
