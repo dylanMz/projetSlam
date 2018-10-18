@@ -16,10 +16,10 @@ namespace InterfaceMedia
     public partial class FrmEmprunteur : MetroForm
     {
         Thread th;
+        private string id;
         private Crud_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
         private List<KeyValuePair<string, object>> parametresString;
-        private List<KeyValuePair<DateTime, object>> parametresDateTime;
 
         public FrmEmprunteur()
         {
@@ -46,15 +46,29 @@ namespace InterfaceMedia
 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            id = GridEmprunteur.CurrentRow.Cells["numéro"].Value.ToString(); ;
             txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
             txtPrenom.Text = GridEmprunteur.CurrentRow.Cells["prénom"].Value.ToString();
             txtMail.Text = GridEmprunteur.CurrentRow.Cells["mail"].Value.ToString();
             txtAdresse.Text = GridEmprunteur.CurrentRow.Cells["rue"].Value.ToString();
             txtCodePostal.Text = GridEmprunteur.CurrentRow.Cells["code_postal"].Value.ToString();
             txtVille.Text = GridEmprunteur.CurrentRow.Cells["ville"].Value.ToString();
-            //DateTimeNaissance.Text = GridEmprunteur.CurrentRow.Cells["naissance"].Value.ToString();
-            //DateTimeAdhesion.Text = GridEmprunteur.CurrentRow.Cells["adhesion"].Value.ToString();
-          //  DateTimeRenouvellement.Text = GridEmprunteur.CurrentRow.Cells["renouvellement_adhesion"].Value.ToString();
+            DateTimeNaissance.Text = GridEmprunteur.CurrentRow.Cells["naissance"].Value.ToString();
+
+            String Adhesion = GridEmprunteur.CurrentRow.Cells["adhésion"].Value.ToString();
+            if (Adhesion.Equals("01/01/0001 00:00:00"))
+            {
+                DateTimeAdhesion.Visible = false;
+                lblAdhesion.Visible = false;
+            }
+            else
+            {
+                DateTimeAdhesion.Visible = true;
+                lblAdhesion.Visible = true;
+                DateTimeAdhesion.Text = Adhesion;
+            }
+            
+            DateTimeRenouvellement.Text = GridEmprunteur.CurrentRow.Cells["renouvellement_adhésion"].Value.ToString();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -151,25 +165,31 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
+
                 List<KeyValuePair<String, Object>> parametresString = new List<KeyValuePair<String, Object>>(){
 
                      //wid est le nom du parametre de la procédure stokée, et id les valeurs.
+                    new KeyValuePair<String, Object>("wid", id),
                     new KeyValuePair<String, Object>("wnom", txtNom.Text),
                     new KeyValuePair<String, Object>("wprenom", txtPrenom.Text),
                     new KeyValuePair<String, Object>("wrue", txtAdresse.Text),
                     new KeyValuePair<String, Object>("wcodepostal", txtCodePostal.Text),
-                    new KeyValuePair<String, Object>("wville", txtCodePostal.Text),
-                    new KeyValuePair<String, Object>("wdatenaiss", DateTimeNaissance.Text),
+                    new KeyValuePair<String, Object>("wville", txtVille.Text),
                     new KeyValuePair<String, Object>("wmail", txtMail.Text),
-                    new KeyValuePair<String, Object>("wpremadh", DateTimeAdhesion.Text),
-                    new KeyValuePair<String, Object>("wrenadh", DateTimeRenouvellement.Text),
                   };
-                if (uneconnexion.OuvrirConnexion() == true)
-                {
-                    String recupcode = null;
-                    unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString);
 
-                }
+                List<KeyValuePair<String, Object>> parametresDate = new List<KeyValuePair<String, Object>>(){
+
+                     //wid est le nom du parametre de la procédure stokée, et id les valeurs.
+                    new KeyValuePair<String, Object>("wdatenaiss", DateTime.Parse(DateTimeNaissance.Text).ToString("yyyy-MM-dd")),
+                    new KeyValuePair<String, Object>("wpremadh", DateTime.Parse(DateTimeAdhesion.Text).ToString("yyyy-MM-dd")),
+                    new KeyValuePair<String, Object>("wrenadh", DateTime.Parse(DateTimeRenouvellement.Text).ToString("yyyy-MM-dd")),
+                  };
+
+                String recupcode = null;
+                unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString, parametresDate);
+
+               
                 groupAjouterEmp.Enabled = false;
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;

@@ -52,31 +52,43 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
-
-        public void connectprocedure(String nomprocedure, ref string codeErreur, List<KeyValuePair<String, Object>> parametresString)
+        //Exécute la procédure avec les paramétres
+        public void connectprocedure(String nomprocedure, ref string codeErreur, List<KeyValuePair<String, Object>> parametresString, List<KeyValuePair<String, Object>> parametresDate)
         {
-            codeErreur = "0";
-            MySqlCommand unecommandeSql = new MySqlCommand();
-            unecommandeSql.CommandText = nomprocedure;
-            unecommandeSql.CommandType = CommandType.StoredProcedure;
-            unecommandeSql.Connection = uneconnexion.getConnexion();
-
-            foreach(KeyValuePair<String, Object> unParametre in parametresString)
+            if (uneconnexion.OuvrirConnexion() == true)
             {
-                unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.String));
-                unecommandeSql.Parameters[unParametre.Key].Value = unParametre.Value;
-            }
+                codeErreur = "0";
+                MySqlCommand unecommandeSql = new MySqlCommand();
+                unecommandeSql.CommandText = nomprocedure;
+                unecommandeSql.CommandType = CommandType.StoredProcedure;
+                unecommandeSql.Connection = uneconnexion.getConnexion();
 
-            //gestion d'erreurs 
-            try
-            {
+                foreach (KeyValuePair<String, Object> unParametre in parametresString)
+                {
+                    unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.String));
+                    unecommandeSql.Parameters[unParametre.Key].Value = unParametre.Value;
+                }
+
+                foreach (KeyValuePair<String, Object> unParametre in parametresDate)
+                {
+                    unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.Date));
+                    unecommandeSql.Parameters[unParametre.Key].Value = unParametre.Value;
+                }
+
+
                 unecommandeSql.ExecuteNonQuery();
-            }
-            catch (MySqlException myException)
-            {
-                codeErreur = myException.Number.ToString();
-            }
 
+                //gestion d'erreurs 
+                try
+                {
+                    unecommandeSql.ExecuteNonQuery();
+                }
+                catch (MySqlException myException)
+                {
+                    codeErreur = myException.Number.ToString();
+                }
+                uneconnexion.closeConnexion();
+            }
         }
         
         #region Accesseur
