@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,13 +16,12 @@ namespace LibMedia
         private MySqlCommand cmdSupprimer;
         private MySqlCommand cmdLire;
         private ConnexionBase _connexion;
-        private List<Livre> bibliotheque;
-        private Livre unLivre;
+        private List<Couverture> bibliotheque;
+        private Couverture uneCouverture;
 
-        public CRUD_Couverture()
+        public CRUD_Couverture(ConnexionBase uneConnexion)
         {
             _connexion = new ConnexionBase();
-            _connexion.OuvrirConnexion();
         }
 
         public void ajouter(int unCodeBd, string uneImageBd)
@@ -64,25 +64,36 @@ namespace LibMedia
             _connexion.closeConnexion();
         }
 
-        public List<Livre> Lire()
+       /* public List<Couverture> recupCouverture()
         {
-            bibliotheque = new List<Livre>();
+
+            bibliotheque = new List<Couverture>();
             cmdLire = new MySqlCommand();
-            cmdLire.CommandText = "proc_afficher_couverture";
+            cmdLire.CommandText = "LireBdd";
             cmdLire.CommandType = System.Data.CommandType.StoredProcedure;
             cmdLire.Connection = _connexion.getConnexion();
-            MySqlDataReader reader = cmdLire.ExecuteReader();
-            reader.Read();
-            if (reader.HasRows == true)
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmdLire);
+            DataSet dts = new DataSet("ListeDonnéesRecupérées");
+            dataAdapter.Fill(dts, "ListeDonnéesRecupérées");*/
+            
+
+            /*if(_connexion.OuvrirConnexion() == true)
             {
+            _connexion.OuvrirConnexion();
+            cmdLire = new MySqlCommand();
+                cmdLire.CommandText = "proc_afficher_couverture";
+                cmdLire.CommandType = System.Data.CommandType.StoredProcedure;
+                cmdLire.Connection = _connexion.getConnexion();
+                MySqlDataReader reader = cmdLire.ExecuteReader();
+
                 while (reader.Read())
                 {
-                    unLivre = new Livre(reader.GetInt16(1), reader.GetString(2), reader.GetString(3), reader.GetInt16(4), reader.GetInt16(5), reader.GetInt16(6), reader.GetString(7), reader.GetString(8), reader.GetString(9), reader.GetString(10), reader.GetInt16(11), reader.GetInt16(12));
-                    bibliotheque.Add(unLivre);
-
-                }
+                    bibliotheque.Add(new Livre(int.Parse(reader["BdId"].ToString()), reader["BdTitre"].ToString(), reader["BdIsbn"].ToString(), int.Parse(reader["BdTome"].ToString()), DateTime.Parse(reader["BdParution"].ToString()), int.Parse(reader["BdNbPages"].ToString()), reader["BdImage"].ToString(), reader["BdCouleur"].ToString(), reader["BdCommentaires"].ToString(), reader["BdFormat"].ToString(), int.Parse(reader["NumSerie"].ToString()), int.Parse(reader["NumEditeur"].ToString())));
             }
-            return bibliotheque;
+                reader.Close();
+            }
+            _connexion.closeConnexion();
+            return bibliotheque;*/
         }
     }
 }

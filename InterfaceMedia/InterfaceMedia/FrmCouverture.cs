@@ -10,14 +10,21 @@ using System.Windows.Forms;
 using MetroFramework.Forms;
 using LibMedia;
 
+
 namespace InterfaceMedia
 {
     public partial class FrmCouverture : MetroForm
     {
         private CRUD_Couverture uneCouverture;
+        private ConnexionBase _connexion;
+
         public FrmCouverture()
         {
             InitializeComponent();
+            _connexion = new ConnexionBase();
+            _connexion.OuvrirConnexion();
+            uneCouverture = new CRUD_Couverture(_connexion);
+            GridViewBase.DataSource = uneCouverture.recupCouverture();
         }
 
         private void picHome_Click(object sender, EventArgs e)

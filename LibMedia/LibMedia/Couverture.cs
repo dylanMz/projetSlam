@@ -11,18 +11,16 @@ namespace LibMedia
         #region propriété
         private int codeBd;
         private string titreBd;
-        private string serieBd;
-        private int tomeBd;
+        private string Auteur;
         private string editeurBd;
         private string imageBd;
         #endregion
         #region constructeur
-        public Couverture(int unCodeBd, string unTitreBd, string uneSerieBd, int unTomeBd, string unEditeurBd, string uneImageBd)
+        public Couverture(int unCodeBd, string unTitreBd, string unAuteurBd, string unEditeurBd, string uneImageBd)
         {
             codeBd = unCodeBd;
             titreBd = unTitreBd;
-            serieBd = uneSerieBd;
-            tomeBd = unTomeBd;
+            Auteur = unAuteurBd;
             editeurBd = unEditeurBd;
             imageBd = uneImageBd;
         }
@@ -46,24 +44,14 @@ namespace LibMedia
             titreBd = unTitre;
         }
 
-        public string getSerieBd()
+        public string getAuteurBd()
         {
-            return serieBd;
+            return Auteur;
         }
-        public void setSerieBd(string uneSerie)
+        public void setSerieBd(string unAuteur)
         {
-            serieBd = uneSerie;
+            Auteur = unAuteur;
         }
-
-        public int getTomeBd()
-        {
-            return tomeBd;
-        }
-        public void setTomeBd(int unTomeBd)
-        {
-            tomeBd = unTomeBd;
-        }
-
         public string getEditeurBd()
         {
             return editeurBd;
