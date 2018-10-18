@@ -37,6 +37,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.metrotileQuitter = new MetroFramework.Controls.MetroTile();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.cmbbxauteur = new MetroFramework.Controls.MetroComboBox();
+            this.cmbbxserie = new MetroFramework.Controls.MetroComboBox();
+            this.cmbbxediteur = new MetroFramework.Controls.MetroComboBox();
             this.rdbtnta = new System.Windows.Forms.RadioButton();
             this.lblexemp = new MetroFramework.Controls.MetroLabel();
             this.txtbxreferencerexemp = new MetroFramework.Controls.MetroTextBox();
@@ -70,9 +73,6 @@
             this.lbltitre = new MetroFramework.Controls.MetroLabel();
             this.txtbxtitre = new MetroFramework.Controls.MetroTextBox();
             this.dtgrvLivre = new System.Windows.Forms.DataGridView();
-            this.cmbbxediteur = new MetroFramework.Controls.MetroComboBox();
-            this.cmbbxserie = new MetroFramework.Controls.MetroComboBox();
-            this.cmbbxauteur = new MetroFramework.Controls.MetroComboBox();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -111,6 +111,7 @@
             this.btnAnnuler.UseCustomBackColor = true;
             this.btnAnnuler.UseSelectable = true;
             this.btnAnnuler.Visible = false;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnRechercher
             // 
@@ -127,6 +128,7 @@
             this.btnRechercher.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnRechercher.UseCustomBackColor = true;
             this.btnRechercher.UseSelectable = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // btnSupprimer
             // 
@@ -143,6 +145,7 @@
             this.btnSupprimer.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnSupprimer.UseCustomBackColor = true;
             this.btnSupprimer.UseSelectable = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnModifier
             // 
@@ -175,6 +178,7 @@
             this.btnAjouter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnAjouter.UseCustomBackColor = true;
             this.btnAjouter.UseSelectable = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // groupBox2
             // 
@@ -254,6 +258,45 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // cmbbxauteur
+            // 
+            this.cmbbxauteur.BackColor = System.Drawing.Color.Silver;
+            this.cmbbxauteur.Enabled = false;
+            this.cmbbxauteur.FormattingEnabled = true;
+            this.cmbbxauteur.ItemHeight = 23;
+            this.cmbbxauteur.Location = new System.Drawing.Point(233, 248);
+            this.cmbbxauteur.Name = "cmbbxauteur";
+            this.cmbbxauteur.Size = new System.Drawing.Size(121, 29);
+            this.cmbbxauteur.TabIndex = 76;
+            this.cmbbxauteur.UseCustomBackColor = true;
+            this.cmbbxauteur.UseSelectable = true;
+            // 
+            // cmbbxserie
+            // 
+            this.cmbbxserie.BackColor = System.Drawing.Color.Silver;
+            this.cmbbxserie.Enabled = false;
+            this.cmbbxserie.FormattingEnabled = true;
+            this.cmbbxserie.ItemHeight = 23;
+            this.cmbbxserie.Location = new System.Drawing.Point(233, 208);
+            this.cmbbxserie.Name = "cmbbxserie";
+            this.cmbbxserie.Size = new System.Drawing.Size(121, 29);
+            this.cmbbxserie.TabIndex = 75;
+            this.cmbbxserie.UseCustomBackColor = true;
+            this.cmbbxserie.UseSelectable = true;
+            // 
+            // cmbbxediteur
+            // 
+            this.cmbbxediteur.BackColor = System.Drawing.Color.Silver;
+            this.cmbbxediteur.Enabled = false;
+            this.cmbbxediteur.FormattingEnabled = true;
+            this.cmbbxediteur.ItemHeight = 23;
+            this.cmbbxediteur.Location = new System.Drawing.Point(233, 169);
+            this.cmbbxediteur.Name = "cmbbxediteur";
+            this.cmbbxediteur.Size = new System.Drawing.Size(121, 29);
+            this.cmbbxediteur.TabIndex = 74;
+            this.cmbbxediteur.UseCustomBackColor = true;
+            this.cmbbxediteur.UseSelectable = true;
             // 
             // rdbtnta
             // 
@@ -871,45 +914,6 @@
             this.dtgrvLivre.Name = "dtgrvLivre";
             this.dtgrvLivre.Size = new System.Drawing.Size(697, 196);
             this.dtgrvLivre.TabIndex = 102;
-            // 
-            // cmbbxediteur
-            // 
-            this.cmbbxediteur.BackColor = System.Drawing.Color.Silver;
-            this.cmbbxediteur.Enabled = false;
-            this.cmbbxediteur.FormattingEnabled = true;
-            this.cmbbxediteur.ItemHeight = 23;
-            this.cmbbxediteur.Location = new System.Drawing.Point(233, 169);
-            this.cmbbxediteur.Name = "cmbbxediteur";
-            this.cmbbxediteur.Size = new System.Drawing.Size(121, 29);
-            this.cmbbxediteur.TabIndex = 74;
-            this.cmbbxediteur.UseCustomBackColor = true;
-            this.cmbbxediteur.UseSelectable = true;
-            // 
-            // cmbbxserie
-            // 
-            this.cmbbxserie.BackColor = System.Drawing.Color.Silver;
-            this.cmbbxserie.Enabled = false;
-            this.cmbbxserie.FormattingEnabled = true;
-            this.cmbbxserie.ItemHeight = 23;
-            this.cmbbxserie.Location = new System.Drawing.Point(233, 208);
-            this.cmbbxserie.Name = "cmbbxserie";
-            this.cmbbxserie.Size = new System.Drawing.Size(121, 29);
-            this.cmbbxserie.TabIndex = 75;
-            this.cmbbxserie.UseCustomBackColor = true;
-            this.cmbbxserie.UseSelectable = true;
-            // 
-            // cmbbxauteur
-            // 
-            this.cmbbxauteur.BackColor = System.Drawing.Color.Silver;
-            this.cmbbxauteur.Enabled = false;
-            this.cmbbxauteur.FormattingEnabled = true;
-            this.cmbbxauteur.ItemHeight = 23;
-            this.cmbbxauteur.Location = new System.Drawing.Point(233, 248);
-            this.cmbbxauteur.Name = "cmbbxauteur";
-            this.cmbbxauteur.Size = new System.Drawing.Size(121, 29);
-            this.cmbbxauteur.TabIndex = 76;
-            this.cmbbxauteur.UseCustomBackColor = true;
-            this.cmbbxauteur.UseSelectable = true;
             // 
             // picHome
             // 
