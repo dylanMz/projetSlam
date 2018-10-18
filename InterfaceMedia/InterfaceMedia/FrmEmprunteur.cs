@@ -47,6 +47,14 @@ namespace InterfaceMedia
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
+            txtPrenom.Text = GridEmprunteur.CurrentRow.Cells["prénom"].Value.ToString();
+            txtMail.Text = GridEmprunteur.CurrentRow.Cells["mail"].Value.ToString();
+            txtAdresse.Text = GridEmprunteur.CurrentRow.Cells["rue"].Value.ToString();
+            txtCodePostal.Text = GridEmprunteur.CurrentRow.Cells["code_postal"].Value.ToString();
+            txtVille.Text = GridEmprunteur.CurrentRow.Cells["ville"].Value.ToString();
+            //DateTimeNaissance.Text = GridEmprunteur.CurrentRow.Cells["naissance"].Value.ToString();
+            //DateTimeAdhesion.Text = GridEmprunteur.CurrentRow.Cells["adhesion"].Value.ToString();
+          //  DateTimeRenouvellement.Text = GridEmprunteur.CurrentRow.Cells["renouvellement_adhesion"].Value.ToString();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
