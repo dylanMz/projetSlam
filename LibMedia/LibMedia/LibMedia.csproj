@@ -56,7 +56,7 @@
     <Compile Include="Metier_Couverture.cs" />
     <Compile Include="Metier_Editeur.cs" />
     <Compile Include="Crud_Emprunt.cs" />
-    <Compile Include="Metier_Emprunteur.cs" />
+    <Compile Include="Crud_Emprunteur.cs" />
     <Compile Include="Metier_Auteur.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
