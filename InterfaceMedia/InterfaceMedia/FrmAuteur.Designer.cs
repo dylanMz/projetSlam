@@ -199,7 +199,7 @@
             this.grpStatut.Controls.Add(this.rdoVivant);
             this.grpStatut.Controls.Add(this.dtStatut);
             this.grpStatut.Controls.Add(this.rdoDecede);
-            this.grpStatut.Location = new System.Drawing.Point(447, 137);
+            this.grpStatut.Location = new System.Drawing.Point(460, 137);
             this.grpStatut.Name = "grpStatut";
             this.grpStatut.Size = new System.Drawing.Size(212, 100);
             this.grpStatut.TabIndex = 17;
@@ -210,7 +210,7 @@
             this.rdoVivant.AutoSize = true;
             this.rdoVivant.BackColor = System.Drawing.Color.Silver;
             this.rdoVivant.Enabled = false;
-            this.rdoVivant.Location = new System.Drawing.Point(6, 26);
+            this.rdoVivant.Location = new System.Drawing.Point(18, 26);
             this.rdoVivant.Name = "rdoVivant";
             this.rdoVivant.Size = new System.Drawing.Size(56, 15);
             this.rdoVivant.TabIndex = 6;
@@ -236,7 +236,7 @@
             this.rdoDecede.AutoSize = true;
             this.rdoDecede.BackColor = System.Drawing.Color.Silver;
             this.rdoDecede.Enabled = false;
-            this.rdoDecede.Location = new System.Drawing.Point(119, 26);
+            this.rdoDecede.Location = new System.Drawing.Point(125, 26);
             this.rdoDecede.Name = "rdoDecede";
             this.rdoDecede.Size = new System.Drawing.Size(62, 15);
             this.rdoDecede.TabIndex = 7;
