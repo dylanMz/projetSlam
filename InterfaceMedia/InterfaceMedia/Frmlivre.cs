@@ -32,7 +32,7 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = false;
                 btnSupprimer.Enabled = false;
                 btnModifier.Enabled = false;
-               
+
 
                 // textbox activer pour l'insertion
 
@@ -81,7 +81,7 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = true;
                 btnSupprimer.Enabled = true;
                 btnModifier.Enabled = true;
-              
+
 
                 // textbox desactiver pour l'insertion
                 txtbxtitre.Enabled = false;
@@ -187,7 +187,7 @@ namespace InterfaceMedia
 
 
                 //desactive les autres boutons
-              
+
                 btnSupprimer.Enabled = false;
                 btnModifier.Enabled = false;
                 btnAjouter.Enabled = false;
@@ -196,17 +196,18 @@ namespace InterfaceMedia
                 txtbxtitre.Enabled = true;
                 cmbbxannee.Enabled = true;
 
-               txtbxtitre.BackColor = Color.White;
+                txtbxtitre.BackColor = Color.White;
                 cmbbxannee.BackColor = Color.White;
             }
-            else if (btnRechercher.Text.Equals("Valider")) {
+            else if (btnRechercher.Text.Equals("Valider"))
+            {
 
                 btnRechercher.BackColor = Color.SteelBlue;
                 btnRechercher.Text = "Rechercher";
                 btnAnnuler.Visible = false;
 
                 //active les autres boutons
-               
+
                 btnSupprimer.Enabled = true;
                 btnModifier.Enabled = true;
                 btnAjouter.Enabled = true;
@@ -225,6 +226,105 @@ namespace InterfaceMedia
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+
+            if (btnModifier.Text.Equals("Modifier"))
+            {
+                // modification de couleur du bouton ajouter + le passe en "valider" et afficher annuler
+                btnModifier.BackColor = Color.Green;
+                btnModifier.Text = "Valider";
+                btnAnnuler.Visible = true;
+
+                //desactiver les autres boutons 
+                btnRechercher.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnAjouter.Enabled = false;
+
+
+                // textbox activer pour l'insertion
+
+                txtbxtitre.Enabled = true;
+                txtbxisbn.Enabled = true;
+                txtbxcouleur.Enabled = true;
+                txtbxtome.Enabled = true;
+                cmbbxannee.Enabled = true;
+                txtbxformat.Enabled = true;
+                txtbxpage.Enabled = true;
+                txtbxcommentaire.Enabled = true;
+                txtbxediteur.Enabled = true;
+                txtbxserie.Enabled = true;
+                txtbxauteur.Enabled = true;
+                txtbxreferencerexemp.Enabled = true;
+                rdbtnA.Enabled = true;
+                rdbtnb.Enabled = true;
+                rdbtnta.Enabled = true;
+                rdbtntb.Enabled = true;
+
+                // modification des couleur 
+
+                txtbxtitre.BackColor = Color.White;
+                txtbxisbn.BackColor = Color.White;
+                txtbxcouleur.BackColor = Color.White;
+                txtbxtome.BackColor = Color.White;
+                cmbbxannee.BackColor = Color.White;
+                txtbxformat.BackColor = Color.White;
+                txtbxpage.BackColor = Color.White;
+                txtbxcommentaire.BackColor = Color.White;
+                txtbxediteur.BackColor = Color.White;
+                txtbxserie.BackColor = Color.White;
+                txtbxauteur.BackColor = Color.White;
+                txtbxreferencerexemp.BackColor = Color.White;
+            }
+            else if (btnModifier.Text.Equals("Valider"))
+            {
+                // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
+                btnModifier.Text = "Modifier";
+                btnModifier.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //reactivation des autres boutons 
+                btnRechercher.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnModifier.Enabled = true;
+
+
+                // textbox desactiver pour l'insertion
+                txtbxtitre.Enabled = false;
+                txtbxisbn.Enabled = false;
+                txtbxcouleur.Enabled = false;
+                txtbxtome.Enabled = false;
+                cmbbxannee.Enabled = false;
+                txtbxformat.Enabled = false;
+                txtbxpage.Enabled = false;
+                txtbxcommentaire.Enabled = false;
+                txtbxediteur.Enabled = false;
+                txtbxserie.Enabled = false;
+                txtbxauteur.Enabled = false;
+                txtbxreferencerexemp.Enabled = false;
+                rdbtnA.Enabled = false;
+                rdbtnb.Enabled = false;
+                rdbtnta.Enabled = false;
+                rdbtntb.Enabled = false;
+
+                // modification des couleur 
+                txtbxcode.BackColor = Color.Silver;
+                txtbxtitre.BackColor = Color.Silver;
+                txtbxisbn.BackColor = Color.Silver;
+                txtbxcouleur.BackColor = Color.Silver;
+                txtbxtome.BackColor = Color.Silver;
+                cmbbxannee.BackColor = Color.Silver;
+                txtbxformat.BackColor = Color.Silver;
+                txtbxpage.BackColor = Color.Silver;
+                txtbxcommentaire.BackColor = Color.Silver;
+                txtbxediteur.BackColor = Color.Silver;
+                txtbxserie.BackColor = Color.Silver;
+                txtbxauteur.BackColor = Color.Silver;
+                txtbxreferencerexemp.BackColor = Color.Silver;
+
+            }
         }
     }
 }

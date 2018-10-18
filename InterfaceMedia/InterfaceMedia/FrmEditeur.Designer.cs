@@ -69,6 +69,8 @@
             // 
             // GridEditeur
             // 
+            this.GridEditeur.AllowUserToAddRows = false;
+            this.GridEditeur.AllowUserToDeleteRows = false;
             this.GridEditeur.AllowUserToResizeRows = false;
             this.GridEditeur.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.GridEditeur.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -95,7 +97,9 @@
             this.GridEditeur.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEditeur.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.GridEditeur.Location = new System.Drawing.Point(23, 260);
+            this.GridEditeur.MultiSelect = false;
             this.GridEditeur.Name = "GridEditeur";
+            this.GridEditeur.ReadOnly = true;
             this.GridEditeur.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
