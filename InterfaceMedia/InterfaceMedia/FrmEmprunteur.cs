@@ -106,5 +106,62 @@ namespace InterfaceMedia
         {
             Application.Run(new FrmAccueilTest());
         }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            if (btnModifier.Text.Equals("Modifier"))
+            {
+                groupAjouterEmp.Enabled = true;
+                btnModifier.BackColor = Color.Green;
+                btnModifier.Text = "Valider";
+
+                //le bouton annuler apparait
+                btnAnnuler.Visible = true;
+
+                //Desactive tous les autres boutons
+                btnAjouter.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnRechercher.Enabled = false;
+                btnFamille.Enabled = false;
+
+
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+                txtNom.BackColor = Color.White;
+                DateTimeRenouvellement.BackColor = Color.White;
+                txtMail.BackColor = Color.White;
+                txtCodePostal.BackColor = Color.White;
+                txtPrenom.BackColor = Color.White;
+                txtAdresse.BackColor = Color.White;
+                DateTimeNaissance.BackColor = Color.White;
+                DateTimeAdhesion.BackColor = Color.White;
+                txtVille.BackColor = Color.White;
+            }else if (btnModifier.Text == "Valider")
+            {
+                groupAjouterEmp.Enabled = false;
+                btnModifier.Text = "Modifier";
+                btnModifier.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnAjouter.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnRechercher.Enabled = true;
+                btnFamille.Enabled = true;
+
+
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                txtNom.BackColor = Color.Silver;
+                txtPrenom.BackColor = Color.Silver;
+                txtMail.BackColor = Color.Silver;
+                txtCodePostal.BackColor = Color.Silver;
+                txtAdresse.BackColor = Color.Silver;
+                DateTimeRenouvellement.BackColor = Color.Silver;
+                DateTimeNaissance.BackColor = Color.Silver;
+                DateTimeAdhesion.BackColor = Color.Silver;
+                txtVille.BackColor = Color.Silver;
+            }
+        }
     }
 }
