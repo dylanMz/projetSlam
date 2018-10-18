@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNumEmp = new MetroFramework.Controls.MetroLabel();
             this.txtbxNumEmp = new MetroFramework.Controls.MetroTextBox();
             this.txtbxRefEx = new MetroFramework.Controls.MetroTextBox();
@@ -40,11 +40,12 @@
             this.lblDateRetourPrev = new MetroFramework.Controls.MetroLabel();
             this.lblDateRetourRéel = new MetroFramework.Controls.MetroLabel();
             this.gpbxChoix = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dtDate = new MetroFramework.Controls.MetroDateTime();
             this.rbLivreEmprunter = new MetroFramework.Controls.MetroRadioButton();
             this.rbLivreNonRendu = new MetroFramework.Controls.MetroRadioButton();
             this.lblDate = new MetroFramework.Controls.MetroLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtRetour = new MetroFramework.Controls.MetroDateTime();
             this.dtRetourPrevu = new MetroFramework.Controls.MetroDateTime();
             this.dtEmprunt = new MetroFramework.Controls.MetroDateTime();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -57,7 +58,6 @@
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
-            this.dtRetour = new MetroFramework.Controls.MetroDateTime();
             this.picHome = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).BeginInit();
             this.gpbxChoix.SuspendLayout();
@@ -156,40 +156,41 @@
             // GridEmprunt
             // 
             this.GridEmprunt.AllowUserToResizeRows = false;
+            this.GridEmprunt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridEmprunt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridEmprunt.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridEmprunt.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.GridEmprunt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle8;
             this.GridEmprunt.EnableHeadersVisualStyles = false;
             this.GridEmprunt.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEmprunt.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridEmprunt.Location = new System.Drawing.Point(12, 350);
             this.GridEmprunt.Name = "GridEmprunt";
             this.GridEmprunt.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.GridEmprunt.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEmprunt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridEmprunt.Size = new System.Drawing.Size(714, 180);
@@ -242,26 +243,6 @@
             this.gpbxChoix.TabStop = false;
             this.gpbxChoix.Visible = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Controls.Add(this.gpbxChoix);
-            this.groupBox1.Controls.Add(this.dtRetour);
-            this.groupBox1.Controls.Add(this.lblNumEmp);
-            this.groupBox1.Controls.Add(this.dtRetourPrevu);
-            this.groupBox1.Controls.Add(this.txtbxNumEmp);
-            this.groupBox1.Controls.Add(this.dtEmprunt);
-            this.groupBox1.Controls.Add(this.lblRefEx);
-            this.groupBox1.Controls.Add(this.txtbxRefEx);
-            this.groupBox1.Controls.Add(this.lblDateRetourRéel);
-            this.groupBox1.Controls.Add(this.lblDateEmp);
-            this.groupBox1.Controls.Add(this.lblDateRetourPrev);
-            this.groupBox1.Location = new System.Drawing.Point(12, 63);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(714, 259);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
-            // 
             // dtDate
             // 
             this.dtDate.CalendarMonthBackground = System.Drawing.SystemColors.InactiveCaption;
@@ -307,6 +288,35 @@
             this.lblDate.TabIndex = 15;
             this.lblDate.Text = "Date";
             this.lblDate.UseCustomBackColor = true;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBox1.Controls.Add(this.gpbxChoix);
+            this.groupBox1.Controls.Add(this.dtRetour);
+            this.groupBox1.Controls.Add(this.lblNumEmp);
+            this.groupBox1.Controls.Add(this.dtRetourPrevu);
+            this.groupBox1.Controls.Add(this.txtbxNumEmp);
+            this.groupBox1.Controls.Add(this.dtEmprunt);
+            this.groupBox1.Controls.Add(this.lblRefEx);
+            this.groupBox1.Controls.Add(this.txtbxRefEx);
+            this.groupBox1.Controls.Add(this.lblDateRetourRéel);
+            this.groupBox1.Controls.Add(this.lblDateEmp);
+            this.groupBox1.Controls.Add(this.lblDateRetourPrev);
+            this.groupBox1.Location = new System.Drawing.Point(12, 63);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(714, 259);
+            this.groupBox1.TabIndex = 30;
+            this.groupBox1.TabStop = false;
+            // 
+            // dtRetour
+            // 
+            this.dtRetour.FontSize = MetroFramework.MetroDateTimeSize.Small;
+            this.dtRetour.Location = new System.Drawing.Point(176, 150);
+            this.dtRetour.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtRetour.Name = "dtRetour";
+            this.dtRetour.Size = new System.Drawing.Size(137, 25);
+            this.dtRetour.TabIndex = 25;
             // 
             // dtRetourPrevu
             // 
@@ -396,6 +406,7 @@
             this.btnAnnuler.UseCustomBackColor = true;
             this.btnAnnuler.UseSelectable = true;
             this.btnAnnuler.Visible = false;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // btnAjRetour
             // 
@@ -488,15 +499,7 @@
             this.btnQuitter.UseCustomBackColor = true;
             this.btnQuitter.UseSelectable = true;
             this.btnQuitter.UseTileImage = true;
-            // 
-            // dtRetour
-            // 
-            this.dtRetour.FontSize = MetroFramework.MetroDateTimeSize.Small;
-            this.dtRetour.Location = new System.Drawing.Point(176, 150);
-            this.dtRetour.MinimumSize = new System.Drawing.Size(0, 25);
-            this.dtRetour.Name = "dtRetour";
-            this.dtRetour.Size = new System.Drawing.Size(137, 25);
-            this.dtRetour.TabIndex = 25;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // picHome
             // 
@@ -508,6 +511,7 @@
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHome.TabIndex = 31;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // FrmEmprunt
             // 

@@ -23,8 +23,6 @@ namespace InterfaceMedia
             InitializeComponent();
             Ajout = new Crud_Emprunt();
             Crud_Emprunt Export = new Crud_Emprunt();
-            List<Emprunt> GrList = new List<Emprunt>();
-
 
             GridEmprunt.DataSource = Export.afficheEmprunt();
         }
@@ -104,6 +102,22 @@ namespace InterfaceMedia
 
             }
 
+
+        }
+
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Application.Run(new FrmAccueilTest());
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnAnnuler_Click(object sender, EventArgs e)
+        {
 
         }
     }
