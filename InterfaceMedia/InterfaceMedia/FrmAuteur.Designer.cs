@@ -146,6 +146,7 @@
             this.btnAnnuler.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
             this.btnAnnuler.UseCustomBackColor = true;
             this.btnAnnuler.UseSelectable = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // lblSeparation
             // 
@@ -206,6 +207,7 @@
             // 
             // cmbPays
             // 
+            this.cmbPays.BackColor = System.Drawing.Color.Silver;
             this.cmbPays.Enabled = false;
             this.cmbPays.FormattingEnabled = true;
             this.cmbPays.ItemHeight = 23;
@@ -213,28 +215,33 @@
             this.cmbPays.Name = "cmbPays";
             this.cmbPays.Size = new System.Drawing.Size(169, 29);
             this.cmbPays.TabIndex = 9;
+            this.cmbPays.UseCustomBackColor = true;
             this.cmbPays.UseSelectable = true;
             // 
             // rdoDecede
             // 
             this.rdoDecede.AutoSize = true;
+            this.rdoDecede.BackColor = System.Drawing.Color.Silver;
             this.rdoDecede.Enabled = false;
             this.rdoDecede.Location = new System.Drawing.Point(585, 163);
             this.rdoDecede.Name = "rdoDecede";
             this.rdoDecede.Size = new System.Drawing.Size(62, 15);
             this.rdoDecede.TabIndex = 7;
             this.rdoDecede.Text = "Décédé";
+            this.rdoDecede.UseCustomBackColor = true;
             this.rdoDecede.UseSelectable = true;
             // 
             // rdoVivant
             // 
             this.rdoVivant.AutoSize = true;
+            this.rdoVivant.BackColor = System.Drawing.Color.Silver;
             this.rdoVivant.Enabled = false;
             this.rdoVivant.Location = new System.Drawing.Point(472, 163);
             this.rdoVivant.Name = "rdoVivant";
             this.rdoVivant.Size = new System.Drawing.Size(56, 15);
             this.rdoVivant.TabIndex = 6;
             this.rdoVivant.Text = "Vivant";
+            this.rdoVivant.UseCustomBackColor = true;
             this.rdoVivant.UseSelectable = true;
             // 
             // metroLabel3
@@ -259,6 +266,7 @@
             // 
             // txtPseudo
             // 
+            this.txtPseudo.BackColor = System.Drawing.Color.Silver;
             // 
             // 
             // 
@@ -284,18 +292,21 @@
             this.txtPseudo.ShortcutsEnabled = true;
             this.txtPseudo.Size = new System.Drawing.Size(169, 23);
             this.txtPseudo.TabIndex = 4;
+            this.txtPseudo.UseCustomBackColor = true;
             this.txtPseudo.UseSelectable = true;
             this.txtPseudo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPseudo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // dtStatut
             // 
+            this.dtStatut.CalendarTrailingForeColor = System.Drawing.Color.Silver;
             this.dtStatut.Enabled = false;
             this.dtStatut.Location = new System.Drawing.Point(472, 194);
             this.dtStatut.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtStatut.Name = "dtStatut";
             this.dtStatut.Size = new System.Drawing.Size(200, 29);
             this.dtStatut.TabIndex = 8;
+            this.dtStatut.UseCustomBackColor = true;
             this.dtStatut.Visible = false;
             // 
             // metroLabel1
@@ -310,12 +321,14 @@
             // 
             // dtDateNaiss
             // 
+            this.dtDateNaiss.CalendarTrailingForeColor = System.Drawing.Color.Silver;
             this.dtDateNaiss.Enabled = false;
             this.dtDateNaiss.Location = new System.Drawing.Point(141, 149);
             this.dtDateNaiss.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtDateNaiss.Name = "dtDateNaiss";
             this.dtDateNaiss.Size = new System.Drawing.Size(200, 29);
             this.dtDateNaiss.TabIndex = 5;
+            this.dtDateNaiss.UseCustomBackColor = true;
             // 
             // metroLabel5
             // 
@@ -394,6 +407,7 @@
             // 
             // txtPrenom
             // 
+            this.txtPrenom.BackColor = System.Drawing.Color.Silver;
             // 
             // 
             // 
@@ -419,6 +433,7 @@
             this.txtPrenom.ShortcutsEnabled = true;
             this.txtPrenom.Size = new System.Drawing.Size(169, 23);
             this.txtPrenom.TabIndex = 3;
+            this.txtPrenom.UseCustomBackColor = true;
             this.txtPrenom.UseSelectable = true;
             this.txtPrenom.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPrenom.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -435,6 +450,7 @@
             // 
             // txtCode
             // 
+            this.txtCode.BackColor = System.Drawing.Color.Silver;
             // 
             // 
             // 
@@ -460,12 +476,14 @@
             this.txtCode.ShortcutsEnabled = true;
             this.txtCode.Size = new System.Drawing.Size(169, 23);
             this.txtCode.TabIndex = 1;
+            this.txtCode.UseCustomBackColor = true;
             this.txtCode.UseSelectable = true;
             this.txtCode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtCode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtNom
             // 
+            this.txtNom.BackColor = System.Drawing.Color.Silver;
             // 
             // 
             // 
@@ -491,6 +509,7 @@
             this.txtNom.ShortcutsEnabled = true;
             this.txtNom.Size = new System.Drawing.Size(169, 23);
             this.txtNom.TabIndex = 2;
+            this.txtNom.UseCustomBackColor = true;
             this.txtNom.UseSelectable = true;
             this.txtNom.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNom.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -541,6 +560,7 @@
             this.btnQuitter.UseCustomBackColor = true;
             this.btnQuitter.UseSelectable = true;
             this.btnQuitter.UseTileImage = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // picHome
             // 
@@ -551,6 +571,7 @@
             this.picHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picHome.TabIndex = 30;
             this.picHome.TabStop = false;
+            this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
             // FrmAuteur
             // 
