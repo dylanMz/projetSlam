@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.metrotileQuitter = new MetroFramework.Controls.MetroTile();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
             this.btnRechercher = new MetroFramework.Controls.MetroTile();
             this.btnSupprimer = new MetroFramework.Controls.MetroTile();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
-            this.metrotileQuitter = new MetroFramework.Controls.MetroTile();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.cmbbxauteur = new MetroFramework.Controls.MetroComboBox();
             this.cmbbxserie = new MetroFramework.Controls.MetroComboBox();
@@ -92,6 +92,28 @@
             this.groupBox1.Size = new System.Drawing.Size(181, 591);
             this.groupBox1.TabIndex = 91;
             this.groupBox1.TabStop = false;
+            // 
+            // metrotileQuitter
+            // 
+            this.metrotileQuitter.ActiveControl = null;
+            this.metrotileQuitter.BackColor = System.Drawing.Color.Tomato;
+            this.metrotileQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.metrotileQuitter.ForeColor = System.Drawing.Color.White;
+            this.metrotileQuitter.Location = new System.Drawing.Point(6, 532);
+            this.metrotileQuitter.Name = "metrotileQuitter";
+            this.metrotileQuitter.Size = new System.Drawing.Size(168, 44);
+            this.metrotileQuitter.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metrotileQuitter.TabIndex = 14;
+            this.metrotileQuitter.Text = "Quitter";
+            this.metrotileQuitter.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.metrotileQuitter.TileImage = global::InterfaceMedia.Properties.Resources.Quitter5;
+            this.metrotileQuitter.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.metrotileQuitter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.metrotileQuitter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.metrotileQuitter.UseCustomBackColor = true;
+            this.metrotileQuitter.UseCustomForeColor = true;
+            this.metrotileQuitter.UseSelectable = true;
+            this.metrotileQuitter.UseTileImage = true;
             // 
             // btnAnnuler
             // 
@@ -160,6 +182,7 @@
             this.btnModifier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnModifier.UseCustomBackColor = true;
             this.btnModifier.UseSelectable = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnAjouter
             // 
@@ -177,28 +200,6 @@
             this.btnAjouter.UseCustomBackColor = true;
             this.btnAjouter.UseSelectable = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
-            // 
-            // metrotileQuitter
-            // 
-            this.metrotileQuitter.ActiveControl = null;
-            this.metrotileQuitter.BackColor = System.Drawing.Color.Tomato;
-            this.metrotileQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.metrotileQuitter.ForeColor = System.Drawing.Color.White;
-            this.metrotileQuitter.Location = new System.Drawing.Point(6, 532);
-            this.metrotileQuitter.Name = "metrotileQuitter";
-            this.metrotileQuitter.Size = new System.Drawing.Size(168, 44);
-            this.metrotileQuitter.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metrotileQuitter.TabIndex = 14;
-            this.metrotileQuitter.Text = "Quitter";
-            this.metrotileQuitter.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.metrotileQuitter.TileImage = global::InterfaceMedia.Properties.Resources.Quitter5;
-            this.metrotileQuitter.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.metrotileQuitter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.metrotileQuitter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.metrotileQuitter.UseCustomBackColor = true;
-            this.metrotileQuitter.UseCustomForeColor = true;
-            this.metrotileQuitter.UseSelectable = true;
-            this.metrotileQuitter.UseTileImage = true;
             // 
             // metroPanel1
             // 
@@ -918,6 +919,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(972, 630);
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.metroPanel1);

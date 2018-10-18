@@ -400,7 +400,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::InterfaceMedia.Properties.Resources._31;
+         
             this.ClientSize = new System.Drawing.Size(957, 546);
             this.Controls.Add(this.metroDateTime3);
             this.Controls.Add(this.metroDateTime4);
