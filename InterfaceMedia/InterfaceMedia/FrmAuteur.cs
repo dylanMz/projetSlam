@@ -30,7 +30,6 @@ namespace InterfaceMedia
 
                 //Desactive tous les autres boutons
                 btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
                 btnRechercher.Enabled = false;
 
                 //Les textbox à remplir pour l'insertion se déverouille
@@ -61,7 +60,6 @@ namespace InterfaceMedia
 
                 //Re active les boutons
                 btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
                 btnRechercher.Enabled = true;
 
                 //Les textbox sont inacessibles.
@@ -96,7 +94,6 @@ namespace InterfaceMedia
 
                 //Desactive tous les autres boutons
                 btnAjouter.Enabled = false;
-                btnSupprimer.Enabled = false;
                 btnRechercher.Enabled = false;
 
                 //Les textbox à remplir pour l'insertion se déverouille
@@ -126,7 +123,6 @@ namespace InterfaceMedia
 
                 //Re active les boutons
                 btnAjouter.Enabled = true;
-                btnSupprimer.Enabled = true;
                 btnRechercher.Enabled = true;
 
                 //Les textbox sont inacessibles.
@@ -146,6 +142,52 @@ namespace InterfaceMedia
                 dtDateNaiss.BackColor = Color.Silver;
                 rdoVivant.BackColor = Color.Silver;
                 rdoDecede.BackColor = Color.Silver;
+            }
+
+
+        }
+
+        private void btnRechercher_Click(object sender, EventArgs e)
+        {
+            if (btnRechercher.Text == "Rechercher")
+            {
+                btnRechercher.BackColor = Color.Green;
+                btnRechercher.Text = "Valider";
+
+                //le bouton annuler apparait
+                btnAnnuler.Visible = true;
+
+                //Les ou le textbox.s a remplir pour la recherche se déverouille
+                txtCode.Enabled = true;
+                txtNom.Enabled = true;
+                txtPseudo.Enabled = true;
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+                txtNom.BackColor = Color.White;
+
+                //Desactive tous les autres boutons
+                btnAjouter.Enabled = false;
+                btnModifier.Enabled = false;
+            }
+
+            else if (btnRechercher.Text == "Valider")
+            {
+                btnRechercher.Text = "Rechercher";
+                btnRechercher.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnAjouter.Enabled = true;
+                btnModifier.Enabled = true;
+
+                //Les textbox sont inacessibles.
+                txtCode.Enabled = false;
+                txtNom.Enabled = false;
+                txtPseudo.Enabled = false;
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                txtNom.BackColor = Color.Silver;
+
             }
         }
     }
