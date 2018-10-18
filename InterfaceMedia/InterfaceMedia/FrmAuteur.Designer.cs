@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grpBoxMenu = new System.Windows.Forms.GroupBox();
+            this.grpMenu = new System.Windows.Forms.GroupBox();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
             this.lblSeparation = new MetroFramework.Controls.MetroLabel();
             this.pnlAuteur = new MetroFramework.Controls.MetroPanel();
-            this.grpBxAuteur = new System.Windows.Forms.GroupBox();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.metroRadioButton2 = new MetroFramework.Controls.MetroRadioButton();
-            this.metroRadioButton1 = new MetroFramework.Controls.MetroRadioButton();
+            this.grpAuteur = new System.Windows.Forms.GroupBox();
+            this.cmbPays = new MetroFramework.Controls.MetroComboBox();
+            this.rdoDecede = new MetroFramework.Controls.MetroRadioButton();
+            this.rdoVivant = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
-            this.metroDateTime1 = new MetroFramework.Controls.MetroDateTime();
+            this.txtPseudo = new MetroFramework.Controls.MetroTextBox();
+            this.dtStatut = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dtDateNaiss = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -52,37 +52,35 @@
             this.txtCode = new MetroFramework.Controls.MetroTextBox();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
             this.dgvAuteur = new System.Windows.Forms.DataGridView();
-            this.grpBxQuitter = new System.Windows.Forms.GroupBox();
+            this.grpQuitter = new System.Windows.Forms.GroupBox();
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.btnRechercher = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.btnSupprimer = new MetroFramework.Controls.MetroTile();
-            this.btnValider = new MetroFramework.Controls.MetroTile();
-            this.grpBoxMenu.SuspendLayout();
+            this.grpMenu.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
-            this.grpBxAuteur.SuspendLayout();
+            this.grpAuteur.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
-            this.grpBxQuitter.SuspendLayout();
+            this.grpQuitter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
-            // grpBoxMenu
+            // grpMenu
             // 
-            this.grpBoxMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grpMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpBoxMenu.Controls.Add(this.btnValider);
-            this.grpBoxMenu.Controls.Add(this.btnSupprimer);
-            this.grpBoxMenu.Controls.Add(this.btnModifier);
-            this.grpBoxMenu.Controls.Add(this.btnAjouter);
-            this.grpBoxMenu.Controls.Add(this.btnRechercher);
-            this.grpBoxMenu.Controls.Add(this.btnAnnuler);
-            this.grpBoxMenu.Location = new System.Drawing.Point(737, 63);
-            this.grpBoxMenu.Name = "grpBoxMenu";
-            this.grpBoxMenu.Size = new System.Drawing.Size(216, 519);
-            this.grpBoxMenu.TabIndex = 1;
-            this.grpBoxMenu.TabStop = false;
+            this.grpMenu.Controls.Add(this.btnSupprimer);
+            this.grpMenu.Controls.Add(this.btnModifier);
+            this.grpMenu.Controls.Add(this.btnAjouter);
+            this.grpMenu.Controls.Add(this.btnRechercher);
+            this.grpMenu.Controls.Add(this.btnAnnuler);
+            this.grpMenu.Location = new System.Drawing.Point(737, 63);
+            this.grpMenu.Name = "grpMenu";
+            this.grpMenu.Size = new System.Drawing.Size(216, 519);
+            this.grpMenu.TabIndex = 1;
+            this.grpMenu.TabStop = false;
             // 
             // btnAnnuler
             // 
@@ -92,7 +90,7 @@
             this.btnAnnuler.Location = new System.Drawing.Point(24, 463);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
-            this.btnAnnuler.TabIndex = 14;
+            this.btnAnnuler.TabIndex = 16;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAnnuler.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -115,7 +113,7 @@
             this.pnlAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlAuteur.Controls.Add(this.grpBxAuteur);
+            this.pnlAuteur.Controls.Add(this.grpAuteur);
             this.pnlAuteur.Controls.Add(this.dgvAuteur);
             this.pnlAuteur.HorizontalScrollbarBarColor = true;
             this.pnlAuteur.HorizontalScrollbarHighlightOnWheel = false;
@@ -128,64 +126,67 @@
             this.pnlAuteur.VerticalScrollbarHighlightOnWheel = false;
             this.pnlAuteur.VerticalScrollbarSize = 10;
             // 
-            // grpBxAuteur
+            // grpAuteur
             // 
-            this.grpBxAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.grpAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpBxAuteur.Controls.Add(this.metroComboBox1);
-            this.grpBxAuteur.Controls.Add(this.metroRadioButton2);
-            this.grpBxAuteur.Controls.Add(this.metroRadioButton1);
-            this.grpBxAuteur.Controls.Add(this.metroLabel3);
-            this.grpBxAuteur.Controls.Add(this.metroLabel2);
-            this.grpBxAuteur.Controls.Add(this.metroTextBox1);
-            this.grpBxAuteur.Controls.Add(this.metroDateTime1);
-            this.grpBxAuteur.Controls.Add(this.metroLabel1);
-            this.grpBxAuteur.Controls.Add(this.dtDateNaiss);
-            this.grpBxAuteur.Controls.Add(this.metroLabel5);
-            this.grpBxAuteur.Controls.Add(this.lblCode);
-            this.grpBxAuteur.Controls.Add(this.txtBio);
-            this.grpBxAuteur.Controls.Add(this.lblNom);
-            this.grpBxAuteur.Controls.Add(this.lblDateNais);
-            this.grpBxAuteur.Controls.Add(this.txtPrenom);
-            this.grpBxAuteur.Controls.Add(this.lblPrenom);
-            this.grpBxAuteur.Controls.Add(this.txtCode);
-            this.grpBxAuteur.Controls.Add(this.txtNom);
-            this.grpBxAuteur.Location = new System.Drawing.Point(3, 3);
-            this.grpBxAuteur.Name = "grpBxAuteur";
-            this.grpBxAuteur.Size = new System.Drawing.Size(718, 379);
-            this.grpBxAuteur.TabIndex = 13;
-            this.grpBxAuteur.TabStop = false;
+            this.grpAuteur.Controls.Add(this.cmbPays);
+            this.grpAuteur.Controls.Add(this.rdoDecede);
+            this.grpAuteur.Controls.Add(this.rdoVivant);
+            this.grpAuteur.Controls.Add(this.metroLabel3);
+            this.grpAuteur.Controls.Add(this.metroLabel2);
+            this.grpAuteur.Controls.Add(this.txtPseudo);
+            this.grpAuteur.Controls.Add(this.dtStatut);
+            this.grpAuteur.Controls.Add(this.metroLabel1);
+            this.grpAuteur.Controls.Add(this.dtDateNaiss);
+            this.grpAuteur.Controls.Add(this.metroLabel5);
+            this.grpAuteur.Controls.Add(this.lblCode);
+            this.grpAuteur.Controls.Add(this.txtBio);
+            this.grpAuteur.Controls.Add(this.lblNom);
+            this.grpAuteur.Controls.Add(this.lblDateNais);
+            this.grpAuteur.Controls.Add(this.txtPrenom);
+            this.grpAuteur.Controls.Add(this.lblPrenom);
+            this.grpAuteur.Controls.Add(this.txtCode);
+            this.grpAuteur.Controls.Add(this.txtNom);
+            this.grpAuteur.Location = new System.Drawing.Point(3, 3);
+            this.grpAuteur.Name = "grpAuteur";
+            this.grpAuteur.Size = new System.Drawing.Size(718, 379);
+            this.grpAuteur.TabIndex = 13;
+            this.grpAuteur.TabStop = false;
             // 
-            // metroComboBox1
+            // cmbPays
             // 
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(141, 194);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(169, 29);
-            this.metroComboBox1.TabIndex = 22;
-            this.metroComboBox1.UseSelectable = true;
+            this.cmbPays.Enabled = false;
+            this.cmbPays.FormattingEnabled = true;
+            this.cmbPays.ItemHeight = 23;
+            this.cmbPays.Location = new System.Drawing.Point(141, 194);
+            this.cmbPays.Name = "cmbPays";
+            this.cmbPays.Size = new System.Drawing.Size(169, 29);
+            this.cmbPays.TabIndex = 9;
+            this.cmbPays.UseSelectable = true;
             // 
-            // metroRadioButton2
+            // rdoDecede
             // 
-            this.metroRadioButton2.AutoSize = true;
-            this.metroRadioButton2.Location = new System.Drawing.Point(585, 163);
-            this.metroRadioButton2.Name = "metroRadioButton2";
-            this.metroRadioButton2.Size = new System.Drawing.Size(62, 15);
-            this.metroRadioButton2.TabIndex = 8;
-            this.metroRadioButton2.Text = "Décédé";
-            this.metroRadioButton2.UseSelectable = true;
+            this.rdoDecede.AutoSize = true;
+            this.rdoDecede.Enabled = false;
+            this.rdoDecede.Location = new System.Drawing.Point(585, 163);
+            this.rdoDecede.Name = "rdoDecede";
+            this.rdoDecede.Size = new System.Drawing.Size(62, 15);
+            this.rdoDecede.TabIndex = 7;
+            this.rdoDecede.Text = "Décédé";
+            this.rdoDecede.UseSelectable = true;
             // 
-            // metroRadioButton1
+            // rdoVivant
             // 
-            this.metroRadioButton1.AutoSize = true;
-            this.metroRadioButton1.Location = new System.Drawing.Point(472, 163);
-            this.metroRadioButton1.Name = "metroRadioButton1";
-            this.metroRadioButton1.Size = new System.Drawing.Size(56, 15);
-            this.metroRadioButton1.TabIndex = 7;
-            this.metroRadioButton1.Text = "Vivant";
-            this.metroRadioButton1.UseSelectable = true;
+            this.rdoVivant.AutoSize = true;
+            this.rdoVivant.Enabled = false;
+            this.rdoVivant.Location = new System.Drawing.Point(472, 163);
+            this.rdoVivant.Name = "rdoVivant";
+            this.rdoVivant.Size = new System.Drawing.Size(56, 15);
+            this.rdoVivant.TabIndex = 6;
+            this.rdoVivant.Text = "Vivant";
+            this.rdoVivant.UseSelectable = true;
             // 
             // metroLabel3
             // 
@@ -207,45 +208,46 @@
             this.metroLabel2.TabIndex = 16;
             this.metroLabel2.Text = "Pseudonyme :";
             // 
-            // metroTextBox1
+            // txtPseudo
             // 
             // 
             // 
             // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(147, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Enabled = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(141, 102);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(169, 23);
-            this.metroTextBox1.TabIndex = 5;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPseudo.CustomButton.Image = null;
+            this.txtPseudo.CustomButton.Location = new System.Drawing.Point(147, 1);
+            this.txtPseudo.CustomButton.Name = "";
+            this.txtPseudo.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtPseudo.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtPseudo.CustomButton.TabIndex = 1;
+            this.txtPseudo.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtPseudo.CustomButton.UseSelectable = true;
+            this.txtPseudo.CustomButton.Visible = false;
+            this.txtPseudo.Enabled = false;
+            this.txtPseudo.Lines = new string[0];
+            this.txtPseudo.Location = new System.Drawing.Point(141, 102);
+            this.txtPseudo.MaxLength = 32767;
+            this.txtPseudo.Name = "txtPseudo";
+            this.txtPseudo.PasswordChar = '\0';
+            this.txtPseudo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPseudo.SelectedText = "";
+            this.txtPseudo.SelectionLength = 0;
+            this.txtPseudo.SelectionStart = 0;
+            this.txtPseudo.ShortcutsEnabled = true;
+            this.txtPseudo.Size = new System.Drawing.Size(169, 23);
+            this.txtPseudo.TabIndex = 4;
+            this.txtPseudo.UseSelectable = true;
+            this.txtPseudo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtPseudo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroDateTime1
+            // dtStatut
             // 
-            this.metroDateTime1.Enabled = false;
-            this.metroDateTime1.Location = new System.Drawing.Point(472, 194);
-            this.metroDateTime1.MinimumSize = new System.Drawing.Size(0, 29);
-            this.metroDateTime1.Name = "metroDateTime1";
-            this.metroDateTime1.Size = new System.Drawing.Size(200, 29);
-            this.metroDateTime1.TabIndex = 15;
+            this.dtStatut.Enabled = false;
+            this.dtStatut.Location = new System.Drawing.Point(472, 194);
+            this.dtStatut.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtStatut.Name = "dtStatut";
+            this.dtStatut.Size = new System.Drawing.Size(200, 29);
+            this.dtStatut.TabIndex = 8;
+            this.dtStatut.Visible = false;
             // 
             // metroLabel1
             // 
@@ -264,7 +266,7 @@
             this.dtDateNaiss.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtDateNaiss.Name = "dtDateNaiss";
             this.dtDateNaiss.Size = new System.Drawing.Size(200, 29);
-            this.dtDateNaiss.TabIndex = 6;
+            this.dtDateNaiss.TabIndex = 5;
             // 
             // metroLabel5
             // 
@@ -316,7 +318,7 @@
             this.txtBio.SelectionStart = 0;
             this.txtBio.ShortcutsEnabled = true;
             this.txtBio.Size = new System.Drawing.Size(706, 110);
-            this.txtBio.TabIndex = 11;
+            this.txtBio.TabIndex = 10;
             this.txtBio.UseSelectable = true;
             this.txtBio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtBio.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -367,7 +369,7 @@
             this.txtPrenom.SelectionStart = 0;
             this.txtPrenom.ShortcutsEnabled = true;
             this.txtPrenom.Size = new System.Drawing.Size(169, 23);
-            this.txtPrenom.TabIndex = 4;
+            this.txtPrenom.TabIndex = 3;
             this.txtPrenom.UseSelectable = true;
             this.txtPrenom.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPrenom.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
@@ -460,17 +462,17 @@
             this.dgvAuteur.ReadOnly = true;
             this.dgvAuteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAuteur.Size = new System.Drawing.Size(703, 205);
-            this.dgvAuteur.TabIndex = 10;
+            this.dgvAuteur.TabIndex = 18;
             // 
-            // grpBxQuitter
+            // grpQuitter
             // 
-            this.grpBxQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpBxQuitter.Controls.Add(this.btnQuitter);
-            this.grpBxQuitter.Location = new System.Drawing.Point(737, 588);
-            this.grpBxQuitter.Name = "grpBxQuitter";
-            this.grpBxQuitter.Size = new System.Drawing.Size(216, 83);
-            this.grpBxQuitter.TabIndex = 7;
-            this.grpBxQuitter.TabStop = false;
+            this.grpQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpQuitter.Controls.Add(this.btnQuitter);
+            this.grpQuitter.Location = new System.Drawing.Point(737, 588);
+            this.grpQuitter.Name = "grpQuitter";
+            this.grpQuitter.Size = new System.Drawing.Size(216, 83);
+            this.grpQuitter.TabIndex = 7;
+            this.grpQuitter.TabStop = false;
             // 
             // btnQuitter
             // 
@@ -480,7 +482,7 @@
             this.btnQuitter.Location = new System.Drawing.Point(24, 19);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(169, 44);
-            this.btnQuitter.TabIndex = 16;
+            this.btnQuitter.TabIndex = 17;
             this.btnQuitter.Text = "Quitter";
             this.btnQuitter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnQuitter.TileImage = global::InterfaceMedia.Properties.Resources.QuitterIcone;
@@ -506,10 +508,10 @@
             this.btnRechercher.ActiveControl = null;
             this.btnRechercher.BackColor = System.Drawing.Color.SteelBlue;
             this.btnRechercher.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRechercher.Location = new System.Drawing.Point(24, 286);
+            this.btnRechercher.Location = new System.Drawing.Point(24, 220);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(169, 43);
-            this.btnRechercher.TabIndex = 31;
+            this.btnRechercher.TabIndex = 15;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRechercher.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -525,13 +527,14 @@
             this.btnAjouter.Location = new System.Drawing.Point(24, 19);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(169, 43);
-            this.btnAjouter.TabIndex = 31;
+            this.btnAjouter.TabIndex = 11;
             this.btnAjouter.Text = "Ajouter";
             this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAjouter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnAjouter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnAjouter.UseCustomBackColor = true;
             this.btnAjouter.UseSelectable = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // btnModifier
             // 
@@ -541,13 +544,14 @@
             this.btnModifier.Location = new System.Drawing.Point(24, 85);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(169, 43);
-            this.btnModifier.TabIndex = 32;
+            this.btnModifier.TabIndex = 12;
             this.btnModifier.Text = "Modifier";
             this.btnModifier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnModifier.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnModifier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnModifier.UseCustomBackColor = true;
             this.btnModifier.UseSelectable = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnSupprimer
             // 
@@ -557,7 +561,7 @@
             this.btnSupprimer.Location = new System.Drawing.Point(24, 152);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(169, 43);
-            this.btnSupprimer.TabIndex = 33;
+            this.btnSupprimer.TabIndex = 13;
             this.btnSupprimer.Text = "Supprimer";
             this.btnSupprimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnSupprimer.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -565,40 +569,24 @@
             this.btnSupprimer.UseCustomBackColor = true;
             this.btnSupprimer.UseSelectable = true;
             // 
-            // btnValider
-            // 
-            this.btnValider.ActiveControl = null;
-            this.btnValider.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnValider.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnValider.Location = new System.Drawing.Point(24, 220);
-            this.btnValider.Name = "btnValider";
-            this.btnValider.Size = new System.Drawing.Size(169, 43);
-            this.btnValider.TabIndex = 34;
-            this.btnValider.Text = "Valider";
-            this.btnValider.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnValider.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.btnValider.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btnValider.UseCustomBackColor = true;
-            this.btnValider.UseSelectable = true;
-            // 
             // FrmAuteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 694);
             this.Controls.Add(this.picHome);
-            this.Controls.Add(this.grpBxQuitter);
+            this.Controls.Add(this.grpQuitter);
             this.Controls.Add(this.pnlAuteur);
             this.Controls.Add(this.lblSeparation);
-            this.Controls.Add(this.grpBoxMenu);
+            this.Controls.Add(this.grpMenu);
             this.Name = "FrmAuteur";
             this.Text = "Auteur";
-            this.grpBoxMenu.ResumeLayout(false);
+            this.grpMenu.ResumeLayout(false);
             this.pnlAuteur.ResumeLayout(false);
-            this.grpBxAuteur.ResumeLayout(false);
-            this.grpBxAuteur.PerformLayout();
+            this.grpAuteur.ResumeLayout(false);
+            this.grpAuteur.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
-            this.grpBxQuitter.ResumeLayout(false);
+            this.grpQuitter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -607,7 +595,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox grpBoxMenu;
+        private System.Windows.Forms.GroupBox grpMenu;
         private MetroFramework.Controls.MetroLabel lblSeparation;
         private MetroFramework.Controls.MetroPanel pnlAuteur;
         private MetroFramework.Controls.MetroLabel metroLabel5;
@@ -620,17 +608,17 @@
         private MetroFramework.Controls.MetroLabel lblDateNais;
         private MetroFramework.Controls.MetroLabel lblNom;
         private MetroFramework.Controls.MetroLabel lblCode;
-        private System.Windows.Forms.GroupBox grpBxAuteur;
+        private System.Windows.Forms.GroupBox grpAuteur;
         private MetroFramework.Controls.MetroDateTime dtDateNaiss;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
-        private MetroFramework.Controls.MetroDateTime metroDateTime1;
+        private MetroFramework.Controls.MetroTextBox txtPseudo;
+        private MetroFramework.Controls.MetroDateTime dtStatut;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton1;
-        private MetroFramework.Controls.MetroRadioButton metroRadioButton2;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
-        private System.Windows.Forms.GroupBox grpBxQuitter;
+        private MetroFramework.Controls.MetroRadioButton rdoVivant;
+        private MetroFramework.Controls.MetroRadioButton rdoDecede;
+        private MetroFramework.Controls.MetroComboBox cmbPays;
+        private System.Windows.Forms.GroupBox grpQuitter;
         private MetroFramework.Controls.MetroTile btnQuitter;
         private System.Windows.Forms.PictureBox picHome;
         private MetroFramework.Controls.MetroTile btnAnnuler;
@@ -638,6 +626,5 @@
         private MetroFramework.Controls.MetroTile btnAjouter;
         private MetroFramework.Controls.MetroTile btnModifier;
         private MetroFramework.Controls.MetroTile btnSupprimer;
-        private MetroFramework.Controls.MetroTile btnValider;
     }
 }
