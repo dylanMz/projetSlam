@@ -226,6 +226,7 @@
             this.btnAdmin.UseCustomBackColor = true;
             this.btnAdmin.UseSelectable = true;
             this.btnAdmin.UseTileImage = true;
+            this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
             // FrmAccueilTest
             // 
