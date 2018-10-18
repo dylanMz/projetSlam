@@ -22,13 +22,13 @@ namespace InterfaceMedia
         {
             InitializeComponent();
             Ajout = new Crud_Emprunt();
+            Crud_Emprunt Export = new Crud_Emprunt();
+            List<Emprunt> GrList = new List<Emprunt>();
+
+
+            GridEmprunt.DataSource = Export.afficheEmprunt();
         }
 
-        private void btnRechercheLivre_Click(object sender, EventArgs e)
-        {
-            gpbxChoix.Enabled = true;
-            // if()
-        }
 
         private void btnAjoutEmp_Click(object sender, EventArgs e)
         {
@@ -71,7 +71,11 @@ namespace InterfaceMedia
 
             else if (btnAjouter.Text.Equals("Valider"))
             {
-                Emprunt lEmprunt = new Emprunt();
+                int numE = Int16.Parse(txtbxNumEmp.Text);
+                DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
+                DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
+                DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
+                Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text,dateEm,dateRet,dateRetP);
 
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;

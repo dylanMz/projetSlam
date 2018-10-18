@@ -16,6 +16,7 @@ namespace InterfaceMedia
     public partial class FrmAuteur : MetroForm
     {
         Thread th;
+        private Crud_Auteur wpaysAuteur;
         public FrmAuteur()
         {
             InitializeComponent();
@@ -291,7 +292,7 @@ namespace InterfaceMedia
 
         private void cmbPays_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            wpaysAuteur.paysAuteur(); 
         }
     }
 }

@@ -35,13 +35,14 @@
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
             this.pnlAuteur = new MetroFramework.Controls.MetroPanel();
             this.grpAuteur = new System.Windows.Forms.GroupBox();
-            this.cmbPays = new MetroFramework.Controls.MetroComboBox();
-            this.rdoDecede = new MetroFramework.Controls.MetroRadioButton();
+            this.grpStatut = new System.Windows.Forms.GroupBox();
             this.rdoVivant = new MetroFramework.Controls.MetroRadioButton();
+            this.dtStatut = new MetroFramework.Controls.MetroDateTime();
+            this.rdoDecede = new MetroFramework.Controls.MetroRadioButton();
+            this.cmbPays = new MetroFramework.Controls.MetroComboBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtPseudo = new MetroFramework.Controls.MetroTextBox();
-            this.dtStatut = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dtDateNaiss = new MetroFramework.Controls.MetroDateTime();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -57,14 +58,13 @@
             this.grpQuitter = new System.Windows.Forms.GroupBox();
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
-            this.grpStatut = new System.Windows.Forms.GroupBox();
             this.grpMenu.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
             this.grpAuteur.SuspendLayout();
+            this.grpStatut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
             this.grpQuitter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
-            this.grpStatut.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpMenu
@@ -194,19 +194,42 @@
             this.grpAuteur.TabIndex = 13;
             this.grpAuteur.TabStop = false;
             // 
-            // cmbPays
+            // grpStatut
             // 
-            this.cmbPays.BackColor = System.Drawing.Color.Silver;
-            this.cmbPays.Enabled = false;
-            this.cmbPays.FormattingEnabled = true;
-            this.cmbPays.ItemHeight = 23;
-            this.cmbPays.Location = new System.Drawing.Point(141, 194);
-            this.cmbPays.Name = "cmbPays";
-            this.cmbPays.Size = new System.Drawing.Size(169, 29);
-            this.cmbPays.TabIndex = 9;
-            this.cmbPays.UseCustomBackColor = true;
-            this.cmbPays.UseSelectable = true;
-            this.cmbPays.SelectedIndexChanged += new System.EventHandler(this.cmbPays_SelectedIndexChanged);
+            this.grpStatut.Controls.Add(this.rdoVivant);
+            this.grpStatut.Controls.Add(this.dtStatut);
+            this.grpStatut.Controls.Add(this.rdoDecede);
+            this.grpStatut.Location = new System.Drawing.Point(447, 137);
+            this.grpStatut.Name = "grpStatut";
+            this.grpStatut.Size = new System.Drawing.Size(212, 100);
+            this.grpStatut.TabIndex = 17;
+            this.grpStatut.TabStop = false;
+            // 
+            // rdoVivant
+            // 
+            this.rdoVivant.AutoSize = true;
+            this.rdoVivant.BackColor = System.Drawing.Color.Silver;
+            this.rdoVivant.Enabled = false;
+            this.rdoVivant.Location = new System.Drawing.Point(6, 26);
+            this.rdoVivant.Name = "rdoVivant";
+            this.rdoVivant.Size = new System.Drawing.Size(56, 15);
+            this.rdoVivant.TabIndex = 6;
+            this.rdoVivant.Text = "Vivant";
+            this.rdoVivant.UseCustomBackColor = true;
+            this.rdoVivant.UseSelectable = true;
+            this.rdoVivant.CheckedChanged += new System.EventHandler(this.rdoVivant_CheckedChanged);
+            // 
+            // dtStatut
+            // 
+            this.dtStatut.CalendarTrailingForeColor = System.Drawing.Color.Silver;
+            this.dtStatut.Enabled = false;
+            this.dtStatut.Location = new System.Drawing.Point(6, 57);
+            this.dtStatut.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtStatut.Name = "dtStatut";
+            this.dtStatut.Size = new System.Drawing.Size(200, 29);
+            this.dtStatut.TabIndex = 8;
+            this.dtStatut.UseCustomBackColor = true;
+            this.dtStatut.Visible = false;
             // 
             // rdoDecede
             // 
@@ -222,19 +245,19 @@
             this.rdoDecede.UseSelectable = true;
             this.rdoDecede.CheckedChanged += new System.EventHandler(this.rdoDecede_CheckedChanged);
             // 
-            // rdoVivant
+            // cmbPays
             // 
-            this.rdoVivant.AutoSize = true;
-            this.rdoVivant.BackColor = System.Drawing.Color.Silver;
-            this.rdoVivant.Enabled = false;
-            this.rdoVivant.Location = new System.Drawing.Point(6, 26);
-            this.rdoVivant.Name = "rdoVivant";
-            this.rdoVivant.Size = new System.Drawing.Size(56, 15);
-            this.rdoVivant.TabIndex = 6;
-            this.rdoVivant.Text = "Vivant";
-            this.rdoVivant.UseCustomBackColor = true;
-            this.rdoVivant.UseSelectable = true;
-            this.rdoVivant.CheckedChanged += new System.EventHandler(this.rdoVivant_CheckedChanged);
+            this.cmbPays.BackColor = System.Drawing.Color.Silver;
+            this.cmbPays.Enabled = false;
+            this.cmbPays.FormattingEnabled = true;
+            this.cmbPays.ItemHeight = 23;
+            this.cmbPays.Location = new System.Drawing.Point(141, 194);
+            this.cmbPays.Name = "cmbPays";
+            this.cmbPays.Size = new System.Drawing.Size(169, 29);
+            this.cmbPays.TabIndex = 9;
+            this.cmbPays.UseCustomBackColor = true;
+            this.cmbPays.UseSelectable = true;
+            this.cmbPays.SelectedIndexChanged += new System.EventHandler(this.cmbPays_SelectedIndexChanged);
             // 
             // metroLabel3
             // 
@@ -289,18 +312,6 @@
             this.txtPseudo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPseudo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // dtStatut
-            // 
-            this.dtStatut.CalendarTrailingForeColor = System.Drawing.Color.Silver;
-            this.dtStatut.Enabled = false;
-            this.dtStatut.Location = new System.Drawing.Point(6, 57);
-            this.dtStatut.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtStatut.Name = "dtStatut";
-            this.dtStatut.Size = new System.Drawing.Size(200, 29);
-            this.dtStatut.TabIndex = 8;
-            this.dtStatut.UseCustomBackColor = true;
-            this.dtStatut.Visible = false;
-            // 
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
@@ -351,7 +362,7 @@
             // 
             // 
             this.txtBio.CustomButton.Image = null;
-            this.txtBio.CustomButton.Location = new System.Drawing.Point(598, 2);
+            this.txtBio.CustomButton.Location = new System.Drawing.Point(595, 2);
             this.txtBio.CustomButton.Name = "";
             this.txtBio.CustomButton.Size = new System.Drawing.Size(105, 105);
             this.txtBio.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -361,7 +372,7 @@
             this.txtBio.CustomButton.Visible = false;
             this.txtBio.Enabled = false;
             this.txtBio.Lines = new string[0];
-            this.txtBio.Location = new System.Drawing.Point(6, 263);
+            this.txtBio.Location = new System.Drawing.Point(9, 263);
             this.txtBio.MaxLength = 32767;
             this.txtBio.Multiline = true;
             this.txtBio.Name = "txtBio";
@@ -371,7 +382,7 @@
             this.txtBio.SelectionLength = 0;
             this.txtBio.SelectionStart = 0;
             this.txtBio.ShortcutsEnabled = true;
-            this.txtBio.Size = new System.Drawing.Size(706, 110);
+            this.txtBio.Size = new System.Drawing.Size(703, 110);
             this.txtBio.TabIndex = 10;
             this.txtBio.UseSelectable = true;
             this.txtBio.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -565,17 +576,6 @@
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
-            // grpStatut
-            // 
-            this.grpStatut.Controls.Add(this.rdoVivant);
-            this.grpStatut.Controls.Add(this.dtStatut);
-            this.grpStatut.Controls.Add(this.rdoDecede);
-            this.grpStatut.Location = new System.Drawing.Point(447, 137);
-            this.grpStatut.Name = "grpStatut";
-            this.grpStatut.Size = new System.Drawing.Size(212, 100);
-            this.grpStatut.TabIndex = 17;
-            this.grpStatut.TabStop = false;
-            // 
             // FrmAuteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,11 +591,11 @@
             this.pnlAuteur.ResumeLayout(false);
             this.grpAuteur.ResumeLayout(false);
             this.grpAuteur.PerformLayout();
+            this.grpStatut.ResumeLayout(false);
+            this.grpStatut.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
             this.grpQuitter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
-            this.grpStatut.ResumeLayout(false);
-            this.grpStatut.PerformLayout();
             this.ResumeLayout(false);
 
         }
