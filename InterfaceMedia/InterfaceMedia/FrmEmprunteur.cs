@@ -17,6 +17,7 @@ namespace InterfaceMedia
     {
         Thread th;
         private string id;
+        private String dateadh;
         private Crud_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
         private List<KeyValuePair<string, object>> parametresString;
@@ -24,10 +25,7 @@ namespace InterfaceMedia
         public FrmEmprunteur()
         {
             InitializeComponent();
-            uneconnexion = new ConnexionBase();
-            unEmprunteur = new Crud_Emprunteur(uneconnexion);
-            unEmprunteur.Recup_TableEmprunteur();
-            RempGridEmprunteur(unEmprunteur.lesEmprunteurs);
+            RefreshGrid();
 
         }
 
@@ -165,30 +163,8 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
-                
-                List<KeyValuePair<String, Object>> parametresString = new List<KeyValuePair<String, Object>>(){
 
-                     //w.. est le nom du parametre de la procédure stokée, et txt.. les valeurs.
-                    new KeyValuePair<String, Object>("wnom", txtNom.Text),
-                    new KeyValuePair<String, Object>("wprenom", txtPrenom.Text),
-                    new KeyValuePair<String, Object>("wrue", txtAdresse.Text),
-                    new KeyValuePair<String, Object>("wcodepostal", txtCodePostal.Text),
-                    new KeyValuePair<String, Object>("wville", txtVille.Text),
-                    new KeyValuePair<String, Object>("wmail", txtMail.Text),
-                  };
-
-                List<KeyValuePair<String, Object>> parametresDate = new List<KeyValuePair<String, Object>>(){
-
-                     //w..est le nom du parametre de la procédure stokée, et Date... les valeurs.
-                    new KeyValuePair<String, Object>("wdatenaiss", DateTime.Parse(DateTimeNaissance.Text).ToString("yyyy-MM-dd")),
-                    new KeyValuePair<String, Object>("wpremadh", DateTime.Parse(DateTimeAdhesion.Text).ToString("yyyy-MM-dd")),
-                    new KeyValuePair<String, Object>("wrenadh", DateTime.Parse(DateTimeRenouvellement.Text).ToString("yyyy-MM-dd")),
-                  };
-
-                String recupcode = null;
-                //appel de la procédure pour modifier avec les paramétres
-                unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString, parametresDate, Convert.ToInt32(id));
-
+                utilisemethodeprocedure("proc_modif_emprunteur");
                
                 groupAjouterEmp.Enabled = false;
                 btnModifier.Text = "Modifier";
@@ -214,6 +190,9 @@ namespace InterfaceMedia
                 //DateTimeNaissance.BackColor = Color.Silver;
                 //DateTimeAdhesion.BackColor = Color.Silver;
                 //txtVille.BackColor = Color.Silver;
+
+                RefreshGrid();
+               
             }
         }
 
@@ -244,6 +223,53 @@ namespace InterfaceMedia
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
+        }
+
+        //Methode pour mettre à jour le grid
+        public void RefreshGrid()
+        {
+            uneconnexion = new ConnexionBase();
+            unEmprunteur = new Crud_Emprunteur(uneconnexion);
+            unEmprunteur.Recup_TableEmprunteur();
+            RempGridEmprunteur(unEmprunteur.lesEmprunteurs);
+            GridEmprunteur.Update();
+            GridEmprunteur.Refresh();
+        }
+
+        //Permet de faire appel à la methode connectprocedure et de remplir les paramétres de la procédure dans les listes
+        public void utilisemethodeprocedure(String nomprocedure)
+        {
+            List<KeyValuePair<String, Object>> parametresString = new List<KeyValuePair<String, Object>>(){
+
+                     //w.. est le nom du parametre de la procédure stokée, et txt.. les valeurs.
+                    new KeyValuePair<String, Object>("wnom", txtNom.Text),
+                    new KeyValuePair<String, Object>("wprenom", txtPrenom.Text),
+                    new KeyValuePair<String, Object>("wrue", txtAdresse.Text),
+                    new KeyValuePair<String, Object>("wcodepostal", txtCodePostal.Text),
+                    new KeyValuePair<String, Object>("wville", txtVille.Text),
+                    new KeyValuePair<String, Object>("wmail", txtMail.Text),
+                  };
+
+            //Verifie si il  ne possede pas une date adhesion est lui met une date null sinon garde la date
+            if (DateTimeAdhesion.Visible == false)
+            {
+                dateadh = "01/01/0001 00:00:00";
+            }
+            else
+            {
+                dateadh = DateTimeAdhesion.Text;
+            }
+            List<KeyValuePair<String, Object>> parametresDate = new List<KeyValuePair<String, Object>>(){
+
+                     //w..est le nom du parametre de la procédure stokée, et Date... les valeurs.
+                     new KeyValuePair<String, Object>("wdatenaiss", DateTime.Parse(DateTimeNaissance.Text).ToString("yyyy-MM-dd")),
+                     new KeyValuePair<String, Object>("wpremadh", DateTime.Parse(dateadh).ToString("yyyy-MM-dd")),
+                     new KeyValuePair<String, Object>("wrenadh", DateTime.Parse(DateTimeRenouvellement.Text).ToString("yyyy-MM-dd")),
+                  };
+
+            String recupcode = null;
+            //appel de la methode connectprocedure de Crud_Emprunteur
+            unEmprunteur.connectprocedure(nomprocedure, ref recupcode, parametresString, parametresDate, Convert.ToInt32(id));
         }
     }
 }
