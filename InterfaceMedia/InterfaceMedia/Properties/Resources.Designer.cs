@@ -68,6 +68,7 @@ namespace InterfaceMedia.Properties {
                 object obj = ResourceManager.GetObject("ecour-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
+            //test
         }
         
         /// <summary>
