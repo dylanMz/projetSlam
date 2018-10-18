@@ -32,42 +32,58 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = false;
                 btnSupprimer.Enabled = false;
                 btnModifier.Enabled = false;
+                if (btnexemp.Text.Equals("Livre"))
+                {
+
+                    // textbox activer pour l'insertion
+
+                    txtbxtitre.Enabled = true;
+                    txtbxisbn.Enabled = true;
+                    txtbxcouleur.Enabled = true;
+                    txtbxtome.Enabled = true;
+                    cmbbxannee.Enabled = true;
+                    txtbxformat.Enabled = true;
+                    txtbxpage.Enabled = true;
+                    txtbxcommentaire.Enabled = true;
+                    txtbxediteur.Enabled = true;
+                    txtbxserie.Enabled = true;
+                    txtbxauteur.Enabled = true;
 
 
-                // textbox activer pour l'insertion
+                    // modification des couleur 
+                   
+                    txtbxtitre.BackColor = Color.White;
+                    txtbxisbn.BackColor = Color.White;
+                    txtbxcouleur.BackColor = Color.White;
+                    txtbxtome.BackColor = Color.White;
+                    cmbbxannee.BackColor = Color.White;
+                    txtbxformat.BackColor = Color.White;
+                    txtbxpage.BackColor = Color.White;
+                    txtbxcommentaire.BackColor = Color.White;
+                    txtbxediteur.BackColor = Color.White;
+                    txtbxserie.BackColor = Color.White;
+                    txtbxauteur.BackColor = Color.White;
+                    
 
-                txtbxtitre.Enabled = true;
-                txtbxisbn.Enabled = true;
-                txtbxcouleur.Enabled = true;
-                txtbxtome.Enabled = true;
-                cmbbxannee.Enabled = true;
-                txtbxformat.Enabled = true;
-                txtbxpage.Enabled = true;
-                txtbxcommentaire.Enabled = true;
-                txtbxediteur.Enabled = true;
-                txtbxserie.Enabled = true;
-                txtbxauteur.Enabled = true;
-                txtbxreferencerexemp.Enabled = true;
-                rdbtnA.Enabled = true;
-                rdbtnb.Enabled = true;
-                rdbtnta.Enabled = true;
-                rdbtntb.Enabled = true;
 
-                // modification des couleur 
-                txtbxcode.BackColor = Color.White;
-                txtbxtitre.BackColor = Color.White;
-                txtbxisbn.BackColor = Color.White;
-                txtbxcouleur.BackColor = Color.White;
-                txtbxtome.BackColor = Color.White;
-                cmbbxannee.BackColor = Color.White;
-                txtbxformat.BackColor = Color.White;
-                txtbxpage.BackColor = Color.White;
-                txtbxcommentaire.BackColor = Color.White;
-                txtbxediteur.BackColor = Color.White;
-                txtbxserie.BackColor = Color.White;
-                txtbxauteur.BackColor = Color.White;
-                txtbxreferencerexemp.BackColor = Color.White;
 
+                }
+                    if (btnexemp.Text.Equals("exemplaire"))
+                {
+
+
+                    txtbxreferencerexemp.Enabled = true;
+                    codelivreexmp.Enabled = true;
+                    rdbtnA.Enabled = true;
+                    rdbtnb.Enabled = true;
+                    rdbtnta.Enabled = true;
+                    rdbtntb.Enabled = true;
+
+                    // modification des couleur 
+                
+                    txtbxreferencerexemp.BackColor = Color.White;
+                    codelivreexmp.BackColor = Color.White;
+                }
 
             }
             else if (btnAjouter.Text.Equals("Valider"))
@@ -225,8 +241,59 @@ namespace InterfaceMedia
 
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
+            if (btnSupprimer.Text.Equals("Supprimer"))
+            {
+                btnSupprimer.BackColor = Color.Green;
+                btnSupprimer.Text = "Valider";
+                btnAnnuler.Visible = true;
 
+                btnRechercher.Enabled = false;
+                btnModifier.Enabled = false;
+                btnAjouter.Enabled = false;
+
+                // textbox activer pour l'insertion
+
+                txtbxtitre.Enabled = true;
+                txtbxisbn.Enabled = true;
+               
+                txtbxreferencerexemp.Enabled = true;
+              
+
+                // modification des couleur 
+              
+                txtbxtitre.BackColor = Color.White;
+                txtbxisbn.BackColor = Color.White;
+                
+                txtbxreferencerexemp.BackColor = Color.White;
+
+
+            }
+            else if (btnSupprimer.Text.Equals("Valider"))
+            {
+
+                btnSupprimer.BackColor = Color.SteelBlue;
+                btnSupprimer.Text = "Supprimer";
+                btnAnnuler.Visible = false;
+
+                //active les autres boutons
+
+                btnRechercher.Enabled = true;
+                btnModifier.Enabled = true;
+                btnAjouter.Enabled = true;
+
+                // desactive les boutons    
+                txtbxtitre.Enabled = false;
+                txtbxisbn.Enabled = false;
+                txtbxreferencerexemp.Enabled = false;
+
+                // change la couleur 
+                txtbxtitre.BackColor = Color.Silver;
+                txtbxisbn.BackColor = Color.Silver;
+                txtbxreferencerexemp.BackColor = Color.Silver;
+
+            }
         }
+    
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
@@ -288,7 +355,7 @@ namespace InterfaceMedia
                 //reactivation des autres boutons 
                 btnRechercher.Enabled = true;
                 btnSupprimer.Enabled = true;
-                btnModifier.Enabled = true;
+                btnAjouter.Enabled = true;
 
 
                 // textbox desactiver pour l'insertion
@@ -326,5 +393,91 @@ namespace InterfaceMedia
 
             }
         }
+
+        private void btnexemp_Click(object sender, EventArgs e)
+        {
+                 if (btnexemp.Text.Equals("Livre") & btnAjouter.Text.Equals("Valider"))
+                {
+                    btnexemp.Text = "exemplaire";
+
+                txtbxtitre.Enabled = false;
+                txtbxisbn.Enabled = false;
+                txtbxcouleur.Enabled = false;
+                txtbxtome.Enabled = false;
+                cmbbxannee.Enabled = false;
+                txtbxformat.Enabled = false;
+                txtbxpage.Enabled = false;
+                txtbxcommentaire.Enabled = false;
+                txtbxediteur.Enabled = false;
+                txtbxserie.Enabled = false;
+                txtbxauteur.Enabled = false;
+                txtbxreferencerexemp.Enabled = true;
+                rdbtnA.Enabled = true;
+                rdbtnb.Enabled = true;
+                rdbtnta.Enabled = true;
+                rdbtntb.Enabled = true;
+
+                // modification des couleur 
+                txtbxcode.BackColor = Color.Silver;
+                txtbxtitre.BackColor = Color.Silver;
+                txtbxisbn.BackColor = Color.Silver;
+                txtbxcouleur.BackColor = Color.Silver;
+                txtbxtome.BackColor = Color.Silver;
+                cmbbxannee.BackColor = Color.Silver;
+                txtbxformat.BackColor = Color.Silver;
+                txtbxpage.BackColor = Color.Silver;
+                txtbxcommentaire.BackColor = Color.Silver;
+                txtbxediteur.BackColor = Color.Silver;
+                txtbxserie.BackColor = Color.Silver;
+                txtbxauteur.BackColor = Color.Silver;
+                txtbxreferencerexemp.BackColor = Color.White;
+                codelivreexmp.BackColor = Color.White;
+            }
+                  else  if (btnexemp.Text.Equals("exemplaire") & btnAjouter.Text.Equals("Valider"))
+                {
+                btnexemp.Text = "Livre";
+               
+
+
+                // textbox activer pour l'insertion
+
+                txtbxtitre.Enabled = true;
+                txtbxisbn.Enabled = true;
+                txtbxcouleur.Enabled = true;
+                txtbxtome.Enabled = true;
+                cmbbxannee.Enabled = true;
+                txtbxformat.Enabled = true;
+                txtbxpage.Enabled = true;
+                txtbxcommentaire.Enabled = true;
+                txtbxediteur.Enabled = true;
+                txtbxserie.Enabled = true;
+                txtbxauteur.Enabled = true;
+                txtbxreferencerexemp.Enabled = false;
+                rdbtnA.Enabled = false;
+                rdbtnb.Enabled = false;
+                rdbtnta.Enabled = false;
+                rdbtntb.Enabled = false;
+
+                // modification des couleur 
+                txtbxcode.BackColor = Color.White;
+                txtbxtitre.BackColor = Color.White;
+                txtbxisbn.BackColor = Color.White;
+                txtbxcouleur.BackColor = Color.White;
+                txtbxtome.BackColor = Color.White;
+                cmbbxannee.BackColor = Color.White;
+                txtbxformat.BackColor = Color.White;
+                txtbxpage.BackColor = Color.White;
+                txtbxcommentaire.BackColor = Color.White;
+                txtbxediteur.BackColor = Color.White;
+                txtbxserie.BackColor = Color.White;
+                txtbxauteur.BackColor = Color.White;
+                txtbxreferencerexemp.BackColor = Color.White;
+                txtbxreferencerexemp.BackColor = Color.Silver;
+                codelivreexmp.BackColor = Color.Silver;
+            }
+
+            }
+
+            }
+          
     }
-}
