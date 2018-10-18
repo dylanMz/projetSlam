@@ -34,7 +34,6 @@
             this.btnSupprimer = new MetroFramework.Controls.MetroTile();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.metrotileQuitter = new MetroFramework.Controls.MetroTile();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.cmbbxauteur = new MetroFramework.Controls.MetroComboBox();
@@ -75,7 +74,6 @@
             this.dtgrvLivre = new System.Windows.Forms.DataGridView();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrvLivre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
@@ -83,12 +81,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.metrotileQuitter);
             this.groupBox1.Controls.Add(this.btnAnnuler);
             this.groupBox1.Controls.Add(this.btnRechercher);
             this.groupBox1.Controls.Add(this.btnSupprimer);
             this.groupBox1.Controls.Add(this.btnModifier);
             this.groupBox1.Controls.Add(this.btnAjouter);
-            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(768, 19);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(181, 591);
@@ -180,22 +178,13 @@
             this.btnAjouter.UseSelectable = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.metrotileQuitter);
-            this.groupBox2.Location = new System.Drawing.Point(1, 492);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 78);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            // 
             // metrotileQuitter
             // 
             this.metrotileQuitter.ActiveControl = null;
             this.metrotileQuitter.BackColor = System.Drawing.Color.Tomato;
             this.metrotileQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
             this.metrotileQuitter.ForeColor = System.Drawing.Color.White;
-            this.metrotileQuitter.Location = new System.Drawing.Point(6, 19);
+            this.metrotileQuitter.Location = new System.Drawing.Point(6, 532);
             this.metrotileQuitter.Name = "metrotileQuitter";
             this.metrotileQuitter.Size = new System.Drawing.Size(168, 44);
             this.metrotileQuitter.Style = MetroFramework.MetroColorStyle.Blue;
@@ -937,7 +926,6 @@
             this.Name = "Frmlivre";
             this.Text = "Livre";
             this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgrvLivre)).EndInit();
@@ -954,7 +942,6 @@
         private MetroFramework.Controls.MetroTile btnSupprimer;
         private MetroFramework.Controls.MetroTile btnModifier;
         private MetroFramework.Controls.MetroTile btnAjouter;
-        private System.Windows.Forms.GroupBox groupBox2;
         private MetroFramework.Controls.MetroTile metrotileQuitter;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private System.Windows.Forms.RadioButton rdbtnta;

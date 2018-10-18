@@ -143,11 +143,23 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
+                List<KeyValuePair<String, Object>> parametresString = new List<KeyValuePair<String, Object>>(){
 
+                     //wid est le nom du parametre de la procédure stokée, et id les valeurs.
+                    new KeyValuePair<String, Object>("wnom", txtNom.Text),
+                    new KeyValuePair<String, Object>("wprenom", txtPrenom.Text),
+                    new KeyValuePair<String, Object>("wrue", txtAdresse.Text),
+                    new KeyValuePair<String, Object>("wcodepostal", txtCodePostal.Text),
+                    new KeyValuePair<String, Object>("wville", txtCodePostal.Text),
+                    new KeyValuePair<String, Object>("wdatenaiss", DateTimeNaissance.Text),
+                    new KeyValuePair<String, Object>("wmail", txtMail.Text),
+                    new KeyValuePair<String, Object>("wpremadh", DateTimeAdhesion.Text),
+                    new KeyValuePair<String, Object>("wrenadh", DateTimeRenouvellement.Text),
+                  };
                 if (uneconnexion.OuvrirConnexion() == true)
                 {
                     String recupcode = null;
-                    unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString, parametresDateTime);
+                    unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString);
 
                 }
                 groupAjouterEmp.Enabled = false;
