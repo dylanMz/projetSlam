@@ -47,6 +47,14 @@ namespace InterfaceMedia
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
+            txtPrenom.Text = GridEmprunteur.CurrentRow.Cells["prénom"].Value.ToString();
+            txtMail.Text = GridEmprunteur.CurrentRow.Cells["mail"].Value.ToString();
+            txtAdresse.Text = GridEmprunteur.CurrentRow.Cells["rue"].Value.ToString();
+            txtCodePostal.Text = GridEmprunteur.CurrentRow.Cells["code_postal"].Value.ToString();
+            txtVille.Text = GridEmprunteur.CurrentRow.Cells["ville"].Value.ToString();
+            //DateTimeNaissance.Text = GridEmprunteur.CurrentRow.Cells["naissance"].Value.ToString();
+            //DateTimeAdhesion.Text = GridEmprunteur.CurrentRow.Cells["adhesion"].Value.ToString();
+          //  DateTimeRenouvellement.Text = GridEmprunteur.CurrentRow.Cells["renouvellement_adhesion"].Value.ToString();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -143,11 +151,23 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
+                List<KeyValuePair<String, Object>> parametresString = new List<KeyValuePair<String, Object>>(){
 
+                     //wid est le nom du parametre de la procédure stokée, et id les valeurs.
+                    new KeyValuePair<String, Object>("wnom", txtNom.Text),
+                    new KeyValuePair<String, Object>("wprenom", txtPrenom.Text),
+                    new KeyValuePair<String, Object>("wrue", txtAdresse.Text),
+                    new KeyValuePair<String, Object>("wcodepostal", txtCodePostal.Text),
+                    new KeyValuePair<String, Object>("wville", txtCodePostal.Text),
+                    new KeyValuePair<String, Object>("wdatenaiss", DateTimeNaissance.Text),
+                    new KeyValuePair<String, Object>("wmail", txtMail.Text),
+                    new KeyValuePair<String, Object>("wpremadh", DateTimeAdhesion.Text),
+                    new KeyValuePair<String, Object>("wrenadh", DateTimeRenouvellement.Text),
+                  };
                 if (uneconnexion.OuvrirConnexion() == true)
                 {
                     String recupcode = null;
-                    unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString, parametresDateTime);
+                    unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString);
 
                 }
                 groupAjouterEmp.Enabled = false;
