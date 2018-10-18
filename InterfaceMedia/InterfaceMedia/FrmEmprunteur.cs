@@ -165,11 +165,10 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
-
+                
                 List<KeyValuePair<String, Object>> parametresString = new List<KeyValuePair<String, Object>>(){
 
-                     //wid est le nom du parametre de la procédure stokée, et id les valeurs.
-                    new KeyValuePair<String, Object>("wid", id),
+                     //w.. est le nom du parametre de la procédure stokée, et txt.. les valeurs.
                     new KeyValuePair<String, Object>("wnom", txtNom.Text),
                     new KeyValuePair<String, Object>("wprenom", txtPrenom.Text),
                     new KeyValuePair<String, Object>("wrue", txtAdresse.Text),
@@ -180,14 +179,15 @@ namespace InterfaceMedia
 
                 List<KeyValuePair<String, Object>> parametresDate = new List<KeyValuePair<String, Object>>(){
 
-                     //wid est le nom du parametre de la procédure stokée, et id les valeurs.
+                     //w..est le nom du parametre de la procédure stokée, et Date... les valeurs.
                     new KeyValuePair<String, Object>("wdatenaiss", DateTime.Parse(DateTimeNaissance.Text).ToString("yyyy-MM-dd")),
                     new KeyValuePair<String, Object>("wpremadh", DateTime.Parse(DateTimeAdhesion.Text).ToString("yyyy-MM-dd")),
                     new KeyValuePair<String, Object>("wrenadh", DateTime.Parse(DateTimeRenouvellement.Text).ToString("yyyy-MM-dd")),
                   };
 
                 String recupcode = null;
-                unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString, parametresDate);
+                //appel de la procédure pour modifier avec les paramétres
+                unEmprunteur.connectprocedure("proc_modif_emprunteur", ref recupcode, parametresString, parametresDate, Convert.ToInt32(id));
 
                
                 groupAjouterEmp.Enabled = false;
