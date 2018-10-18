@@ -94,6 +94,7 @@ namespace LibMedia
             }
             _connexion.closeConnexion();
             return bibliotheque;*/
-        }
+        //}
     }
+
 }
