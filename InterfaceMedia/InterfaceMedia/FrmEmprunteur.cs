@@ -294,6 +294,7 @@ namespace InterfaceMedia
             unEmprunteur.connectprocedure(nomprocedure, ref recupcode, parametresString, parametresDate, Convert.ToInt32(id));
         }
 
+        //Verifier le changement d'etat du metrotoggle
         private void ActiverAdh_CheckedChanged(object sender, EventArgs e)
         {
             if(ActiverAdh.Checked == true)
