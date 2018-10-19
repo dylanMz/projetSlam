@@ -54,15 +54,15 @@ namespace InterfaceMedia
                 //Les textbox à remplir pour l'insertion se déverouille
                 txtBoxCode.Enabled = true;
                 txtBoxTitre.Enabled = true;
-                txtBoxAuteur.Enabled = true;
-                txtBoxEditeur.Enabled = true;
+                txtBoxTome.Enabled = true;
+                txtBoxParution.Enabled = true;
                 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtBoxCode.BackColor = Color.White;
                 txtBoxTitre.BackColor = Color.White;
-                txtBoxAuteur.BackColor = Color.White;
-                txtBoxEditeur.BackColor = Color.White;
+                txtBoxTome.BackColor = Color.White;
+                txtBoxParution.BackColor = Color.White;
 
 
             }
@@ -81,14 +81,14 @@ namespace InterfaceMedia
                 //Les textbox sont inacessibles.
                 txtBoxCode.Enabled = false;
                 txtBoxTitre.Enabled = false;
-                txtBoxAuteur.Enabled = false;
-                txtBoxEditeur.Enabled = false;
+                txtBoxTome.Enabled = false;
+                txtBoxParution.Enabled = false;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 txtBoxCode.BackColor = Color.Silver;
                 txtBoxTitre.BackColor = Color.Silver;
-                txtBoxAuteur.BackColor = Color.Silver;
-                txtBoxEditeur.BackColor = Color.Silver;
+                txtBoxTome.BackColor = Color.Silver;
+                txtBoxParution.BackColor = Color.Silver;
             }
         }
 
@@ -110,20 +110,43 @@ namespace InterfaceMedia
                 //Les textbox à remplir pour l'insertion se déverouille
                 txtBoxCode.Enabled = true;
                 txtBoxTitre.Enabled = true;
-                txtBoxAuteur.Enabled = true;
-                txtBoxEditeur.Enabled = true;
+                txtBoxTome.Enabled = true;
+                txtBoxParution.Enabled = true;
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtBoxCode.BackColor = Color.White;
                 txtBoxTitre.BackColor = Color.White;
-                txtBoxAuteur.BackColor = Color.White;
-                txtBoxEditeur.BackColor = Color.White;
+                txtBoxTome.BackColor = Color.White;
+                txtBoxParution.BackColor = Color.White;
 
                 OpenFileDialog openFile = new OpenFileDialog();
                 openFile.DefaultExt = "C:/Users/h.zagorjewsky/Source/Repos/dylanMz/projetSlam/InterfaceMedia/InterfaceMedia/Resources";
                 openFile.Filter = "Fichier MapInfoFormat (*.jpeg)|*.jpeg";
                 openFile.ShowDialog();
+            }
+            else if (btnAjouter.Text.Equals("Valider"))
+            {
+                btnAjouter.Text = "Ajouter";
+                btnAjouter.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnRechercher.Enabled = true;
+
+                //Les textbox sont inacessibles.
+                txtBoxCode.Enabled = false;
+                txtBoxTitre.Enabled = false;
+                txtBoxTome.Enabled = false;
+                txtBoxParution.Enabled = false;
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                txtBoxCode.BackColor = Color.Silver;
+                txtBoxTitre.BackColor = Color.Silver;
+                txtBoxTome.BackColor = Color.Silver;
+                txtBoxParution.BackColor = Color.Silver;
             }
         }
 
@@ -152,14 +175,14 @@ namespace InterfaceMedia
             //Les textbox sont inacessibles.
             txtBoxCode.Enabled = false;
             txtBoxTitre.Enabled = false;
-            txtBoxAuteur.Enabled = false;
-            txtBoxEditeur.Enabled = false;
+            txtBoxTome.Enabled = false;
+            txtBoxParution.Enabled = false;
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
             txtBoxCode.BackColor = Color.Silver;
             txtBoxTitre.BackColor = Color.Silver;
-            txtBoxAuteur.BackColor = Color.Silver;
-            txtBoxEditeur.BackColor = Color.Silver;
+            txtBoxTome.BackColor = Color.Silver;
+            txtBoxParution.BackColor = Color.Silver;
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
@@ -183,15 +206,15 @@ namespace InterfaceMedia
                 //Les textbox à remplir pour l'insertion se déverouille
                 txtBoxCode.Enabled = true;
                 txtBoxTitre.Enabled = true;
-                txtBoxAuteur.Enabled = true;
-                txtBoxEditeur.Enabled = true;
+                txtBoxTome.Enabled = true;
+                txtBoxParution.Enabled = true;
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtBoxCode.BackColor = Color.White;
                 txtBoxTitre.BackColor = Color.White;
-                txtBoxAuteur.BackColor = Color.White;
-                txtBoxEditeur.BackColor = Color.White;
+                txtBoxTome.BackColor = Color.White;
+                txtBoxParution.BackColor = Color.White;
 
             }
 
@@ -209,14 +232,71 @@ namespace InterfaceMedia
                 //Les textbox sont inacessibles.
                 txtBoxCode.Enabled = false;
                 txtBoxTitre.Enabled = false;
-                txtBoxAuteur.Enabled = false;
-                txtBoxEditeur.Enabled = false;
+                txtBoxTome.Enabled = false;
+                txtBoxParution.Enabled = false;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 txtBoxCode.BackColor = Color.Silver;
                 txtBoxTitre.BackColor = Color.Silver;
-                txtBoxAuteur.BackColor = Color.Silver;
-                txtBoxEditeur.BackColor = Color.Silver;
+                txtBoxTome.BackColor = Color.Silver;
+                txtBoxParution.BackColor = Color.Silver;
+            }
+        }
+
+        private void btnRechercher_Click(object sender, EventArgs e)
+        {
+            if (btnRechercher.Text.Equals("Rechercher"))
+            {
+                btnRechercher.BackColor = Color.Green;
+                btnRechercher.Text = "Valider";
+
+                //le bouton annuler apparait
+                btnAnnuler.Visible = true;
+
+                //Desactive tous les autres boutons
+                btnModifier.Enabled = false;
+                btnAjouter.Enabled = false;
+                btnSupprimer.Enabled = false;
+
+                //Les textbox à remplir pour l'insertion se déverouille
+                txtBoxCode.Enabled = true;
+                txtBoxTitre.Enabled = true;
+                txtBoxTome.Enabled = true;
+                txtBoxParution.Enabled = true;
+
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+                txtBoxCode.BackColor = Color.White;
+                txtBoxTitre.BackColor = Color.White;
+                txtBoxTome.BackColor = Color.White;
+                txtBoxParution.BackColor = Color.White;
+            }
+            else if (btnRechercher.Text.Equals("Valider"))
+            {
+
+                CRUD_Couverture Export = new CRUD_Couverture(_connexion);
+                GridViewBase.DataSource= Export.rechercher(Int16.Parse(txtBoxCode.Text), txtBoxTitre.Text, Int16.Parse(txtBoxTome.Text), txtBoxParution.Text);
+
+                btnRechercher.Text = "Rechercher";
+                btnRechercher.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnModifier.Enabled = true;
+                btnAjouter.Enabled = true;
+                btnSupprimer.Enabled = true;
+
+                //Les textbox sont inacessibles.
+                txtBoxCode.Enabled = false;
+                txtBoxTitre.Enabled = false;
+                txtBoxTome.Enabled = false;
+                txtBoxParution.Enabled = false;
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                txtBoxCode.BackColor = Color.Silver;
+                txtBoxTitre.BackColor = Color.Silver;
+                txtBoxTome.BackColor = Color.Silver;
+                txtBoxParution.BackColor = Color.Silver;
             }
         }
     }
