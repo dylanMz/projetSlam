@@ -63,12 +63,71 @@ namespace InterfaceMedia.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap auteurtranspa {
+            get {
+                object obj = ResourceManager.GetObject("auteurtranspa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap couverture {
+            get {
+                object obj = ResourceManager.GetObject("couverture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap depositphotos_116550360_stock_illustration_author_icon_author_sign {
+            get {
+                object obj = ResourceManager.GetObject("depositphotos_116550360-stock-illustration-author-icon-author-sign", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ecour_icon {
             get {
                 object obj = ResourceManager.GetObject("ecour-icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
-            //test
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editeur {
+            get {
+                object obj = ResourceManager.GetObject("editeur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconeEmprunt {
+            get {
+                object obj = ResourceManager.GetObject("iconeEmprunt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap iconeEmprunteur {
+            get {
+                object obj = ResourceManager.GetObject("iconeEmprunteur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
         }
         
         /// <summary>
@@ -87,6 +146,16 @@ namespace InterfaceMedia.Properties {
         internal static System.Drawing.Bitmap iconHomeV2 {
             get {
                 object obj = ResourceManager.GetObject("iconHomeV2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap livreOuvert {
+            get {
+                object obj = ResourceManager.GetObject("livreOuvert", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
