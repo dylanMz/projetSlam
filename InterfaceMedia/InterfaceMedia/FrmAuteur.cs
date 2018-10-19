@@ -311,6 +311,7 @@ namespace InterfaceMedia
                 //dtStatut.Value = dgvAuteur.CurrentRow.Cells[0].Value.ToString();
             }
             cmbPays.Text = dgvAuteur.CurrentRow.Cells[6].Value.ToString();
+            txtBio.Text = dgvAuteur.CurrentRow.Cells[7].Value.ToString();
         }
     }
 }
