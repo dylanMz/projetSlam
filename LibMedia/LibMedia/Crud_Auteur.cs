@@ -22,12 +22,12 @@ namespace LibMedia
         #endregion
 
         #region constructeur
-        public Crud_Auteur()
+        public Crud_Auteur(ConnexionBase connexion_en_cours)
         {
-            connexion = new ConnexionBase();
+            connexion = connexion_en_cours;
         }
         #endregion
-        
+
         #region appel des procédures
         //ajout d'un auteur
         public void ajouterAuteur(String unNom, String unPrenom, String unPseudo, DateTime uneDateNaiss, DateTime uneDateDeces, String unPays, String uneBiographie)
@@ -162,6 +162,8 @@ namespace LibMedia
             }
             return (unDataset.Tables["auteur"]);
         }
+
+
         #endregion
     }
 }
