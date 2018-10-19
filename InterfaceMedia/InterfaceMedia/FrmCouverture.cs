@@ -25,6 +25,7 @@ namespace InterfaceMedia
             _connexion.OuvrirConnexion();
             uneCouverture = new CRUD_Couverture(_connexion);
            // GridViewBase.DataSource = uneCouverture.recupCouverture();
+            CRUD_Couverture Export = new CRUD_Couverture(_connexion);
         }
 
         private void picHome_Click(object sender, EventArgs e)
