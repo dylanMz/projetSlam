@@ -274,23 +274,21 @@ namespace InterfaceMedia
 
         private void rdoDecede_CheckedChanged(object sender, EventArgs e)
         {
-            if (dtStatut.Visible == false)
-            {
+            
                 //Affiche et deverouille le dateTime de décés.
                 dtStatut.Visible = true;
                 dtStatut.Enabled = true;
-            }
+            
             
         }
 
         private void rdoVivant_CheckedChanged(object sender, EventArgs e)
         {
-            if (dtStatut.Visible == true)
-            {
+            
                 //rend invisible et verouille le dateTime de décés
                 dtStatut.Visible = false;
                 dtStatut.Enabled = false;
-            }
+            
         }
 
         private void cmbPays_SelectedIndexChanged(object sender, EventArgs e)
