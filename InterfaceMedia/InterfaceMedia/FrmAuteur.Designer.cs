@@ -75,9 +75,9 @@
             this.grpMenu.Controls.Add(this.btnAjouter);
             this.grpMenu.Controls.Add(this.btnRechercher);
             this.grpMenu.Controls.Add(this.btnAnnuler);
-            this.grpMenu.Location = new System.Drawing.Point(737, 63);
+            this.grpMenu.Location = new System.Drawing.Point(737, 33);
             this.grpMenu.Name = "grpMenu";
-            this.grpMenu.Size = new System.Drawing.Size(216, 519);
+            this.grpMenu.Size = new System.Drawing.Size(216, 549);
             this.grpMenu.TabIndex = 1;
             this.grpMenu.TabStop = false;
             // 
@@ -526,8 +526,9 @@
             this.dgvAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAuteur.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAuteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuteur.Location = new System.Drawing.Point(12, 382);
+            this.dgvAuteur.Location = new System.Drawing.Point(12, 388);
             this.dgvAuteur.MultiSelect = false;
             this.dgvAuteur.Name = "dgvAuteur";
             this.dgvAuteur.ReadOnly = true;

@@ -25,7 +25,7 @@ namespace InterfaceMedia
             InitializeComponent();
             uneconnexion = new ConnexionBase();
             unAuteur = new Crud_Auteur(uneconnexion);
-            dgvAuteur.DataSource = unAuteur.Recup_Table_Editeur("proc_affiche_editeur", "editeur");
+            dgvAuteur.DataSource = unAuteur.afficheAuteur("proc_affiche_auteur", "auteur");
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -267,7 +267,7 @@ namespace InterfaceMedia
 
         private void openformAccueil()
         {
-            Application.Run(new FrmCouverture());
+            Application.Run(new FrmAccueilTest());
         }
 
         private void rdoDecede_CheckedChanged(object sender, EventArgs e)

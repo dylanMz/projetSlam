@@ -157,7 +157,7 @@ namespace LibMedia
             {
                 unAdapter = new MySqlDataAdapter(afficheAut);
                 unDataset = new DataSet();
-                unAdapter.Fill(unDataset);
+                unAdapter.Fill(unDataset,"auteur");
                 connexion.closeConnexion();
             }
             return (unDataset.Tables["auteur"]);
