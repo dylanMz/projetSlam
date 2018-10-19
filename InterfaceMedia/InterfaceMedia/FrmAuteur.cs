@@ -59,8 +59,8 @@ namespace InterfaceMedia
                 txtPseudo.BackColor = Color.White;
                 txtBio.BackColor = Color.White;
                 dtDateNaiss.BackColor = Color.White;
-                rdoVivant.BackColor = Color.White;
-                rdoDecede.BackColor = Color.White;
+                rdoVivant.BackColor = Color.WhiteSmoke;
+                rdoDecede.BackColor = Color.WhiteSmoke;
                 cmbPays.BackColor = Color.White;
 
             }
@@ -128,8 +128,8 @@ namespace InterfaceMedia
                 txtPseudo.BackColor = Color.White;
                 txtBio.BackColor = Color.White;
                 dtDateNaiss.BackColor = Color.White;
-                rdoVivant.BackColor = Color.White;
-                rdoDecede.BackColor = Color.White;
+                rdoVivant.BackColor = Color.WhiteSmoke;
+                rdoDecede.BackColor = Color.WhiteSmoke;
                 cmbPays.BackColor = Color.White;
             }
 
@@ -279,28 +279,44 @@ namespace InterfaceMedia
 
         private void rdoDecede_CheckedChanged(object sender, EventArgs e)
         {
-            if (dtStatut.Visible == false)
-            {
                 //Affiche et deverouille le dateTime de décés.
                 dtStatut.Visible = true;
                 dtStatut.Enabled = true;
-            }
-            
         }
 
         private void rdoVivant_CheckedChanged(object sender, EventArgs e)
         {
-            if (dtStatut.Visible == true)
-            {
                 //rend invisible et verouille le dateTime de décés
                 dtStatut.Visible = false;
                 dtStatut.Enabled = false;
-            }
         }
 
         private void cmbPays_SelectedIndexChanged(object sender, EventArgs e)
         {
             wpaysAuteur.paysAuteur(); 
+        }
+
+        private void dgvAuteur_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtCode.Text = dgvAuteur.CurrentRow.Cells[0].Value.ToString();
+            txtNom.Text = dgvAuteur.CurrentRow.Cells[1].Value.ToString();
+            txtPrenom.Text = dgvAuteur.CurrentRow.Cells[2].Value.ToString();
+            txtPseudo.Text = dgvAuteur.CurrentRow.Cells[3].Value.ToString();
+            //dtDateNaiss.Value = dgvAuteur.CurrentRow.Cells[0].Value.ToString();
+            //dtStatut.Value = dgvAuteur.CurrentRow.Cells[0].Value.ToString();
+            if (dgvAuteur.CurrentRow.Cells[5].Value.ToString() == "")
+            {
+                rdoVivant.Checked = true;
+                rdoDecede.Checked = false;
+            }
+            else
+            {
+                rdoVivant.Checked = false;
+                rdoDecede.Checked = true;
+                //dtStatut.Value = dgvAuteur.CurrentRow.Cells[0].Value.ToString();
+            }
+            cmbPays.Text = dgvAuteur.CurrentRow.Cells[6].Value.ToString();
+            txtBio.Text = dgvAuteur.CurrentRow.Cells[7].Value.ToString();
         }
     }
 }
