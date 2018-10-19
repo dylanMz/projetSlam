@@ -94,7 +94,7 @@
             this.groupBox1.Controls.Add(this.btnSupprimer);
             this.groupBox1.Controls.Add(this.btnModifier);
             this.groupBox1.Controls.Add(this.btnAjouter);
-            this.groupBox1.Location = new System.Drawing.Point(768, 19);
+            this.groupBox1.Location = new System.Drawing.Point(768, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(181, 591);
             this.groupBox1.TabIndex = 91;
