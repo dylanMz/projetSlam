@@ -23,6 +23,7 @@ namespace InterfaceMedia
         private int uneDateCreation;
 
         private String unCodeSortie;
+        private string unCodeEditeur;
 
         public FrmEditeur()
         {
@@ -120,7 +121,7 @@ namespace InterfaceMedia
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
                 //Ajout d'un editeur
-                unEditeur.modifier_ajouter_editeur("proc_insert_editeur", txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation, unCodeSortie);
+                unEditeur.ajout_editeur("proc_insert_editeur", txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation, unCodeSortie);
 
 
                 //Reinistialisation des textbox
@@ -177,6 +178,9 @@ namespace InterfaceMedia
 
             else if (btnModifier.Text.Equals("Valider"))
             {
+                unCodeEditeur = Convert.ToString(txtCode.Text);
+                unEditeur.modification_editeur(unCodeEditeur,txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
+
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
@@ -205,6 +209,11 @@ namespace InterfaceMedia
                 txtTel.BackColor = Color.Silver;
                 txtFax.BackColor = Color.Silver;
                 txtVille.BackColor = Color.Silver;
+
+                //Actualisation du datagrid
+                GridEditeur.DataSource = unEditeur.Recup_Table_Editeur("proc_affiche_editeur", "editeur");
+
+
             }
         }
 

@@ -66,5 +66,18 @@ namespace LibMedia
             _dateRetourPrevu = dtEmp.AddDays(15);
         }
 
+        public Emprunt(int EmpNum, string ExRef, DateTime dtEmp, DateTime dtRet)
+        {
+            _numEmp = EmpNum;
+            _refEx = ExRef;
+            _dateEmp = dtEmp;
+            _dateRetourPrevu = dtRet;
+        }
+
+        public Emprunt(int EmpNum, string ExRef)
+        {
+            _numEmp = EmpNum;
+            _refEx = ExRef;
+        }
     }
 }
