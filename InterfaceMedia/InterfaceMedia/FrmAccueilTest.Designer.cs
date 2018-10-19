@@ -54,7 +54,7 @@
             // metroTileEmprunteur
             // 
             this.metroTileEmprunteur.ActiveControl = null;
-            this.metroTileEmprunteur.Location = new System.Drawing.Point(144, 350);
+            this.metroTileEmprunteur.Location = new System.Drawing.Point(144, 220);
             this.metroTileEmprunteur.Name = "metroTileEmprunteur";
             this.metroTileEmprunteur.Size = new System.Drawing.Size(348, 81);
             this.metroTileEmprunteur.TabIndex = 0;
@@ -67,7 +67,7 @@
             // metroTileEmprunt
             // 
             this.metroTileEmprunt.ActiveControl = null;
-            this.metroTileEmprunt.Location = new System.Drawing.Point(144, 220);
+            this.metroTileEmprunt.Location = new System.Drawing.Point(144, 350);
             this.metroTileEmprunt.Name = "metroTileEmprunt";
             this.metroTileEmprunt.Size = new System.Drawing.Size(348, 81);
             this.metroTileEmprunt.TabIndex = 1;
@@ -142,7 +142,7 @@
             // picEmprunt
             // 
             this.picEmprunt.Image = global::InterfaceMedia.Properties.Resources.iconeEmprunt;
-            this.picEmprunt.Location = new System.Drawing.Point(45, 220);
+            this.picEmprunt.Location = new System.Drawing.Point(45, 350);
             this.picEmprunt.Name = "picEmprunt";
             this.picEmprunt.Size = new System.Drawing.Size(79, 81);
             this.picEmprunt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -152,7 +152,7 @@
             // picEmprunteur
             // 
             this.picEmprunteur.Image = global::InterfaceMedia.Properties.Resources.iconeEmprunteur;
-            this.picEmprunteur.Location = new System.Drawing.Point(45, 350);
+            this.picEmprunteur.Location = new System.Drawing.Point(45, 220);
             this.picEmprunteur.Name = "picEmprunteur";
             this.picEmprunteur.Size = new System.Drawing.Size(79, 81);
             this.picEmprunteur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
