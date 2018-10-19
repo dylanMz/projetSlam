@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.GridEmprunteur = new MetroFramework.Controls.MetroGrid();
             this.DateTimeRenouvellement = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lblrenouvellement = new MetroFramework.Controls.MetroLabel();
             this.DateTimeAdhesion = new MetroFramework.Controls.MetroDateTime();
             this.DateTimeNaissance = new MetroFramework.Controls.MetroDateTime();
             this.txtPrenom = new MetroFramework.Controls.MetroTextBox();
@@ -81,23 +81,23 @@
             this.GridEmprunteur.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridEmprunteur.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridEmprunteur.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunteur.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunteur.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.GridEmprunteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridEmprunteur.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridEmprunteur.DefaultCellStyle = dataGridViewCellStyle2;
             this.GridEmprunteur.EnableHeadersVisualStyles = false;
             this.GridEmprunteur.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEmprunteur.GridColor = System.Drawing.Color.Gray;
@@ -105,43 +105,43 @@
             this.GridEmprunteur.Name = "GridEmprunteur";
             this.GridEmprunteur.ReadOnly = true;
             this.GridEmprunteur.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunteur.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunteur.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridEmprunteur.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEmprunteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridEmprunteur.Size = new System.Drawing.Size(807, 240);
+            this.GridEmprunteur.Size = new System.Drawing.Size(929, 240);
             this.GridEmprunteur.TabIndex = 89;
             this.GridEmprunteur.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
             // DateTimeRenouvellement
             // 
-            this.DateTimeRenouvellement.Location = new System.Drawing.Point(588, 124);
+            this.DateTimeRenouvellement.Location = new System.Drawing.Point(649, 124);
             this.DateTimeRenouvellement.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateTimeRenouvellement.Name = "DateTimeRenouvellement";
             this.DateTimeRenouvellement.Size = new System.Drawing.Size(200, 29);
             this.DateTimeRenouvellement.TabIndex = 88;
             this.DateTimeRenouvellement.UseCustomBackColor = true;
             // 
-            // metroLabel1
+            // lblrenouvellement
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(598, 93);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(173, 19);
-            this.metroLabel1.TabIndex = 87;
-            this.metroLabel1.Text = "Renouvellement adhésion :";
-            this.metroLabel1.UseCustomBackColor = true;
+            this.lblrenouvellement.AutoSize = true;
+            this.lblrenouvellement.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblrenouvellement.Location = new System.Drawing.Point(659, 93);
+            this.lblrenouvellement.Name = "lblrenouvellement";
+            this.lblrenouvellement.Size = new System.Drawing.Size(173, 19);
+            this.lblrenouvellement.TabIndex = 87;
+            this.lblrenouvellement.Text = "Renouvellement adhésion :";
+            this.lblrenouvellement.UseCustomBackColor = true;
             // 
             // DateTimeAdhesion
             // 
-            this.DateTimeAdhesion.Location = new System.Drawing.Point(588, 47);
+            this.DateTimeAdhesion.Location = new System.Drawing.Point(649, 47);
             this.DateTimeAdhesion.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateTimeAdhesion.Name = "DateTimeAdhesion";
             this.DateTimeAdhesion.Size = new System.Drawing.Size(200, 29);
@@ -193,7 +193,7 @@
             // 
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel6.Location = new System.Drawing.Point(273, 47);
+            this.metroLabel6.Location = new System.Drawing.Point(334, 47);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(64, 19);
             this.metroLabel6.TabIndex = 83;
@@ -246,7 +246,7 @@
             this.txtVille.CustomButton.UseSelectable = true;
             this.txtVille.CustomButton.Visible = false;
             this.txtVille.Lines = new string[0];
-            this.txtVille.Location = new System.Drawing.Point(343, 143);
+            this.txtVille.Location = new System.Drawing.Point(404, 143);
             this.txtVille.MaxLength = 32767;
             this.txtVille.Name = "txtVille";
             this.txtVille.PasswordChar = '\0';
@@ -277,7 +277,7 @@
             this.txtCodePostal.CustomButton.UseSelectable = true;
             this.txtCodePostal.CustomButton.Visible = false;
             this.txtCodePostal.Lines = new string[0];
-            this.txtCodePostal.Location = new System.Drawing.Point(343, 93);
+            this.txtCodePostal.Location = new System.Drawing.Point(404, 93);
             this.txtCodePostal.MaxLength = 32767;
             this.txtCodePostal.Name = "txtCodePostal";
             this.txtCodePostal.PasswordChar = '\0';
@@ -308,7 +308,7 @@
             this.txtAdresse.CustomButton.UseSelectable = true;
             this.txtAdresse.CustomButton.Visible = false;
             this.txtAdresse.Lines = new string[0];
-            this.txtAdresse.Location = new System.Drawing.Point(343, 47);
+            this.txtAdresse.Location = new System.Drawing.Point(404, 47);
             this.txtAdresse.MaxLength = 32767;
             this.txtAdresse.Name = "txtAdresse";
             this.txtAdresse.PasswordChar = '\0';
@@ -359,7 +359,7 @@
             // 
             this.lblAdhesion.AutoSize = true;
             this.lblAdhesion.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblAdhesion.Location = new System.Drawing.Point(646, 16);
+            this.lblAdhesion.Location = new System.Drawing.Point(707, 16);
             this.lblAdhesion.Name = "lblAdhesion";
             this.lblAdhesion.Size = new System.Drawing.Size(73, 19);
             this.lblAdhesion.TabIndex = 77;
@@ -390,7 +390,7 @@
             // 
             this.metroLabel7.AutoSize = true;
             this.metroLabel7.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel7.Location = new System.Drawing.Point(296, 143);
+            this.metroLabel7.Location = new System.Drawing.Point(357, 143);
             this.metroLabel7.Name = "metroLabel7";
             this.metroLabel7.Size = new System.Drawing.Size(41, 19);
             this.metroLabel7.TabIndex = 74;
@@ -401,7 +401,7 @@
             // 
             this.metroLabel_codepostal.AutoSize = true;
             this.metroLabel_codepostal.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel_codepostal.Location = new System.Drawing.Point(249, 93);
+            this.metroLabel_codepostal.Location = new System.Drawing.Point(310, 93);
             this.metroLabel_codepostal.Name = "metroLabel_codepostal";
             this.metroLabel_codepostal.Size = new System.Drawing.Size(88, 19);
             this.metroLabel_codepostal.TabIndex = 73;
@@ -437,7 +437,7 @@
             this.groupBox1.Controls.Add(this.btnModifier);
             this.groupBox1.Controls.Add(this.btnAjouter);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(857, 21);
+            this.groupBox1.Location = new System.Drawing.Point(1018, 21);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(181, 535);
             this.groupBox1.TabIndex = 90;
@@ -627,7 +627,7 @@
             this.groupAjouterEmp.Controls.Add(this.metroLabel5);
             this.groupAjouterEmp.Controls.Add(this.metroLabel2);
             this.groupAjouterEmp.Controls.Add(this.DateTimeRenouvellement);
-            this.groupAjouterEmp.Controls.Add(this.metroLabel1);
+            this.groupAjouterEmp.Controls.Add(this.lblrenouvellement);
             this.groupAjouterEmp.Controls.Add(this.DateTimeAdhesion);
             this.groupAjouterEmp.Controls.Add(this.DateTimeNaissance);
             this.groupAjouterEmp.Controls.Add(this.txtPrenom);
@@ -641,9 +641,9 @@
             this.groupAjouterEmp.Controls.Add(this.metroLabel7);
             this.groupAjouterEmp.Controls.Add(this.metroLabel_codepostal);
             this.groupAjouterEmp.Enabled = false;
-            this.groupAjouterEmp.Location = new System.Drawing.Point(23, 76);
+            this.groupAjouterEmp.Location = new System.Drawing.Point(23, 68);
             this.groupAjouterEmp.Name = "groupAjouterEmp";
-            this.groupAjouterEmp.Size = new System.Drawing.Size(807, 224);
+            this.groupAjouterEmp.Size = new System.Drawing.Size(929, 224);
             this.groupAjouterEmp.TabIndex = 95;
             this.groupAjouterEmp.TabStop = false;
             // 
@@ -662,7 +662,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1047, 579);
+            this.ClientSize = new System.Drawing.Size(1209, 579);
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.groupAjouterEmp);
             this.Controls.Add(this.groupBox1);
@@ -671,7 +671,9 @@
             this.Controls.Add(this.metroLabel8);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
+            this.MaximizeBox = false;
             this.Name = "FrmEmprunteur";
+            this.Resizable = false;
             this.Text = "Emprunteur";
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunteur)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -688,7 +690,7 @@
 
         private MetroFramework.Controls.MetroGrid GridEmprunteur;
         private MetroFramework.Controls.MetroDateTime DateTimeRenouvellement;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel lblrenouvellement;
         private MetroFramework.Controls.MetroDateTime DateTimeAdhesion;
         private MetroFramework.Controls.MetroDateTime DateTimeNaissance;
         private MetroFramework.Controls.MetroTextBox txtPrenom;

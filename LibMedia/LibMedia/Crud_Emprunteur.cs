@@ -53,7 +53,7 @@ namespace LibMedia
             }
         }
         //Exécute la procédure avec les paramétres
-        public void connectprocedure(String nomprocedure, ref string codeErreur, List<KeyValuePair<String, Object>> parametresString, List<KeyValuePair<String, Object>> parametresDate)
+        public void connectprocedure(String nomprocedure, ref string codeErreur, List<KeyValuePair<String, Object>> parametresString, List<KeyValuePair<String, Object>> parametresDate, int wid)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -74,7 +74,13 @@ namespace LibMedia
                     unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.Date));
                     unecommandeSql.Parameters[unParametre.Key].Value = unParametre.Value;
                 }
+                unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                unecommandeSql.Parameters["wid"].Value = wid;
 
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
+                unecommandeSql.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
 
                 unecommandeSql.ExecuteNonQuery();
 
