@@ -121,7 +121,7 @@ namespace LibMedia
             laConnexion.closeConnexion();       //Ferme la connexion
         }
 
-        public DataTable rechercheDate_Emprunt(Emprunt unEmprunt)
+        public DataTable rechercheDate_Emprunt(DateTime uneDate)
         {
             laConnexion.OuvrirConnexion();
             uneCmdSql = new MySqlCommand();
@@ -129,7 +129,7 @@ namespace LibMedia
             uneCmdSql.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
             uneCmdSql.Connection = laConnexion.getConnexion();
             uneCmdSql.Parameters.Add(new MySqlParameter("dateEmp", MySqlDbType.Date));
-            uneCmdSql.Parameters["dateEmp"].Value = unEmprunt.dateEmp;
+            uneCmdSql.Parameters["dateEmp"].Value = uneDate;
 
             MySqlDataAdapter unAdapter = new MySqlDataAdapter(uneCmdSql);
             DataSet unDataset = new DataSet();
@@ -169,7 +169,7 @@ namespace LibMedia
 
         
 
-        public DataTable rechercheNonRendu(Emprunt unEmprunt)
+        public DataTable rechercheNonRendu(DateTime uneDate)
         {
 
             laConnexion.OuvrirConnexion();
@@ -177,8 +177,8 @@ namespace LibMedia
             uneCmdSql.CommandText = "proc_recherche_non_rendu_emprunt";  //Nom de la rpocédure sur MySql
             uneCmdSql.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
             uneCmdSql.Connection = laConnexion.getConnexion();
-            uneCmdSql.Parameters.Add(new MySqlParameter("dateD", MySqlDbType.Int16));  // c'est deux ligne pour chaque parametre de la procedure
-            uneCmdSql.Parameters["dateD"].Value = unEmprunt.dateRetourPrevu;
+            uneCmdSql.Parameters.Add(new MySqlParameter("dateD", MySqlDbType.Date));  // c'est deux ligne pour chaque parametre de la procedure
+            uneCmdSql.Parameters["dateD"].Value = uneDate;
 
             MySqlDataAdapter unAdapter = new MySqlDataAdapter(uneCmdSql);
             DataSet unDataset = new DataSet();

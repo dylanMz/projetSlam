@@ -476,16 +476,13 @@ namespace InterfaceMedia
 
                 if(rbLivreEmprunter.Checked == true)
                 {
-                    int numE = Int32.Parse(txtbxNumEmp.Text);
-                    DateTime Date = Convert.ToDateTime(dtEmprunt.Text);
+
+                    DateTime Date = Convert.ToDateTime(dtDate.Text);
+
+                    //GridEmprunt.DataSource = LivreNonRendu.rechercheDate_Emprunt(;
                 }
                 
-                DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
-                DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
-                DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
-                Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text, dateEm, dateRet, dateRetP);
-
-                Updat.updateEmprunt(lEmprunt);
+                //Updat.updateEmprunt(lEmprunt);
 
                 btnLivre.Text = "Modifier";
                 btnLivre.BackColor = Color.SteelBlue;
