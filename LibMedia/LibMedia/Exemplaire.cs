@@ -36,14 +36,5 @@ namespace LibMedia
             set { ExempEtat = value; }
 
         }
-
-        
-
-        public int wbdcode
-        {
-            get { return bdcope; }
-            set { bdcope = value; }
-        }
-
     }
 }
