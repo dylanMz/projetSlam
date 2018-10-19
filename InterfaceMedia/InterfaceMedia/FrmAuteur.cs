@@ -58,8 +58,8 @@ namespace InterfaceMedia
                 txtPseudo.BackColor = Color.White;
                 txtBio.BackColor = Color.White;
                 dtDateNaiss.BackColor = Color.White;
-                rdoVivant.BackColor = Color.White;
-                rdoDecede.BackColor = Color.White;
+                rdoVivant.BackColor = Color.WhiteSmoke;
+                rdoDecede.BackColor = Color.WhiteSmoke;
                 cmbPays.BackColor = Color.White;
 
             }

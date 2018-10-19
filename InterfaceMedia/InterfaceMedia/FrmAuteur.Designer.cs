@@ -213,7 +213,7 @@
             // rdoVivant
             // 
             this.rdoVivant.AutoSize = true;
-            this.rdoVivant.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.rdoVivant.BackColor = System.Drawing.Color.Silver;
             this.rdoVivant.Enabled = false;
             this.rdoVivant.Location = new System.Drawing.Point(18, 26);
             this.rdoVivant.Name = "rdoVivant";
@@ -239,7 +239,7 @@
             // rdoDecede
             // 
             this.rdoDecede.AutoSize = true;
-            this.rdoDecede.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.rdoDecede.BackColor = System.Drawing.Color.Silver;
             this.rdoDecede.Enabled = false;
             this.rdoDecede.Location = new System.Drawing.Point(125, 26);
             this.rdoDecede.Name = "rdoDecede";
@@ -270,7 +270,7 @@
             this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel3.Location = new System.Drawing.Point(20, 194);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(48, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(44, 19);
             this.metroLabel3.TabIndex = 18;
             this.metroLabel3.Text = "Pays :";
             this.metroLabel3.UseCustomBackColor = true;
@@ -281,7 +281,7 @@
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel2.Location = new System.Drawing.Point(20, 102);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(103, 19);
+            this.metroLabel2.Size = new System.Drawing.Size(95, 19);
             this.metroLabel2.TabIndex = 16;
             this.metroLabel2.Text = "Pseudonyme :";
             this.metroLabel2.UseCustomBackColor = true;
@@ -325,7 +325,7 @@
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel1.Location = new System.Drawing.Point(357, 159);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(56, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(53, 19);
             this.metroLabel1.TabIndex = 14;
             this.metroLabel1.Text = "Statut :";
             this.metroLabel1.UseCustomBackColor = true;
@@ -347,7 +347,7 @@
             this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel5.Location = new System.Drawing.Point(20, 241);
             this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(91, 19);
+            this.metroLabel5.Size = new System.Drawing.Size(81, 19);
             this.metroLabel5.TabIndex = 12;
             this.metroLabel5.Text = "Biographie :";
             this.metroLabel5.UseCustomBackColor = true;
@@ -358,7 +358,7 @@
             this.lblCode.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblCode.Location = new System.Drawing.Point(20, 25);
             this.lblCode.Name = "lblCode";
-            this.lblCode.Size = new System.Drawing.Size(52, 19);
+            this.lblCode.Size = new System.Drawing.Size(48, 19);
             this.lblCode.TabIndex = 2;
             this.lblCode.Text = "Code :";
             this.lblCode.UseCustomBackColor = true;
@@ -406,7 +406,7 @@
             this.lblNom.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblNom.Location = new System.Drawing.Point(20, 64);
             this.lblNom.Name = "lblNom";
-            this.lblNom.Size = new System.Drawing.Size(50, 19);
+            this.lblNom.Size = new System.Drawing.Size(46, 19);
             this.lblNom.TabIndex = 3;
             this.lblNom.Text = "Nom :";
             this.lblNom.UseCustomBackColor = true;
@@ -417,7 +417,7 @@
             this.lblDateNais.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblDateNais.Location = new System.Drawing.Point(20, 159);
             this.lblDateNais.Name = "lblDateNais";
-            this.lblDateNais.Size = new System.Drawing.Size(115, 19);
+            this.lblDateNais.Size = new System.Drawing.Size(107, 19);
             this.lblDateNais.TabIndex = 4;
             this.lblDateNais.Text = "Date naissance :";
             this.lblDateNais.UseCustomBackColor = true;
@@ -461,7 +461,7 @@
             this.lblPrenom.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblPrenom.Location = new System.Drawing.Point(357, 64);
             this.lblPrenom.Name = "lblPrenom";
-            this.lblPrenom.Size = new System.Drawing.Size(70, 19);
+            this.lblPrenom.Size = new System.Drawing.Size(64, 19);
             this.lblPrenom.TabIndex = 5;
             this.lblPrenom.Text = "Prenom :";
             this.lblPrenom.UseCustomBackColor = true;
