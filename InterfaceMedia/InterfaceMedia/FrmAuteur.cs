@@ -230,6 +230,15 @@ namespace InterfaceMedia
             btnModifier.Text = "Modifier";
             btnRechercher.Text = "Rechercher";
 
+            //Vide des champs
+            txtCode.Text = "";
+            txtNom.Text = "";
+            txtPrenom.Text = "";
+            txtPseudo.Text = "";
+            txtBio.Text = "";
+            rdoVivant.Checked = false;
+            rdoDecede.Checked = false;
+
             //Les textbox sont inacessibles.
             txtCode.Enabled = false;
             txtNom.Enabled = false;
@@ -241,7 +250,7 @@ namespace InterfaceMedia
             rdoDecede.Enabled = false;
             cmbPays.Enabled = false;
 
-            //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
+            //Le background color des textbox change de couleur pour indiquer qu'elles sont verrouillées
             txtCode.BackColor = Color.Silver;
             txtNom.BackColor = Color.Silver;
             txtPrenom.BackColor = Color.Silver;
@@ -293,7 +302,7 @@ namespace InterfaceMedia
 
         private void cmbPays_SelectedIndexChanged(object sender, EventArgs e)
         {
-            wpaysAuteur.paysAuteur(); 
+            //cmbPays.DisplayMember = wpaysAuteur.paysAuteur();
         }
 
         private void dgvAuteur_CellClick(object sender, DataGridViewCellEventArgs e)
