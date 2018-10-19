@@ -19,6 +19,7 @@ namespace InterfaceMedia
         private ConnexionBase connexion;
         private Crud_Auteur unAuteur;
         private Crud_Auteur wpaysAuteur;
+        public List<String> listePays;
 
         public FrmAuteur()
         {
@@ -28,6 +29,14 @@ namespace InterfaceMedia
             dgvAuteur.DataSource = unAuteur.afficheAuteur();
         }
 
+        #region Constructeur.s
+        public List<String> FrmAuteur()
+        {
+
+        }
+        #endregion
+
+        #region Code Boutons
         //bouton ajouter
         private void btnAjouter_Click(object sender, EventArgs e)
         {
@@ -288,16 +297,16 @@ namespace InterfaceMedia
 
         private void rdoDecede_CheckedChanged(object sender, EventArgs e)
         {
-                //Affiche et deverouille le dateTime de décés.
-                dtStatut.Visible = true;
-                dtStatut.Enabled = true;
+            //Affiche et deverouille le dateTime de décés.
+            dtStatut.Visible = true;
+            dtStatut.Enabled = true;
         }
 
         private void rdoVivant_CheckedChanged(object sender, EventArgs e)
         {
-                //rend invisible et verouille le dateTime de décés
-                dtStatut.Visible = false;
-                dtStatut.Enabled = false;
+            //rend invisible et verouille le dateTime de décés
+            dtStatut.Visible = false;
+            dtStatut.Enabled = false;
         }
 
         private void cmbPays_SelectedIndexChanged(object sender, EventArgs e)
@@ -328,4 +337,6 @@ namespace InterfaceMedia
             txtBio.Text = dgvAuteur.CurrentRow.Cells[7].Value.ToString();
         }
     }
+    #endregion
+
 }

@@ -17,6 +17,7 @@ namespace LibMedia
         public DateTime AuteurDeces;
         public String AuteurPays;
         public String AuteurBiographie;
+        public List<Auteur> listePays;
 
         #endregion
         
@@ -34,6 +35,12 @@ namespace LibMedia
             AuteurPays = unPays;
             AuteurBiographie = uneBiographie;
         }
+
+        public Auteur()
+        {
+
+        }
+
         #endregion
 
         #region Accesseurs
@@ -83,6 +90,15 @@ namespace LibMedia
             get { return AuteurBiographie; }
             set { AuteurBiographie = value; }
         }
+
+        public List<Auteur> _listePays
+        {
+            get { return listePays; }
+            set { listePays = value; }
+        }
+
+
+
         #endregion
     }
 }
