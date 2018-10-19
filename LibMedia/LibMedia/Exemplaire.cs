@@ -34,6 +34,6 @@ namespace LibMedia
             get { return ExempEtat; }
             set { ExempEtat = value; }
         }
+        #endregion
     }
-}
 }
