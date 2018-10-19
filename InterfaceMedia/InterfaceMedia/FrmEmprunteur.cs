@@ -197,7 +197,7 @@ namespace InterfaceMedia
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                groupAjouterEmp.BackColor = Color.Silver;
+                groupAjouterEmp.BackColor = SystemColors.ButtonFace;
                 //txtNom.BackColor = Color.Silver;
                 //txtPrenom.BackColor = Color.Silver;
                 //txtMail.BackColor = Color.Silver;
@@ -239,7 +239,7 @@ namespace InterfaceMedia
 
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
-            groupAjouterEmp.BackColor = Color.Silver;
+            groupAjouterEmp.BackColor = SystemColors.ButtonFace;
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
