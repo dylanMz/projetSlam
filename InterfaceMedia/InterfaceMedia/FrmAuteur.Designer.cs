@@ -40,12 +40,12 @@
             this.dtStatut = new MetroFramework.Controls.MetroDateTime();
             this.rdoDecede = new MetroFramework.Controls.MetroRadioButton();
             this.cmbPays = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.lblPays = new MetroFramework.Controls.MetroLabel();
+            this.lblPseudo = new MetroFramework.Controls.MetroLabel();
             this.txtPseudo = new MetroFramework.Controls.MetroTextBox();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.lblStatut = new MetroFramework.Controls.MetroLabel();
             this.dtDateNaiss = new MetroFramework.Controls.MetroDateTime();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
+            this.lblBio = new MetroFramework.Controls.MetroLabel();
             this.lblCode = new MetroFramework.Controls.MetroLabel();
             this.txtBio = new MetroFramework.Controls.MetroTextBox();
             this.lblNom = new MetroFramework.Controls.MetroLabel();
@@ -179,12 +179,12 @@
             this.grpAuteur.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.grpAuteur.Controls.Add(this.grpStatut);
             this.grpAuteur.Controls.Add(this.cmbPays);
-            this.grpAuteur.Controls.Add(this.metroLabel3);
-            this.grpAuteur.Controls.Add(this.metroLabel2);
+            this.grpAuteur.Controls.Add(this.lblPays);
+            this.grpAuteur.Controls.Add(this.lblPseudo);
             this.grpAuteur.Controls.Add(this.txtPseudo);
-            this.grpAuteur.Controls.Add(this.metroLabel1);
+            this.grpAuteur.Controls.Add(this.lblStatut);
             this.grpAuteur.Controls.Add(this.dtDateNaiss);
-            this.grpAuteur.Controls.Add(this.metroLabel5);
+            this.grpAuteur.Controls.Add(this.lblBio);
             this.grpAuteur.Controls.Add(this.lblCode);
             this.grpAuteur.Controls.Add(this.txtBio);
             this.grpAuteur.Controls.Add(this.lblNom);
@@ -264,27 +264,27 @@
             this.cmbPays.UseSelectable = true;
             this.cmbPays.SelectedIndexChanged += new System.EventHandler(this.cmbPays_SelectedIndexChanged);
             // 
-            // metroLabel3
+            // lblPays
             // 
-            this.metroLabel3.AutoSize = true;
-            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel3.Location = new System.Drawing.Point(20, 194);
-            this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(44, 19);
-            this.metroLabel3.TabIndex = 18;
-            this.metroLabel3.Text = "Pays :";
-            this.metroLabel3.UseCustomBackColor = true;
+            this.lblPays.AutoSize = true;
+            this.lblPays.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblPays.Location = new System.Drawing.Point(20, 194);
+            this.lblPays.Name = "lblPays";
+            this.lblPays.Size = new System.Drawing.Size(44, 19);
+            this.lblPays.TabIndex = 18;
+            this.lblPays.Text = "Pays :";
+            this.lblPays.UseCustomBackColor = true;
             // 
-            // metroLabel2
+            // lblPseudo
             // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(20, 102);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(95, 19);
-            this.metroLabel2.TabIndex = 16;
-            this.metroLabel2.Text = "Pseudonyme :";
-            this.metroLabel2.UseCustomBackColor = true;
+            this.lblPseudo.AutoSize = true;
+            this.lblPseudo.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblPseudo.Location = new System.Drawing.Point(20, 106);
+            this.lblPseudo.Name = "lblPseudo";
+            this.lblPseudo.Size = new System.Drawing.Size(95, 19);
+            this.lblPseudo.TabIndex = 16;
+            this.lblPseudo.Text = "Pseudonyme :";
+            this.lblPseudo.UseCustomBackColor = true;
             // 
             // txtPseudo
             // 
@@ -319,16 +319,16 @@
             this.txtPseudo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPseudo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel1
+            // lblStatut
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(357, 159);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(53, 19);
-            this.metroLabel1.TabIndex = 14;
-            this.metroLabel1.Text = "Statut :";
-            this.metroLabel1.UseCustomBackColor = true;
+            this.lblStatut.AutoSize = true;
+            this.lblStatut.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblStatut.Location = new System.Drawing.Point(357, 159);
+            this.lblStatut.Name = "lblStatut";
+            this.lblStatut.Size = new System.Drawing.Size(53, 19);
+            this.lblStatut.TabIndex = 14;
+            this.lblStatut.Text = "Statut :";
+            this.lblStatut.UseCustomBackColor = true;
             // 
             // dtDateNaiss
             // 
@@ -341,16 +341,16 @@
             this.dtDateNaiss.TabIndex = 5;
             this.dtDateNaiss.UseCustomBackColor = true;
             // 
-            // metroLabel5
+            // lblBio
             // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel5.Location = new System.Drawing.Point(20, 241);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(81, 19);
-            this.metroLabel5.TabIndex = 12;
-            this.metroLabel5.Text = "Biographie :";
-            this.metroLabel5.UseCustomBackColor = true;
+            this.lblBio.AutoSize = true;
+            this.lblBio.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblBio.Location = new System.Drawing.Point(20, 241);
+            this.lblBio.Name = "lblBio";
+            this.lblBio.Size = new System.Drawing.Size(81, 19);
+            this.lblBio.TabIndex = 12;
+            this.lblBio.Text = "Biographie :";
+            this.lblBio.UseCustomBackColor = true;
             // 
             // lblCode
             // 
@@ -620,7 +620,7 @@
 
         private System.Windows.Forms.GroupBox grpMenu;
         private MetroFramework.Controls.MetroPanel pnlAuteur;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
+        private MetroFramework.Controls.MetroLabel lblBio;
         private MetroFramework.Controls.MetroTextBox txtBio;
         private System.Windows.Forms.DataGridView dgvAuteur;
         private MetroFramework.Controls.MetroTextBox txtPrenom;
@@ -632,11 +632,11 @@
         private MetroFramework.Controls.MetroLabel lblCode;
         private System.Windows.Forms.GroupBox grpAuteur;
         private MetroFramework.Controls.MetroDateTime dtDateNaiss;
-        private MetroFramework.Controls.MetroLabel metroLabel3;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroLabel lblPays;
+        private MetroFramework.Controls.MetroLabel lblPseudo;
         private MetroFramework.Controls.MetroTextBox txtPseudo;
         private MetroFramework.Controls.MetroDateTime dtStatut;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroLabel lblStatut;
         private MetroFramework.Controls.MetroRadioButton rdoVivant;
         private MetroFramework.Controls.MetroRadioButton rdoDecede;
         private MetroFramework.Controls.MetroComboBox cmbPays;
