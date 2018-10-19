@@ -92,7 +92,7 @@ namespace InterfaceMedia
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                groupAjouterEmp.BackColor = Color.White;
+                modifcouleurControlActif();
                 //txtNom.BackColor = Color.White;
                 //txtPrenom.BackColor = Color.White;
                 //txtMail.BackColor = Color.White;
@@ -118,7 +118,7 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = true;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                groupAjouterEmp.BackColor = Color.Silver;
+                modifcouleurControlVerou();
                 //txtNom.BackColor = Color.Silver;
                 //txtPrenom.BackColor = Color.Silver;
                 //txtMail.BackColor = Color.Silver;
@@ -166,7 +166,7 @@ namespace InterfaceMedia
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                groupAjouterEmp.BackColor = Color.White;
+                modifcouleurControlActif();
                 //txtNom.BackColor = Color.White;
                 //DateTimeRenouvellement.BackColor = Color.White;
                 //txtMail.BackColor = Color.White;
@@ -197,7 +197,7 @@ namespace InterfaceMedia
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                groupAjouterEmp.BackColor = SystemColors.ButtonFace;
+                modifcouleurControlVerou();
                 //txtNom.BackColor = Color.Silver;
                 //txtPrenom.BackColor = Color.Silver;
                 //txtMail.BackColor = Color.Silver;
@@ -239,7 +239,7 @@ namespace InterfaceMedia
 
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
-            groupAjouterEmp.BackColor = SystemColors.ButtonFace;
+            modifcouleurControlVerou();
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
@@ -320,6 +320,29 @@ namespace InterfaceMedia
                     c.ResetText();
             }
         }
+
+        //modifier les couleurs
+        public void modifcouleurControlVerou()
+        {
+            foreach (Control c in groupAjouterEmp.Controls)
+            {
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroTextBox))
+                    c.BackColor = Color.Silver;
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroDateTime))
+                    c.BackColor = Color.Silver; ;
+            }
+        }
+        public void modifcouleurControlActif()
+        {
+            foreach (Control c in groupAjouterEmp.Controls)
+            {
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroTextBox))
+                    c.BackColor = Color.White;
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroDateTime))
+                    c.BackColor = Color.White; ;
+            }
+        }
+
 
         private void btnFamille_Click(object sender, EventArgs e)
         {
