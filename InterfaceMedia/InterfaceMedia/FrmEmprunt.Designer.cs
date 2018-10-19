@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNumEmp = new MetroFramework.Controls.MetroLabel();
             this.txtbxNumEmp = new MetroFramework.Controls.MetroTextBox();
             this.txtbxRefEx = new MetroFramework.Controls.MetroTextBox();
@@ -44,11 +44,11 @@
             this.rbLivreEmprunter = new MetroFramework.Controls.MetroRadioButton();
             this.rbLivreNonRendu = new MetroFramework.Controls.MetroRadioButton();
             this.lblDate = new MetroFramework.Controls.MetroLabel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GroupSaisie = new System.Windows.Forms.GroupBox();
             this.dtRetour = new MetroFramework.Controls.MetroDateTime();
             this.dtRetourPrevu = new MetroFramework.Controls.MetroDateTime();
             this.dtEmprunt = new MetroFramework.Controls.MetroDateTime();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GroupBouton = new System.Windows.Forms.GroupBox();
             this.btnSearchEmp = new MetroFramework.Controls.MetroTile();
             this.btnLivre = new MetroFramework.Controls.MetroTile();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
@@ -56,14 +56,14 @@
             this.btnSupprimer = new MetroFramework.Controls.MetroTile();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupQuitter = new System.Windows.Forms.GroupBox();
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).BeginInit();
             this.gpbxChoix.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.GroupSaisie.SuspendLayout();
+            this.GroupBouton.SuspendLayout();
+            this.groupQuitter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
@@ -169,37 +169,37 @@
             this.GridEmprunt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridEmprunt.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridEmprunt.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.GridEmprunt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle5;
             this.GridEmprunt.EnableHeadersVisualStyles = false;
             this.GridEmprunt.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEmprunt.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridEmprunt.Location = new System.Drawing.Point(12, 350);
             this.GridEmprunt.Name = "GridEmprunt";
             this.GridEmprunt.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.GridEmprunt.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEmprunt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridEmprunt.Size = new System.Drawing.Size(714, 180);
@@ -306,25 +306,25 @@
             this.lblDate.Text = "Date :";
             this.lblDate.UseCustomBackColor = true;
             // 
-            // groupBox1
+            // GroupSaisie
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Controls.Add(this.gpbxChoix);
-            this.groupBox1.Controls.Add(this.dtRetour);
-            this.groupBox1.Controls.Add(this.lblNumEmp);
-            this.groupBox1.Controls.Add(this.dtRetourPrevu);
-            this.groupBox1.Controls.Add(this.txtbxNumEmp);
-            this.groupBox1.Controls.Add(this.dtEmprunt);
-            this.groupBox1.Controls.Add(this.lblRefEx);
-            this.groupBox1.Controls.Add(this.txtbxRefEx);
-            this.groupBox1.Controls.Add(this.lblDateRetourRéel);
-            this.groupBox1.Controls.Add(this.lblDateEmp);
-            this.groupBox1.Controls.Add(this.lblDateRetourPrev);
-            this.groupBox1.Location = new System.Drawing.Point(12, 63);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(714, 259);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
+            this.GroupSaisie.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.GroupSaisie.Controls.Add(this.gpbxChoix);
+            this.GroupSaisie.Controls.Add(this.dtRetour);
+            this.GroupSaisie.Controls.Add(this.lblNumEmp);
+            this.GroupSaisie.Controls.Add(this.dtRetourPrevu);
+            this.GroupSaisie.Controls.Add(this.txtbxNumEmp);
+            this.GroupSaisie.Controls.Add(this.dtEmprunt);
+            this.GroupSaisie.Controls.Add(this.lblRefEx);
+            this.GroupSaisie.Controls.Add(this.txtbxRefEx);
+            this.GroupSaisie.Controls.Add(this.lblDateRetourRéel);
+            this.GroupSaisie.Controls.Add(this.lblDateEmp);
+            this.GroupSaisie.Controls.Add(this.lblDateRetourPrev);
+            this.GroupSaisie.Location = new System.Drawing.Point(12, 63);
+            this.GroupSaisie.Name = "GroupSaisie";
+            this.GroupSaisie.Size = new System.Drawing.Size(714, 259);
+            this.GroupSaisie.TabIndex = 30;
+            this.GroupSaisie.TabStop = false;
             // 
             // dtRetour
             // 
@@ -360,23 +360,23 @@
             this.dtEmprunt.UseCustomForeColor = true;
             this.dtEmprunt.UseStyleColors = true;
             // 
-            // groupBox2
+            // GroupBouton
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.btnSearchEmp);
-            this.groupBox2.Controls.Add(this.btnLivre);
-            this.groupBox2.Controls.Add(this.btnAnnuler);
-            this.groupBox2.Controls.Add(this.btnAjRetour);
-            this.groupBox2.Controls.Add(this.btnSupprimer);
-            this.groupBox2.Controls.Add(this.btnModifier);
-            this.groupBox2.Controls.Add(this.btnAjouter);
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(732, 7);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(223, 533);
-            this.groupBox2.TabIndex = 29;
-            this.groupBox2.TabStop = false;
+            this.GroupBouton.BackColor = System.Drawing.Color.Transparent;
+            this.GroupBouton.Controls.Add(this.btnSearchEmp);
+            this.GroupBouton.Controls.Add(this.btnLivre);
+            this.GroupBouton.Controls.Add(this.btnAnnuler);
+            this.GroupBouton.Controls.Add(this.btnAjRetour);
+            this.GroupBouton.Controls.Add(this.btnSupprimer);
+            this.GroupBouton.Controls.Add(this.btnModifier);
+            this.GroupBouton.Controls.Add(this.btnAjouter);
+            this.GroupBouton.Controls.Add(this.groupQuitter);
+            this.GroupBouton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GroupBouton.Location = new System.Drawing.Point(732, 7);
+            this.GroupBouton.Name = "GroupBouton";
+            this.GroupBouton.Size = new System.Drawing.Size(223, 533);
+            this.GroupBouton.TabIndex = 29;
+            this.GroupBouton.TabStop = false;
             // 
             // btnSearchEmp
             // 
@@ -498,14 +498,14 @@
             this.btnAjouter.UseSelectable = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click_1);
             // 
-            // groupBox3
+            // groupQuitter
             // 
-            this.groupBox3.Controls.Add(this.btnQuitter);
-            this.groupBox3.Location = new System.Drawing.Point(0, 462);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(223, 71);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
+            this.groupQuitter.Controls.Add(this.btnQuitter);
+            this.groupQuitter.Location = new System.Drawing.Point(0, 462);
+            this.groupQuitter.Name = "groupQuitter";
+            this.groupQuitter.Size = new System.Drawing.Size(223, 71);
+            this.groupQuitter.TabIndex = 8;
+            this.groupQuitter.TabStop = false;
             // 
             // btnQuitter
             // 
@@ -545,8 +545,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 546);
             this.Controls.Add(this.picHome);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.GroupSaisie);
+            this.Controls.Add(this.GroupBouton);
             this.Controls.Add(this.GridEmprunt);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FrmEmprunt";
@@ -554,10 +554,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).EndInit();
             this.gpbxChoix.ResumeLayout(false);
             this.gpbxChoix.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.GroupSaisie.ResumeLayout(false);
+            this.GroupSaisie.PerformLayout();
+            this.GroupBouton.ResumeLayout(false);
+            this.groupQuitter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
 
@@ -579,7 +579,7 @@
         private MetroFramework.Controls.MetroRadioButton rbLivreNonRendu;
         private MetroFramework.Controls.MetroDateTime dtRetourPrevu;
         private MetroFramework.Controls.MetroDateTime dtEmprunt;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox GroupBouton;
         private MetroFramework.Controls.MetroTile btnSearchEmp;
         private MetroFramework.Controls.MetroTile btnLivre;
         private MetroFramework.Controls.MetroTile btnAnnuler;
@@ -587,9 +587,9 @@
         private MetroFramework.Controls.MetroTile btnSupprimer;
         private MetroFramework.Controls.MetroTile btnModifier;
         private MetroFramework.Controls.MetroTile btnAjouter;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupQuitter;
         private MetroFramework.Controls.MetroTile btnQuitter;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GroupSaisie;
         private MetroFramework.Controls.MetroDateTime dtRetour;
         private System.Windows.Forms.PictureBox picHome;
     }
