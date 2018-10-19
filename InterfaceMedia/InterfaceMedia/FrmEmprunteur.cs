@@ -167,15 +167,7 @@ namespace InterfaceMedia
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 modifcouleurControlActif();
-                //txtNom.BackColor = Color.White;
-                //DateTimeRenouvellement.BackColor = Color.White;
-                //txtMail.BackColor = Color.White;
-                //txtCodePostal.BackColor = Color.White;
-                //txtPrenom.BackColor = Color.White;
-                //txtAdresse.BackColor = Color.White;
-                //DateTimeNaissance.BackColor = Color.White;
-                //DateTimeAdhesion.BackColor = Color.White;
-                //txtVille.BackColor = Color.White;
+
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
@@ -198,15 +190,7 @@ namespace InterfaceMedia
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 modifcouleurControlVerou();
-                //txtNom.BackColor = Color.Silver;
-                //txtPrenom.BackColor = Color.Silver;
-                //txtMail.BackColor = Color.Silver;
-                //txtCodePostal.BackColor = Color.Silver;
-                //txtAdresse.BackColor = Color.Silver;
-                //DateTimeRenouvellement.BackColor = Color.Silver;
-                //DateTimeNaissance.BackColor = Color.Silver;
-                //DateTimeAdhesion.BackColor = Color.Silver;
-                //txtVille.BackColor = Color.Silver;
+
 
 
                 //met à jour le datagrid
@@ -321,7 +305,7 @@ namespace InterfaceMedia
             }
         }
 
-        //modifier les couleurs
+        //modifier les couleurs en vérouiller pour les controls
         public void modifcouleurControlVerou()
         {
             foreach (Control c in groupAjouterEmp.Controls)
@@ -332,6 +316,8 @@ namespace InterfaceMedia
                     c.BackColor = Color.Silver; ;
             }
         }
+
+        //modifier les couleurs en Actif pour les controls
         public void modifcouleurControlActif()
         {
             foreach (Control c in groupAjouterEmp.Controls)
