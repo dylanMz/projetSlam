@@ -72,12 +72,13 @@
             this.grpMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpMenu.Controls.Add(this.btnModifier);
+            this.grpMenu.Controls.Add(this.grpQuitter);
             this.grpMenu.Controls.Add(this.btnAjouter);
             this.grpMenu.Controls.Add(this.btnRechercher);
             this.grpMenu.Controls.Add(this.btnAnnuler);
             this.grpMenu.Location = new System.Drawing.Point(737, 33);
             this.grpMenu.Name = "grpMenu";
-            this.grpMenu.Size = new System.Drawing.Size(216, 549);
+            this.grpMenu.Size = new System.Drawing.Size(216, 638);
             this.grpMenu.TabIndex = 1;
             this.grpMenu.TabStop = false;
             // 
@@ -550,14 +551,15 @@
             this.dgvAuteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAuteur.Size = new System.Drawing.Size(703, 205);
             this.dgvAuteur.TabIndex = 18;
+            this.dgvAuteur.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAuteur_CellClick);
             // 
             // grpQuitter
             // 
             this.grpQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.grpQuitter.Controls.Add(this.btnQuitter);
-            this.grpQuitter.Location = new System.Drawing.Point(737, 588);
+            this.grpQuitter.Location = new System.Drawing.Point(6, 555);
             this.grpQuitter.Name = "grpQuitter";
-            this.grpQuitter.Size = new System.Drawing.Size(216, 83);
+            this.grpQuitter.Size = new System.Drawing.Size(204, 83);
             this.grpQuitter.TabIndex = 7;
             this.grpQuitter.TabStop = false;
             // 
@@ -566,7 +568,7 @@
             this.btnQuitter.ActiveControl = null;
             this.btnQuitter.BackColor = System.Drawing.Color.Tomato;
             this.btnQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnQuitter.Location = new System.Drawing.Point(24, 19);
+            this.btnQuitter.Location = new System.Drawing.Point(18, 19);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(169, 44);
             this.btnQuitter.TabIndex = 17;
@@ -598,7 +600,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 694);
             this.Controls.Add(this.picHome);
-            this.Controls.Add(this.grpQuitter);
             this.Controls.Add(this.pnlAuteur);
             this.Controls.Add(this.grpMenu);
             this.Name = "FrmAuteur";
