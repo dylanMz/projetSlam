@@ -30,6 +30,8 @@
         {
             this.grpMenu = new System.Windows.Forms.GroupBox();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
+            this.grpQuitter = new System.Windows.Forms.GroupBox();
+            this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.btnRechercher = new MetroFramework.Controls.MetroTile();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
@@ -55,15 +57,13 @@
             this.txtCode = new MetroFramework.Controls.MetroTextBox();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
             this.dgvAuteur = new System.Windows.Forms.DataGridView();
-            this.grpQuitter = new System.Windows.Forms.GroupBox();
-            this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.grpMenu.SuspendLayout();
+            this.grpQuitter.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
             this.grpAuteur.SuspendLayout();
             this.grpStatut.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
-            this.grpQuitter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
@@ -98,6 +98,36 @@
             this.btnModifier.UseCustomBackColor = true;
             this.btnModifier.UseSelectable = true;
             this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
+            // 
+            // grpQuitter
+            // 
+            this.grpQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpQuitter.Controls.Add(this.btnQuitter);
+            this.grpQuitter.Location = new System.Drawing.Point(6, 555);
+            this.grpQuitter.Name = "grpQuitter";
+            this.grpQuitter.Size = new System.Drawing.Size(204, 83);
+            this.grpQuitter.TabIndex = 7;
+            this.grpQuitter.TabStop = false;
+            // 
+            // btnQuitter
+            // 
+            this.btnQuitter.ActiveControl = null;
+            this.btnQuitter.BackColor = System.Drawing.Color.Tomato;
+            this.btnQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuitter.Location = new System.Drawing.Point(18, 19);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(169, 44);
+            this.btnQuitter.TabIndex = 17;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnQuitter.TileImage = global::InterfaceMedia.Properties.Resources.QuitterIcone;
+            this.btnQuitter.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnQuitter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnQuitter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnQuitter.UseCustomBackColor = true;
+            this.btnQuitter.UseSelectable = true;
+            this.btnQuitter.UseTileImage = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
             // 
             // btnAjouter
             // 
@@ -553,36 +583,6 @@
             this.dgvAuteur.TabIndex = 18;
             this.dgvAuteur.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAuteur_CellClick);
             // 
-            // grpQuitter
-            // 
-            this.grpQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpQuitter.Controls.Add(this.btnQuitter);
-            this.grpQuitter.Location = new System.Drawing.Point(6, 555);
-            this.grpQuitter.Name = "grpQuitter";
-            this.grpQuitter.Size = new System.Drawing.Size(204, 83);
-            this.grpQuitter.TabIndex = 7;
-            this.grpQuitter.TabStop = false;
-            // 
-            // btnQuitter
-            // 
-            this.btnQuitter.ActiveControl = null;
-            this.btnQuitter.BackColor = System.Drawing.Color.Tomato;
-            this.btnQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnQuitter.Location = new System.Drawing.Point(18, 19);
-            this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(169, 44);
-            this.btnQuitter.TabIndex = 17;
-            this.btnQuitter.Text = "Quitter";
-            this.btnQuitter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnQuitter.TileImage = global::InterfaceMedia.Properties.Resources.QuitterIcone;
-            this.btnQuitter.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnQuitter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.btnQuitter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.btnQuitter.UseCustomBackColor = true;
-            this.btnQuitter.UseSelectable = true;
-            this.btnQuitter.UseTileImage = true;
-            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
-            // 
             // picHome
             // 
             this.picHome.Image = global::InterfaceMedia.Properties.Resources.maxresdefault;
@@ -605,13 +605,13 @@
             this.Name = "FrmAuteur";
             this.Text = "Auteur";
             this.grpMenu.ResumeLayout(false);
+            this.grpQuitter.ResumeLayout(false);
             this.pnlAuteur.ResumeLayout(false);
             this.grpAuteur.ResumeLayout(false);
             this.grpAuteur.PerformLayout();
             this.grpStatut.ResumeLayout(false);
             this.grpStatut.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
-            this.grpQuitter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
 
