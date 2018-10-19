@@ -44,11 +44,11 @@
             this.rbLivreEmprunter = new MetroFramework.Controls.MetroRadioButton();
             this.rbLivreNonRendu = new MetroFramework.Controls.MetroRadioButton();
             this.lblDate = new MetroFramework.Controls.MetroLabel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GroupSaisie = new System.Windows.Forms.GroupBox();
             this.dtRetour = new MetroFramework.Controls.MetroDateTime();
             this.dtRetourPrevu = new MetroFramework.Controls.MetroDateTime();
             this.dtEmprunt = new MetroFramework.Controls.MetroDateTime();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.GroupBouton = new System.Windows.Forms.GroupBox();
             this.btnSearchEmp = new MetroFramework.Controls.MetroTile();
             this.btnLivre = new MetroFramework.Controls.MetroTile();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
@@ -56,14 +56,14 @@
             this.btnSupprimer = new MetroFramework.Controls.MetroTile();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.groupQuitter = new System.Windows.Forms.GroupBox();
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).BeginInit();
             this.gpbxChoix.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.GroupSaisie.SuspendLayout();
+            this.GroupBouton.SuspendLayout();
+            this.groupQuitter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
@@ -251,9 +251,9 @@
             this.gpbxChoix.Controls.Add(this.rbLivreNonRendu);
             this.gpbxChoix.Controls.Add(this.lblDate);
             this.gpbxChoix.Enabled = false;
-            this.gpbxChoix.Location = new System.Drawing.Point(18, 139);
+            this.gpbxChoix.Location = new System.Drawing.Point(18, 75);
             this.gpbxChoix.Name = "gpbxChoix";
-            this.gpbxChoix.Size = new System.Drawing.Size(676, 100);
+            this.gpbxChoix.Size = new System.Drawing.Size(676, 164);
             this.gpbxChoix.TabIndex = 19;
             this.gpbxChoix.TabStop = false;
             this.gpbxChoix.Visible = false;
@@ -306,32 +306,32 @@
             this.lblDate.Text = "Date :";
             this.lblDate.UseCustomBackColor = true;
             // 
-            // groupBox1
+            // GroupSaisie
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.groupBox1.Controls.Add(this.gpbxChoix);
-            this.groupBox1.Controls.Add(this.dtRetour);
-            this.groupBox1.Controls.Add(this.lblNumEmp);
-            this.groupBox1.Controls.Add(this.dtRetourPrevu);
-            this.groupBox1.Controls.Add(this.txtbxNumEmp);
-            this.groupBox1.Controls.Add(this.dtEmprunt);
-            this.groupBox1.Controls.Add(this.lblRefEx);
-            this.groupBox1.Controls.Add(this.txtbxRefEx);
-            this.groupBox1.Controls.Add(this.lblDateRetourRéel);
-            this.groupBox1.Controls.Add(this.lblDateEmp);
-            this.groupBox1.Controls.Add(this.lblDateRetourPrev);
-            this.groupBox1.Location = new System.Drawing.Point(12, 63);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(714, 259);
-            this.groupBox1.TabIndex = 30;
-            this.groupBox1.TabStop = false;
+            this.GroupSaisie.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.GroupSaisie.Controls.Add(this.gpbxChoix);
+            this.GroupSaisie.Controls.Add(this.dtRetour);
+            this.GroupSaisie.Controls.Add(this.lblNumEmp);
+            this.GroupSaisie.Controls.Add(this.dtRetourPrevu);
+            this.GroupSaisie.Controls.Add(this.txtbxNumEmp);
+            this.GroupSaisie.Controls.Add(this.dtEmprunt);
+            this.GroupSaisie.Controls.Add(this.lblRefEx);
+            this.GroupSaisie.Controls.Add(this.txtbxRefEx);
+            this.GroupSaisie.Controls.Add(this.lblDateRetourRéel);
+            this.GroupSaisie.Controls.Add(this.lblDateEmp);
+            this.GroupSaisie.Controls.Add(this.lblDateRetourPrev);
+            this.GroupSaisie.Location = new System.Drawing.Point(12, 63);
+            this.GroupSaisie.Name = "GroupSaisie";
+            this.GroupSaisie.Size = new System.Drawing.Size(714, 259);
+            this.GroupSaisie.TabIndex = 30;
+            this.GroupSaisie.TabStop = false;
             // 
             // dtRetour
             // 
             this.dtRetour.Enabled = false;
             this.dtRetour.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtRetour.Location = new System.Drawing.Point(176, 150);
-            this.dtRetour.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtRetour.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtRetour.Name = "dtRetour";
             this.dtRetour.Size = new System.Drawing.Size(137, 25);
             this.dtRetour.TabIndex = 25;
@@ -360,23 +360,23 @@
             this.dtEmprunt.UseCustomForeColor = true;
             this.dtEmprunt.UseStyleColors = true;
             // 
-            // groupBox2
+            // GroupBouton
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox2.Controls.Add(this.btnSearchEmp);
-            this.groupBox2.Controls.Add(this.btnLivre);
-            this.groupBox2.Controls.Add(this.btnAnnuler);
-            this.groupBox2.Controls.Add(this.btnAjRetour);
-            this.groupBox2.Controls.Add(this.btnSupprimer);
-            this.groupBox2.Controls.Add(this.btnModifier);
-            this.groupBox2.Controls.Add(this.btnAjouter);
-            this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(732, 7);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(223, 533);
-            this.groupBox2.TabIndex = 29;
-            this.groupBox2.TabStop = false;
+            this.GroupBouton.BackColor = System.Drawing.Color.Transparent;
+            this.GroupBouton.Controls.Add(this.btnSearchEmp);
+            this.GroupBouton.Controls.Add(this.btnLivre);
+            this.GroupBouton.Controls.Add(this.btnAnnuler);
+            this.GroupBouton.Controls.Add(this.btnAjRetour);
+            this.GroupBouton.Controls.Add(this.btnSupprimer);
+            this.GroupBouton.Controls.Add(this.btnModifier);
+            this.GroupBouton.Controls.Add(this.btnAjouter);
+            this.GroupBouton.Controls.Add(this.groupQuitter);
+            this.GroupBouton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GroupBouton.Location = new System.Drawing.Point(732, 7);
+            this.GroupBouton.Name = "GroupBouton";
+            this.GroupBouton.Size = new System.Drawing.Size(223, 533);
+            this.GroupBouton.TabIndex = 29;
+            this.GroupBouton.TabStop = false;
             // 
             // btnSearchEmp
             // 
@@ -498,14 +498,14 @@
             this.btnAjouter.UseSelectable = true;
             this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click_1);
             // 
-            // groupBox3
+            // groupQuitter
             // 
-            this.groupBox3.Controls.Add(this.btnQuitter);
-            this.groupBox3.Location = new System.Drawing.Point(0, 462);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(223, 71);
-            this.groupBox3.TabIndex = 8;
-            this.groupBox3.TabStop = false;
+            this.groupQuitter.Controls.Add(this.btnQuitter);
+            this.groupQuitter.Location = new System.Drawing.Point(0, 462);
+            this.groupQuitter.Name = "groupQuitter";
+            this.groupQuitter.Size = new System.Drawing.Size(223, 71);
+            this.groupQuitter.TabIndex = 8;
+            this.groupQuitter.TabStop = false;
             // 
             // btnQuitter
             // 
@@ -545,8 +545,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(957, 546);
             this.Controls.Add(this.picHome);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.GroupSaisie);
+            this.Controls.Add(this.GroupBouton);
             this.Controls.Add(this.GridEmprunt);
             this.ForeColor = System.Drawing.Color.Black;
             this.Name = "FrmEmprunt";
@@ -554,10 +554,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).EndInit();
             this.gpbxChoix.ResumeLayout(false);
             this.gpbxChoix.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
+            this.GroupSaisie.ResumeLayout(false);
+            this.GroupSaisie.PerformLayout();
+            this.GroupBouton.ResumeLayout(false);
+            this.groupQuitter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
 
@@ -579,7 +579,7 @@
         private MetroFramework.Controls.MetroRadioButton rbLivreNonRendu;
         private MetroFramework.Controls.MetroDateTime dtRetourPrevu;
         private MetroFramework.Controls.MetroDateTime dtEmprunt;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox GroupBouton;
         private MetroFramework.Controls.MetroTile btnSearchEmp;
         private MetroFramework.Controls.MetroTile btnLivre;
         private MetroFramework.Controls.MetroTile btnAnnuler;
@@ -587,9 +587,9 @@
         private MetroFramework.Controls.MetroTile btnSupprimer;
         private MetroFramework.Controls.MetroTile btnModifier;
         private MetroFramework.Controls.MetroTile btnAjouter;
-        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupQuitter;
         private MetroFramework.Controls.MetroTile btnQuitter;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GroupSaisie;
         private MetroFramework.Controls.MetroDateTime dtRetour;
         private System.Windows.Forms.PictureBox picHome;
     }

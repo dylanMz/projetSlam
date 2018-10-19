@@ -34,27 +34,27 @@
             this.metroTileAuteur = new MetroFramework.Controls.MetroTile();
             this.metroTileLivre = new MetroFramework.Controls.MetroTile();
             this.metroTileCouverture = new MetroFramework.Controls.MetroTile();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.picEditeur = new System.Windows.Forms.PictureBox();
+            this.picEmprunt = new System.Windows.Forms.PictureBox();
+            this.picEmprunteur = new System.Windows.Forms.PictureBox();
+            this.picAuteur = new System.Windows.Forms.PictureBox();
+            this.picLivre = new System.Windows.Forms.PictureBox();
+            this.picCouverture = new System.Windows.Forms.PictureBox();
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.lblUtilisateur = new MetroFramework.Controls.MetroLabel();
             this.btnAdmin = new MetroFramework.Controls.MetroTile();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEditeur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmprunt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmprunteur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAuteur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLivre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCouverture)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTileEmprunteur
             // 
             this.metroTileEmprunteur.ActiveControl = null;
-            this.metroTileEmprunteur.Location = new System.Drawing.Point(144, 350);
+            this.metroTileEmprunteur.Location = new System.Drawing.Point(145, 220);
             this.metroTileEmprunteur.Name = "metroTileEmprunteur";
             this.metroTileEmprunteur.Size = new System.Drawing.Size(348, 81);
             this.metroTileEmprunteur.TabIndex = 0;
@@ -67,7 +67,7 @@
             // metroTileEmprunt
             // 
             this.metroTileEmprunt.ActiveControl = null;
-            this.metroTileEmprunt.Location = new System.Drawing.Point(144, 220);
+            this.metroTileEmprunt.Location = new System.Drawing.Point(145, 350);
             this.metroTileEmprunt.Name = "metroTileEmprunt";
             this.metroTileEmprunt.Size = new System.Drawing.Size(348, 81);
             this.metroTileEmprunt.TabIndex = 1;
@@ -80,7 +80,7 @@
             // metroTileEditeur
             // 
             this.metroTileEditeur.ActiveControl = null;
-            this.metroTileEditeur.Location = new System.Drawing.Point(144, 98);
+            this.metroTileEditeur.Location = new System.Drawing.Point(145, 98);
             this.metroTileEditeur.Name = "metroTileEditeur";
             this.metroTileEditeur.Size = new System.Drawing.Size(348, 81);
             this.metroTileEditeur.TabIndex = 2;
@@ -93,7 +93,7 @@
             // metroTileAuteur
             // 
             this.metroTileAuteur.ActiveControl = null;
-            this.metroTileAuteur.Location = new System.Drawing.Point(665, 98);
+            this.metroTileAuteur.Location = new System.Drawing.Point(666, 98);
             this.metroTileAuteur.Name = "metroTileAuteur";
             this.metroTileAuteur.Size = new System.Drawing.Size(348, 81);
             this.metroTileAuteur.TabIndex = 3;
@@ -106,7 +106,7 @@
             // metroTileLivre
             // 
             this.metroTileLivre.ActiveControl = null;
-            this.metroTileLivre.Location = new System.Drawing.Point(665, 220);
+            this.metroTileLivre.Location = new System.Drawing.Point(666, 220);
             this.metroTileLivre.Name = "metroTileLivre";
             this.metroTileLivre.Size = new System.Drawing.Size(348, 81);
             this.metroTileLivre.TabIndex = 4;
@@ -119,7 +119,7 @@
             // metroTileCouverture
             // 
             this.metroTileCouverture.ActiveControl = null;
-            this.metroTileCouverture.Location = new System.Drawing.Point(665, 350);
+            this.metroTileCouverture.Location = new System.Drawing.Point(666, 350);
             this.metroTileCouverture.Name = "metroTileCouverture";
             this.metroTileCouverture.Size = new System.Drawing.Size(348, 81);
             this.metroTileCouverture.TabIndex = 5;
@@ -129,53 +129,65 @@
             this.metroTileCouverture.UseSelectable = true;
             this.metroTileCouverture.Click += new System.EventHandler(this.metroTileCouverture_Click);
             // 
-            // pictureBox1
+            // picEditeur
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(45, 98);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(79, 81);
-            this.pictureBox1.TabIndex = 6;
-            this.pictureBox1.TabStop = false;
+            this.picEditeur.Image = global::InterfaceMedia.Properties.Resources.editeur;
+            this.picEditeur.Location = new System.Drawing.Point(46, 98);
+            this.picEditeur.Name = "picEditeur";
+            this.picEditeur.Size = new System.Drawing.Size(79, 81);
+            this.picEditeur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picEditeur.TabIndex = 6;
+            this.picEditeur.TabStop = false;
             // 
-            // pictureBox2
+            // picEmprunt
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(45, 220);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(79, 81);
-            this.pictureBox2.TabIndex = 7;
-            this.pictureBox2.TabStop = false;
+            this.picEmprunt.Image = global::InterfaceMedia.Properties.Resources.iconeEmprunt;
+            this.picEmprunt.Location = new System.Drawing.Point(46, 350);
+            this.picEmprunt.Name = "picEmprunt";
+            this.picEmprunt.Size = new System.Drawing.Size(79, 81);
+            this.picEmprunt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picEmprunt.TabIndex = 7;
+            this.picEmprunt.TabStop = false;
             // 
-            // pictureBox3
+            // picEmprunteur
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(45, 350);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(79, 81);
-            this.pictureBox3.TabIndex = 8;
-            this.pictureBox3.TabStop = false;
+            this.picEmprunteur.Image = global::InterfaceMedia.Properties.Resources.iconeEmprunteur;
+            this.picEmprunteur.Location = new System.Drawing.Point(46, 220);
+            this.picEmprunteur.Name = "picEmprunteur";
+            this.picEmprunteur.Size = new System.Drawing.Size(79, 81);
+            this.picEmprunteur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picEmprunteur.TabIndex = 8;
+            this.picEmprunteur.TabStop = false;
             // 
-            // pictureBox4
+            // picAuteur
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(565, 98);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(79, 81);
-            this.pictureBox4.TabIndex = 9;
-            this.pictureBox4.TabStop = false;
+            this.picAuteur.Image = global::InterfaceMedia.Properties.Resources.auteurtranspa;
+            this.picAuteur.Location = new System.Drawing.Point(566, 98);
+            this.picAuteur.Name = "picAuteur";
+            this.picAuteur.Size = new System.Drawing.Size(79, 81);
+            this.picAuteur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAuteur.TabIndex = 9;
+            this.picAuteur.TabStop = false;
             // 
-            // pictureBox5
+            // picLivre
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(565, 220);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(79, 81);
-            this.pictureBox5.TabIndex = 10;
-            this.pictureBox5.TabStop = false;
+            this.picLivre.Image = global::InterfaceMedia.Properties.Resources.livreOuvert;
+            this.picLivre.Location = new System.Drawing.Point(566, 220);
+            this.picLivre.Name = "picLivre";
+            this.picLivre.Size = new System.Drawing.Size(79, 81);
+            this.picLivre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLivre.TabIndex = 10;
+            this.picLivre.TabStop = false;
             // 
-            // pictureBox6
+            // picCouverture
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(565, 350);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(79, 81);
-            this.pictureBox6.TabIndex = 11;
-            this.pictureBox6.TabStop = false;
+            this.picCouverture.Image = global::InterfaceMedia.Properties.Resources.couverture;
+            this.picCouverture.Location = new System.Drawing.Point(566, 350);
+            this.picCouverture.Name = "picCouverture";
+            this.picCouverture.Size = new System.Drawing.Size(79, 81);
+            this.picCouverture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCouverture.TabIndex = 11;
+            this.picCouverture.TabStop = false;
             // 
             // btnQuitter
             // 
@@ -239,27 +251,28 @@
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.lblUtilisateur);
             this.Controls.Add(this.btnQuitter);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picCouverture);
+            this.Controls.Add(this.picLivre);
+            this.Controls.Add(this.picAuteur);
+            this.Controls.Add(this.picEmprunteur);
+            this.Controls.Add(this.picEmprunt);
+            this.Controls.Add(this.picEditeur);
             this.Controls.Add(this.metroTileCouverture);
             this.Controls.Add(this.metroTileLivre);
             this.Controls.Add(this.metroTileAuteur);
             this.Controls.Add(this.metroTileEditeur);
             this.Controls.Add(this.metroTileEmprunt);
             this.Controls.Add(this.metroTileEmprunteur);
+            this.MaximizeBox = false;
             this.Name = "FrmAccueilTest";
             this.Resizable = false;
             this.Text = "Accueil";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEditeur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmprunt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEmprunteur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAuteur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLivre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCouverture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,12 +286,12 @@
         private MetroFramework.Controls.MetroTile metroTileAuteur;
         private MetroFramework.Controls.MetroTile metroTileLivre;
         private MetroFramework.Controls.MetroTile metroTileCouverture;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox picEditeur;
+        private System.Windows.Forms.PictureBox picEmprunt;
+        private System.Windows.Forms.PictureBox picEmprunteur;
+        private System.Windows.Forms.PictureBox picAuteur;
+        private System.Windows.Forms.PictureBox picLivre;
+        private System.Windows.Forms.PictureBox picCouverture;
         private MetroFramework.Controls.MetroTile btnQuitter;
         private MetroFramework.Controls.MetroLabel lblUtilisateur;
         private MetroFramework.Controls.MetroTile btnAdmin;

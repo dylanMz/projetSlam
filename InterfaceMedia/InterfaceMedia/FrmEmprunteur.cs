@@ -77,16 +77,12 @@ namespace InterfaceMedia
                 btnAjouter.BackColor = Color.Green;
 
                 //vide les controls du groupbox
-                foreach (Control c in groupAjouterEmp.Controls)
-                {
-                    if (c.GetType() == typeof(MetroFramework.Controls.MetroTextBox))
-                        c.Text = "";
-
-                }
+                vidercontrols();
 
                 
                 btnAjouter.Text = "Valider";
                 btnAnnuler.Visible = true;
+                ActiverAdh.Enabled = true;
 
                 //Desactive tous les autres boutons
                 btnModifier.Enabled = false;
@@ -113,6 +109,7 @@ namespace InterfaceMedia
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
+                ActiverAdh.Enabled = false;
 
                 //Re active les boutons
                 btnFamille.Enabled = true;
@@ -150,7 +147,7 @@ namespace InterfaceMedia
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            if (btnModifier.Text.Equals("Modifier"))
+            if (btnModifier.Text.Equals("Modifier")&!txtNom.Text.Equals(""))
             {
                 groupAjouterEmp.Enabled = true;
                 btnModifier.BackColor = Color.Green;
@@ -240,11 +237,14 @@ namespace InterfaceMedia
             //Les textbox sont inacessibles.
             groupAjouterEmp.Enabled = false;
 
+
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
             groupAjouterEmp.BackColor = Color.Silver;
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
+            ActiverAdh.Enabled = false;
+            vidercontrols();
         }
 
         //Methode pour mettre à jour le grid
@@ -305,6 +305,25 @@ namespace InterfaceMedia
                 DateTimeAdhesion.Visible = false;
                 DateTimeAdhesion.ResetText();
             }
+        }
+
+
+        //vider les controls du groupbox
+        public void vidercontrols()
+        {
+            foreach (Control c in groupAjouterEmp.Controls)
+            {
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroTextBox))
+                    c.Text = "";
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroDateTime))
+                    c.ResetText();
+            }
+        }
+
+        private void btnFamille_Click(object sender, EventArgs e)
+        {
+            FrmFamille unefamille = new FrmFamille();
+            unefamille.Show();
         }
     }
 }
