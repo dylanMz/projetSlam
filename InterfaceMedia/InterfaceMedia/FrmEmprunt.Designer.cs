@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNumEmp = new MetroFramework.Controls.MetroLabel();
             this.txtbxNumEmp = new MetroFramework.Controls.MetroTextBox();
             this.txtbxRefEx = new MetroFramework.Controls.MetroTextBox();
@@ -71,11 +71,13 @@
             // 
             this.lblNumEmp.AutoSize = true;
             this.lblNumEmp.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblNumEmp.Enabled = false;
+            this.lblNumEmp.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblNumEmp.Location = new System.Drawing.Point(18, 25);
             this.lblNumEmp.Name = "lblNumEmp";
-            this.lblNumEmp.Size = new System.Drawing.Size(131, 19);
+            this.lblNumEmp.Size = new System.Drawing.Size(143, 19);
             this.lblNumEmp.TabIndex = 8;
-            this.lblNumEmp.Text = "Numéro emprunteur";
+            this.lblNumEmp.Text = "Numéro emprunteur :";
             this.lblNumEmp.UseCustomBackColor = true;
             // 
             // txtbxNumEmp
@@ -93,6 +95,7 @@
             this.txtbxNumEmp.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtbxNumEmp.CustomButton.UseSelectable = true;
             this.txtbxNumEmp.CustomButton.Visible = false;
+            this.txtbxNumEmp.Enabled = false;
             this.txtbxNumEmp.Lines = new string[0];
             this.txtbxNumEmp.Location = new System.Drawing.Point(176, 25);
             this.txtbxNumEmp.MaxLength = 32767;
@@ -125,6 +128,7 @@
             this.txtbxRefEx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.txtbxRefEx.CustomButton.UseSelectable = true;
             this.txtbxRefEx.CustomButton.Visible = false;
+            this.txtbxRefEx.Enabled = false;
             this.txtbxRefEx.Lines = new string[0];
             this.txtbxRefEx.Location = new System.Drawing.Point(501, 25);
             this.txtbxRefEx.MaxLength = 32767;
@@ -146,51 +150,56 @@
             // 
             this.lblRefEx.AutoSize = true;
             this.lblRefEx.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRefEx.Enabled = false;
+            this.lblRefEx.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblRefEx.Location = new System.Drawing.Point(343, 25);
             this.lblRefEx.Name = "lblRefEx";
-            this.lblRefEx.Size = new System.Drawing.Size(136, 19);
+            this.lblRefEx.Size = new System.Drawing.Size(144, 19);
             this.lblRefEx.TabIndex = 10;
-            this.lblRefEx.Text = "Référence exemplaire";
+            this.lblRefEx.Text = "Référence exemplaire :";
             this.lblRefEx.UseCustomBackColor = true;
             // 
             // GridEmprunt
             // 
+            this.GridEmprunt.AllowUserToAddRows = false;
+            this.GridEmprunt.AllowUserToDeleteRows = false;
             this.GridEmprunt.AllowUserToResizeRows = false;
+            this.GridEmprunt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.GridEmprunt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridEmprunt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridEmprunt.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridEmprunt.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.GridEmprunt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.GridEmprunt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle2;
             this.GridEmprunt.EnableHeadersVisualStyles = false;
             this.GridEmprunt.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEmprunt.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridEmprunt.Location = new System.Drawing.Point(12, 350);
             this.GridEmprunt.Name = "GridEmprunt";
             this.GridEmprunt.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridEmprunt.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEmprunt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridEmprunt.Size = new System.Drawing.Size(714, 180);
@@ -200,33 +209,39 @@
             // 
             this.lblDateEmp.AutoSize = true;
             this.lblDateEmp.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblDateEmp.Enabled = false;
+            this.lblDateEmp.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblDateEmp.Location = new System.Drawing.Point(18, 93);
             this.lblDateEmp.Name = "lblDateEmp";
-            this.lblDateEmp.Size = new System.Drawing.Size(90, 19);
+            this.lblDateEmp.Size = new System.Drawing.Size(102, 19);
             this.lblDateEmp.TabIndex = 13;
-            this.lblDateEmp.Text = "Date emprunt";
+            this.lblDateEmp.Text = "Date emprunt :";
             this.lblDateEmp.UseCustomBackColor = true;
             // 
             // lblDateRetourPrev
             // 
             this.lblDateRetourPrev.AutoSize = true;
             this.lblDateRetourPrev.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblDateRetourPrev.Enabled = false;
+            this.lblDateRetourPrev.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblDateRetourPrev.Location = new System.Drawing.Point(343, 93);
             this.lblDateRetourPrev.Name = "lblDateRetourPrev";
-            this.lblDateRetourPrev.Size = new System.Drawing.Size(132, 19);
+            this.lblDateRetourPrev.Size = new System.Drawing.Size(145, 19);
             this.lblDateRetourPrev.TabIndex = 15;
-            this.lblDateRetourPrev.Text = "Date de retour prévu";
+            this.lblDateRetourPrev.Text = "Date de retour prévu :";
             this.lblDateRetourPrev.UseCustomBackColor = true;
             // 
             // lblDateRetourRéel
             // 
             this.lblDateRetourRéel.AutoSize = true;
             this.lblDateRetourRéel.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblDateRetourRéel.Enabled = false;
+            this.lblDateRetourRéel.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblDateRetourRéel.Location = new System.Drawing.Point(18, 156);
             this.lblDateRetourRéel.Name = "lblDateRetourRéel";
-            this.lblDateRetourRéel.Size = new System.Drawing.Size(102, 19);
+            this.lblDateRetourRéel.Size = new System.Drawing.Size(113, 19);
             this.lblDateRetourRéel.TabIndex = 17;
-            this.lblDateRetourRéel.Text = "Date retour réel";
+            this.lblDateRetourRéel.Text = "Date retour réel :";
             this.lblDateRetourRéel.UseCustomBackColor = true;
             // 
             // gpbxChoix
@@ -236,7 +251,7 @@
             this.gpbxChoix.Controls.Add(this.rbLivreNonRendu);
             this.gpbxChoix.Controls.Add(this.lblDate);
             this.gpbxChoix.Enabled = false;
-            this.gpbxChoix.Location = new System.Drawing.Point(18, 140);
+            this.gpbxChoix.Location = new System.Drawing.Point(18, 139);
             this.gpbxChoix.Name = "gpbxChoix";
             this.gpbxChoix.Size = new System.Drawing.Size(676, 100);
             this.gpbxChoix.TabIndex = 19;
@@ -246,6 +261,7 @@
             // dtDate
             // 
             this.dtDate.CalendarMonthBackground = System.Drawing.SystemColors.InactiveCaption;
+            this.dtDate.Enabled = false;
             this.dtDate.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtDate.Location = new System.Drawing.Point(158, 16);
             this.dtDate.MinimumSize = new System.Drawing.Size(0, 25);
@@ -282,11 +298,12 @@
             // 
             this.lblDate.AutoSize = true;
             this.lblDate.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblDate.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblDate.Location = new System.Drawing.Point(11, 16);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(36, 19);
+            this.lblDate.Size = new System.Drawing.Size(45, 19);
             this.lblDate.TabIndex = 15;
-            this.lblDate.Text = "Date";
+            this.lblDate.Text = "Date :";
             this.lblDate.UseCustomBackColor = true;
             // 
             // groupBox1
@@ -311,15 +328,17 @@
             // 
             // dtRetour
             // 
+            this.dtRetour.Enabled = false;
             this.dtRetour.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtRetour.Location = new System.Drawing.Point(176, 150);
-            this.dtRetour.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtRetour.MinimumSize = new System.Drawing.Size(0, 25);
             this.dtRetour.Name = "dtRetour";
             this.dtRetour.Size = new System.Drawing.Size(137, 25);
             this.dtRetour.TabIndex = 25;
             // 
             // dtRetourPrevu
             // 
+            this.dtRetourPrevu.Enabled = false;
             this.dtRetourPrevu.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtRetourPrevu.Location = new System.Drawing.Point(501, 87);
             this.dtRetourPrevu.MinimumSize = new System.Drawing.Size(0, 25);
@@ -330,6 +349,7 @@
             // dtEmprunt
             // 
             this.dtEmprunt.CalendarMonthBackground = System.Drawing.SystemColors.InactiveBorder;
+            this.dtEmprunt.Enabled = false;
             this.dtEmprunt.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtEmprunt.Location = new System.Drawing.Point(176, 87);
             this.dtEmprunt.MinimumSize = new System.Drawing.Size(0, 25);
@@ -373,6 +393,7 @@
             this.btnSearchEmp.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnSearchEmp.UseCustomBackColor = true;
             this.btnSearchEmp.UseSelectable = true;
+            this.btnSearchEmp.Click += new System.EventHandler(this.btnSearchEmp_Click);
             // 
             // btnLivre
             // 
@@ -389,6 +410,7 @@
             this.btnLivre.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnLivre.UseCustomBackColor = true;
             this.btnLivre.UseSelectable = true;
+            this.btnLivre.Click += new System.EventHandler(this.btnLivre_Click);
             // 
             // btnAnnuler
             // 
@@ -423,6 +445,7 @@
             this.btnAjRetour.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnAjRetour.UseCustomBackColor = true;
             this.btnAjRetour.UseSelectable = true;
+            this.btnAjRetour.Click += new System.EventHandler(this.btnAjRetour_Click);
             // 
             // btnSupprimer
             // 
@@ -439,6 +462,7 @@
             this.btnSupprimer.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnSupprimer.UseCustomBackColor = true;
             this.btnSupprimer.UseSelectable = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnModifier
             // 
@@ -455,6 +479,7 @@
             this.btnModifier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnModifier.UseCustomBackColor = true;
             this.btnModifier.UseSelectable = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // btnAjouter
             // 
@@ -471,6 +496,7 @@
             this.btnAjouter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnAjouter.UseCustomBackColor = true;
             this.btnAjouter.UseSelectable = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click_1);
             // 
             // groupBox3
             // 

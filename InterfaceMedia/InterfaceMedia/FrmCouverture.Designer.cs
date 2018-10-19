@@ -277,9 +277,9 @@
             this.gpbxMenu.Controls.Add(this.btnAjouter);
             this.gpbxMenu.Controls.Add(this.groupBox1);
             this.gpbxMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gpbxMenu.Location = new System.Drawing.Point(809, 10);
+            this.gpbxMenu.Location = new System.Drawing.Point(809, 21);
             this.gpbxMenu.Name = "gpbxMenu";
-            this.gpbxMenu.Size = new System.Drawing.Size(203, 533);
+            this.gpbxMenu.Size = new System.Drawing.Size(203, 522);
             this.gpbxMenu.TabIndex = 29;
             this.gpbxMenu.TabStop = false;
             // 

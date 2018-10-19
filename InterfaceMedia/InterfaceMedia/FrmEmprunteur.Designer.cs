@@ -65,6 +65,7 @@
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.groupAjouterEmp = new System.Windows.Forms.GroupBox();
             this.picHome = new System.Windows.Forms.PictureBox();
+            this.ActiverAdh = new MetroFramework.Controls.MetroToggle();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunteur)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -77,6 +78,7 @@
             this.GridEmprunteur.AllowUserToAddRows = false;
             this.GridEmprunteur.AllowUserToDeleteRows = false;
             this.GridEmprunteur.AllowUserToResizeRows = false;
+            this.GridEmprunteur.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.GridEmprunteur.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
             this.GridEmprunteur.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridEmprunteur.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -448,7 +450,7 @@
             this.btnAnnuler.ActiveControl = null;
             this.btnAnnuler.BackColor = System.Drawing.Color.Tomato;
             this.btnAnnuler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnnuler.Location = new System.Drawing.Point(11, 358);
+            this.btnAnnuler.Location = new System.Drawing.Point(12, 403);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(156, 48);
             this.btnAnnuler.TabIndex = 101;
@@ -622,6 +624,7 @@
             // groupAjouterEmp
             // 
             this.groupAjouterEmp.BackColor = System.Drawing.Color.Silver;
+            this.groupAjouterEmp.Controls.Add(this.ActiverAdh);
             this.groupAjouterEmp.Controls.Add(this.metroLabel12);
             this.groupAjouterEmp.Controls.Add(this.metroLabel11);
             this.groupAjouterEmp.Controls.Add(this.metroLabel5);
@@ -657,6 +660,17 @@
             this.picHome.TabIndex = 96;
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
+            // 
+            // ActiverAdh
+            // 
+            this.ActiverAdh.AutoSize = true;
+            this.ActiverAdh.Location = new System.Drawing.Point(621, 19);
+            this.ActiverAdh.Name = "ActiverAdh";
+            this.ActiverAdh.Size = new System.Drawing.Size(80, 17);
+            this.ActiverAdh.TabIndex = 95;
+            this.ActiverAdh.Text = "Off";
+            this.ActiverAdh.UseSelectable = true;
+            this.ActiverAdh.CheckedChanged += new System.EventHandler(this.ActiverAdh_CheckedChanged);
             // 
             // FrmEmprunteur
             // 
@@ -722,5 +736,6 @@
         private MetroFramework.Controls.MetroTile btnModifier;
         private MetroFramework.Controls.MetroTile btnAnnuler;
         private System.Windows.Forms.PictureBox picHome;
+        private MetroFramework.Controls.MetroToggle ActiverAdh;
     }
 }

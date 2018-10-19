@@ -97,14 +97,14 @@ namespace InterfaceMedia
             Application.Run(new Frmlivre());
         }
 
-        private void openformEmprunt()
-        {
-            Application.Run(new FrmEmprunt());
-        }
-
         private void openformCouverture()
         {
             Application.Run(new FrmCouverture());
+        }
+
+        private void openformEmprunt()
+        {
+            Application.Run(new FrmEmprunt());
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)

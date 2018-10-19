@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using LibMedia;
@@ -16,7 +17,7 @@ namespace InterfaceMedia
     {
 
         private Crud_Emprunt Ajout;
-
+        Thread home;
 
         public FrmEmprunt()
         {
@@ -28,7 +29,23 @@ namespace InterfaceMedia
         }
 
 
-        private void btnAjoutEmp_Click(object sender, EventArgs e)
+        
+
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            home = new Thread(openformAccueil);
+            home.SetApartmentState(ApartmentState.STA);
+            home.Start();
+
+        }
+
+        private void openformAccueil()
+        {
+            Application.Run(new FrmAccueilTest());
+        }
+
+        private void btnAjouter_Click_1(object sender, EventArgs e)
         {
 
             if (btnAjouter.Text.Equals("Ajouter"))
@@ -66,14 +83,13 @@ namespace InterfaceMedia
                 dtEmprunt.Text = "";
 
             }
-
             else if (btnAjouter.Text.Equals("Valider"))
             {
                 int numE = Int16.Parse(txtbxNumEmp.Text);
                 DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
                 DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
                 DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
-                Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text,dateEm,dateRet,dateRetP);
+                Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text, dateEm, dateRet, dateRetP);
 
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
@@ -97,19 +113,39 @@ namespace InterfaceMedia
                 txtbxRefEx.BackColor = Color.Silver;
                 txtbxNumEmp.BackColor = Color.Silver;
 
-
-
-
             }
-
-
         }
 
-        private void picHome_Click(object sender, EventArgs e)
+        private void btnModifier_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Application.Run(new FrmAccueilTest());
+
         }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAjRetour_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchEmp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLivre_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
@@ -120,5 +156,7 @@ namespace InterfaceMedia
         {
 
         }
+
+
     }
 }
