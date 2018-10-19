@@ -13,6 +13,7 @@ namespace LibMedia
         private String ExempEtat;
         private int bdcope;
         #region Constructeur
+
  public Exemplaire(String WexempRef, String WExempEtat, int wbdcode) 
         {
             ExempRef = WexempRef;
@@ -21,7 +22,7 @@ namespace LibMedia
         }
         #endregion
 
-        #region 
+      
        
 
         public String wExempRef
@@ -33,7 +34,16 @@ namespace LibMedia
         {
             get { return ExempEtat; }
             set { ExempEtat = value; }
+
         }
+
+        
+
+        public int wbdcode
+        {
+            get { return bdcope; }
+            set { bdcope = value; }
+        }
+
     }
-}
 }
