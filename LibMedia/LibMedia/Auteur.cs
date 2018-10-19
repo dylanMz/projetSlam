@@ -25,14 +25,14 @@ namespace LibMedia
 
         public Auteur(int unAuteurld, String unNom, String unPrenom, String unPseudo, DateTime uneDateNaiss, DateTime uneDateDeces, String unPays, String uneBiographie)
         {
-            unAuteurld = Auteurld;
-            unNom = AuteurNom;
-            unPrenom = AuteurPrenom;
-            unPseudo = AuteurPseudo;
-            uneDateNaiss = DateNaissance;
-            uneDateDeces = AuteurDeces;
-            unPays = AuteurPays;
-            uneBiographie = AuteurBiographie;
+            Auteurld = unAuteurld;
+            AuteurNom = unNom;
+            AuteurPrenom = unPrenom;
+            AuteurPseudo = unPseudo;
+            DateNaissance = uneDateNaiss;
+            AuteurDeces = uneDateDeces;
+            AuteurPays = unPays;
+            AuteurBiographie = uneBiographie;
         }
         #endregion
 

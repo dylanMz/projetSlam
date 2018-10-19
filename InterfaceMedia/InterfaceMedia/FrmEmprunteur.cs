@@ -82,6 +82,7 @@ namespace InterfaceMedia
                 
                 btnAjouter.Text = "Valider";
                 btnAnnuler.Visible = true;
+                ActiverAdh.Enabled = true;
 
                 //Desactive tous les autres boutons
                 btnModifier.Enabled = false;
@@ -108,6 +109,7 @@ namespace InterfaceMedia
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
+                ActiverAdh.Enabled = false;
 
                 //Re active les boutons
                 btnFamille.Enabled = true;
@@ -235,11 +237,13 @@ namespace InterfaceMedia
             //Les textbox sont inacessibles.
             groupAjouterEmp.Enabled = false;
 
+
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
             groupAjouterEmp.BackColor = Color.Silver;
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
+            ActiverAdh.Enabled = false;
             vidercontrols();
         }
 
@@ -314,6 +318,12 @@ namespace InterfaceMedia
                 if (c.GetType() == typeof(MetroFramework.Controls.MetroDateTime))
                     c.ResetText();
             }
+        }
+
+        private void btnFamille_Click(object sender, EventArgs e)
+        {
+            FrmFamille unefamille = new FrmFamille();
+            unefamille.Show();
         }
     }
 }

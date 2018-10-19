@@ -16,10 +16,16 @@ namespace InterfaceMedia
     public partial class FrmAuteur : MetroForm
     {
         Thread th;
+        private ConnexionBase connexion;
+        private Crud_Auteur unAuteur;
         private Crud_Auteur wpaysAuteur;
+
         public FrmAuteur()
         {
             InitializeComponent();
+            connexion = new ConnexionBase();
+            unAuteur = new Crud_Auteur(connexion);
+            dgvAuteur.DataSource = unAuteur.afficheAuteur();
         }
 
         //bouton ajouter
@@ -201,7 +207,9 @@ namespace InterfaceMedia
                 txtPseudo.Enabled = false;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                txtCode.BackColor = Color.Silver;
                 txtNom.BackColor = Color.Silver;
+                txtPseudo.BackColor = Color.Silver;
 
             }
         }
@@ -266,7 +274,7 @@ namespace InterfaceMedia
         //ouverture du formulaire accueil
         private void openformAccueil()
         {
-            Application.Run(new FrmCouverture());
+            Application.Run(new FrmAccueilTest());
         }
 
         private void rdoDecede_CheckedChanged(object sender, EventArgs e)

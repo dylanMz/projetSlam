@@ -54,7 +54,7 @@
             // metroTileEmprunteur
             // 
             this.metroTileEmprunteur.ActiveControl = null;
-            this.metroTileEmprunteur.Location = new System.Drawing.Point(144, 350);
+            this.metroTileEmprunteur.Location = new System.Drawing.Point(145, 220);
             this.metroTileEmprunteur.Name = "metroTileEmprunteur";
             this.metroTileEmprunteur.Size = new System.Drawing.Size(348, 81);
             this.metroTileEmprunteur.TabIndex = 0;
@@ -67,7 +67,7 @@
             // metroTileEmprunt
             // 
             this.metroTileEmprunt.ActiveControl = null;
-            this.metroTileEmprunt.Location = new System.Drawing.Point(144, 220);
+            this.metroTileEmprunt.Location = new System.Drawing.Point(145, 350);
             this.metroTileEmprunt.Name = "metroTileEmprunt";
             this.metroTileEmprunt.Size = new System.Drawing.Size(348, 81);
             this.metroTileEmprunt.TabIndex = 1;
@@ -80,7 +80,7 @@
             // metroTileEditeur
             // 
             this.metroTileEditeur.ActiveControl = null;
-            this.metroTileEditeur.Location = new System.Drawing.Point(144, 98);
+            this.metroTileEditeur.Location = new System.Drawing.Point(145, 98);
             this.metroTileEditeur.Name = "metroTileEditeur";
             this.metroTileEditeur.Size = new System.Drawing.Size(348, 81);
             this.metroTileEditeur.TabIndex = 2;
@@ -93,7 +93,7 @@
             // metroTileAuteur
             // 
             this.metroTileAuteur.ActiveControl = null;
-            this.metroTileAuteur.Location = new System.Drawing.Point(665, 98);
+            this.metroTileAuteur.Location = new System.Drawing.Point(666, 98);
             this.metroTileAuteur.Name = "metroTileAuteur";
             this.metroTileAuteur.Size = new System.Drawing.Size(348, 81);
             this.metroTileAuteur.TabIndex = 3;
@@ -106,7 +106,7 @@
             // metroTileLivre
             // 
             this.metroTileLivre.ActiveControl = null;
-            this.metroTileLivre.Location = new System.Drawing.Point(665, 220);
+            this.metroTileLivre.Location = new System.Drawing.Point(666, 220);
             this.metroTileLivre.Name = "metroTileLivre";
             this.metroTileLivre.Size = new System.Drawing.Size(348, 81);
             this.metroTileLivre.TabIndex = 4;
@@ -119,7 +119,7 @@
             // metroTileCouverture
             // 
             this.metroTileCouverture.ActiveControl = null;
-            this.metroTileCouverture.Location = new System.Drawing.Point(665, 350);
+            this.metroTileCouverture.Location = new System.Drawing.Point(666, 350);
             this.metroTileCouverture.Name = "metroTileCouverture";
             this.metroTileCouverture.Size = new System.Drawing.Size(348, 81);
             this.metroTileCouverture.TabIndex = 5;
@@ -132,7 +132,7 @@
             // picEditeur
             // 
             this.picEditeur.Image = global::InterfaceMedia.Properties.Resources.editeur;
-            this.picEditeur.Location = new System.Drawing.Point(45, 98);
+            this.picEditeur.Location = new System.Drawing.Point(46, 98);
             this.picEditeur.Name = "picEditeur";
             this.picEditeur.Size = new System.Drawing.Size(79, 81);
             this.picEditeur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -142,7 +142,7 @@
             // picEmprunt
             // 
             this.picEmprunt.Image = global::InterfaceMedia.Properties.Resources.iconeEmprunt;
-            this.picEmprunt.Location = new System.Drawing.Point(45, 220);
+            this.picEmprunt.Location = new System.Drawing.Point(46, 350);
             this.picEmprunt.Name = "picEmprunt";
             this.picEmprunt.Size = new System.Drawing.Size(79, 81);
             this.picEmprunt.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -152,7 +152,7 @@
             // picEmprunteur
             // 
             this.picEmprunteur.Image = global::InterfaceMedia.Properties.Resources.iconeEmprunteur;
-            this.picEmprunteur.Location = new System.Drawing.Point(45, 350);
+            this.picEmprunteur.Location = new System.Drawing.Point(46, 220);
             this.picEmprunteur.Name = "picEmprunteur";
             this.picEmprunteur.Size = new System.Drawing.Size(79, 81);
             this.picEmprunteur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -162,7 +162,7 @@
             // picAuteur
             // 
             this.picAuteur.Image = global::InterfaceMedia.Properties.Resources.auteurtranspa;
-            this.picAuteur.Location = new System.Drawing.Point(565, 98);
+            this.picAuteur.Location = new System.Drawing.Point(566, 98);
             this.picAuteur.Name = "picAuteur";
             this.picAuteur.Size = new System.Drawing.Size(79, 81);
             this.picAuteur.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -172,7 +172,7 @@
             // picLivre
             // 
             this.picLivre.Image = global::InterfaceMedia.Properties.Resources.livreOuvert;
-            this.picLivre.Location = new System.Drawing.Point(565, 220);
+            this.picLivre.Location = new System.Drawing.Point(566, 220);
             this.picLivre.Name = "picLivre";
             this.picLivre.Size = new System.Drawing.Size(79, 81);
             this.picLivre.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -182,7 +182,7 @@
             // picCouverture
             // 
             this.picCouverture.Image = global::InterfaceMedia.Properties.Resources.couverture;
-            this.picCouverture.Location = new System.Drawing.Point(565, 350);
+            this.picCouverture.Location = new System.Drawing.Point(566, 350);
             this.picCouverture.Name = "picCouverture";
             this.picCouverture.Size = new System.Drawing.Size(79, 81);
             this.picCouverture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -263,6 +263,7 @@
             this.Controls.Add(this.metroTileEditeur);
             this.Controls.Add(this.metroTileEmprunt);
             this.Controls.Add(this.metroTileEmprunteur);
+            this.MaximizeBox = false;
             this.Name = "FrmAccueilTest";
             this.Resizable = false;
             this.Text = "Accueil";
