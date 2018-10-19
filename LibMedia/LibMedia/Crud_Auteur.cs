@@ -16,16 +16,18 @@ namespace LibMedia
         private MySqlCommand rechercheAut;
         private MySqlCommand paysAut;
         private MySqlCommand afficheAut;
+        private MySqlDataAdapter unAdapter;
+        private DataSet unDataset;
         private ConnexionBase connexion;
         #endregion
 
         #region constructeur
-        public Crud_Auteur()
+        public Crud_Auteur(ConnexionBase connexion_en_cours)
         {
-            connexion = new ConnexionBase();
+            connexion = connexion_en_cours;
         }
         #endregion
-        
+
         #region appel des procédures
         //ajout d'un auteur
         public void ajouterAuteur(String unNom, String unPrenom, String unPseudo, DateTime uneDateNaiss, DateTime uneDateDeces, String unPays, String uneBiographie)
@@ -140,7 +142,7 @@ namespace LibMedia
         }
 
         //affiche_auteur
-        public void afficheAuteur()
+        public DataTable afficheAuteur()
         {
             //déclaration et instanciation
             afficheAut = new MySqlCommand();
@@ -150,7 +152,18 @@ namespace LibMedia
             afficheAut.CommandType = CommandType.StoredProcedure;
             //associer la connection du command et celle en cours
             afficheAut.Connection = connexion.getConnexion();
+
+            if (connexion.OuvrirConnexion() == true)
+            {
+                unAdapter = new MySqlDataAdapter(afficheAut);
+                unDataset = new DataSet();
+                unAdapter.Fill(unDataset,"auteur");
+                connexion.closeConnexion();
+            }
+            return (unDataset.Tables["auteur"]);
         }
+
+
         #endregion
     }
 }
