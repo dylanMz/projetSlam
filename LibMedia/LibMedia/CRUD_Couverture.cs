@@ -64,10 +64,26 @@ namespace LibMedia
             _connexion.closeConnexion();
         }
 
-       /* public List<Couverture> recupCouverture()
+        public DataTable recupCouverture()
         {
+            _connexion.OuvrirConnexion();
+            cmdLire = new MySqlCommand();
+            cmdLire.CommandText = "proc_afficher_couverture";  //Nom de la rpocédure sur MySql
+            cmdLire.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
+            cmdLire.Connection = _connexion.getConnexion();
 
-            bibliotheque = new List<Couverture>();
+
+            MySqlDataAdapter unAdapter = new MySqlDataAdapter(cmdLire);
+            DataSet unDataset = new DataSet();
+            DataTable uneTable;
+            uneTable = new DataTable();
+            unAdapter.Fill(unDataset, "couverture");
+            uneTable = unDataset.Tables["couverture"];
+
+            _connexion.closeConnexion();
+
+            return uneTable;
+            /*bibliotheque = new List<Couverture>();
             cmdLire = new MySqlCommand();
             cmdLire.CommandText = "LireBdd";
             cmdLire.CommandType = System.Data.CommandType.StoredProcedure;
@@ -75,6 +91,8 @@ namespace LibMedia
             MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmdLire);
             DataSet dts = new DataSet("ListeDonnéesRecupérées");
             dataAdapter.Fill(dts, "ListeDonnéesRecupérées");*/
+        }
+    }
             
 
             /*if(_connexion.OuvrirConnexion() == true)

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibMedia;
@@ -16,6 +17,8 @@ namespace InterfaceMedia
     {
         private Crud_Editeur unEditeur;
         private ConnexionBase uneconnexion;
+        Thread th;
+        
 
         private int uneDateCreation;
 
@@ -340,9 +343,15 @@ namespace InterfaceMedia
 
         private void picHome_Click(object sender, EventArgs e)
         {
-            FrmAccueilTest wAccueilTest = new FrmAccueilTest();
-            wAccueilTest.ShowDialog();
-            Form.ActiveForm.Close();
+            this.Close();
+            th = new Thread(openformAccueil);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void openformAccueil()
+        {
+            Application.Run(new FrmAccueilTest());
         }
 
         //Affiche dans les textbox les valeurs de la ligne sélectionné.

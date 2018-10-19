@@ -57,13 +57,13 @@ namespace InterfaceMedia
             if (Adhesion.Equals("01/01/0001 00:00:00"))
             {
                 DateTimeAdhesion.Visible = false;
-                lblAdhesion.Visible = false;
+                ActiverAdh.Checked = false;
             }
             else
             {
                 DateTimeAdhesion.Visible = true;
-                lblAdhesion.Visible = true;
                 DateTimeAdhesion.Text = Adhesion;
+                ActiverAdh.Checked = true;
             }
             
             DateTimeRenouvellement.Text = GridEmprunteur.CurrentRow.Cells["renouvellement_adhésion"].Value.ToString();
@@ -164,6 +164,7 @@ namespace InterfaceMedia
                 btnSupprimer.Enabled = false;
                 btnRechercher.Enabled = false;
                 btnFamille.Enabled = false;
+                ActiverAdh.Enabled = true;
 
 
 
@@ -185,6 +186,7 @@ namespace InterfaceMedia
                 utilisemethodeprocedure("proc_modif_emprunteur");
                
                 groupAjouterEmp.Enabled = false;
+                ActiverAdh.Enabled = false;
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
@@ -290,6 +292,19 @@ namespace InterfaceMedia
             String recupcode = null;
             //appel de la methode connectprocedure de Crud_Emprunteur
             unEmprunteur.connectprocedure(nomprocedure, ref recupcode, parametresString, parametresDate, Convert.ToInt32(id));
+        }
+
+        private void ActiverAdh_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ActiverAdh.Checked == true)
+            {
+                DateTimeAdhesion.Visible = true;
+            }
+            else
+            {
+                DateTimeAdhesion.Visible = false;
+                DateTimeAdhesion.ResetText();
+            }
         }
     }
 }
