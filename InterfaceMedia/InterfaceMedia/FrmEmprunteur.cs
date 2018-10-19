@@ -93,13 +93,7 @@ namespace InterfaceMedia
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 modifcouleurControlActif();
-                //txtNom.BackColor = Color.White;
-                //txtPrenom.BackColor = Color.White;
-                //txtMail.BackColor = Color.White;
-                //txtCodePostal.BackColor = Color.White;
-                //txtAdresse.BackColor = Color.White;
-                //txtVille.BackColor = Color.White;
-                //DateTimeNaissance.CalendarTitleBackColor = Color.Silver;
+
             }
             else if (btnAjouter.Text.Equals("Valider"))
             {
@@ -119,12 +113,7 @@ namespace InterfaceMedia
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 modifcouleurControlVerou();
-                //txtNom.BackColor = Color.Silver;
-                //txtPrenom.BackColor = Color.Silver;
-                //txtMail.BackColor = Color.Silver;
-                //txtCodePostal.BackColor = Color.Silver;
-                //txtAdresse.BackColor = Color.Silver;
-                //txtVille.BackColor = Color.Silver;
+
 
                 //met à jour le datagrid
                 RefreshGrid();
