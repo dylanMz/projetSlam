@@ -107,9 +107,19 @@ namespace InterfaceMedia
             Application.Run(new FrmEmprunt());
         }
 
+        private void openformAdmin()
+        {
+            Application.Run(new FrmAdmin());
+        }
+
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            th = new Thread(openformAdmin);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
         }
+
+
     }
 }

@@ -92,14 +92,8 @@ namespace InterfaceMedia
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                groupAjouterEmp.BackColor = Color.White;
-                //txtNom.BackColor = Color.White;
-                //txtPrenom.BackColor = Color.White;
-                //txtMail.BackColor = Color.White;
-                //txtCodePostal.BackColor = Color.White;
-                //txtAdresse.BackColor = Color.White;
-                //txtVille.BackColor = Color.White;
-                //DateTimeNaissance.CalendarTitleBackColor = Color.Silver;
+                modifcouleurControlActif();
+
             }
             else if (btnAjouter.Text.Equals("Valider"))
             {
@@ -118,13 +112,8 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = true;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                groupAjouterEmp.BackColor = Color.Silver;
-                //txtNom.BackColor = Color.Silver;
-                //txtPrenom.BackColor = Color.Silver;
-                //txtMail.BackColor = Color.Silver;
-                //txtCodePostal.BackColor = Color.Silver;
-                //txtAdresse.BackColor = Color.Silver;
-                //txtVille.BackColor = Color.Silver;
+                modifcouleurControlVerou();
+
 
                 //met à jour le datagrid
                 RefreshGrid();
@@ -166,16 +155,8 @@ namespace InterfaceMedia
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                groupAjouterEmp.BackColor = Color.White;
-                //txtNom.BackColor = Color.White;
-                //DateTimeRenouvellement.BackColor = Color.White;
-                //txtMail.BackColor = Color.White;
-                //txtCodePostal.BackColor = Color.White;
-                //txtPrenom.BackColor = Color.White;
-                //txtAdresse.BackColor = Color.White;
-                //DateTimeNaissance.BackColor = Color.White;
-                //DateTimeAdhesion.BackColor = Color.White;
-                //txtVille.BackColor = Color.White;
+                modifcouleurControlActif();
+
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
@@ -197,16 +178,8 @@ namespace InterfaceMedia
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                groupAjouterEmp.BackColor = SystemColors.ButtonFace;
-                //txtNom.BackColor = Color.Silver;
-                //txtPrenom.BackColor = Color.Silver;
-                //txtMail.BackColor = Color.Silver;
-                //txtCodePostal.BackColor = Color.Silver;
-                //txtAdresse.BackColor = Color.Silver;
-                //DateTimeRenouvellement.BackColor = Color.Silver;
-                //DateTimeNaissance.BackColor = Color.Silver;
-                //DateTimeAdhesion.BackColor = Color.Silver;
-                //txtVille.BackColor = Color.Silver;
+                modifcouleurControlVerou();
+
 
 
                 //met à jour le datagrid
@@ -239,7 +212,7 @@ namespace InterfaceMedia
 
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
-            groupAjouterEmp.BackColor = SystemColors.ButtonFace;
+            modifcouleurControlVerou();
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
@@ -320,6 +293,31 @@ namespace InterfaceMedia
                     c.ResetText();
             }
         }
+
+        //modifier les couleurs en vérouiller pour les controls
+        public void modifcouleurControlVerou()
+        {
+            foreach (Control c in groupAjouterEmp.Controls)
+            {
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroTextBox))
+                    c.BackColor = Color.Silver;
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroDateTime))
+                    c.BackColor = Color.Silver; ;
+            }
+        }
+
+        //modifier les couleurs en Actif pour les controls
+        public void modifcouleurControlActif()
+        {
+            foreach (Control c in groupAjouterEmp.Controls)
+            {
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroTextBox))
+                    c.BackColor = Color.White;
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroDateTime))
+                    c.BackColor = Color.White; ;
+            }
+        }
+
 
         private void btnFamille_Click(object sender, EventArgs e)
         {
