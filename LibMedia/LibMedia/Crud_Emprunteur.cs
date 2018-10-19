@@ -32,6 +32,8 @@ namespace LibMedia
 
         #endregion
 
+        #region Méthode
+
         public void Recup_TableEmprunteur()
         {
 
@@ -96,7 +98,8 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
-        
+        #endregion
+
         #region Accesseur
         //Accesseur de la liste Emprunteur
         public List<Emprunteur> lesEmprunteurs
