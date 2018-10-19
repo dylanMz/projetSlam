@@ -324,5 +324,29 @@ namespace InterfaceMedia
             FrmFamille unefamille = new FrmFamille();
             unefamille.Show();
         }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            Int32 selectedRowCount =
+             GridEmprunteur.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            if (selectedRowCount > 0)
+            {
+                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+                for (int i = 0; i < selectedRowCount; i++)
+                {
+                    sb.Append("ligne: ");
+                    sb.Append(GridEmprunteur.SelectedRows[i].Index.ToString());
+                    sb.Append(Environment.NewLine);
+                    sb.Append("Numéro: ");
+                    sb.Append(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
+                    sb.Append(Environment.NewLine);
+                }
+
+                sb.Append("Total: " + selectedRowCount.ToString());
+                
+                MessageBox.Show(sb.ToString(), "Les lignes sélectionnées");
+            }
+        }
     }
 }
