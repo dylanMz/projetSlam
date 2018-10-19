@@ -97,6 +97,5 @@ namespace LibMedia
         }
         #endregion
 
-        /*COMMENTAIRE*/
     }
 }

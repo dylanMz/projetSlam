@@ -15,6 +15,7 @@ namespace InterfaceMedia
 {
     public partial class FrmEditeur : MetroForm
     {
+        #region Propriétés
         private Crud_Editeur unEditeur;
         private ConnexionBase uneconnexion;
         Thread th;
@@ -24,6 +25,7 @@ namespace InterfaceMedia
 
         private String unCodeSortie;
         private string unCodeEditeur;
+        #endregion
 
         public FrmEditeur()
         {
