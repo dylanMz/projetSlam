@@ -401,7 +401,7 @@ namespace InterfaceMedia
                 int numE = Int32.Parse(txtbxNumEmp.Text);
                 Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text);
 
-                Search.rechercheEmprunt(lEmprunt);
+                GridEmprunt.DataSource = Search.rechercheEmprunt(lEmprunt);
 
                 btnSearchEmp.Text = "Rechercher emprunt";
                 btnSearchEmp.BackColor = Color.SteelBlue;
@@ -431,6 +431,7 @@ namespace InterfaceMedia
                 dtRetourPrevu.Text = "";
                 dtRetour.Text = "";
                 dtEmprunt.Text = "";
+                GridEmprunt.DataSource = null;
 
             }
         }
@@ -439,9 +440,12 @@ namespace InterfaceMedia
         {
             if (btnLivre.Text.Equals("Rechercher livre"))
             {
-                btnModifier.BackColor = Color.Green;
-                btnModifier.Text = "Valider";
+                btnLivre.BackColor = Color.Green;
+                btnLivre.Text = "Valider";
                 gpbxChoix.Visible = true;
+                rbLivreEmprunter.Enabled = true;
+                rbLivreNonRendu.Enabled = true;
+               
                 //le bouton annuler apparait
                 btnAnnuler.Visible = true;
 
@@ -453,12 +457,11 @@ namespace InterfaceMedia
                 btnModifier.Enabled = false;
 
                 //Les textbox à remplir pour l'insertion se déverouille
-                txtbxNumEmp.Enabled = true;
-                txtbxRefEx.Enabled = true;
+                dtDate.Enabled = true;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtbxRefEx.BackColor = Color.White;
-                txtbxNumEmp.BackColor = Color.White;
+                txtbxRefEx.BackColor = Color.Silver;
+                txtbxNumEmp.BackColor = Color.Silver;
 
                 //Reinistialisation des textbox
                 txtbxNumEmp.Text = "";
@@ -477,14 +480,23 @@ namespace InterfaceMedia
                 if(rbLivreEmprunter.Checked == true)
                 {
 
-                    DateTime Date = Convert.ToDateTime(dtDate.Text);
+                    DateTime lDate = Convert.ToDateTime(dtDate.Text);
 
-                    //GridEmprunt.DataSource = LivreNonRendu.rechercheDate_Emprunt(;
+                    GridEmprunt.DataSource = LivreEmp.rechercheDate_Emprunt(lDate);
                 }
-                
+                else if(rbLivreNonRendu.Checked == true)
+                {
+                    DateTime uDate = Convert.ToDateTime(dtDate.Text);
+
+                    GridEmprunt.DataSource = LivreEmp.rechercheNonRendu(uDate);
+                }
+                else
+                {
+                    //Afficher un message d'erreur "veuillez cocher un choix"
+                }
                 //Updat.updateEmprunt(lEmprunt);
 
-                btnLivre.Text = "Modifier";
+                btnLivre.Text = "Rechercher livre";
                 btnLivre.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
 
@@ -515,6 +527,7 @@ namespace InterfaceMedia
                 dtDate.Text = "";
                 rbLivreEmprunter.Checked = false;
                 rbLivreNonRendu.Checked = false;
+                gpbxChoix.Visible = false;
 
             }
         }
