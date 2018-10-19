@@ -319,5 +319,11 @@ namespace InterfaceMedia
                     c.ResetText();
             }
         }
+
+        private void btnFamille_Click(object sender, EventArgs e)
+        {
+            FrmFamille unefamille = new FrmFamille();
+            unefamille.Show();
+        }
     }
 }
