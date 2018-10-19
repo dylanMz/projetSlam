@@ -16,9 +16,9 @@ namespace InterfaceMedia
     public partial class FrmAuteur : MetroForm
     {
         Thread th;
-        private Crud_Auteur wpaysAuteur;
         private ConnexionBase connexion;
         private Crud_Auteur unAuteur;
+        private Crud_Auteur wpaysAuteur;
 
         public FrmAuteur()
         {
@@ -206,7 +206,9 @@ namespace InterfaceMedia
                 txtPseudo.Enabled = false;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                txtCode.BackColor = Color.Silver;
                 txtNom.BackColor = Color.Silver;
+                txtPseudo.BackColor = Color.Silver;
 
             }
         }
