@@ -77,12 +77,7 @@ namespace InterfaceMedia
                 btnAjouter.BackColor = Color.Green;
 
                 //vide les controls du groupbox
-                foreach (Control c in groupAjouterEmp.Controls)
-                {
-                    if (c.GetType() == typeof(MetroFramework.Controls.MetroTextBox))
-                        c.Text = "";
-
-                }
+                vidercontrols();
 
                 
                 btnAjouter.Text = "Valider";
@@ -150,7 +145,7 @@ namespace InterfaceMedia
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            if (btnModifier.Text.Equals("Modifier"))
+            if (btnModifier.Text.Equals("Modifier")&!txtNom.Text.Equals(""))
             {
                 groupAjouterEmp.Enabled = true;
                 btnModifier.BackColor = Color.Green;
@@ -245,6 +240,7 @@ namespace InterfaceMedia
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
+            vidercontrols();
         }
 
         //Methode pour mettre à jour le grid
@@ -304,6 +300,19 @@ namespace InterfaceMedia
             {
                 DateTimeAdhesion.Visible = false;
                 DateTimeAdhesion.ResetText();
+            }
+        }
+
+
+        //vider les controls du groupbox
+        public void vidercontrols()
+        {
+            foreach (Control c in groupAjouterEmp.Controls)
+            {
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroTextBox))
+                    c.Text = "";
+                if (c.GetType() == typeof(MetroFramework.Controls.MetroDateTime))
+                    c.ResetText();
             }
         }
     }
