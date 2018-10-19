@@ -75,9 +75,9 @@
             this.grpMenu.Controls.Add(this.btnAjouter);
             this.grpMenu.Controls.Add(this.btnRechercher);
             this.grpMenu.Controls.Add(this.btnAnnuler);
-            this.grpMenu.Location = new System.Drawing.Point(737, 63);
+            this.grpMenu.Location = new System.Drawing.Point(737, 33);
             this.grpMenu.Name = "grpMenu";
-            this.grpMenu.Size = new System.Drawing.Size(216, 519);
+            this.grpMenu.Size = new System.Drawing.Size(216, 549);
             this.grpMenu.TabIndex = 1;
             this.grpMenu.TabStop = false;
             // 
@@ -154,6 +154,7 @@
             this.pnlAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlAuteur.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pnlAuteur.Controls.Add(this.grpAuteur);
             this.pnlAuteur.Controls.Add(this.dgvAuteur);
             this.pnlAuteur.HorizontalScrollbarBarColor = true;
@@ -163,6 +164,9 @@
             this.pnlAuteur.Name = "pnlAuteur";
             this.pnlAuteur.Size = new System.Drawing.Size(724, 608);
             this.pnlAuteur.TabIndex = 6;
+            this.pnlAuteur.UseCustomBackColor = true;
+            this.pnlAuteur.UseCustomForeColor = true;
+            this.pnlAuteur.UseStyleColors = true;
             this.pnlAuteur.VerticalScrollbarBarColor = true;
             this.pnlAuteur.VerticalScrollbarHighlightOnWheel = false;
             this.pnlAuteur.VerticalScrollbarSize = 10;
@@ -172,6 +176,7 @@
             this.grpAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpAuteur.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.grpAuteur.Controls.Add(this.grpStatut);
             this.grpAuteur.Controls.Add(this.cmbPays);
             this.grpAuteur.Controls.Add(this.metroLabel3);
@@ -199,7 +204,7 @@
             this.grpStatut.Controls.Add(this.rdoVivant);
             this.grpStatut.Controls.Add(this.dtStatut);
             this.grpStatut.Controls.Add(this.rdoDecede);
-            this.grpStatut.Location = new System.Drawing.Point(447, 137);
+            this.grpStatut.Location = new System.Drawing.Point(460, 137);
             this.grpStatut.Name = "grpStatut";
             this.grpStatut.Size = new System.Drawing.Size(212, 100);
             this.grpStatut.TabIndex = 17;
@@ -208,9 +213,9 @@
             // rdoVivant
             // 
             this.rdoVivant.AutoSize = true;
-            this.rdoVivant.BackColor = System.Drawing.Color.Silver;
+            this.rdoVivant.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.rdoVivant.Enabled = false;
-            this.rdoVivant.Location = new System.Drawing.Point(6, 26);
+            this.rdoVivant.Location = new System.Drawing.Point(18, 26);
             this.rdoVivant.Name = "rdoVivant";
             this.rdoVivant.Size = new System.Drawing.Size(56, 15);
             this.rdoVivant.TabIndex = 6;
@@ -234,9 +239,9 @@
             // rdoDecede
             // 
             this.rdoDecede.AutoSize = true;
-            this.rdoDecede.BackColor = System.Drawing.Color.Silver;
+            this.rdoDecede.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.rdoDecede.Enabled = false;
-            this.rdoDecede.Location = new System.Drawing.Point(119, 26);
+            this.rdoDecede.Location = new System.Drawing.Point(125, 26);
             this.rdoDecede.Name = "rdoDecede";
             this.rdoDecede.Size = new System.Drawing.Size(62, 15);
             this.rdoDecede.TabIndex = 7;
@@ -262,22 +267,24 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel3.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel3.Location = new System.Drawing.Point(20, 194);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(48, 19);
             this.metroLabel3.TabIndex = 18;
             this.metroLabel3.Text = "Pays :";
+            this.metroLabel3.UseCustomBackColor = true;
             // 
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel2.Location = new System.Drawing.Point(20, 102);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(103, 19);
             this.metroLabel2.TabIndex = 16;
             this.metroLabel2.Text = "Pseudonyme :";
+            this.metroLabel2.UseCustomBackColor = true;
             // 
             // txtPseudo
             // 
@@ -315,12 +322,13 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel1.Location = new System.Drawing.Point(357, 159);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(56, 19);
             this.metroLabel1.TabIndex = 14;
             this.metroLabel1.Text = "Statut :";
+            this.metroLabel1.UseCustomBackColor = true;
             // 
             // dtDateNaiss
             // 
@@ -336,22 +344,26 @@
             // metroLabel5
             // 
             this.metroLabel5.AutoSize = true;
-            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel5.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.metroLabel5.Location = new System.Drawing.Point(20, 241);
             this.metroLabel5.Name = "metroLabel5";
             this.metroLabel5.Size = new System.Drawing.Size(91, 19);
             this.metroLabel5.TabIndex = 12;
             this.metroLabel5.Text = "Biographie :";
+            this.metroLabel5.UseCustomBackColor = true;
             // 
             // lblCode
             // 
             this.lblCode.AutoSize = true;
-            this.lblCode.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblCode.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblCode.Location = new System.Drawing.Point(20, 25);
             this.lblCode.Name = "lblCode";
             this.lblCode.Size = new System.Drawing.Size(52, 19);
             this.lblCode.TabIndex = 2;
             this.lblCode.Text = "Code :";
+            this.lblCode.UseCustomBackColor = true;
+            this.lblCode.UseCustomForeColor = true;
+            this.lblCode.UseStyleColors = true;
             // 
             // txtBio
             // 
@@ -391,22 +403,24 @@
             // lblNom
             // 
             this.lblNom.AutoSize = true;
-            this.lblNom.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblNom.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblNom.Location = new System.Drawing.Point(20, 64);
             this.lblNom.Name = "lblNom";
             this.lblNom.Size = new System.Drawing.Size(50, 19);
             this.lblNom.TabIndex = 3;
             this.lblNom.Text = "Nom :";
+            this.lblNom.UseCustomBackColor = true;
             // 
             // lblDateNais
             // 
             this.lblDateNais.AutoSize = true;
-            this.lblDateNais.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblDateNais.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblDateNais.Location = new System.Drawing.Point(20, 159);
             this.lblDateNais.Name = "lblDateNais";
             this.lblDateNais.Size = new System.Drawing.Size(115, 19);
             this.lblDateNais.TabIndex = 4;
             this.lblDateNais.Text = "Date naissance :";
+            this.lblDateNais.UseCustomBackColor = true;
             // 
             // txtPrenom
             // 
@@ -444,12 +458,13 @@
             // lblPrenom
             // 
             this.lblPrenom.AutoSize = true;
-            this.lblPrenom.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.lblPrenom.FontWeight = MetroFramework.MetroLabelWeight.Regular;
             this.lblPrenom.Location = new System.Drawing.Point(357, 64);
             this.lblPrenom.Name = "lblPrenom";
             this.lblPrenom.Size = new System.Drawing.Size(70, 19);
             this.lblPrenom.TabIndex = 5;
             this.lblPrenom.Text = "Prenom :";
+            this.lblPrenom.UseCustomBackColor = true;
             // 
             // txtCode
             // 
@@ -526,8 +541,9 @@
             this.dgvAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAuteur.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAuteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuteur.Location = new System.Drawing.Point(12, 382);
+            this.dgvAuteur.Location = new System.Drawing.Point(12, 388);
             this.dgvAuteur.MultiSelect = false;
             this.dgvAuteur.Name = "dgvAuteur";
             this.dgvAuteur.ReadOnly = true;
