@@ -17,15 +17,15 @@ namespace InterfaceMedia
     {
         Thread th;
         private Crud_Auteur wpaysAuteur;
-        private ConnexionBase uneconnexion;
+        private ConnexionBase connexion;
         private Crud_Auteur unAuteur;
 
         public FrmAuteur()
         {
             InitializeComponent();
-            uneconnexion = new ConnexionBase();
-            unAuteur = new Crud_Auteur(uneconnexion);
-            dgvAuteur.DataSource = unAuteur.afficheAuteur("proc_affiche_auteur", "auteur");
+            connexion = new ConnexionBase();
+            unAuteur = new Crud_Auteur(connexion);
+            dgvAuteur.DataSource = unAuteur.afficheAuteur();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
