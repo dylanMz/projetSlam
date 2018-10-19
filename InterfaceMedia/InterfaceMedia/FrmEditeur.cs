@@ -15,6 +15,7 @@ namespace InterfaceMedia
 {
     public partial class FrmEditeur : MetroForm
     {
+        #region Propriétés
         private Crud_Editeur unEditeur;
         private ConnexionBase uneconnexion;
         Thread th;
@@ -24,6 +25,7 @@ namespace InterfaceMedia
 
         private String unCodeSortie;
         private string unCodeEditeur;
+        #endregion
 
         public FrmEditeur()
         {
@@ -369,7 +371,9 @@ namespace InterfaceMedia
             txtCode.Text = GridEditeur.CurrentRow.Cells["EditeurNum"].Value.ToString();
             txtNom.Text = GridEditeur.CurrentRow.Cells["EditeurNom"].Value.ToString();
 
-            //DateTimeCreation.Text = GridEditeur.CurrentRow.Cells["EditeurCreation"].Value.ToString();
+            String date = GridEditeur.CurrentRow.Cells["EditeurCreation"].Value.ToString();
+
+            DateTimeCreation.Text = "01/01/"+date+" 00:00:00";
 
             txtVille.Text = GridEditeur.CurrentRow.Cells["EditeurVille"].Value.ToString();
             txtAdr.Text = GridEditeur.CurrentRow.Cells["EditeurAdresse"].Value.ToString();
@@ -377,11 +381,6 @@ namespace InterfaceMedia
             txtTel.Text = GridEditeur.CurrentRow.Cells["EditeurTel"].Value.ToString();
             txtFax.Text = GridEditeur.CurrentRow.Cells["EditeurFax"].Value.ToString();
             txtMail.Text = GridEditeur.CurrentRow.Cells["EditeurMail"].Value.ToString();
-
-
-
-
-
 
         }
     }
