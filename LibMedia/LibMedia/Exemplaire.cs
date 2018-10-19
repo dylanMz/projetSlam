@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace LibMedia
 {
-    public class Exemplaire : Livre
+    public class Exemplaire 
     {
         private String ExempRef;
         private String ExempEtat;
-
+        private int bdcope;
         #region Constructeur
- public Exemplaire(String WexempRef, String WExempEtat, int wbd_code, String wbd_titre, int wbd_num_tome, int wbd_annee_parution, String wbd_image, String wbd_serie, String wedi_cod) : base(wbd_code, wbd_titre, wbd_num_tome, wbd_annee_parution, wbd_image, wbd_serie, wedi_cod)
+ public Exemplaire(String WexempRef, String WExempEtat, int wbdcode) 
         {
             ExempRef = WexempRef;
             ExempEtat = WExempEtat;
+            bdcope = wbdcode;
         }
         #endregion
 

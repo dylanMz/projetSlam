@@ -15,6 +15,7 @@ namespace LibMedia
         private MySqlCommand cmdModifier;
         private MySqlCommand cmdSupprimer;
         private MySqlCommand cmdLire;
+        private MySqlCommand cmdRechercher;
         private ConnexionBase _connexion;
         private List<Couverture> bibliotheque;
         private Couverture uneCouverture;
@@ -72,7 +73,6 @@ namespace LibMedia
             cmdLire.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
             cmdLire.Connection = _connexion.getConnexion();
 
-
             MySqlDataAdapter unAdapter = new MySqlDataAdapter(cmdLire);
             DataSet unDataset = new DataSet();
             DataTable uneTable;
@@ -83,17 +83,36 @@ namespace LibMedia
             _connexion.closeConnexion();
 
             return uneTable;
-            /*bibliotheque = new List<Couverture>();
-            cmdLire = new MySqlCommand();
-            cmdLire.CommandText = "LireBdd";
-            cmdLire.CommandType = System.Data.CommandType.StoredProcedure;
-            cmdLire.Connection = _connexion.getConnexion();
-            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(cmdLire);
-            DataSet dts = new DataSet("ListeDonnéesRecupérées");
-            dataAdapter.Fill(dts, "ListeDonnéesRecupérées");*/
+        }
+
+        public DataTable rechercher(int wcode, string wtitre, int wtome, string wdate)
+        {
+            _connexion.OuvrirConnexion();
+            cmdRechercher = new MySqlCommand();
+            cmdRechercher.CommandText = "proc_rechercher_couverture";  //Nom de la rpocédure sur MySql
+            cmdRechercher.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
+            cmdRechercher.Connection = _connexion.getConnexion();
+            cmdRechercher.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
+            cmdRechercher.Parameters["unCode"].Value = wcode;
+            cmdRechercher.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.String));
+            cmdRechercher.Parameters["unCode"].Value = wtitre;
+            cmdRechercher.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
+            cmdRechercher.Parameters["unCode"].Value = wtome;
+            cmdRechercher.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.String));
+            cmdRechercher.Parameters["unCode"].Value = wdate;
+
+            MySqlDataAdapter unAdapter = new MySqlDataAdapter(cmdLire);
+            DataSet unDataset = new DataSet();
+            DataTable uneRecherche;
+            uneRecherche = new DataTable();
+            unAdapter.Fill(unDataset, "couverture");
+            uneRecherche = unDataset.Tables["couverture"];
+
+            _connexion.closeConnexion();
+
+            return uneRecherche;
         }
     }
-
 }
 
 
