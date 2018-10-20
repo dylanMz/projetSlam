@@ -30,10 +30,10 @@ namespace InterfaceMedia
         }
 
         #region Constructeur.s
-        public List<String> FrmAuteur()
-        {
+        //public List<String> FrmAuteur()
+        //{
 
-        }
+ //       }
         #endregion
 
         #region Code Boutons
