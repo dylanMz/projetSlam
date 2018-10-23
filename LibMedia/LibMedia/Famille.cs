@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibMedia
 {
-    class Famille
+    public class Famille
     {
         public int emp_num;
         public String emp_nom;

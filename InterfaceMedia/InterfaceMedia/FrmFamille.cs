@@ -21,13 +21,18 @@ namespace InterfaceMedia
         {
             formemprunteurs = new FrmEmprunteur();
             InitializeComponent();
-            //GridFamille.DataSource = formemprunteurs.lesEmprunteurs;
+            //rempgridfamille(formemprunteurs._desfamilles);
         }
 
         private void metrotileQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
 
+        }
+
+        public void rempgridfamille(List<Famille> lesfamilles)
+        {
+            GridFamille.DataSource = lesfamilles;
         }
 
     }
