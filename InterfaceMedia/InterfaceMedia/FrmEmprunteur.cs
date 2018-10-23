@@ -25,6 +25,7 @@ namespace InterfaceMedia
         {
             InitializeComponent();
             RefreshGrid();
+            
 
         }
 
@@ -321,32 +322,72 @@ namespace InterfaceMedia
 
         private void btnFamille_Click(object sender, EventArgs e)
         {
-            FrmFamille unefamille = new FrmFamille();
-            unefamille.Show();
-        }
-
-        private void metroButton1_Click(object sender, EventArgs e)
-        {
+          //  _desEmprunteurs = new List<Emprunteur>();
             Int32 selectedRowCount =
              GridEmprunteur.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (selectedRowCount > 0)
             {
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                //System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
                 for (int i = 0; i < selectedRowCount; i++)
                 {
-                    sb.Append("ligne: ");
-                    sb.Append(GridEmprunteur.SelectedRows[i].Index.ToString());
-                    sb.Append(Environment.NewLine);
-                    sb.Append("Numéro: ");
-                    sb.Append(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
-                    sb.Append(Environment.NewLine);
+                 // _desEmprunteurs.Add(new Emprunteur(Convert.ToInt32(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[3].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[4].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[5].Value.ToString()), Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString()), Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[8].Value.ToString()), Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[9].Value.ToString())));
+
+                    //sb.Append("ligne: ");
+                    //sb.Append(GridEmprunteur.SelectedRows[i].Index.ToString());
+                    //sb.Append(Environment.NewLine);
+                    //sb.Append("Numéro: ");
+                    //sb.Append(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
+                    //sb.Append(Environment.NewLine);
+                    //sb.Append(GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString());
+                    //sb.Append(Environment.NewLine);
+                    //sb.Append(GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString());
+                    //sb.Append(Environment.NewLine);
                 }
 
-                sb.Append("Total: " + selectedRowCount.ToString());
-                
-                MessageBox.Show(sb.ToString(), "Les lignes sélectionnées");
+                //sb.Append("Total: " + selectedRowCount.ToString());
             }
+                //MessageBox.Show(sb.ToString(), "Les lignes sélectionnées");
+                FrmFamille unefamille = new FrmFamille();
+                unefamille.Show();
         }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            //_desEmprunteurs = new List<Emprunteur>();
+            //Int32 selectedRowCount =
+            // GridEmprunteur.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            //if (selectedRowCount > 0)
+            //{
+            //    //System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+            //    for (int i = 0; i < selectedRowCount; i++)
+            //    {
+            //        _desEmprunteurs.Add(new Emprunteur(Convert.ToInt32(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[3].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[4].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[5].Value.ToString()), Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString()), Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[8].Value.ToString()), Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[9].Value.ToString())));
+
+            //        //sb.Append("ligne: ");
+            //        //sb.Append(GridEmprunteur.SelectedRows[i].Index.ToString());
+            //        //sb.Append(Environment.NewLine);
+            //        //sb.Append("Numéro: ");
+            //        //sb.Append(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
+            //        //sb.Append(Environment.NewLine);
+            //        //sb.Append(GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString());
+            //        //sb.Append(Environment.NewLine);
+            //        //sb.Append(GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString());
+            //        //sb.Append(Environment.NewLine);
+            //    }
+
+            //    //sb.Append("Total: " + selectedRowCount.ToString());
+                
+            //    //MessageBox.Show(sb.ToString(), "Les lignes sélectionnées");
+            //}
+        }
+
+        //public List<Emprunteur> lesEmprunteurs
+        //{
+        //    get { return _desEmprunteurs; }
+        //    set { _desEmprunteurs = value; }
+        //}
+
     }
 }
