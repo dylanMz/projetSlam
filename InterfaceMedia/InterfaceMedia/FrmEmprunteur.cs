@@ -20,11 +20,13 @@ namespace InterfaceMedia
         private String dateadh;
         private Crud_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
+        private String lesidfamilles;
 
         public FrmEmprunteur()
         {
             InitializeComponent();
             RefreshGrid();
+
 
         }
 
@@ -321,32 +323,82 @@ namespace InterfaceMedia
 
         private void btnFamille_Click(object sender, EventArgs e)
         {
-            FrmFamille unefamille = new FrmFamille();
-            unefamille.Show();
+            //  _desEmprunteurs = new List<Emprunteur>();
+
+            remplirfamille();
+                //MessageBox.Show(sb.ToString(), "Les lignes sélectionnées");
+            FrmFamille lafamille = new FrmFamille();
+            lafamille.Show();
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            //_desEmprunteurs = new List<Emprunteur>();
+            //Int32 selectedRowCount =
+            // GridEmprunteur.Rows.GetRowCount(DataGridViewElementStates.Selected);
+            //if (selectedRowCount > 0)
+            //{
+            //    //System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+            //    for (int i = 0; i < selectedRowCount; i++)
+            //    {
+            //        _desEmprunteurs.Add(new Emprunteur(Convert.ToInt32(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[3].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[4].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[5].Value.ToString()), Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString()), Convert.ToString(GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString()), Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[8].Value.ToString()), Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[9].Value.ToString())));
+
+            //        //sb.Append("ligne: ");
+            //        //sb.Append(GridEmprunteur.SelectedRows[i].Index.ToString());
+            //        //sb.Append(Environment.NewLine);
+            //        //sb.Append("Numéro: ");
+            //        //sb.Append(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
+            //        //sb.Append(Environment.NewLine);
+            //        //sb.Append(GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString());
+            //        //sb.Append(Environment.NewLine);
+            //        //sb.Append(GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString());
+            //        //sb.Append(Environment.NewLine);
+            //    }
+
+            //    //sb.Append("Total: " + selectedRowCount.ToString());
+                
+            //    //MessageBox.Show(sb.ToString(), "Les lignes sélectionnées");
+            //}
+        }
+
+        public void remplirfamille()
+        {
+
+
             Int32 selectedRowCount =
              GridEmprunteur.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (selectedRowCount > 0)
             {
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
+                //System.Text.StringBuilder sb = new System.Text.StringBuilder();
 
                 for (int i = 0; i < selectedRowCount; i++)
                 {
-                    sb.Append("ligne: ");
-                    sb.Append(GridEmprunteur.SelectedRows[i].Index.ToString());
-                    sb.Append(Environment.NewLine);
-                    sb.Append("Numéro: ");
-                    sb.Append(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
-                    sb.Append(Environment.NewLine);
+
+                    lesidfamilles = lesidfamilles + GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString() + "'";
+
+                    //sb.Append("ligne: ");
+                    //sb.Append(GridEmprunteur.SelectedRows[i].Index.ToString());
+                    //sb.Append(Environment.NewLine);
+                    //sb.Append("Numéro: ");
+                    //sb.Append(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
+                    //sb.Append(Environment.NewLine);
+                    //sb.Append(GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString());
+                    //sb.Append(Environment.NewLine);
+                    //sb.Append(GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString());
+                    //sb.Append(Environment.NewLine);
                 }
 
-                sb.Append("Total: " + selectedRowCount.ToString());
-                
-                MessageBox.Show(sb.ToString(), "Les lignes sélectionnées");
+                List<KeyValuePair<String, Object>> lesid = new List<KeyValuePair<String, Object>>(){
+
+                     //w.. est le nom du parametre de la procédure stokée, et txt.. les valeurs.
+                    new KeyValuePair<String, Object>("wid", lesidfamilles),
+                  };
+                unEmprunteur.connectprocedureFamille("proc_famille_selection", lesid);
+
+                //sb.Append("Total: " + selectedRowCount.ToString());
             }
         }
+
     }
 }

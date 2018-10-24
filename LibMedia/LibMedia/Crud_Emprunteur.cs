@@ -98,6 +98,42 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
+
+
+        public void connectprocedureFamille(String nomprocedure, List<KeyValuePair<String, Object>> parametresid)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand unecommandeSql = new MySqlCommand();
+                unecommandeSql.CommandText = nomprocedure;
+                unecommandeSql.CommandType = CommandType.StoredProcedure;
+                unecommandeSql.Connection = uneconnexion.getConnexion();
+
+                foreach (KeyValuePair<String, Object> unParametre in parametresid)
+                {
+                    unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.String));
+                    unecommandeSql.Parameters[unParametre.Key].Value = unParametre.Value;
+                }
+
+                //mise en place du paramètre de sortie
+                //MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
+                //unecommandeSql.Parameters.Add(PSortie_nat);
+                //PSortie_nat.Direction = ParameterDirection.Output;
+
+                unecommandeSql.ExecuteNonQuery();
+
+                //gestion d'erreurs 
+                //try
+                //{
+                //    unecommandeSql.ExecuteNonQuery();
+                //}
+                //catch (MySqlException myException)
+                //{
+                //    codeErreur = myException.Number.ToString();
+                //}
+                uneconnexion.closeConnexion();
+            }
+        }
         #endregion
 
         #region Accesseur
