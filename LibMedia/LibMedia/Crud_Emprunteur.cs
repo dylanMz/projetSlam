@@ -13,7 +13,6 @@ namespace LibMedia
         #region Proprietés
         private ConnexionBase uneconnexion;
         private List<Emprunteur> _desEmprunteurs;
-        private List<Famille> _desfamilles;
         private MySqlDataReader _unReader;
         #endregion
 
@@ -23,14 +22,12 @@ namespace LibMedia
         {
             uneconnexion = connexion_en_cours;
             _desEmprunteurs = new List<Emprunteur>();
-            _desfamilles = new List<Famille>();
 
         }
         public Crud_Emprunteur()
         {
             uneconnexion = new ConnexionBase();
             _desEmprunteurs = new List<Emprunteur>();
-            _desfamilles = new List<Famille>();
         }
 
         #endregion
@@ -101,46 +98,6 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
-
-
-        public void connectprocedureFamille(String nomprocedure, String wid)
-        {
-            if (uneconnexion.OuvrirConnexion() == true)
-            {
-                MySqlCommand unecommandeSql = new MySqlCommand();
-                unecommandeSql.CommandText = nomprocedure;
-                unecommandeSql.CommandType = CommandType.StoredProcedure;
-                unecommandeSql.Connection = uneconnexion.getConnexion();
-                unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.String));
-                unecommandeSql.Parameters["wid"].Value = wid;
-
-                _unReader = unecommandeSql.ExecuteReader();
-
-                while (_unReader.Read())
-                {
-                    _desfamilles.Add(new Famille(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), DateTime.Parse(_unReader["emp_prem_adh"].ToString()), DateTime.Parse(_unReader["emp_ren_adh"].ToString())));
-                }
-                _unReader.Close();
-
-                //mise en place du paramètre de sortie
-                //MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
-                //unecommandeSql.Parameters.Add(PSortie_nat);
-                //PSortie_nat.Direction = ParameterDirection.Output;
-
-                //unecommandeSql.ExecuteNonQuery();
-
-                //gestion d'erreurs 
-                //try
-                //{
-                //    unecommandeSql.ExecuteNonQuery();
-                //}
-                //catch (MySqlException myException)
-                //{
-                //    codeErreur = myException.Number.ToString();
-                //}
-                uneconnexion.closeConnexion();
-            }
-        }
         #endregion
 
         #region Accesseur
@@ -150,14 +107,7 @@ namespace LibMedia
             get { return _desEmprunteurs; }
             set { _desEmprunteurs = value; }
         }
-
-        public List<Famille> lesFamilles
-        {
-            get { return _desfamilles; }
-            set { _desfamilles = value; }
-
-            #endregion
-
-        }
+        #endregion
     }
+
 }

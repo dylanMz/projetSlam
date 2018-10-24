@@ -15,28 +15,29 @@ namespace InterfaceMedia
 {
     public partial class FrmFamille : MetroForm
     {
-        private Crud_Emprunteur unEmprunteur;
-        private ConnexionBase uneconnexion;
-        private FrmEmprunteur frmemprunteur;
-        private String lesidfamilles;
+        private List<Famille> lesidfamilles;
         
 
-        public FrmFamille(String wid)
+        public FrmFamille(List<Famille> familles)
         {
             
             InitializeComponent();
-            this.lesidfamilles = wid;
-            uneconnexion = new ConnexionBase();
-            unEmprunteur = new Crud_Emprunteur(uneconnexion);
-            frmemprunteur = new FrmEmprunteur();
-            unEmprunteur.connectprocedureFamille("proc_famille_selection", lesidfamilles);
-            GridFamille.DataSource = unEmprunteur.lesFamilles;
+            this.lesidfamilles = familles;
+            RefreshGrid();
         }
 
         private void metrotileQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
 
+        }
+
+        //Methode pour mettre à jour le grid
+        public void RefreshGrid()
+        {
+            GridFamille.DataSource = lesidfamilles;
+            GridFamille.Refresh();
+            GridFamille.Update();
         }
 
 

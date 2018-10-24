@@ -146,6 +146,7 @@
             // GridFamille
             // 
             this.GridFamille.AllowUserToResizeRows = false;
+            this.GridFamille.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.GridFamille.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
             this.GridFamille.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridFamille.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -172,6 +173,7 @@
             this.GridFamille.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridFamille.Location = new System.Drawing.Point(23, 187);
             this.GridFamille.Name = "GridFamille";
+            this.GridFamille.ReadOnly = true;
             this.GridFamille.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));

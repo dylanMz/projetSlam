@@ -20,6 +20,7 @@ namespace InterfaceMedia
         private String dateadh;
         private Crud_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
+        private List<Famille> lesfamille;
         private String lesidfamilles;
 
         public FrmEmprunteur()
@@ -333,6 +334,7 @@ namespace InterfaceMedia
         //permet de recuperer les lignes séléctionné dans le datagrid
         public void recupeselectionfamille()
         {
+            lesfamille = new List<Famille>();
             Int32 selectedRowCount =
              GridEmprunteur.Rows.GetRowCount(DataGridViewElementStates.Selected);
             if (selectedRowCount > 0)
@@ -342,7 +344,21 @@ namespace InterfaceMedia
                 for (int i = 0; i < selectedRowCount; i++)
                 {
 
-                    lesidfamilles = lesidfamilles + GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString() + ",";
+                    int num = Convert.ToInt16(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
+                    String nom = GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString();
+                    String prenom = GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString();
+                    String rue = GridEmprunteur.SelectedRows[i].Cells[3].Value.ToString();
+                    String codepostal = GridEmprunteur.SelectedRows[i].Cells[4].Value.ToString();
+                    String ville = GridEmprunteur.SelectedRows[i].Cells[5].Value.ToString();
+                    DateTime naiis = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString());
+                    String mail = GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString();
+                    DateTime prem = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[8].Value.ToString());
+                    DateTime ren = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[9].Value.ToString());
+
+
+
+                    
+                    lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail, prem, ren));
 
                     //sb.Append("ligne: ");
                     //sb.Append(GridEmprunteur.SelectedRows[i].Index.ToString());
@@ -355,7 +371,7 @@ namespace InterfaceMedia
                     //sb.Append(GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString());
                     //sb.Append(Environment.NewLine);
                 }
-                FrmFamille lafamille = new FrmFamille(lesidfamilles);
+                FrmFamille lafamille = new FrmFamille(lesfamille);
                 lafamille.Show();
             }
 
