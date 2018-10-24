@@ -13,6 +13,7 @@ namespace LibMedia
         #region Proprietés
         private ConnexionBase uneconnexion;
         private List<Emprunteur> _desEmprunteurs;
+        private List<Famille> _desfamilles;
         private MySqlDataReader _unReader;
         #endregion
 
@@ -22,12 +23,14 @@ namespace LibMedia
         {
             uneconnexion = connexion_en_cours;
             _desEmprunteurs = new List<Emprunteur>();
+            _desfamilles = new List<Famille>();
 
         }
         public Crud_Emprunteur()
         {
             uneconnexion = new ConnexionBase();
             _desEmprunteurs = new List<Emprunteur>();
+            _desfamilles = new List<Famille>();
         }
 
         #endregion
@@ -37,7 +40,7 @@ namespace LibMedia
         public void Recup_TableEmprunteur()
         {
 
-            if(uneconnexion.OuvrirConnexion() == true)
+            if (uneconnexion.OuvrirConnexion() == true)
             {
                 MySqlCommand EmprunteurSql = new MySqlCommand();
                 //Nom procedure
@@ -46,7 +49,7 @@ namespace LibMedia
                 EmprunteurSql.Connection = uneconnexion.getConnexion();
                 _unReader = EmprunteurSql.ExecuteReader();
 
-               while (_unReader.Read())
+                while (_unReader.Read())
                 {
                     _desEmprunteurs.Add(new Emprunteur(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), DateTime.Parse(_unReader["emp_prem_adh"].ToString()), DateTime.Parse(_unReader["emp_ren_adh"].ToString())));
                 }
@@ -100,7 +103,7 @@ namespace LibMedia
         }
 
 
-        public void connectprocedureFamille(String nomprocedure, List<KeyValuePair<String, Object>> parametresid)
+        public void connectprocedureFamille(String nomprocedure, String wid)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -108,19 +111,23 @@ namespace LibMedia
                 unecommandeSql.CommandText = nomprocedure;
                 unecommandeSql.CommandType = CommandType.StoredProcedure;
                 unecommandeSql.Connection = uneconnexion.getConnexion();
+                unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.String));
+                unecommandeSql.Parameters["wid"].Value = wid;
 
-                foreach (KeyValuePair<String, Object> unParametre in parametresid)
+                _unReader = unecommandeSql.ExecuteReader();
+
+                while (_unReader.Read())
                 {
-                    unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.String));
-                    unecommandeSql.Parameters[unParametre.Key].Value = unParametre.Value;
+                    _desfamilles.Add(new Famille(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), DateTime.Parse(_unReader["emp_prem_adh"].ToString()), DateTime.Parse(_unReader["emp_ren_adh"].ToString())));
                 }
+                _unReader.Close();
 
                 //mise en place du paramètre de sortie
                 //MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
                 //unecommandeSql.Parameters.Add(PSortie_nat);
                 //PSortie_nat.Direction = ParameterDirection.Output;
 
-                unecommandeSql.ExecuteNonQuery();
+                //unecommandeSql.ExecuteNonQuery();
 
                 //gestion d'erreurs 
                 //try
@@ -143,7 +150,14 @@ namespace LibMedia
             get { return _desEmprunteurs; }
             set { _desEmprunteurs = value; }
         }
-        #endregion
 
+        public List<Famille> lesFamilles
+        {
+            get { return _desfamilles; }
+            set { _desfamilles = value; }
+
+            #endregion
+
+        }
     }
 }

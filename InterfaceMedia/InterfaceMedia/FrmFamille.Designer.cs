@@ -41,7 +41,7 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtnomresponsable = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.txtnum = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -238,35 +238,35 @@
             this.metroLabel1.Text = "Nom :";
             this.metroLabel1.UseCustomBackColor = true;
             // 
-            // metroTextBox1
+            // txtnum
             // 
             // 
             // 
             // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(70, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(129, 45);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(92, 23);
-            this.metroTextBox1.TabIndex = 98;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtnum.CustomButton.Image = null;
+            this.txtnum.CustomButton.Location = new System.Drawing.Point(70, 1);
+            this.txtnum.CustomButton.Name = "";
+            this.txtnum.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtnum.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtnum.CustomButton.TabIndex = 1;
+            this.txtnum.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtnum.CustomButton.UseSelectable = true;
+            this.txtnum.CustomButton.Visible = false;
+            this.txtnum.Lines = new string[0];
+            this.txtnum.Location = new System.Drawing.Point(129, 45);
+            this.txtnum.MaxLength = 32767;
+            this.txtnum.Name = "txtnum";
+            this.txtnum.PasswordChar = '\0';
+            this.txtnum.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtnum.SelectedText = "";
+            this.txtnum.SelectionLength = 0;
+            this.txtnum.SelectionStart = 0;
+            this.txtnum.ShortcutsEnabled = true;
+            this.txtnum.Size = new System.Drawing.Size(92, 23);
+            this.txtnum.TabIndex = 98;
+            this.txtnum.UseSelectable = true;
+            this.txtnum.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtnum.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel3
             // 
@@ -283,7 +283,7 @@
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox3.Controls.Add(this.metroLabel3);
-            this.groupBox3.Controls.Add(this.metroTextBox1);
+            this.groupBox3.Controls.Add(this.txtnum);
             this.groupBox3.Controls.Add(this.metroLabel1);
             this.groupBox3.Controls.Add(this.txtnomresponsable);
             this.groupBox3.Controls.Add(this.metroLabel2);
@@ -326,7 +326,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroTextBox txtnomresponsable;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroTextBox txtnum;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private System.Windows.Forms.GroupBox groupBox3;
     }
