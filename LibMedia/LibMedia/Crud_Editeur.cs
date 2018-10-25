@@ -12,50 +12,54 @@ namespace LibMedia
     {
         #region Propriétés
         private ConnexionBase uneconnexion;
-        private MySqlDataAdapter _unAdapter;
-        private DataSet _unDataset;
-        
+        private MySqlDataReader _unReader;
+        private List<Editeur> _desEditeurs;
         #endregion
 
         #region Constructeur.s
         public Crud_Editeur(ConnexionBase connexion_en_cours)
         {
             uneconnexion = connexion_en_cours;
-
+            _desEditeurs = new List<Editeur>();
         }
 
         public Crud_Editeur()
         {
             uneconnexion = new ConnexionBase();
+            _desEditeurs = new List<Editeur>();
         }
         #endregion
 
         #region Méthode
 
-        //Affiche la table Vendeur.
-        public DataTable Recup_Table_Editeur(String nomProc, String wTable)
+        //Affiche la table editeur.
+        public void Recup_Table_Editeur()
         {
+
             if (uneconnexion.OuvrirConnexion() == true)
             {
-                MySqlCommand EditeurMysql = new MySqlCommand();
-                EditeurMysql.CommandText = nomProc;
-                EditeurMysql.CommandType = CommandType.StoredProcedure;
-                EditeurMysql.Connection = uneconnexion.getConnexion();
-                _unAdapter = new MySqlDataAdapter(EditeurMysql);
-                _unDataset = new DataSet();
-                _unAdapter.Fill(_unDataset, wTable);
+                MySqlCommand EditeurSql = new MySqlCommand();
+                EditeurSql.CommandText = "proc_affiche_editeur";
+                EditeurSql.CommandType = CommandType.StoredProcedure;
+                EditeurSql.Connection = uneconnexion.getConnexion();
+                _unReader = EditeurSql.ExecuteReader();
+
+                while (_unReader.Read())
+                {
+                    _desEditeurs.Add(new Editeur(int.Parse(_unReader["EditeurNum"].ToString()), _unReader["EditeurNom"].ToString(), int.Parse(_unReader["EditeurCreation"].ToString()), _unReader["EditeurAdresse"].ToString(), _unReader["EditeurCP"].ToString(), _unReader["EditeurVille"].ToString(), _unReader["EditeurTel"].ToString(), _unReader["EditeurFax"].ToString(), _unReader["EditeurMail"].ToString()));
+                }
+                _unReader.Close();
                 uneconnexion.closeConnexion();
             }
-            return (_unDataset.Tables[wTable]);
         }
 
         //Ajout d'un editeur
-        public void ajout_editeur(String nomProc, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation, String wUnCodeSortie)
+        public void ajout_editeur(String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation, String wUnCodeSortie)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
                 MySqlCommand unComdeSql = new MySqlCommand();
-                unComdeSql.CommandText = nomProc;
+                unComdeSql.CommandText = "proc_insert_editeur";
                 unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
                 unComdeSql.Connection = uneconnexion.getConnexion();
 
@@ -151,8 +155,36 @@ namespace LibMedia
 
 
         //Recherche d'un editeur
-        public void recherche_editeur(String wNomEditeur)
+        public void recherche_editeur(String wEditeurNom)
         {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand EditeurSql = new MySqlCommand();
+                EditeurSql.CommandText = "proc_recherche_editeur_v3";
+                EditeurSql.CommandType = CommandType.StoredProcedure;
+                EditeurSql.Connection = uneconnexion.getConnexion();
+
+                EditeurSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                EditeurSql.Parameters["wnom"].Value = wEditeurNom;
+                _unReader = EditeurSql.ExecuteReader();
+
+                while (_unReader.Read())
+                {
+                    _desEditeurs.Add(new Editeur(int.Parse(_unReader["EditeurNum"].ToString()), _unReader["EditeurNom"].ToString(), int.Parse(_unReader["EditeurCreation"].ToString()), _unReader["EditeurAdresse"].ToString(), _unReader["EditeurCP"].ToString(), _unReader["EditeurVille"].ToString(), _unReader["EditeurTel"].ToString(), _unReader["EditeurFax"].ToString(), _unReader["EditeurMail"].ToString()));
+                }
+                _unReader.Close();
+                uneconnexion.closeConnexion();
+            }
+
+        }
+        #endregion
+
+        #region Accesseurs
+        //Accesseur de la liste editeur
+        public List<Editeur> lesEditeurs
+        {
+            get { return _desEditeurs; }
+            set { _desEditeurs = value; }
         }
         #endregion
     }
