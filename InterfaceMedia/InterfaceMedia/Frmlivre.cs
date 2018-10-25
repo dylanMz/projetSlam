@@ -8,16 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using System.Threading;
+using LibMedia;
 
 namespace InterfaceMedia
 {
     public partial class Frmlivre : MetroForm
     {
+        private ConnexionBase connexion;
+        private Crud_livre unlivre;
+
+      
+
+        
+           
+
         public Frmlivre()
         {
             InitializeComponent();
+            connexion = new ConnexionBase();
+            unlivre = new Crud_livre(connexion);
+            dtgrvLivre.DataSource = unlivre.afficherlivre();
         }
-
         private void btnAjouter_Click(object sender, EventArgs e)
         {
 
@@ -726,6 +738,8 @@ namespace InterfaceMedia
                 codelivreexmp.BackColor = Color.White;
             }
 
-        }  
+        }
+
+  
     }
 }
