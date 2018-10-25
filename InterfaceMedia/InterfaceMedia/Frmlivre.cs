@@ -105,8 +105,15 @@ namespace InterfaceMedia
             }
             else if (btnAjouter.Text.Equals("Valider"))
             {
-                // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
-                btnAjouter.Text = "Ajouter";
+                if (btnexemp.Text.Equals("exemplaire"))
+                {
+
+                }
+                else if  (btnexemp.Text.Equals("Livre")){
+
+                }
+                        // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
+                        btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
 
@@ -740,6 +747,21 @@ namespace InterfaceMedia
 
         }
 
-  
+     
+
+        private void dtgrvlivre_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            txtbxcode.Text = dtgrvLivre.CurrentRow.Cells[0].Value.ToString();
+            txtbxtitre.Text = dtgrvLivre.CurrentRow.Cells[1].Value.ToString();
+            txtbxisbn.Text = dtgrvLivre.CurrentRow.Cells[2].Value.ToString();
+            txtbxtome.Text = dtgrvLivre.CurrentRow.Cells[3].Value.ToString();
+            cmbbxannee.Text = dtgrvLivre.CurrentRow.Cells[4].Value.ToString();
+            txtbxpage.Text = dtgrvLivre.CurrentRow.Cells[5].Value.ToString();
+            txtbxcouleur.Text = dtgrvLivre.CurrentRow.Cells[6].Value.ToString();
+            txtbxcommentaire.Text = dtgrvLivre.CurrentRow.Cells[7].Value.ToString();
+            txtbxformat.Text = dtgrvLivre.CurrentRow.Cells[8].Value.ToString();
+            txtbxserie.Text = dtgrvLivre.CurrentRow.Cells[9].Value.ToString();
+            txtbxediteur.Text = dtgrvLivre.CurrentRow.Cells[10].Value.ToString();
+        }
     }
 }
