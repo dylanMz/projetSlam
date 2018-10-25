@@ -40,6 +40,10 @@ namespace InterfaceMedia
             GridFamille.Update();
         }
 
-
+        private void CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtnum.Text =  GridFamille.CurrentRow.Cells["numéro"].Value.ToString();
+            txtnom.Text = GridFamille.CurrentRow.Cells["nom"].Value.ToString();
+        }
     }
 }

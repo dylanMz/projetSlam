@@ -39,7 +39,7 @@
             this.metrotileQuitter = new MetroFramework.Controls.MetroTile();
             this.GridFamille = new MetroFramework.Controls.MetroGrid();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.txtnomresponsable = new MetroFramework.Controls.MetroTextBox();
+            this.txtnom = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.txtnum = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -187,6 +187,7 @@
             this.GridFamille.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridFamille.Size = new System.Drawing.Size(729, 343);
             this.GridFamille.TabIndex = 92;
+            this.GridFamille.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
             // metroLabel2
             // 
@@ -199,35 +200,35 @@
             this.metroLabel2.Text = "Responsable famille ";
             this.metroLabel2.UseCustomBackColor = true;
             // 
-            // txtnomresponsable
+            // txtnom
             // 
             // 
             // 
             // 
-            this.txtnomresponsable.CustomButton.Image = null;
-            this.txtnomresponsable.CustomButton.Location = new System.Drawing.Point(70, 1);
-            this.txtnomresponsable.CustomButton.Name = "";
-            this.txtnomresponsable.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtnomresponsable.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtnomresponsable.CustomButton.TabIndex = 1;
-            this.txtnomresponsable.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtnomresponsable.CustomButton.UseSelectable = true;
-            this.txtnomresponsable.CustomButton.Visible = false;
-            this.txtnomresponsable.Lines = new string[0];
-            this.txtnomresponsable.Location = new System.Drawing.Point(291, 45);
-            this.txtnomresponsable.MaxLength = 32767;
-            this.txtnomresponsable.Name = "txtnomresponsable";
-            this.txtnomresponsable.PasswordChar = '\0';
-            this.txtnomresponsable.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtnomresponsable.SelectedText = "";
-            this.txtnomresponsable.SelectionLength = 0;
-            this.txtnomresponsable.SelectionStart = 0;
-            this.txtnomresponsable.ShortcutsEnabled = true;
-            this.txtnomresponsable.Size = new System.Drawing.Size(92, 23);
-            this.txtnomresponsable.TabIndex = 94;
-            this.txtnomresponsable.UseSelectable = true;
-            this.txtnomresponsable.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtnomresponsable.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtnom.CustomButton.Image = null;
+            this.txtnom.CustomButton.Location = new System.Drawing.Point(70, 1);
+            this.txtnom.CustomButton.Name = "";
+            this.txtnom.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtnom.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtnom.CustomButton.TabIndex = 1;
+            this.txtnom.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtnom.CustomButton.UseSelectable = true;
+            this.txtnom.CustomButton.Visible = false;
+            this.txtnom.Lines = new string[0];
+            this.txtnom.Location = new System.Drawing.Point(291, 45);
+            this.txtnom.MaxLength = 32767;
+            this.txtnom.Name = "txtnom";
+            this.txtnom.PasswordChar = '\0';
+            this.txtnom.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtnom.SelectedText = "";
+            this.txtnom.SelectionLength = 0;
+            this.txtnom.SelectionStart = 0;
+            this.txtnom.ShortcutsEnabled = true;
+            this.txtnom.Size = new System.Drawing.Size(92, 23);
+            this.txtnom.TabIndex = 94;
+            this.txtnom.UseSelectable = true;
+            this.txtnom.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtnom.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel1
             // 
@@ -287,7 +288,7 @@
             this.groupBox3.Controls.Add(this.metroLabel3);
             this.groupBox3.Controls.Add(this.txtnum);
             this.groupBox3.Controls.Add(this.metroLabel1);
-            this.groupBox3.Controls.Add(this.txtnomresponsable);
+            this.groupBox3.Controls.Add(this.txtnom);
             this.groupBox3.Controls.Add(this.metroLabel2);
             this.groupBox3.Location = new System.Drawing.Point(23, 71);
             this.groupBox3.Name = "groupBox3";
@@ -326,7 +327,7 @@
         private MetroFramework.Controls.MetroTile metrotileQuitter;
         private MetroFramework.Controls.MetroGrid GridFamille;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTextBox txtnomresponsable;
+        private MetroFramework.Controls.MetroTextBox txtnom;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroTextBox txtnum;
         private MetroFramework.Controls.MetroLabel metroLabel3;
