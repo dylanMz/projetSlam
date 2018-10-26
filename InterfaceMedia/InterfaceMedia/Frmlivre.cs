@@ -36,13 +36,22 @@ namespace InterfaceMedia
         #region combo box
         public void remp_cmbx()
         {
+            // remplissage combo box annee
             for (int i = 1940; i <= DateTime.Now.Year; i++)
             {
                 cmbbxannee.Items.Add(i);
             }
+            // remplissage combo box mois
             for ( int a =01; a <= 12; a++)
             {
-                cmbbxmois.Items.Add(a);
+                if (a < 10)
+                {
+                    cmbbxmois.Items.Add("0" + a);
+                }
+                else
+                {
+                    cmbbxmois.Items.Add(a);
+                }
             }
         }
      
@@ -789,7 +798,7 @@ namespace InterfaceMedia
         }
 
      
-
+        // affichage des informations de la base dans le datagridview
         private void dtgrvlivre_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             txtbxcode.Text = dtgrvLivre.CurrentRow.Cells[0].Value.ToString();
@@ -798,23 +807,10 @@ namespace InterfaceMedia
             txtbxtome.Text = dtgrvLivre.CurrentRow.Cells[3].Value.ToString();
 
 
-            // cmbbxannee.Text = dtgrvLivre.CurrentRow.Cells[4].Value.ToString();
-
+            // permet de séparer le mois et l'annee et les affecter leur combo box
             string totalparution = dtgrvLivre.CurrentRow.Cells[4].Value.ToString();
-
-            // cmbbxmois.Text = totalparution.Substring(0,1);
-            if (totalparution.Substring(0, 1).Equals("0"))
-            {
-                cmbbxmois.Text = totalparution.Substring(1, 1);
-            }
-            else
-            {
-                cmbbxmois.Text = totalparution.Substring(0, 2);
-            }
-           cmbbxannee.Text = totalparution.Substring(3,4);
-
-
-
+            cmbbxmois.Text = totalparution.Substring(0, 2);
+            cmbbxannee.Text = totalparution.Substring(3,4);
 
             txtbxpage.Text = dtgrvLivre.CurrentRow.Cells[5].Value.ToString();
             txtbxcouleur.Text = dtgrvLivre.CurrentRow.Cells[6].Value.ToString();

@@ -40,6 +40,8 @@
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.cmbbxmois = new MetroFramework.Controls.MetroComboBox();
             this.txtbxmotif = new MetroFramework.Controls.MetroTextBox();
             this.lblmotif = new MetroFramework.Controls.MetroLabel();
             this.btnexemp = new MetroFramework.Controls.MetroTile();
@@ -83,9 +85,6 @@
             this.txtbxtitre = new MetroFramework.Controls.MetroTextBox();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.dtgrvLivre = new MetroFramework.Controls.MetroGrid();
-            this.cmbbxmois = new MetroFramework.Controls.MetroComboBox();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.lbltest = new MetroFramework.Controls.MetroTextBox();
             this.groupBox1.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.grpboxexemp.SuspendLayout();
@@ -262,6 +261,32 @@
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // metroLabel2
+            // 
+            this.metroLabel2.AutoSize = true;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.metroLabel2.Location = new System.Drawing.Point(169, 91);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(46, 19);
+            this.metroLabel2.TabIndex = 102;
+            this.metroLabel2.Text = "annee";
+            this.metroLabel2.UseCustomBackColor = true;
+            // 
+            // cmbbxmois
+            // 
+            this.cmbbxmois.BackColor = System.Drawing.Color.Silver;
+            this.cmbbxmois.DropDownHeight = 90;
+            this.cmbbxmois.Enabled = false;
+            this.cmbbxmois.FormattingEnabled = true;
+            this.cmbbxmois.IntegralHeight = false;
+            this.cmbbxmois.ItemHeight = 23;
+            this.cmbbxmois.Location = new System.Drawing.Point(97, 87);
+            this.cmbbxmois.Name = "cmbbxmois";
+            this.cmbbxmois.Size = new System.Drawing.Size(66, 29);
+            this.cmbbxmois.TabIndex = 101;
+            this.cmbbxmois.UseCustomBackColor = true;
+            this.cmbbxmois.UseSelectable = true;
             // 
             // txtbxmotif
             // 
@@ -1117,72 +1142,12 @@
             this.dtgrvLivre.TabIndex = 105;
             this.dtgrvLivre.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrvlivre_CellContentClick_1);
             // 
-            // cmbbxmois
-            // 
-            this.cmbbxmois.BackColor = System.Drawing.Color.Silver;
-            this.cmbbxmois.DropDownHeight = 90;
-            this.cmbbxmois.Enabled = false;
-            this.cmbbxmois.FormattingEnabled = true;
-            this.cmbbxmois.IntegralHeight = false;
-            this.cmbbxmois.ItemHeight = 23;
-            this.cmbbxmois.Location = new System.Drawing.Point(97, 87);
-            this.cmbbxmois.Name = "cmbbxmois";
-            this.cmbbxmois.Size = new System.Drawing.Size(66, 29);
-            this.cmbbxmois.TabIndex = 101;
-            this.cmbbxmois.UseCustomBackColor = true;
-            this.cmbbxmois.UseSelectable = true;
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.AutoSize = true;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(169, 91);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(46, 19);
-            this.metroLabel2.TabIndex = 102;
-            this.metroLabel2.Text = "annee";
-            this.metroLabel2.UseCustomBackColor = true;
-            // 
-            // lbltest
-            // 
-            this.lbltest.BackColor = System.Drawing.Color.Silver;
-            // 
-            // 
-            // 
-            this.lbltest.CustomButton.Image = null;
-            this.lbltest.CustomButton.Location = new System.Drawing.Point(53, 1);
-            this.lbltest.CustomButton.Name = "";
-            this.lbltest.CustomButton.Size = new System.Drawing.Size(23, 23);
-            this.lbltest.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.lbltest.CustomButton.TabIndex = 1;
-            this.lbltest.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.lbltest.CustomButton.UseSelectable = true;
-            this.lbltest.CustomButton.Visible = false;
-            this.lbltest.Enabled = false;
-            this.lbltest.Lines = new string[0];
-            this.lbltest.Location = new System.Drawing.Point(415, 27);
-            this.lbltest.MaxLength = 32767;
-            this.lbltest.Name = "lbltest";
-            this.lbltest.PasswordChar = '\0';
-            this.lbltest.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.lbltest.SelectedText = "";
-            this.lbltest.SelectionLength = 0;
-            this.lbltest.SelectionStart = 0;
-            this.lbltest.ShortcutsEnabled = true;
-            this.lbltest.Size = new System.Drawing.Size(77, 25);
-            this.lbltest.TabIndex = 106;
-            this.lbltest.UseCustomBackColor = true;
-            this.lbltest.UseSelectable = true;
-            this.lbltest.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.lbltest.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // Frmlivre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(972, 630);
-            this.Controls.Add(this.lbltest);
             this.Controls.Add(this.dtgrvLivre);
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.metroPanel1);
@@ -1255,6 +1220,5 @@
         private MetroFramework.Controls.MetroGrid dtgrvLivre;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroComboBox cmbbxmois;
-        private MetroFramework.Controls.MetroTextBox lbltest;
     }
 }
