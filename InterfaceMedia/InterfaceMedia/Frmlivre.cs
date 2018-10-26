@@ -29,7 +29,28 @@ namespace InterfaceMedia
             connexion = new ConnexionBase();
             unlivre = new Crud_livre(connexion);
             dtgrvLivre.DataSource = unlivre.afficherlivre();
+            remp_cmbx();
+            
         }
+
+        #region combo box
+        public void remp_cmbx()
+        {
+            for (int i = 1940; i <= DateTime.Now.Year; i++)
+            {
+                cmbbxannee.Items.Add(i);
+            }
+            for ( int a =01; a <= 12; a++)
+            {
+                cmbbxmois.Items.Add(a);
+            }
+        }
+     
+
+        #endregion
+
+
+        #region Bouton
         private void btnAjouter_Click(object sender, EventArgs e)
         {
 
@@ -54,6 +75,7 @@ namespace InterfaceMedia
                     txtbxcouleur.Enabled = true;
                     txtbxtome.Enabled = true;
                     cmbbxannee.Enabled = true;
+                    cmbbxmois.Enabled = true;
                     txtbxformat.Enabled = true;
                     txtbxpage.Enabled = true;
                     txtbxcommentaire.Enabled = true;
@@ -71,6 +93,7 @@ namespace InterfaceMedia
                     txtbxcouleur.BackColor = Color.White;
                     txtbxtome.BackColor = Color.White;
                     cmbbxannee.BackColor = Color.White;
+                    cmbbxmois.BackColor = Color.White;
                     txtbxformat.BackColor = Color.White;
                     txtbxpage.BackColor = Color.White;
                     txtbxcommentaire.BackColor = Color.White;
@@ -128,6 +151,7 @@ namespace InterfaceMedia
                 txtbxcouleur.Enabled = false;
                 txtbxtome.Enabled = false;
                 cmbbxannee.Enabled = false;
+                cmbbxmois.Enabled = false;
                 txtbxformat.Enabled = false;
                 txtbxpage.Enabled = false;
                 txtbxcommentaire.Enabled = false;
@@ -151,6 +175,7 @@ namespace InterfaceMedia
                 txtbxcouleur.BackColor = Color.Silver;
                 txtbxtome.BackColor = Color.Silver;
                 cmbbxannee.BackColor = Color.Silver;
+                cmbbxmois.BackColor = Color.Silver;
                 txtbxformat.BackColor = Color.Silver;
                 txtbxpage.BackColor = Color.Silver;
                 txtbxcommentaire.BackColor = Color.Silver;
@@ -196,6 +221,7 @@ namespace InterfaceMedia
             txtbxcouleur.Enabled = false;
             txtbxtome.Enabled = false;
             cmbbxannee.Enabled = false;
+            cmbbxmois.Enabled = false;
             txtbxformat.Enabled = false;
             txtbxpage.Enabled = false;
             txtbxcommentaire.Enabled = false;
@@ -222,6 +248,7 @@ namespace InterfaceMedia
             txtbxcouleur.BackColor = Color.Silver;
             txtbxtome.BackColor = Color.Silver;
             cmbbxannee.BackColor = Color.Silver;
+            cmbbxmois.BackColor = Color.Silver;
             txtbxformat.BackColor = Color.Silver;
             txtbxpage.BackColor = Color.Silver;
             txtbxcommentaire.BackColor = Color.Silver;
@@ -256,9 +283,11 @@ namespace InterfaceMedia
 
                     txtbxtitre.Enabled = true;
                     cmbbxannee.Enabled = true;
+                    cmbbxmois.Enabled = true;
 
                     txtbxtitre.BackColor = Color.White;
                     cmbbxannee.BackColor = Color.White;
+                    cmbbxmois.BackColor = Color.White;
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
@@ -283,11 +312,11 @@ namespace InterfaceMedia
                 // desactive les boutons    
                 txtbxtitre.Enabled = false;
                 cmbbxannee.Enabled = false;
-
+                cmbbxmois.Enabled = false;
                 // change la couleur 
                 txtbxtitre.BackColor = Color.Silver;
                 cmbbxannee.BackColor = Color.Silver;
-
+                cmbbxmois.BackColor = Color.Silver;
             }
             
         }
@@ -397,6 +426,7 @@ namespace InterfaceMedia
                     txtbxcouleur.Enabled = true;
                     txtbxtome.Enabled = true;
                     cmbbxannee.Enabled = true;
+                    cmbbxmois.Enabled = true;
                     txtbxformat.Enabled = true;
                     txtbxpage.Enabled = true;
                     txtbxcommentaire.Enabled = true;
@@ -416,6 +446,7 @@ namespace InterfaceMedia
                     txtbxcouleur.BackColor = Color.White;
                     txtbxtome.BackColor = Color.White;
                     cmbbxannee.BackColor = Color.White;
+                    cmbbxmois.BackColor = Color.White;
                     txtbxformat.BackColor = Color.White;
                     txtbxpage.BackColor = Color.White;
                     txtbxcommentaire.BackColor = Color.White;
@@ -466,6 +497,7 @@ namespace InterfaceMedia
                 txtbxcouleur.Enabled = false;
                 txtbxtome.Enabled = false;
                 cmbbxannee.Enabled = false;
+                cmbbxmois.Enabled = false;
                 txtbxformat.Enabled = false;
                 txtbxpage.Enabled = false;
                 txtbxcommentaire.Enabled = false;
@@ -489,6 +521,7 @@ namespace InterfaceMedia
                 txtbxcouleur.BackColor = Color.Silver;
                 txtbxtome.BackColor = Color.Silver;
                 cmbbxannee.BackColor = Color.Silver;
+                cmbbxmois.BackColor = Color.Silver;
                 txtbxformat.BackColor = Color.Silver;
                 txtbxpage.BackColor = Color.Silver;
                 txtbxcommentaire.BackColor = Color.Silver;
@@ -512,6 +545,7 @@ namespace InterfaceMedia
             txtbxisbn.Enabled = false;
             txtbxcouleur.Enabled = false;
             txtbxtome.Enabled = false;
+            cmbbxmois.Enabled = false;
             cmbbxannee.Enabled = false;
             txtbxformat.Enabled = false;
             txtbxpage.Enabled = false;
@@ -536,6 +570,7 @@ namespace InterfaceMedia
             txtbxcouleur.BackColor = Color.Silver;
             txtbxtome.BackColor = Color.Silver;
             cmbbxannee.BackColor = Color.Silver;
+            cmbbxmois.BackColor = Color.Silver;
             txtbxformat.BackColor = Color.Silver;
             txtbxpage.BackColor = Color.Silver;
             txtbxcommentaire.BackColor = Color.Silver;
@@ -584,6 +619,7 @@ namespace InterfaceMedia
                 txtbxcouleur.Enabled = true;
                 txtbxtome.Enabled = true;
                 cmbbxannee.Enabled = true;
+                cmbbxmois.Enabled = true;
                 txtbxformat.Enabled = true;
                 txtbxpage.Enabled = true;
                 txtbxcommentaire.Enabled = true;
@@ -605,6 +641,7 @@ namespace InterfaceMedia
                 txtbxcouleur.BackColor = Color.White;
                 txtbxtome.BackColor = Color.White;
                 cmbbxannee.BackColor = Color.White;
+                cmbbxmois.BackColor = Color.White;
                 txtbxformat.BackColor = Color.White;
                 txtbxpage.BackColor = Color.White;
                 txtbxcommentaire.BackColor = Color.White;
@@ -651,6 +688,7 @@ namespace InterfaceMedia
                 txtbxcouleur.Enabled = true;
                 txtbxtome.Enabled = true;
                 cmbbxannee.Enabled = true;
+                cmbbxmois.Enabled = true;
                 txtbxformat.Enabled = true;
                 txtbxpage.Enabled = true;
                 txtbxcommentaire.Enabled = true;
@@ -669,6 +707,7 @@ namespace InterfaceMedia
                 txtbxcouleur.BackColor = Color.White;
                 txtbxtome.BackColor = Color.White;
                 cmbbxannee.BackColor = Color.White;
+                cmbbxmois.BackColor = Color.White;
                 txtbxformat.BackColor = Color.White;
                 txtbxpage.BackColor = Color.White;
                 txtbxcommentaire.BackColor = Color.White;
@@ -733,9 +772,11 @@ namespace InterfaceMedia
 
                 txtbxtitre.Enabled = true;
                 cmbbxannee.Enabled = true;
+                cmbbxmois.Enabled = true;
 
                 txtbxtitre.BackColor = Color.White;
                 cmbbxannee.BackColor = Color.White;
+                cmbbxmois.BackColor = Color.White;
             }
            else  if (btnexemp.Text.Equals("Livre") & btnRechercher.Text.Equals("Valider"))
             {
@@ -755,7 +796,26 @@ namespace InterfaceMedia
             txtbxtitre.Text = dtgrvLivre.CurrentRow.Cells[1].Value.ToString();
             txtbxisbn.Text = dtgrvLivre.CurrentRow.Cells[2].Value.ToString();
             txtbxtome.Text = dtgrvLivre.CurrentRow.Cells[3].Value.ToString();
-            cmbbxannee.Text = dtgrvLivre.CurrentRow.Cells[4].Value.ToString();
+
+
+            // cmbbxannee.Text = dtgrvLivre.CurrentRow.Cells[4].Value.ToString();
+
+            string totalparution = dtgrvLivre.CurrentRow.Cells[4].Value.ToString();
+
+            // cmbbxmois.Text = totalparution.Substring(0,1);
+            if (totalparution.Substring(0, 1).Equals("0"))
+            {
+                cmbbxmois.Text = totalparution.Substring(1, 1);
+            }
+            else
+            {
+                cmbbxmois.Text = totalparution.Substring(0, 2);
+            }
+           cmbbxannee.Text = totalparution.Substring(3,4);
+
+
+
+
             txtbxpage.Text = dtgrvLivre.CurrentRow.Cells[5].Value.ToString();
             txtbxcouleur.Text = dtgrvLivre.CurrentRow.Cells[6].Value.ToString();
             txtbxcommentaire.Text = dtgrvLivre.CurrentRow.Cells[7].Value.ToString();
@@ -763,5 +823,7 @@ namespace InterfaceMedia
             txtbxserie.Text = dtgrvLivre.CurrentRow.Cells[9].Value.ToString();
             txtbxediteur.Text = dtgrvLivre.CurrentRow.Cells[10].Value.ToString();
         }
+        #endregion
+        
     }
 }
