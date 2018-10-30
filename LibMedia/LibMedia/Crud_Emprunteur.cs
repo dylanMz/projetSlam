@@ -45,7 +45,7 @@ namespace LibMedia
                 EmprunteurSql.CommandType = CommandType.StoredProcedure;
                 EmprunteurSql.Connection = uneconnexion.getConnexion();
                 _unReader = EmprunteurSql.ExecuteReader();
-
+                
                 while (_unReader.Read())
                 {
                     _desEmprunteurs.Add(new Emprunteur(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), DateTime.Parse(_unReader["emp_prem_adh"].ToString()), DateTime.Parse(_unReader["emp_ren_adh"].ToString())));

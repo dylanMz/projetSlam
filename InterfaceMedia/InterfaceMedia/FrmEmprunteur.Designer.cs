@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -66,6 +67,9 @@
             this.ActiverAdh = new MetroFramework.Controls.MetroToggle();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.picHome = new System.Windows.Forms.PictureBox();
+            this.metroStyleExtender1 = new MetroFramework.Components.MetroStyleExtender(this.components);
+            this.lblnum = new MetroFramework.Controls.MetroLabel();
+            this.txtNum = new MetroFramework.Controls.MetroTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunteur)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -498,6 +502,7 @@
             this.btnRechercher.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnRechercher.UseCustomBackColor = true;
             this.btnRechercher.UseSelectable = true;
+            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // btnSupprimer
             // 
@@ -617,6 +622,8 @@
             // groupAjouterEmp
             // 
             this.groupAjouterEmp.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupAjouterEmp.Controls.Add(this.txtNum);
+            this.groupAjouterEmp.Controls.Add(this.lblnum);
             this.groupAjouterEmp.Controls.Add(this.ActiverAdh);
             this.groupAjouterEmp.Controls.Add(this.metroLabel12);
             this.groupAjouterEmp.Controls.Add(this.metroLabel11);
@@ -675,6 +682,50 @@
             this.picHome.TabIndex = 96;
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
+            // 
+            // lblnum
+            // 
+            this.lblnum.AutoSize = true;
+            this.lblnum.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblnum.Location = new System.Drawing.Point(34, 16);
+            this.lblnum.Name = "lblnum";
+            this.lblnum.Size = new System.Drawing.Size(66, 19);
+            this.lblnum.TabIndex = 96;
+            this.lblnum.Text = "Numéro :";
+            this.lblnum.UseCustomBackColor = true;
+            this.lblnum.Visible = false;
+            // 
+            // txtNum
+            // 
+            // 
+            // 
+            // 
+            this.txtNum.CustomButton.Image = null;
+            this.txtNum.CustomButton.Location = new System.Drawing.Point(115, 1);
+            this.txtNum.CustomButton.Name = "";
+            this.txtNum.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtNum.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtNum.CustomButton.TabIndex = 1;
+            this.txtNum.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtNum.CustomButton.UseSelectable = true;
+            this.txtNum.CustomButton.Visible = false;
+            this.txtNum.Lines = new string[0];
+            this.txtNum.Location = new System.Drawing.Point(106, 16);
+            this.txtNum.MaxLength = 32767;
+            this.txtNum.Name = "txtNum";
+            this.txtNum.PasswordChar = '\0';
+            this.txtNum.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNum.SelectedText = "";
+            this.txtNum.SelectionLength = 0;
+            this.txtNum.SelectionStart = 0;
+            this.txtNum.ShortcutsEnabled = true;
+            this.txtNum.Size = new System.Drawing.Size(137, 23);
+            this.txtNum.TabIndex = 97;
+            this.txtNum.UseCustomBackColor = true;
+            this.txtNum.UseSelectable = true;
+            this.txtNum.Visible = false;
+            this.txtNum.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtNum.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // FrmEmprunteur
             // 
@@ -741,5 +792,8 @@
         private System.Windows.Forms.PictureBox picHome;
         private MetroFramework.Controls.MetroToggle ActiverAdh;
         private MetroFramework.Controls.MetroLabel metroLabel2;
+        private MetroFramework.Controls.MetroTextBox txtNum;
+        private MetroFramework.Controls.MetroLabel lblnum;
+        private MetroFramework.Components.MetroStyleExtender metroStyleExtender1;
     }
 }

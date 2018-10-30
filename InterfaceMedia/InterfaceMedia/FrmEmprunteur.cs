@@ -212,6 +212,8 @@ namespace InterfaceMedia
 
             //Les textbox sont inacessibles.
             groupAjouterEmp.Enabled = false;
+            txtNum.Visible = false;
+            lblnum.Visible = false;
 
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
@@ -378,7 +380,81 @@ namespace InterfaceMedia
 
         }
 
+        private void btnRechercher_Click(object sender, EventArgs e)
+        {
+            if (btnRechercher.Text.Equals("Rechercher"))
+            {
+
+                lblnum.Visible = true;
+                txtNum.Visible = true;
+                txtNum.Enabled = true;
+                txtNom.Enabled = true;
+                groupAjouterEmp.Enabled = true;
+                txtMail.Enabled = false;
+                txtCodePostal.Enabled = false;
+                txtAdresse.Enabled = false;
+                txtPrenom.Enabled = false;
+                txtVille.Enabled = false;
+                DateTimeNaissance.Enabled = false;
+                DateTimeAdhesion.Enabled = false;
+                DateTimeRenouvellement.Enabled = false;
+                btnRechercher.BackColor = Color.Green;
+
+                //vide les controls du groupbox
+                vidercontrols();
 
 
+                btnRechercher.Text = "Valider";
+                btnAnnuler.Visible = true;
+
+                //Desactive tous les autres boutons
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnFamille.Enabled = false;
+                btnAjouter.Enabled = false;
+
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+                txtNum.BackColor = Color.White;
+                txtNom.BackColor = Color.White;
+
+            }
+            else if (btnRechercher.Text.Equals("Valider"))
+            {
+                utilisemethodeprocedure("proc_recherche_emprunteur");
+
+                groupAjouterEmp.Enabled = false;
+                btnRechercher.Text = "Rechercher";
+                btnRechercher.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+                groupAjouterEmp.Enabled = false;
+                txtMail.Enabled = true;
+                txtCodePostal.Enabled = true;
+                txtAdresse.Enabled = true;
+                txtPrenom.Enabled = true;
+                txtVille.Enabled = true;
+                DateTimeNaissance.Enabled = true;
+                DateTimeAdhesion.Enabled = true;
+                DateTimeRenouvellement.Enabled = true;
+
+                //Re active les boutons
+                btnFamille.Enabled = true;
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+                btnAjouter.Enabled = true;
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+                txtNum.Visible = false;
+                lblnum.Visible = false;
+                txtNom.BackColor = Color.Silver;
+                txtNum.BackColor = Color.Silver;
+
+
+
+                //met à jour le datagrid
+                RefreshGrid();
+
+            }
+        }
     }
 }
