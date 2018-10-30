@@ -26,10 +26,15 @@ namespace LibMedia
         {
             _connexion = connexion_en_cours;
         }
+
+        public Crud_livre()
+        {
+            _connexion = new ConnexionBase();
+        }
         #endregion
 
         #region Livre
-    // Insertion d'un livre
+        // Insertion d'un livre
         public void ajout_livre(String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, int wedicode, int wseriecode)
         {
          
