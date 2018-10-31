@@ -182,22 +182,22 @@ namespace LibMedia
         }
         //recherche Livre par le titre
     
-        public void Recherche_livre_Titre(String wbdtitre) { 
+        //public void Recherche_livre_Titre(String wbdtitre) { 
 
-            _connexion.OuvrirConnexion();
+        //    _connexion.OuvrirConnexion();
 
-            MySqlCommand unComdeSql = new MySqlCommand();
-            unComdeSql.CommandText = "proc_recherche_livre_titre";
-            unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
-            unComdeSql.Connection = _connexion.getConnexion();
+        //    MySqlCommand unComdeSql = new MySqlCommand();
+        //    unComdeSql.CommandText = "proc_recherche_livre_titre";
+        //    unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
+        //    unComdeSql.Connection = _connexion.getConnexion();
 
-            unComdeSql.Parameters.Add(new MySqlParameter("wtitre", MySqlDbType.String));
-            unComdeSql.Parameters["wtitre"].Value = wbdtitre;
+        //    unComdeSql.Parameters.Add(new MySqlParameter("wtitre", MySqlDbType.String));
+        //    unComdeSql.Parameters["wtitre"].Value = wbdtitre;
 
-            unComdeSql.ExecuteNonQuery();
+        //    unComdeSql.ExecuteNonQuery();
 
-            _connexion.closeConnexion();
-        }
+        //    _connexion.closeConnexion();
+        //}
         //affiche Livre
         public DataTable afficherlivre()
         {
@@ -219,12 +219,33 @@ namespace LibMedia
             return (unDataset.Tables["bd"]);
         }
 
+
+        public DataTable afficherlivrepartitre(String wbdtitre)
+        {
+            //déclaration et instanciation
+            cmdsql = new MySqlCommand();
+            //On associe le nom de notre procedure a cmdsql de type MySqlCommand
+            cmdsql.CommandText = "proc_recherche_livre_titre";
+            cmdsql.CommandType = System.Data.CommandType.StoredProcedure;
+            cmdsql.Connection = _connexion.getConnexion();
+
+            cmdsql.Parameters.Add(new MySqlParameter("wtitre", MySqlDbType.String));
+            cmdsql.Parameters["wtitre"].Value = wbdtitre;
+            if (_connexion.OuvrirConnexion() == true)
+            {
+                unAdapter = new MySqlDataAdapter(cmdsql);
+                unDataset = new DataSet();
+                unAdapter.Fill(unDataset, "bd");
+                _connexion.closeConnexion();
+            }
+            return (unDataset.Tables["bd"]);
+        }
         #endregion
 
 
-
-
         
+
+
     }
 }
 
