@@ -91,79 +91,47 @@ namespace LibMedia
         }
 
 
-        // recherche exemplaire avec l'état
+        // recherche exemplaire 
 
-        public void recherche_exemplaire_etat( String WExempEtat)
+        public DataTable recherche_exemplaire(int wbdcode,String WExempRef, String WExempEtat)
         {
-
-
+            
             _connexion.OuvrirConnexion();
             //  ouverture de la connexion avec la base
 
-            MySqlCommand unComdeSql = new MySqlCommand();
-            unComdeSql.CommandText = "proc__exemplaire_recherche_etat";
-            unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
-            unComdeSql.Connection = _connexion.getConnexion();
+            cmdsql = new MySqlCommand();
+            cmdsql.CommandText = "proc_recherche_exemplaire";
+            cmdsql.CommandType = System.Data.CommandType.StoredProcedure;
+            cmdsql.Connection = _connexion.getConnexion();
 
-            unComdeSql.Parameters.Add(new MySqlParameter("etat", MySqlDbType.String));
-            unComdeSql.Parameters["etat"].Value = WExempEtat;
+            cmdsql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int16));
+            cmdsql.Parameters["wcode"].Value = wbdcode;
+            cmdsql.Parameters.Add(new MySqlParameter("refexemp", MySqlDbType.String));
+            cmdsql.Parameters["refexemp"].Value = WExempRef;
+            cmdsql.Parameters.Add(new MySqlParameter("wetat", MySqlDbType.String));
+            cmdsql.Parameters["wetat"].Value = WExempEtat;
 
+
+            if (_connexion.OuvrirConnexion() == true)
+            {
+                unAdapter = new MySqlDataAdapter(cmdsql);
+                unDataset = new DataSet();
+                unAdapter.Fill(unDataset, "exemplaire");
+                _connexion.closeConnexion();
+            }
+
+            return (unDataset.Tables["exemplaire"]);
            
 
-            unComdeSql.ExecuteNonQuery();
-
-            _connexion.closeConnexion();
-
 
         }
-        // recherche exemplaire avec la reference exemplaire
-        public void recherche_exemplaire_ref(String WExempRef)
-        {
 
-
-            _connexion.OuvrirConnexion();
-            //  ouverture de la connexion avec la base
-
-            MySqlCommand unComdeSql = new MySqlCommand();
-            unComdeSql.CommandText = "proc_recherche_exemp_refexemp";
-            unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
-            unComdeSql.Connection = _connexion.getConnexion();
-
-            unComdeSql.Parameters.Add(new MySqlParameter("refexemp", MySqlDbType.String));
-            unComdeSql.Parameters["refexemp"].Value = WExempRef;
+     
+    
 
 
 
-            unComdeSql.ExecuteNonQuery();
 
-            _connexion.closeConnexion();
-
-
-        }
-        // recherche exemplaire avec code livre
-        public void recherche_exemplaire_code(int wbdcode)
-        {
-
-
-            _connexion.OuvrirConnexion();
-            //  ouverture de la connexion avec la base
-
-            MySqlCommand unComdeSql = new MySqlCommand();
-            unComdeSql.CommandText = "proc_recherche_exemp_codelivre";
-            unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
-            unComdeSql.Connection = _connexion.getConnexion();
-
-            unComdeSql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int16));
-            unComdeSql.Parameters["wcode"].Value = wbdcode;
-
-
-
-            unComdeSql.ExecuteNonQuery();
-
-            _connexion.closeConnexion();
-
-
-        }
 
 
         // supprimer un exemplaire 

@@ -191,7 +191,9 @@ namespace LibMedia
                 unAdapter.Fill(unDataset, "bd");
                 _connexion.closeConnexion();
             }
+        
             return (unDataset.Tables["bd"]);
+          
         }
 
 
@@ -217,6 +219,7 @@ namespace LibMedia
                 _connexion.closeConnexion();
             }
             return (unDataset.Tables["bd"]);
+        
         }
 
 

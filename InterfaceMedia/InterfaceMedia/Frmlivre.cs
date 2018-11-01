@@ -18,7 +18,7 @@ namespace InterfaceMedia
         private ConnexionBase connexion;
         private Crud_livre unlivre;
         private CRUD_Exemplaire unexemplaire;
-      
+        public string format;
 
         
            
@@ -328,7 +328,7 @@ namespace InterfaceMedia
 
             dtgrvLivre.DataSource = unlivre.afficherlivre();
         }
-
+        //bouton rechercher
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             if (btnRechercher.Text.Equals("Rechercher"))
@@ -357,8 +357,14 @@ namespace InterfaceMedia
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
                     codelivreexmp.Enabled = true;
+                    txtbxreferencerexemp.Enabled = true;
+                    rdbtnA.Enabled = true;
+                    rdbtnb.Enabled = true;
+                    rdbtnta.Enabled = true;
+                    rdbtntb.Enabled = true;
 
                     codelivreexmp.BackColor = Color.White;
+                    txtbxreferencerexemp.BackColor = Color.White;
                 }
             }
             else if (btnRechercher.Text.Equals("Valider"))
@@ -379,8 +385,34 @@ namespace InterfaceMedia
                         dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
                     }
                 }
-                
-                btnRechercher.BackColor = Color.SteelBlue;
+                else if (btnexemp.Text.Equals("exemplaire"))
+                {
+                    
+
+                    if (rdbtnA.Checked == true)
+                    {
+                         format = rdbtnA.Text;
+                    }
+                    else if (rdbtnb.Checked == true)
+                    {
+                        format = rdbtnb.Text;
+                   }
+                    else if (rdbtnta.Checked == true)
+                    {
+                        format = rdbtnta.Text;
+                    }
+                    else if (rdbtntb.Checked == true)
+                    {
+                        format = rdbtntb.Text;
+                    }
+
+                   
+
+                    dtgrvLivre.DataSource = unexemplaire.recherche_exemplaire(Int32.Parse(codelivreexmp.Text), txtbxreferencerexemp.Text, format);
+
+                }
+
+                    btnRechercher.BackColor = Color.SteelBlue;
                 btnRechercher.Text = "Rechercher";
                 btnAnnuler.Visible = false;
 
@@ -394,10 +426,18 @@ namespace InterfaceMedia
                 txtbxtitre.Enabled = false;
                 cmbbxannee.Enabled = false;
                 cmbbxmois.Enabled = false;
+                txtbxreferencerexemp.Enabled = false;
+                codelivreexmp.Enabled = false;
+                rdbtnA.Enabled = false;
+                rdbtnb.Enabled = false;
+                rdbtnta.Enabled = false;
+                rdbtntb.Enabled = false;
                 // change la couleur 
                 txtbxtitre.BackColor = Color.Silver;
                 cmbbxannee.BackColor = Color.Silver;
                 cmbbxmois.BackColor = Color.Silver;
+                txtbxreferencerexemp.BackColor = Color.Silver;
+                codelivreexmp.BackColor = Color.Silver;
             }
             
         }
@@ -906,8 +946,14 @@ namespace InterfaceMedia
             {
                 btnexemp.Text = "exemplaire";
                 codelivreexmp.Enabled = true;
+                txtbxreferencerexemp.Enabled = true;
+                rdbtnA.Enabled = true;
+                rdbtnb.Enabled = true;
+                rdbtnta.Enabled = true;
+                rdbtntb.Enabled = true;
 
                 codelivreexmp.BackColor = Color.White;
+                txtbxreferencerexemp.BackColor = Color.White;
             }
 
         }
