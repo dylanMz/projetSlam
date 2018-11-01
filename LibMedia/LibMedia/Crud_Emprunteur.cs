@@ -11,6 +11,7 @@ namespace LibMedia
     public class Crud_Emprunteur
     {
         #region Proprietés
+        private int wsql;
         private ConnexionBase uneconnexion;
         private List<Emprunteur> _desEmprunteurs;
         private MySqlDataReader _unReader;
@@ -95,6 +96,43 @@ namespace LibMedia
                 {
                     codeErreur = myException.Number.ToString();
                 }
+                uneconnexion.closeConnexion();
+            }
+        }
+
+        public void recherche(String nomprocedure, string wnom, int wid)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+
+                MySqlCommand unecommandeSql = new MySqlCommand();
+                unecommandeSql.CommandText = nomprocedure;
+                unecommandeSql.CommandType = CommandType.StoredProcedure;
+                unecommandeSql.Connection = uneconnexion.getConnexion();
+
+                
+                unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                unecommandeSql.Parameters["wid"].Value = wid;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                unecommandeSql.Parameters["wnom"].Value = wnom;
+
+                if (wnom.Equals(""))
+                {
+                    wsql = 1;
+                }
+                else
+                {
+                    wsql = 2;
+                }
+                unecommandeSql.Parameters.Add(new MySqlParameter("wsql", MySqlDbType.Int16));
+                unecommandeSql.Parameters["wsql"].Value = wsql;
+                _unReader = unecommandeSql.ExecuteReader();
+
+                while (_unReader.Read())
+                {
+                    _desEmprunteurs.Add(new Emprunteur(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), DateTime.Parse(_unReader["emp_prem_adh"].ToString()), DateTime.Parse(_unReader["emp_ren_adh"].ToString())));
+                }
+               // _unReader.Close();
                 uneconnexion.closeConnexion();
             }
         }

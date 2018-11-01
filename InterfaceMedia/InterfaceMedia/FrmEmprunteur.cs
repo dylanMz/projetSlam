@@ -15,6 +15,7 @@ namespace InterfaceMedia
 {
     public partial class FrmEmprunteur : MetroForm
     {
+        private int wnum;
         Thread th;
         private string id;
         private String dateadh;
@@ -223,6 +224,9 @@ namespace InterfaceMedia
             btnAnnuler.Visible = false;
             ActiverAdh.Enabled = false;
             vidercontrols();
+
+            //met à jour la datagrid
+            RefreshGrid();
         }
 
         //Methode pour mettre à jour le grid
@@ -421,12 +425,22 @@ namespace InterfaceMedia
             }
             else if (btnRechercher.Text.Equals("Valider"))
             {
-                utilisemethodeprocedure("proc_recherche_emprunteur");
+                if (!txtNum.Text.Equals(""))
+                {
+                    wnum = Convert.ToInt32(txtNum.Text);
+                }
+                //met à jour le datagrid
+                unEmprunteur.lesEmprunteurs.Clear();
+                uneconnexion = new ConnexionBase();
+                unEmprunteur = new Crud_Emprunteur(uneconnexion);
+                unEmprunteur.recherche("proc_recherche_emprunteur", txtNom.Text, wnum);
+                RempGridEmprunteur(unEmprunteur.lesEmprunteurs);
+                GridEmprunteur.Update();
+                GridEmprunteur.Refresh();
 
                 groupAjouterEmp.Enabled = false;
                 btnRechercher.Text = "Rechercher";
                 btnRechercher.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
                 groupAjouterEmp.Enabled = false;
                 txtMail.Enabled = true;
                 txtCodePostal.Enabled = true;
@@ -449,10 +463,9 @@ namespace InterfaceMedia
                 txtNom.BackColor = Color.Silver;
                 txtNum.BackColor = Color.Silver;
 
+                
 
-
-                //met à jour le datagrid
-                RefreshGrid();
+                
 
             }
         }
