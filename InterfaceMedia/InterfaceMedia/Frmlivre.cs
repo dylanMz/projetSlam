@@ -17,7 +17,7 @@ namespace InterfaceMedia
     {
         private ConnexionBase connexion;
         private Crud_livre unlivre;
-
+        private CRUD_Exemplaire unexemplaire;
       
 
         
@@ -28,6 +28,7 @@ namespace InterfaceMedia
             InitializeComponent();
             connexion = new ConnexionBase();
             unlivre = new Crud_livre(connexion);
+            unexemplaire = new CRUD_Exemplaire(connexion);
             dtgrvLivre.DataSource = unlivre.afficherlivre();
             remp_cmbx();
             
@@ -54,12 +55,13 @@ namespace InterfaceMedia
                 }
             }
         }
-     
+
 
         #endregion
 
 
         #region Bouton
+        // bouton ajouter
         private void btnAjouter_Click(object sender, EventArgs e)
         {
 
@@ -137,12 +139,42 @@ namespace InterfaceMedia
             }
             else if (btnAjouter.Text.Equals("Valider"))
             {
+               
                 if (btnexemp.Text.Equals("exemplaire"))
                 {
 
+                    if (rdbtnA.Checked == true)
+                    {
+
+                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtnA.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtnb.Checked == true)
+                    {
+
+                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtnb.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtnta.Checked == true)
+                    {
+
+                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtnta.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtntb.Checked == true)
+                    {
+
+                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtntb.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+
+
+
+
                 }
                 else if  (btnexemp.Text.Equals("Livre")){
+                    string parutiontotal;
+               
 
+                        parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
+
+                    unlivre.ajout_livre(txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text, Int32.Parse(txtbxediteur.Text), Int32.Parse(txtbxserie.Text));
                 }
                         // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
                         btnAjouter.Text = "Ajouter";
@@ -270,7 +302,31 @@ namespace InterfaceMedia
             cmbbxserie.BackColor = Color.Silver;
             codelivreexmp.BackColor = Color.Silver;
 
+            txtbxcode.Text = "";
+            txtbxtitre.Text = "";
+            txtbxisbn.Text = "";
+            txtbxcouleur.Text = "";
+            txtbxtome.Text = "";
+            cmbbxannee.SelectedItem = null;
+            cmbbxmois.SelectedItem = null;
+            txtbxformat.Text = "";
+            txtbxpage.Text = "";
+            txtbxcommentaire.Text = "";
+            txtbxediteur.Text = "";
+            txtbxserie.Text = "";
+            txtbxauteur.Text = "";
+            txtbxreferencerexemp.Text = "";
+            
+            cmbbxauteur.Text = "";
+            cmbbxediteur.Text = "";
+            cmbbxserie.Text = "";
+            codelivreexmp.Text = "";
+            txtbxmotif.Text = "";
+            lblmotif.Text = "";
+            lblcommentaire.Text = "";
+            txtbxcommentaire.Text = "";
 
+            dtgrvLivre.DataSource = unlivre.afficherlivre();
         }
 
         private void btnRechercher_Click(object sender, EventArgs e)
@@ -307,7 +363,23 @@ namespace InterfaceMedia
             }
             else if (btnRechercher.Text.Equals("Valider"))
             {
+                if (btnexemp.Text.Equals("Livre"))
+                {
+                    string parutiontotal;
+                    //affichage de la recherche livre  dans le datagridview
+                    if ((cmbbxmois.Text == "") && (cmbbxannee.Text == ""))
+                    {
+                        parutiontotal = "";
+                        dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
+                    }
+                    else
+                    {
 
+                        parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
+                        dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
+                    }
+                }
+                
                 btnRechercher.BackColor = Color.SteelBlue;
                 btnRechercher.Text = "Rechercher";
                 btnAnnuler.Visible = false;
@@ -329,7 +401,7 @@ namespace InterfaceMedia
             }
             
         }
-
+        // BOUTON SUPPRIMER
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             if (btnSupprimer.Text.Equals("Supprimer"))
@@ -384,7 +456,19 @@ namespace InterfaceMedia
             }
             else if (btnSupprimer.Text.Equals("Valider"))
             {
+                if (btnexemp.Text.Equals("Livre"))
+                {
+                    unlivre.Delete_livre(Int32.Parse(txtbxcode.Text));
+                    unlivre.delet_motif(txtbxmotif.Text, Int32.Parse(txtbxcode.Text));
+                        }
+                else if (btnexemp.Text.Equals("exemplaire"))
+                {
+                    unexemplaire.delete_exemplaire(txtbxreferencerexemp.Text);
+                    unexemplaire.delete_motif(txtbxreferencerexemp.Text, txtbxmotif.Text);
+                }
+                      
 
+                   
                 btnSupprimer.BackColor = Color.SteelBlue;
                 btnSupprimer.Text = "Supprimer";
                 btnAnnuler.Visible = false;
@@ -410,7 +494,7 @@ namespace InterfaceMedia
             }
             }
 
-        
+        //  BOUTON MODIFIER
         private void btnModifier_Click(object sender, EventArgs e)
         {
 
@@ -490,6 +574,37 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
+                if (btnexemp.Text.Equals("Livre"))
+                {
+                    string parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
+                    unlivre.update_livre(Int32.Parse(txtbxcode.Text), txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text, Int32.Parse(txtbxediteur.Text), Int32.Parse(txtbxserie.Text));
+                }
+                else if (btnexemp.Text.Equals("exemplaire"))
+                {
+
+                    if (rdbtnA.Checked == true)
+                    {
+
+                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtnA.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtnb.Checked == true)
+                    {
+
+                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtnb.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtnta.Checked == true)
+                    {
+
+                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtnta.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtntb.Checked == true)
+                    {
+
+                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtntb.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+
+                }
+
                 // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
@@ -545,7 +660,7 @@ namespace InterfaceMedia
                 txtbxcode.BackColor = Color.Silver;
             }
         }
-
+        //bouton LIVRE/EXEMPLAIRE
         private void btnexemp_Click(object sender, EventArgs e)
         {
             #region remet par defaut 
@@ -812,6 +927,7 @@ namespace InterfaceMedia
             cmbbxmois.Text = totalparution.Substring(0, 2);
             cmbbxannee.Text = totalparution.Substring(3,4);
 
+            
             txtbxpage.Text = dtgrvLivre.CurrentRow.Cells[5].Value.ToString();
             txtbxcouleur.Text = dtgrvLivre.CurrentRow.Cells[6].Value.ToString();
             txtbxcommentaire.Text = dtgrvLivre.CurrentRow.Cells[7].Value.ToString();

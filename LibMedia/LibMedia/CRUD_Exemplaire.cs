@@ -167,7 +167,7 @@ namespace LibMedia
 
 
         // supprimer un exemplaire 
-        public void delete_exemplaire(String WexempEtat)
+        public void delete_exemplaire(String WExempRef)
         {
 
 
@@ -180,7 +180,7 @@ namespace LibMedia
             unComdeSql.Connection = _connexion.getConnexion();
 
             unComdeSql.Parameters.Add(new MySqlParameter("refexemp", MySqlDbType.String));
-            unComdeSql.Parameters["refexemp"].Value = WexempEtat;
+            unComdeSql.Parameters["refexemp"].Value = WExempRef;
 
 
 
@@ -191,6 +191,31 @@ namespace LibMedia
 
         }
 
+        // ajoute un motif a l'archivage 
+        public void delete_motif(String WExempReff, String wmotifexemp)
+        {
+
+
+            _connexion.OuvrirConnexion();
+            //  ouverture de la connexion avec la base
+
+            MySqlCommand unComdeSql = new MySqlCommand();
+            unComdeSql.CommandText = "proc_update/insert_motif_ret_exemp";
+            unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
+            unComdeSql.Connection = _connexion.getConnexion();
+
+            unComdeSql.Parameters.Add(new MySqlParameter("wexempref", MySqlDbType.String));
+            unComdeSql.Parameters["wexempref"].Value = WExempReff;
+            unComdeSql.Parameters.Add(new MySqlParameter("wmotifret", MySqlDbType.String));
+            unComdeSql.Parameters["wmotifret"].Value = wmotifexemp;
+
+
+            unComdeSql.ExecuteNonQuery();
+
+            _connexion.closeConnexion();
+
+
+        }
 
 
 

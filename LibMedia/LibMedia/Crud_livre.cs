@@ -155,51 +155,26 @@ namespace LibMedia
                 unComdeSql.ExecuteNonQuery();
 
                 _connexion.closeConnexion();
-
-
-            
         }
-        //recherche Livre par la date parution
-        public void Recherche_livre_dateparution(String wbdanneeparution)
+        public void delet_motif(String wmotif, int leCode)
         {
-
             _connexion.OuvrirConnexion();
 
             MySqlCommand unComdeSql = new MySqlCommand();
-            unComdeSql.CommandText = "proc_recherche_livre_dateparutions";
+            unComdeSql.CommandText = "proc_upadate/insert_motif_ret_bd";
             unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
             unComdeSql.Connection = _connexion.getConnexion();
 
-            unComdeSql.Parameters.Add(new MySqlParameter("wparution", MySqlDbType.String));
-            unComdeSql.Parameters["wparution"].Value = wbdanneeparution;
-
+            unComdeSql.Parameters.Add(new MySqlParameter("wmotifret", MySqlDbType.String));
+            unComdeSql.Parameters["wmotifret"].Value = leCode;
+            unComdeSql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int16));
+            unComdeSql.Parameters["wcode"].Value = leCode;
             unComdeSql.ExecuteNonQuery();
 
             _connexion.closeConnexion();
-
-
-
         }
-        //recherche Livre par le titre
-    
-        //public void Recherche_livre_Titre(String wbdtitre) { 
 
-        //    _connexion.OuvrirConnexion();
-
-        //    MySqlCommand unComdeSql = new MySqlCommand();
-        //    unComdeSql.CommandText = "proc_recherche_livre_titre";
-        //    unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
-        //    unComdeSql.Connection = _connexion.getConnexion();
-
-        //    unComdeSql.Parameters.Add(new MySqlParameter("wtitre", MySqlDbType.String));
-        //    unComdeSql.Parameters["wtitre"].Value = wbdtitre;
-
-        //    unComdeSql.ExecuteNonQuery();
-
-        //    _connexion.closeConnexion();
-        //}
-        //affiche Livre
-        public DataTable afficherlivre()
+            public DataTable afficherlivre()
         {
             //déclaration et instanciation
             cmdsql = new MySqlCommand();
@@ -220,17 +195,20 @@ namespace LibMedia
         }
 
 
-        public DataTable afficherlivrepartitre(String wbdtitre)
+        public DataTable recherche_livre(String wbdtitre,String wbdanneeparution)
         {
             //déclaration et instanciation
             cmdsql = new MySqlCommand();
             //On associe le nom de notre procedure a cmdsql de type MySqlCommand
-            cmdsql.CommandText = "proc_recherche_livre_titre";
+            cmdsql.CommandText = "proc_recherche_livre";
             cmdsql.CommandType = System.Data.CommandType.StoredProcedure;
             cmdsql.Connection = _connexion.getConnexion();
 
             cmdsql.Parameters.Add(new MySqlParameter("wtitre", MySqlDbType.String));
             cmdsql.Parameters["wtitre"].Value = wbdtitre;
+            cmdsql.Parameters.Add(new MySqlParameter("wparution", MySqlDbType.String));
+            cmdsql.Parameters["wparution"].Value = wbdanneeparution;
+
             if (_connexion.OuvrirConnexion() == true)
             {
                 unAdapter = new MySqlDataAdapter(cmdsql);
@@ -240,10 +218,13 @@ namespace LibMedia
             }
             return (unDataset.Tables["bd"]);
         }
+
+
+       
         #endregion
 
 
-        
+
 
 
     }
