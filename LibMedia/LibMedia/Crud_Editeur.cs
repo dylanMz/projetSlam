@@ -160,7 +160,7 @@ namespace LibMedia
             if (uneconnexion.OuvrirConnexion() == true)
             {
                 MySqlCommand EditeurSql = new MySqlCommand();
-                EditeurSql.CommandText = "proc_recherche_editeur_v3";
+                EditeurSql.CommandText = "proc_recherche_editeur";
                 EditeurSql.CommandType = CommandType.StoredProcedure;
                 EditeurSql.Connection = uneconnexion.getConnexion();
 
