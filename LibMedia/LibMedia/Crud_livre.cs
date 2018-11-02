@@ -174,6 +174,8 @@ namespace LibMedia
             _connexion.closeConnexion();
         }
 
+
+
             public DataTable afficherlivre()
         {
             //déclaration et instanciation
@@ -184,17 +186,23 @@ namespace LibMedia
          
             cmdsql.Connection = _connexion.getConnexion();
 
-            if (_connexion.OuvrirConnexion() == true)
-            {
+            
+
                 unAdapter = new MySqlDataAdapter(cmdsql);
                 unDataset = new DataSet();
                 unAdapter.Fill(unDataset, "bd");
                 _connexion.closeConnexion();
-            }
+          
+
         
             return (unDataset.Tables["bd"]);
           
         }
+
+
+
+
+
 
 
         public DataTable recherche_livre(String wbdtitre,String wbdanneeparution)
@@ -211,13 +219,12 @@ namespace LibMedia
             cmdsql.Parameters.Add(new MySqlParameter("wparution", MySqlDbType.String));
             cmdsql.Parameters["wparution"].Value = wbdanneeparution;
 
-            if (_connexion.OuvrirConnexion() == true)
-            {
+         
                 unAdapter = new MySqlDataAdapter(cmdsql);
                 unDataset = new DataSet();
                 unAdapter.Fill(unDataset, "bd");
                 _connexion.closeConnexion();
-            }
+        
             return (unDataset.Tables["bd"]);
         
         }

@@ -19,7 +19,7 @@ namespace InterfaceMedia
         private Crud_livre unlivre;
         private CRUD_Exemplaire unexemplaire;
         public string format;
-
+        Thread th;
         
            
 
@@ -302,6 +302,11 @@ namespace InterfaceMedia
             cmbbxserie.BackColor = Color.Silver;
             codelivreexmp.BackColor = Color.Silver;
 
+            rdbtnA.Checked = false;
+            rdbtnb.Checked = false;
+            rdbtnta.Checked = false;
+            rdbtntb.Checked = false; 
+
             txtbxcode.Text = "";
             txtbxtitre.Text = "";
             txtbxisbn.Text = "";
@@ -405,10 +410,13 @@ namespace InterfaceMedia
                     {
                         format = rdbtntb.Text;
                     }
+                    else
+                    {
+                        format = "";
+                    }
+                    dtgrvLivre.DataSource =unexemplaire.recherche_exemplaire(codelivreexmp.Text, txtbxreferencerexemp.Text, format);
 
                    
-
-                    dtgrvLivre.DataSource = unexemplaire.recherche_exemplaire(Int32.Parse(codelivreexmp.Text), txtbxreferencerexemp.Text, format);
 
                 }
 
@@ -962,26 +970,49 @@ namespace InterfaceMedia
         // affichage des informations de la base dans le datagridview
         private void dtgrvlivre_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            txtbxcode.Text = dtgrvLivre.CurrentRow.Cells[0].Value.ToString();
-            txtbxtitre.Text = dtgrvLivre.CurrentRow.Cells[1].Value.ToString();
-            txtbxisbn.Text = dtgrvLivre.CurrentRow.Cells[2].Value.ToString();
-            txtbxtome.Text = dtgrvLivre.CurrentRow.Cells[3].Value.ToString();
+
+            if (btnexemp.Text.Equals("Livre"))
+            {
+                txtbxcode.Text = dtgrvLivre.CurrentRow.Cells[0].Value.ToString();
+                txtbxtitre.Text = dtgrvLivre.CurrentRow.Cells[1].Value.ToString();
+                txtbxisbn.Text = dtgrvLivre.CurrentRow.Cells[2].Value.ToString();
+                txtbxtome.Text = dtgrvLivre.CurrentRow.Cells[3].Value.ToString();
 
 
-            // permet de séparer le mois et l'annee et les affecter leur combo box
-            string totalparution = dtgrvLivre.CurrentRow.Cells[4].Value.ToString();
-            cmbbxmois.Text = totalparution.Substring(0, 2);
-            cmbbxannee.Text = totalparution.Substring(3,4);
+                // permet de séparer le mois et l'annee et les affecter leur combo box
+                string totalparution = dtgrvLivre.CurrentRow.Cells[4].Value.ToString();
+                cmbbxmois.Text = totalparution.Substring(0, 2);
+                cmbbxannee.Text = totalparution.Substring(3, 4);
 
+
+                txtbxpage.Text = dtgrvLivre.CurrentRow.Cells[5].Value.ToString();
+                txtbxcouleur.Text = dtgrvLivre.CurrentRow.Cells[6].Value.ToString();
+                txtbxcommentaire.Text = dtgrvLivre.CurrentRow.Cells[7].Value.ToString();
+                txtbxformat.Text = dtgrvLivre.CurrentRow.Cells[8].Value.ToString();
+                txtbxserie.Text = dtgrvLivre.CurrentRow.Cells[9].Value.ToString();
+                txtbxediteur.Text = dtgrvLivre.CurrentRow.Cells[10].Value.ToString();
+            }
             
-            txtbxpage.Text = dtgrvLivre.CurrentRow.Cells[5].Value.ToString();
-            txtbxcouleur.Text = dtgrvLivre.CurrentRow.Cells[6].Value.ToString();
-            txtbxcommentaire.Text = dtgrvLivre.CurrentRow.Cells[7].Value.ToString();
-            txtbxformat.Text = dtgrvLivre.CurrentRow.Cells[8].Value.ToString();
-            txtbxserie.Text = dtgrvLivre.CurrentRow.Cells[9].Value.ToString();
-            txtbxediteur.Text = dtgrvLivre.CurrentRow.Cells[10].Value.ToString();
         }
         #endregion
-        
+
+        private void metrotileQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openAccueil);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+
+        }
+        private void openAccueil()
+        {
+            Application.Run(new FrmAccueilTest());
+        }
     }
+
 }

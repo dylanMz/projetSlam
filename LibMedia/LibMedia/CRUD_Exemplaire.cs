@@ -44,6 +44,7 @@ namespace LibMedia
             unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
             unComdeSql.Connection = _connexion.getConnexion();
 
+            // parametre d'entrer
             unComdeSql.Parameters.Add(new MySqlParameter("refexemp", MySqlDbType.String));
             unComdeSql.Parameters["refexemp"].Value = WExempRef;
 
@@ -52,6 +53,12 @@ namespace LibMedia
 
             unComdeSql.Parameters.Add(new MySqlParameter("Id", MySqlDbType.Int16));
             unComdeSql.Parameters["Id"].Value = wbdcode;
+
+            // paramtre de sortie 
+
+            MySqlParameter unComdeSqlsortie = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
+            unComdeSql.Parameters.Add(unComdeSqlsortie);
+            unComdeSqlsortie.Direction = ParameterDirection.Output;
 
             unComdeSql.ExecuteNonQuery();
 
@@ -93,7 +100,7 @@ namespace LibMedia
 
         // recherche exemplaire 
 
-        public DataTable recherche_exemplaire(int wbdcode,String WExempRef, String WExempEtat)
+        public DataTable recherche_exemplaire(String wbdcode,String WExempRef, String WExempEtat)
         {
             
             _connexion.OuvrirConnexion();
@@ -104,7 +111,7 @@ namespace LibMedia
             cmdsql.CommandType = System.Data.CommandType.StoredProcedure;
             cmdsql.Connection = _connexion.getConnexion();
 
-            cmdsql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int16));
+            cmdsql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.String));
             cmdsql.Parameters["wcode"].Value = wbdcode;
             cmdsql.Parameters.Add(new MySqlParameter("refexemp", MySqlDbType.String));
             cmdsql.Parameters["refexemp"].Value = WExempRef;
@@ -112,13 +119,12 @@ namespace LibMedia
             cmdsql.Parameters["wetat"].Value = WExempEtat;
 
 
-            if (_connexion.OuvrirConnexion() == true)
-            {
+          
                 unAdapter = new MySqlDataAdapter(cmdsql);
                 unDataset = new DataSet();
                 unAdapter.Fill(unDataset, "exemplaire");
                 _connexion.closeConnexion();
-            }
+            
 
             return (unDataset.Tables["exemplaire"]);
            
