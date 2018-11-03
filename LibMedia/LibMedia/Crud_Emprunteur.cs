@@ -62,11 +62,13 @@ namespace LibMedia
             if (uneconnexion.OuvrirConnexion() == true)
             {
                 codeErreur = "0";
+                //connexion à la procédure
                 MySqlCommand unecommandeSql = new MySqlCommand();
                 unecommandeSql.CommandText = nomprocedure;
                 unecommandeSql.CommandType = CommandType.StoredProcedure;
                 unecommandeSql.Connection = uneconnexion.getConnexion();
 
+                //paramétre de la procédure
                 foreach (KeyValuePair<String, Object> unParametre in parametresString)
                 {
                     unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.String));
@@ -107,13 +109,13 @@ namespace LibMedia
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
-
+                //connexion à la procédure
                 MySqlCommand unecommandeSql = new MySqlCommand();
                 unecommandeSql.CommandText = nomprocedure;
                 unecommandeSql.CommandType = CommandType.StoredProcedure;
                 unecommandeSql.Connection = uneconnexion.getConnexion();
 
-                
+                //paramétre de la procédure
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
                 unecommandeSql.Parameters["wid"].Value = wid;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
