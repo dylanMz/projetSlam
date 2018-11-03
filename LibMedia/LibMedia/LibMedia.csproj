@@ -59,6 +59,7 @@
     <Compile Include="ConnexionBase.cs" />
     <Compile Include="Couverture.cs" />
     <Compile Include="Crud_livre.cs" />
+    <Compile Include="Crud_Utilisateur.cs" />
     <Compile Include="Editeur.cs" />
     <Compile Include="Emprunt.cs" />
     <Compile Include="Emprunteur.cs" />

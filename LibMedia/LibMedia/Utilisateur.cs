@@ -18,11 +18,11 @@ namespace LibMedia
         #endregion
 
         #region Constructeur.s
-        public Utilisateur(int wutil_id, String wutil_nom, String wutil_prenom, String wutil_pseudo, String wutil_password, String wutil_niveau)
+        public Utilisateur(int wutil_id, String wutil_prenom, String wutil_nom, String wutil_pseudo, String wutil_password, String wutil_niveau)
         {
             util_id = wutil_id;
-            util_nom = wutil_nom;
             util_prenom = wutil_prenom;
+            util_nom = wutil_nom;
             util_pseudo = wutil_pseudo;
             util_password = wutil_password;
             util_niveau = wutil_niveau;
@@ -30,37 +30,37 @@ namespace LibMedia
         #endregion
 
         #region Accesseurs
-        public int _util_id
+        public int Numéro
         {
             get { return util_id; }
             set { util_id = value; }
         }
 
-        public String _util_nom
+        public String Nom
         {
             get { return util_nom; }
             set { util_nom = value; }
         }
 
-        public String _util_prenom
+        public String Prénom
         {
             get { return util_prenom; }
             set { util_prenom = value; }
         }
 
-        public String _util_pseudo
+        public String Pseudo
         {
             get { return util_pseudo; }
             set { util_pseudo = value; }
         }
 
-        public String _util_password
+        public String Mot_de_passe
         {
             get { return util_password; }
             set { util_password = value; }
         }
 
-        public String _util_niveau
+        public String Niveau
         {
             get { return util_niveau; }
             set { util_niveau = value; }

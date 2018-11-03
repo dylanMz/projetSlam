@@ -419,19 +419,19 @@ namespace InterfaceMedia
         //Affiche dans les textbox les valeurs de la ligne sélectionné.
         private void GridEditeur_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtCode.Text = GridEditeur.CurrentRow.Cells["_EditeurNum"].Value.ToString();
-            txtNom.Text = GridEditeur.CurrentRow.Cells["_EditeurNom"].Value.ToString();
+            txtCode.Text = GridEditeur.CurrentRow.Cells["Numéro"].Value.ToString();
+            txtNom.Text = GridEditeur.CurrentRow.Cells["Nom"].Value.ToString();
 
-            String date = GridEditeur.CurrentRow.Cells["_EditeurCreation"].Value.ToString();
+            String date = GridEditeur.CurrentRow.Cells["Création"].Value.ToString();
 
             DateTimeCreation.Text = "01/01/"+date+" 00:00:00";
 
-            txtVille.Text = GridEditeur.CurrentRow.Cells["_EditeurVille"].Value.ToString();
-            txtAdr.Text = GridEditeur.CurrentRow.Cells["_EditeurAdresse"].Value.ToString();
-            txtCodePostal.Text = GridEditeur.CurrentRow.Cells["_EditeurCP"].Value.ToString();
-            txtTel.Text = GridEditeur.CurrentRow.Cells["_EditeurTel"].Value.ToString();
-            txtFax.Text = GridEditeur.CurrentRow.Cells["_EditeurFax"].Value.ToString();
-            txtMail.Text = GridEditeur.CurrentRow.Cells["_EditeurMail"].Value.ToString();
+            txtVille.Text = GridEditeur.CurrentRow.Cells["Ville"].Value.ToString();
+            txtAdr.Text = GridEditeur.CurrentRow.Cells["Adresse"].Value.ToString();
+            txtCodePostal.Text = GridEditeur.CurrentRow.Cells["Code_Postal"].Value.ToString();
+            txtTel.Text = GridEditeur.CurrentRow.Cells["Téléphone"].Value.ToString();
+            txtFax.Text = GridEditeur.CurrentRow.Cells["Fax"].Value.ToString();
+            txtMail.Text = GridEditeur.CurrentRow.Cells["Mail"].Value.ToString();
 
             //Déverouille le bouton modifier et supprimer
             btnModifier.Enabled = true;
