@@ -35,6 +35,7 @@ namespace LibMedia
 
         #region Méthode
 
+        //Exécute la procédure pour récuper la table emprunteur
         public void Recup_TableEmprunteur()
         {
 
@@ -55,7 +56,7 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
-        //Exécute la procédure avec les paramétres
+        //Exécute la procédure avec les paramétres pour modifier et insert
         public void connectprocedure(String nomprocedure, ref string codeErreur, List<KeyValuePair<String, Object>> parametresString, List<KeyValuePair<String, Object>> parametresDate, int wid)
         {
             if (uneconnexion.OuvrirConnexion() == true)
@@ -100,6 +101,8 @@ namespace LibMedia
             }
         }
 
+
+        //connection à la procédure de recherche
         public void recherche(String nomprocedure, string wnom, int wid)
         {
             if (uneconnexion.OuvrirConnexion() == true)
@@ -133,6 +136,27 @@ namespace LibMedia
                     _desEmprunteurs.Add(new Emprunteur(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), DateTime.Parse(_unReader["emp_prem_adh"].ToString()), DateTime.Parse(_unReader["emp_ren_adh"].ToString())));
                 }
                // _unReader.Close();
+                uneconnexion.closeConnexion();
+            }
+        }
+
+        //Exécute la procédure de suppression d"un emprunteur
+        public void deleteEmrpunteur(String nomprocedure, int wid,String wmotif)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+
+                MySqlCommand unecommandeSql = new MySqlCommand();
+                unecommandeSql.CommandText = nomprocedure;
+                unecommandeSql.CommandType = CommandType.StoredProcedure;
+                unecommandeSql.Connection = uneconnexion.getConnexion();
+
+
+                unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                unecommandeSql.Parameters["wid"].Value = wid;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wmotif", MySqlDbType.String));
+                unecommandeSql.Parameters["wmotif"].Value = wmotif;
+                unecommandeSql.ExecuteNonQuery();
                 uneconnexion.closeConnexion();
             }
         }
