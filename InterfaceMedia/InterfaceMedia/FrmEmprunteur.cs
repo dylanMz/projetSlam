@@ -505,7 +505,7 @@ namespace InterfaceMedia
             else if (btnSupprimer.Text.Equals("Valider")& !txtMotif.Text.Equals(""))
             {
 
-                unEmprunteur.deleteEmrpunteur("proc_delete_emprunteur", Convert.ToInt32(id), txtMotif.Text);
+                unEmprunteur.deleteEmprunteur("proc_delete_emprunteur", Convert.ToInt32(id), txtMotif.Text);
 
                 lblmotif.Visible = false;
                 txtMotif.Visible = false;

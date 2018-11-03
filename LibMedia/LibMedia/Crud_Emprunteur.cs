@@ -143,7 +143,7 @@ namespace LibMedia
         }
 
         //Exécute la procédure de suppression d"un emprunteur
-        public void deleteEmrpunteur(String nomprocedure, int wid,String wmotif)
+        public void deleteEmprunteur(String nomprocedure, int wid,String wmotif)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
