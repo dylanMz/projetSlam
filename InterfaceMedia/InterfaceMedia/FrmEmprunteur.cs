@@ -48,6 +48,8 @@ namespace InterfaceMedia
         //au clic dans le dataGrid rempli les informations dans les textbox ou datetime 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnModifier.Enabled = true;
+            btnSupprimer.Enabled = true;
             id = GridEmprunteur.CurrentRow.Cells["numéro"].Value.ToString(); ;
             txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
             txtPrenom.Text = GridEmprunteur.CurrentRow.Cells["prénom"].Value.ToString();
@@ -215,6 +217,8 @@ namespace InterfaceMedia
             groupAjouterEmp.Enabled = false;
             txtNum.Visible = false;
             lblnum.Visible = false;
+            lblmotif.Visible = false;
+            txtMotif.Visible = false;
 
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
@@ -366,16 +370,6 @@ namespace InterfaceMedia
                     
                     lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail, prem, ren));
 
-                    //sb.Append("ligne: ");
-                    //sb.Append(GridEmprunteur.SelectedRows[i].Index.ToString());
-                    //sb.Append(Environment.NewLine);
-                    //sb.Append("Numéro: ");
-                    //sb.Append(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
-                    //sb.Append(Environment.NewLine);
-                    //sb.Append(GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString());
-                    //sb.Append(Environment.NewLine);
-                    //sb.Append(GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString());
-                    //sb.Append(Environment.NewLine);
                 }
                 FrmFamille lafamille = new FrmFamille(lesfamille);
                 lafamille.Show();
@@ -383,7 +377,7 @@ namespace InterfaceMedia
 
 
         }
-
+        //au clic du bouton recherche
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             if (btnRechercher.Text.Equals("Rechercher"))
@@ -466,6 +460,86 @@ namespace InterfaceMedia
                 
 
                 
+
+            }
+        }
+
+
+        //clic sur le bouton supprimer (pour supprimer un emprunteur)
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            if (btnSupprimer.Text.Equals("Supprimer") & !txtNom.Text.Equals(""))
+            {
+                groupAjouterEmp.Enabled = true;
+                txtNom.Enabled = false;
+                txtMail.Enabled = false;
+                txtCodePostal.Enabled = false;
+                txtAdresse.Enabled = false;
+                txtPrenom.Enabled = false;
+                txtVille.Enabled = false;
+                DateTimeNaissance.Enabled = false;
+                DateTimeAdhesion.Enabled = false;
+                DateTimeRenouvellement.Enabled = false;
+                btnSupprimer.BackColor = Color.Green;
+                btnSupprimer.Text = "Valider";
+
+                txtMotif.Visible = true;
+                lblmotif.Visible = true;
+
+                //le bouton annuler apparait
+                btnAnnuler.Visible = true;
+
+                //Desactive tous les autres boutons
+                btnAjouter.Enabled = false;
+                btnModifier.Enabled = false;
+                btnRechercher.Enabled = false;
+                btnFamille.Enabled = false;
+                ActiverAdh.Enabled = true;
+
+
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+                modifcouleurControlActif();
+
+            }
+            else if (btnSupprimer.Text.Equals("Valider")& !txtMotif.Text.Equals(""))
+            {
+
+                unEmprunteur.deleteEmrpunteur("proc_delete_emprunteur", Convert.ToInt32(id), txtMotif.Text);
+
+                lblmotif.Visible = false;
+                txtMotif.Visible = false;
+
+                groupAjouterEmp.Enabled = false;
+                txtNom.Enabled = true;
+                txtMail.Enabled = true;
+                txtCodePostal.Enabled = true;
+                txtAdresse.Enabled = true;
+                txtPrenom.Enabled = true;
+                txtVille.Enabled = true;
+                DateTimeNaissance.Enabled = true;
+                DateTimeAdhesion.Enabled = true;
+                DateTimeRenouvellement.Enabled = true;
+                ActiverAdh.Enabled = false;
+                btnSupprimer.Text = "Supprimer";
+                btnSupprimer.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnAjouter.Enabled = true;
+                btnModifier.Enabled = true;
+                btnRechercher.Enabled = true;
+                btnFamille.Enabled = true;
+
+
+
+                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                modifcouleurControlVerou();
+
+
+
+                //met à jour le datagrid
+                RefreshGrid();
 
             }
         }
