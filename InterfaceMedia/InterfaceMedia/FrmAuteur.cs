@@ -35,7 +35,7 @@ namespace InterfaceMedia
 
  //       }
         #endregion
-
+            
         #region Code Boutons
         //bouton ajouter
         private void btnAjouter_Click(object sender, EventArgs e)
@@ -336,6 +336,7 @@ namespace InterfaceMedia
             cmbPays.Text = dgvAuteur.CurrentRow.Cells[6].Value.ToString();
             txtBio.Text = dgvAuteur.CurrentRow.Cells[7].Value.ToString();
         }
+
     }
     #endregion
 
