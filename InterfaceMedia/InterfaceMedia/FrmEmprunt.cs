@@ -31,7 +31,7 @@ namespace InterfaceMedia
             Ajout = new Crud_Emprunt();
             Updat = new Crud_Emprunt();
             Suppr = new Crud_Emprunt();
-            ajRetour = new Crud_Emprunt(); 
+            ajRetour = new Crud_Emprunt();
             LivreEmp = new Crud_Emprunt();
             LivreNonRendu = new Crud_Emprunt();
             Search = new Crud_Emprunt();
@@ -41,7 +41,7 @@ namespace InterfaceMedia
         }
 
 
-        
+
 
         private void picHome_Click(object sender, EventArgs e)
         {
@@ -59,40 +59,12 @@ namespace InterfaceMedia
 
         private void btnAjouter_Click_1(object sender, EventArgs e)
         {
-            //activationBouton(btnAjouter, btnAjouter.Text);
             if (btnAjouter.Text.Equals("Ajouter"))
             {
-                btnAjouter.BackColor = Color.Green;
-                btnAjouter.Text = "Valider";
 
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
+                clickBouton(btnAjouter);
 
-                //Desactive tous les autres boutons
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnAjRetour.Enabled = false;
-                btnSearchEmp.Enabled = false;
-                btnLivre.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtbxNumEmp.Enabled = true;
-                txtbxRefEx.Enabled = true;
-                dtEmprunt.Enabled = true;
-                dtRetour.Enabled = true;
-                dtRetourPrevu.Enabled = true;
-
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtbxRefEx.BackColor = Color.White;
-                txtbxNumEmp.BackColor = Color.White;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
+                btnAjouter.Enabled = true;
 
             }
             else if (btnAjouter.Text.Equals("Valider"))
@@ -105,35 +77,7 @@ namespace InterfaceMedia
 
                 Ajout.insertEmprunt(lEmprunt);
 
-                btnAjouter.Text = "Ajouter";
-                btnAjouter.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnAjRetour.Enabled = true;
-                btnSearchEmp.Enabled = true;
-                btnLivre.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtbxNumEmp.Enabled = false;
-                txtbxRefEx.Enabled = false;
-                dtEmprunt.Enabled = false;
-                dtRetour.Enabled = false;
-                dtRetourPrevu.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtbxRefEx.BackColor = Color.Silver;
-                txtbxNumEmp.BackColor = Color.Silver;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
-
+                clickValider(btnAjouter, "Ajouter");
             }
         }
 
@@ -141,38 +85,9 @@ namespace InterfaceMedia
         {
             if (btnModifier.Text.Equals("Modifier"))
             {
-                btnModifier.BackColor = Color.Green;
-                btnModifier.Text = "Valider";
+                clickBouton(btnModifier);
 
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnAjouter.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnAjRetour.Enabled = false;
-                btnSearchEmp.Enabled = false;
-                btnLivre.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtbxNumEmp.Enabled = true;
-                txtbxRefEx.Enabled = true;
-                dtEmprunt.Enabled = true;
-                dtRetour.Enabled = true;
-                dtRetourPrevu.Enabled = true;
-
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtbxRefEx.BackColor = Color.White;
-                txtbxNumEmp.BackColor = Color.White;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
-
+                btnModifier.Enabled = true;
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
@@ -184,35 +99,7 @@ namespace InterfaceMedia
 
                 Updat.updateEmprunt(lEmprunt);
 
-                btnModifier.Text = "Modifier";
-                btnModifier.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnAjouter.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnAjRetour.Enabled = true;
-                btnSearchEmp.Enabled = true;
-                btnLivre.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtbxNumEmp.Enabled = false;
-                txtbxRefEx.Enabled = false;
-                dtEmprunt.Enabled = false;
-                dtRetour.Enabled = false;
-                dtRetourPrevu.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtbxRefEx.BackColor = Color.Silver;
-                txtbxNumEmp.BackColor = Color.Silver;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
-
+                clickValider(btnModifier, "Modifier");
             }
         }
 
@@ -220,34 +107,12 @@ namespace InterfaceMedia
         {
             if (btnSupprimer.Text.Equals("Supprimer"))
             {
-                btnSupprimer.BackColor = Color.Green;
-                btnSupprimer.Text = "Valider";
+                clickBouton(btnSupprimer);
 
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnAjouter.Enabled = false;
-                btnModifier.Enabled = false;
-                btnAjRetour.Enabled = false;
-                btnSearchEmp.Enabled = false;
-                btnLivre.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtbxNumEmp.Enabled = true;
-                txtbxRefEx.Enabled = true;
-
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtbxRefEx.BackColor = Color.White;
-                txtbxNumEmp.BackColor = Color.White;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
+                btnSupprimer.Enabled = true;
+                dtEmprunt.Enabled = false;
+                dtRetour.Enabled = false;
+                dtRetourPrevu.Enabled = false;
 
             }
             else if (btnSupprimer.Text.Equals("Valider"))
@@ -258,34 +123,7 @@ namespace InterfaceMedia
 
                 Suppr.deleteEmprunt(lEmprunt);
 
-                btnSupprimer.Text = "Supprimer";
-                btnSupprimer.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnAjouter.Enabled = true;
-                btnModifier.Enabled = true;
-                btnAjRetour.Enabled = true;
-                btnSearchEmp.Enabled = true;
-                btnLivre.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtbxNumEmp.Enabled = false;
-                txtbxRefEx.Enabled = false;
-                dtEmprunt.Enabled = false;
-                dtRetour.Enabled = false;
-                dtRetourPrevu.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtbxRefEx.BackColor = Color.Silver;
-                txtbxNumEmp.BackColor = Color.Silver;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
+                clickValider(btnSupprimer, "Supprimer");
             }
         }
 
@@ -293,34 +131,12 @@ namespace InterfaceMedia
         {
             if (btnAjRetour.Text.Equals("Ajouter un retour"))
             {
-                btnAjRetour.BackColor = Color.Green;
-                btnAjRetour.Text = "Valider";
+                clickBouton(btnAjRetour);
 
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
+                btnAjRetour.Enabled = true;
 
-                //Desactive tous les autres boutons
-                btnAjouter.Enabled = false;
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnSearchEmp.Enabled = false;
-                btnLivre.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtbxNumEmp.Enabled = true;
-                txtbxRefEx.Enabled = true;
-                dtRetour.Enabled = true;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtbxRefEx.BackColor = Color.White;
-                txtbxNumEmp.BackColor = Color.White;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
+                dtRetourPrevu.Enabled = false;
+                dtEmprunt.Enabled = false;
 
             }
             else if (btnAjRetour.Text.Equals("Valider"))
@@ -332,34 +148,7 @@ namespace InterfaceMedia
 
                 ajRetour.modifDate_Retour(lEmprunt);
 
-                btnAjRetour.Text = "Ajouter un retour";
-                btnAjRetour.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnAjouter.Enabled = true;
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnAjRetour.Enabled = true;
-                btnLivre.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtbxNumEmp.Enabled = false;
-                txtbxRefEx.Enabled = false;
-                dtEmprunt.Enabled = false;
-                dtRetour.Enabled = false;
-                dtRetourPrevu.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtbxRefEx.BackColor = Color.Silver;
-                txtbxNumEmp.BackColor = Color.Silver;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
+                clickValider(btnAjRetour, "Ajouter un retour");
             }
         }
 
@@ -367,34 +156,12 @@ namespace InterfaceMedia
         {
             if (btnSearchEmp.Text.Equals("Rechercher emprunt"))
             {
-                btnSearchEmp.BackColor = Color.Green;
-                btnSearchEmp.Text = "Valider";
+                clickBouton(btnSearchEmp);
 
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnAjouter.Enabled = false;
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnAjRetour.Enabled = false;
-                btnLivre.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtbxNumEmp.Enabled = true;
-                txtbxRefEx.Enabled = true;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtbxRefEx.BackColor = Color.White;
-                txtbxNumEmp.BackColor = Color.White;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
-
+                btnSearchEmp.Enabled = true;
+                dtEmprunt.Enabled = false;
+                dtRetour.Enabled = false;
+                dtRetourPrevu.Enabled = false;
             }
             else if (btnSearchEmp.Text.Equals("Valider"))
             {
@@ -403,36 +170,7 @@ namespace InterfaceMedia
 
                 GridEmprunt.DataSource = Search.rechercheEmprunt(lEmprunt);
 
-                btnSearchEmp.Text = "Rechercher emprunt";
-                btnSearchEmp.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnAjouter.Enabled = true;
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnAjRetour.Enabled = true;
-                btnLivre.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtbxNumEmp.Enabled = false;
-                txtbxRefEx.Enabled = false;
-                dtEmprunt.Enabled = false;
-                dtRetour.Enabled = false;
-                dtRetourPrevu.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtbxRefEx.BackColor = Color.Silver;
-                txtbxNumEmp.BackColor = Color.Silver;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
-                GridEmprunt.DataSource = null;
-
+                clickValider(btnSearchEmp, "Rechercher emprunt");
             }
         }
 
@@ -440,51 +178,28 @@ namespace InterfaceMedia
         {
             if (btnLivre.Text.Equals("Rechercher livre"))
             {
-                btnLivre.BackColor = Color.Green;
-                btnLivre.Text = "Valider";
+                clickBouton(btnLivre);
+
                 gpbxChoix.Visible = true;
                 rbLivreEmprunter.Enabled = true;
                 rbLivreNonRendu.Enabled = true;
-               
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnAjouter.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnAjRetour.Enabled = false;
-                btnSearchEmp.Enabled = false;
-                btnModifier.Enabled = false;
+                btnLivre.Enabled = true;
 
                 //Les textbox à remplir pour l'insertion se déverouille
                 dtDate.Enabled = true;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtbxRefEx.BackColor = Color.Silver;
-                txtbxNumEmp.BackColor = Color.Silver;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
-                dtDate.Text = "";
-                rbLivreEmprunter.Checked = false;
-                rbLivreNonRendu.Checked = false;
 
             }
             else if (btnLivre.Text.Equals("Valider"))
             {
 
-                if(rbLivreEmprunter.Checked == true)
+                if (rbLivreEmprunter.Checked == true)
                 {
 
                     DateTime lDate = Convert.ToDateTime(dtDate.Text);
 
                     GridEmprunt.DataSource = LivreEmp.rechercheDate_Emprunt(lDate);
                 }
-                else if(rbLivreNonRendu.Checked == true)
+                else if (rbLivreNonRendu.Checked == true)
                 {
                     DateTime uDate = Convert.ToDateTime(dtDate.Text);
 
@@ -492,50 +207,14 @@ namespace InterfaceMedia
                 }
                 else
                 {
-                    //Afficher un message d'erreur "veuillez cocher un choix"
+                    btDialog("Vous devez selectionner une proposition");
                 }
-                //Updat.updateEmprunt(lEmprunt);
 
-                btnLivre.Text = "Rechercher livre";
-                btnLivre.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnAjouter.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnAjRetour.Enabled = true;
-                btnSearchEmp.Enabled = true;
-                btnModifier.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtbxNumEmp.Enabled = false;
-                txtbxRefEx.Enabled = false;
-                dtEmprunt.Enabled = false;
-                dtRetour.Enabled = false;
-                dtRetourPrevu.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtbxRefEx.BackColor = Color.Silver;
-                txtbxNumEmp.BackColor = Color.Silver;
-
-                //Reinistialisation des textbox
-                txtbxNumEmp.Text = "";
-                txtbxRefEx.Text = "";
-                dtRetourPrevu.Text = "";
-                dtRetour.Text = "";
-                dtEmprunt.Text = "";
-                dtDate.Text = "";
-                rbLivreEmprunter.Checked = false;
-                rbLivreNonRendu.Checked = false;
+                clickValider(btnLivre, "Rechercher livre");
                 gpbxChoix.Visible = false;
 
             }
         }
-
-
-
-
-
 
 
         private void btnQuitter_Click(object sender, EventArgs e)
@@ -545,7 +224,7 @@ namespace InterfaceMedia
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
-            if(btnLivre.Text.Equals("Valider"))
+            if (btnLivre.Text.Equals("Valider"))
             {
                 gpbxChoix.Visible = false;
                 rbLivreEmprunter.Checked = false;
@@ -583,80 +262,98 @@ namespace InterfaceMedia
 
             txtbxNumEmp.BackColor = Color.Silver;
             txtbxRefEx.BackColor = Color.Silver;
-            
+
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
 
         }
 
-        //public void activationBouton(MetroFramework.Controls.MetroTile btn, string nomBtn)
-        //{
-        //    if (btn.Text.Equals("nomBtn"))
-        //    {
-        //        btn.BackColor = Color.Green;
-        //        btn.Text = "Valider";
+        public void clickBouton(MetroFramework.Controls.MetroTile btn)
+        {
 
-        //        //le bouton annuler apparait
-        //        btnAnnuler.Visible = true;
+            btn.BackColor = Color.Green;
+            btn.Text = "Valider";
 
-        //        //Desactive tous les autres boutons
-        //        btnModifier.Enabled = false;
-        //        btnSupprimer.Enabled = false;
-        //        btnAjRetour.Enabled = false;
-        //        btnSearchEmp.Enabled = false;
-        //        btnLivre.Enabled = false;
+            //le bouton annuler apparait
+            btnAnnuler.Visible = true;
 
-        //        //Les textbox à remplir pour l'insertion se déverouille
-        //        txtbxNumEmp.Enabled = true;
-        //        txtbxRefEx.Enabled = true;
-        //        dtEmprunt.Enabled = true;
-        //        dtRetour.Enabled = true;
-        //        dtRetourPrevu.Enabled = true;
+            //Desactive tous les autres boutons
+            btnAjouter.Enabled = false;
+            btnModifier.Enabled = false;
+            btnSupprimer.Enabled = false;
+            btnAjRetour.Enabled = false;
+            btnSearchEmp.Enabled = false;
+            btnLivre.Enabled = false;
+
+            //Les textbox à remplir pour l'insertion se déverouille
+            txtbxNumEmp.Enabled = true;
+            txtbxRefEx.Enabled = true;
+            dtEmprunt.Enabled = true;
+            dtRetour.Enabled = true;
+            dtRetourPrevu.Enabled = true;
 
 
-        //        //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-        //        txtbxRefEx.BackColor = Color.White;
-        //        txtbxNumEmp.BackColor = Color.White;
+            //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+            txtbxRefEx.BackColor = Color.White;
+            txtbxNumEmp.BackColor = Color.White;
 
-        //        //Reinistialisation des textbox
-        //        txtbxNumEmp.Text = "";
-        //        txtbxRefEx.Text = "";
-        //        dtRetourPrevu.Text = "";
-        //        dtRetour.Text = "";
-        //        dtEmprunt.Text = "";
+            //Reinistialisation des textbox
+            txtbxNumEmp.Text = "";
+            txtbxRefEx.Text = "";
+            dtRetourPrevu.Text = "";
+            dtRetour.Text = "";
+            dtEmprunt.Text = "";
+            dtDate.Text = "";
+            rbLivreEmprunter.Checked = false;
+            rbLivreNonRendu.Checked = false;
 
-        //    }
-        //    else if (btn.Text.Equals("Valider"))
-        //    {
-        //        int numE = Int32.Parse(txtbxNumEmp.Text);
-        //        DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
-        //        DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
-        //        DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
-        //        Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text, dateEm, dateRet, dateRetP);
 
-        //        btnAjouter.Text = "nomBtn";
-        //        btnAjouter.BackColor = Color.SteelBlue;
-        //        btnAnnuler.Visible = false;
+        }
 
-        //        //Re active les boutons
-        //        btnModifier.Enabled = true;
-        //        btnSupprimer.Enabled = true;
-        //        btnAjRetour.Enabled = true;
-        //        btnSearchEmp.Enabled = true;
-        //        btnLivre.Enabled = true;
+        public void clickValider(MetroFramework.Controls.MetroTile btn, string nomBtn)
+        {
 
-        //        //Les textbox sont inacessibles.
-        //        txtbxNumEmp.Enabled = false;
-        //        txtbxRefEx.Enabled = false;
-        //        dtEmprunt.Enabled = false;
-        //        dtRetour.Enabled = false;
-        //        dtRetourPrevu.Enabled = false;
+            btn.Text = nomBtn;
+            btn.BackColor = Color.SteelBlue;
+            btnAnnuler.Visible = false;
 
-        //        //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-        //        txtbxRefEx.BackColor = Color.Silver;
-        //        txtbxNumEmp.BackColor = Color.Silver;
+            //Re active les boutons
+            btnAjouter.Enabled = true;
+            btnModifier.Enabled = true;
+            btnSupprimer.Enabled = true;
+            btnAjRetour.Enabled = true;
+            btnSearchEmp.Enabled = true;
+            btnLivre.Enabled = true;
 
-        //    }
-        //}
+            //Les textbox sont inacessibles.
+            txtbxNumEmp.Enabled = false;
+            txtbxRefEx.Enabled = false;
+            dtEmprunt.Enabled = false;
+            dtRetour.Enabled = false;
+            dtRetourPrevu.Enabled = false;
+
+            //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+            txtbxRefEx.BackColor = Color.Silver;
+            txtbxNumEmp.BackColor = Color.Silver;
+
+            //Reinistialisation des textbox
+            txtbxNumEmp.Text = "";
+            txtbxRefEx.Text = "";
+            dtRetourPrevu.Text = "";
+            dtRetour.Text = "";
+            dtEmprunt.Text = "";
+            dtDate.Text = "";
+            rbLivreEmprunter.Checked = false;
+            rbLivreNonRendu.Checked = false;
+        }
+
+        public void btDialog(String leMessage)
+        {
+            // Code is entered here that performs a calculation
+            // Display a message box informing the user that the calculations 
+            // are complete
+            MessageBox.Show(leMessage, "Médiateque",
+         MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
     }
 }
