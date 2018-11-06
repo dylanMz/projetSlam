@@ -171,12 +171,30 @@ namespace InterfaceMedia
                 rdoVivant.BackColor = Color.Silver;
                 rdoDecede.BackColor = Color.Silver;
                 cmbPays.BackColor = Color.Silver;
+
+                //Vide des champs
+                txtCode.Text = "";
+                txtNom.Text = "";
+                txtPrenom.Text = "";
+                txtPseudo.Text = "";
+                txtBio.Text = "";
+                rdoVivant.Checked = false;
+                rdoDecede.Checked = false;
             }
         }
 
         //bouton rechercher
         private void btnRechercher_Click(object sender, EventArgs e)
         {
+            //Vide des champs
+            txtCode.Text = "";
+            txtNom.Text = "";
+            txtPrenom.Text = "";
+            txtPseudo.Text = "";
+            txtBio.Text = "";
+            rdoVivant.Checked = false;
+            rdoDecede.Checked = false;
+
             if (btnRechercher.Text == "Rechercher")
             {
                 btnRechercher.BackColor = Color.Green;
