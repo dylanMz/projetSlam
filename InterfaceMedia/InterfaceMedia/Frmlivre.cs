@@ -599,6 +599,8 @@ namespace InterfaceMedia
                     cmbbxediteur.BackColor = Color.White;
                     cmbbxserie.BackColor = Color.White;
 
+
+
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
