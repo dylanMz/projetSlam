@@ -89,7 +89,7 @@ namespace LibMedia
         // modification livre
         public void update_livre(int wbdcode, String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, int wedicode, int wseriecode)
         {
-         
+          
 
                 _connexion.OuvrirConnexion();
                 MySqlCommand unComdeSql = new MySqlCommand();

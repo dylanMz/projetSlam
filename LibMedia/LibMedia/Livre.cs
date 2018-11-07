@@ -27,7 +27,7 @@ namespace LibMedia
             private int numEditeur;
                 #endregion
 
-
+             
             #region Constructeur
          public Livre(int wbdcode, String wbdtitre,String wbdisbn, int wbdnumtome ,String wbdanneeparution,int wbdpages, String wbdimage,String wbdcouleur,String wbdcommentaires,String wbdformat ,int wseriecode, int wedicode)
             {

@@ -34,7 +34,7 @@ namespace LibMedia
         // Insertion d'un exemplaire
         public void ajout_exemplaire(String WExempRef, String WExempEtat, int wbdcode)
         {
-
+             
 
             _connexion.OuvrirConnexion();
             //  ouverture de la connexion avec la base
