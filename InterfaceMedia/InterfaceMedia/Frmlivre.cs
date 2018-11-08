@@ -31,7 +31,9 @@ namespace InterfaceMedia
             unexemplaire = new CRUD_Exemplaire(connexion);
             dtgrvLivre.DataSource = unlivre.afficherlivre();
             remp_cmbx();
-            
+
+            lbltest.Text = unexemplaire.ajout_exemplaire("out_erreur");
+
         }
 
         #region combo box
@@ -327,8 +329,7 @@ namespace InterfaceMedia
             cmbbxserie.Text = "";
             codelivreexmp.Text = "";
             txtbxmotif.Text = "";
-            lblmotif.Text = "";
-            lblcommentaire.Text = "";
+           
             txtbxcommentaire.Text = "";
 
             dtgrvLivre.DataSource = unlivre.afficherlivre();
@@ -382,12 +383,14 @@ namespace InterfaceMedia
                     {
                         parutiontotal = "";
                         dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
+                       
                     }
                     else
                     {
 
                         parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
                         dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
+                       
                     }
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))

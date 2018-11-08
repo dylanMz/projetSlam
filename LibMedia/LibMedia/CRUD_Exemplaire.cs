@@ -56,9 +56,10 @@ namespace LibMedia
 
             // paramtre de sortie 
 
-            MySqlParameter unComdeSqlsortie = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
+            MySqlParameter unComdeSqlsortie = new MySqlParameter("out_erreur", MySqlDbType.String);
             unComdeSql.Parameters.Add(unComdeSqlsortie);
             unComdeSqlsortie.Direction = ParameterDirection.Output;
+
 
             unComdeSql.ExecuteNonQuery();
 
