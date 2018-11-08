@@ -63,6 +63,16 @@ namespace InterfaceMedia.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap auteurtranspa {
+            get {
+                object obj = ResourceManager.GetObject("auteurtranspa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap couverture {
             get {
                 object obj = ResourceManager.GetObject("couverture", resourceCulture);
