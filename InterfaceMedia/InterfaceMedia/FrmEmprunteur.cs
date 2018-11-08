@@ -354,7 +354,7 @@ namespace InterfaceMedia
                 for (int i = 0; i < selectedRowCount; i++)
                 {
 
-                    int num = Convert.ToInt16(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
+                    num = Convert.ToInt16(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
                     String nom = GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString();
                     String prenom = GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString();
                     String rue = GridEmprunteur.SelectedRows[i].Cells[3].Value.ToString();
@@ -372,9 +372,14 @@ namespace InterfaceMedia
 
                 }
                 unchef = unEmprunteur.cheffamille(num);
+                if(unchef == 0)
+                {
+                    unchef = num;
+                }
                 if (selectedRowCount == 1)
                 {
                     unEmprunteur.lesfamilles.Clear();
+                    lesfamille.Clear();
                     unEmprunteur.Recup_Toutelafamille(unchef);
                     FrmFamille lafamille = new FrmFamille(unEmprunteur.lesfamilles);
                     lafamille.Show();
