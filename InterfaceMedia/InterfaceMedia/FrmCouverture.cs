@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using LibMedia;
+using System.IO;
 
 
 namespace InterfaceMedia
@@ -67,13 +68,13 @@ namespace InterfaceMedia
                 txtBoxParution.BackColor = Color.White;
 
                 OpenFileDialog openFile = new OpenFileDialog();
-                openFile.DefaultExt = "C:/Users/h.zagorjewsky/Source/Repos/dylanMz/projetSlam/InterfaceMedia/InterfaceMedia/Resources";
-                openFile.Filter = "Fichier MapInfoFormat (*.jpeg)|*.png";
+                openFile.DefaultExt = "InterfaceMedia/Couverture";
+                openFile.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
                 openFile.ShowDialog();
 
-                char[] supp = { '.', 'j', 'p', 'e', 'g', 'n' };
-                uneCouverture.ajouter(Int16.Parse(txtBoxCode.Text), openFile.FileName.Remove(0,63).TrimEnd(supp));
 
+                string nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
+                uneCouverture.ajouter(Int16.Parse(txtBoxCode.Text), nomCouv);
                 pctBoxCouv.Image = Image.FromFile(openFile.FileName);
 
 
@@ -135,12 +136,13 @@ namespace InterfaceMedia
                 txtBoxParution.BackColor = Color.White;
 
                 OpenFileDialog openFile = new OpenFileDialog();
-                openFile.DefaultExt = "C:/Users/h.zagorjewsky/Source/Repos/dylanMz/projetSlam/InterfaceMedia/InterfaceMedia/Resources";
-                openFile.Filter = "Fichier MapInfoFormat (*.jpeg)|*.png";
+                openFile.DefaultExt = "InterfaceMedia/Couverture";
+                openFile.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
                 openFile.ShowDialog();
 
-                char[] supp = { '.', 'j', 'p', 'e', 'g' };
-                uneCouverture.ajouter(Int16.Parse(txtBoxCode.Text), openFile.FileName.Remove(0, 63).TrimEnd(supp));
+                string nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
+                uneCouverture.modifier(Int16.Parse(txtBoxCode.Text), nomCouv);
+                pctBoxCouv.Image = Image.FromFile(openFile.FileName);
             }
             else if (btnAjouter.Text.Equals("Valider"))
             {
@@ -333,10 +335,31 @@ namespace InterfaceMedia
             txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
             txtBoxTome.Text = GridViewBase.CurrentRow.Cells["BdTome"].Value.ToString();
 
-            string uneImage = uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text));
-            
-            pctBoxCouv.Image = Image.FromFile("C:/Users/h.zagorjewsky/Desktop/Etudiants_MotsTordus/couverture/"+uneImage+".png");
+            if (uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text))== "nondispo")
+            {
+                pctBoxCouv.Image = Properties.Resources.nondispo;
+            }
+            else
+            {
+                string uneImage = uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text));
 
+                /*if (File.Exists("InterfaceMedia/Couverture/" + uneImage + ".png") == true)
+                {
+                    pctBoxCouv.Image = Image.FromFile("InterfaceMedia/Couverture/" + uneImage + ".png");
+                }*/
+                if (File.Exists("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/8_3.png") == false)
+                {
+                    pctBoxCouv.Image = Image.FromFile("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/8_3.png");
+                }
+                else if (File.Exists("InterfaceMedia/Couverture/" + uneImage + ".jpeg") == true) 
+                {
+                    pctBoxCouv.Image = Image.FromFile("Couverture/" + uneImage + ".jpeg");
+                }
+                else if (File.Exists("InterfaceMedia/Couverture/" + uneImage + ".jpg") == true)
+                {
+                    pctBoxCouv.Image = Image.FromFile("Couverture/" + uneImage + ".jpg");
+                }
+            }
         }
 
         private void RempGridCouverture(List<Couverture> lesCouvertures)
