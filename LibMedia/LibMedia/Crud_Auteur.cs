@@ -44,7 +44,6 @@ namespace LibMedia
             {
                 while (read.Read())
                 {
-                   
                     ListRetour.Add(read.GetString(0));     //Instancie tout les occurences et les ajoute a la liste
                 }
             }
