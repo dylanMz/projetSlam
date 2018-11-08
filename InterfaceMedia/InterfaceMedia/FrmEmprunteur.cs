@@ -24,6 +24,7 @@ namespace InterfaceMedia
         private ConnexionBase uneconnexion;
         private List<Famille> lesfamille;
         private int unchef;
+        private Boolean newfamille = false;
 
         public FrmEmprunteur()
         {
@@ -102,7 +103,7 @@ namespace InterfaceMedia
                 modifcouleurControlActif();
 
             }
-            else if (btnAjouter.Text.Equals("Valider"))
+            else if (btnAjouter.Text.Equals("Valider")&!txtNom.Text.Equals("")&!txtPrenom.Text.Equals(""))
             {
                 utilisemethodeprocedure("proc_insert_emprunteur");
                 groupAjouterEmp.Enabled = false;
@@ -378,15 +379,17 @@ namespace InterfaceMedia
                 }
                 if (selectedRowCount == 1)
                 {
+                    newfamille = false;
                     unEmprunteur.lesfamilles.Clear();
                     lesfamille.Clear();
                     unEmprunteur.Recup_Toutelafamille(unchef);
-                    FrmFamille lafamille = new FrmFamille(unEmprunteur.lesfamilles);
+                    FrmFamille lafamille = new FrmFamille(unEmprunteur.lesfamilles, newfamille);
                     lafamille.Show();
                 }
                 else
                 {
-                    FrmFamille lafamille = new FrmFamille(lesfamille);
+                    newfamille = true;
+                    FrmFamille lafamille = new FrmFamille(lesfamille, newfamille);
                     lafamille.Show();
                 }
 
