@@ -28,18 +28,20 @@ namespace InterfaceMedia
             unAuteur = new Crud_Auteur(connexion);
             dgvAuteur.DataSource = unAuteur.afficheAuteur();
         }
-
-        #region Constructeur.s
-        //public List<String> FrmAuteur()
-        //{
-
- //       }
-        #endregion
-
+            
         #region Code Boutons
         //bouton ajouter
         private void btnAjouter_Click(object sender, EventArgs e)
         {
+            //Vide des champs
+            txtCode.Text = "";
+            txtNom.Text = "";
+            txtPrenom.Text = "";
+            txtPseudo.Text = "";
+            txtBio.Text = "";
+            rdoVivant.Checked = false;
+            rdoDecede.Checked = false;
+
             if (btnAjouter.Text == "Ajouter")
             {
                 btnAjouter.BackColor = Color.Green;
@@ -72,6 +74,9 @@ namespace InterfaceMedia
                 rdoDecede.BackColor = Color.WhiteSmoke;
                 cmbPays.BackColor = Color.White;
 
+                //On verouille le DGV
+                dgvAuteur.Enabled = false;
+
             }
 
             else if (btnAjouter.Text == "Valider")
@@ -103,6 +108,9 @@ namespace InterfaceMedia
                 rdoVivant.BackColor = Color.Silver;
                 rdoDecede.BackColor = Color.Silver;
                 cmbPays.BackColor = Color.Silver;
+
+                //on déverouille le DGV
+                dgvAuteur.Enabled = true;
             }
         }
 
@@ -140,6 +148,9 @@ namespace InterfaceMedia
                 rdoVivant.BackColor = Color.WhiteSmoke;
                 rdoDecede.BackColor = Color.WhiteSmoke;
                 cmbPays.BackColor = Color.White;
+
+                //On verouille le DGV
+                dgvAuteur.Enabled = false;
             }
 
             else if (btnModifier.Text == "Valider")
@@ -171,12 +182,33 @@ namespace InterfaceMedia
                 rdoVivant.BackColor = Color.Silver;
                 rdoDecede.BackColor = Color.Silver;
                 cmbPays.BackColor = Color.Silver;
+
+                //Vide des champs
+                txtCode.Text = "";
+                txtNom.Text = "";
+                txtPrenom.Text = "";
+                txtPseudo.Text = "";
+                txtBio.Text = "";
+                rdoVivant.Checked = false;
+                rdoDecede.Checked = false;
+
+                //on déverouille le DGV
+                dgvAuteur.Enabled = true;
             }
         }
 
         //bouton rechercher
         private void btnRechercher_Click(object sender, EventArgs e)
         {
+            //Vide des champs
+            txtCode.Text = "";
+            txtNom.Text = "";
+            txtPrenom.Text = "";
+            txtPseudo.Text = "";
+            txtBio.Text = "";
+            rdoVivant.Checked = false;
+            rdoDecede.Checked = false;
+
             if (btnRechercher.Text == "Rechercher")
             {
                 btnRechercher.BackColor = Color.Green;
@@ -259,6 +291,9 @@ namespace InterfaceMedia
             rdoDecede.Enabled = false;
             cmbPays.Enabled = false;
 
+            //on déverouille le DGV
+            dgvAuteur.Enabled = true;
+
             //Le background color des textbox change de couleur pour indiquer qu'elles sont verrouillées
             txtCode.BackColor = Color.Silver;
             txtNom.BackColor = Color.Silver;
@@ -336,6 +371,7 @@ namespace InterfaceMedia
             cmbPays.Text = dgvAuteur.CurrentRow.Cells[6].Value.ToString();
             txtBio.Text = dgvAuteur.CurrentRow.Cells[7].Value.ToString();
         }
+
     }
     #endregion
 

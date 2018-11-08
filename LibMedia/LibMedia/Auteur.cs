@@ -20,7 +20,6 @@ namespace LibMedia
         public List<Auteur> listePays;
 
         #endregion
-        
 
         #region constructeur
 
@@ -36,11 +35,7 @@ namespace LibMedia
             AuteurBiographie = uneBiographie;
         }
 
-        public Auteur()
-        {
-
-        }
-
+        
         #endregion
 
         #region Accesseurs
