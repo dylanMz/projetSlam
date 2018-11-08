@@ -51,6 +51,87 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
+
+        public void ajout_utilisateur(String wprenom, String wnom, String wpseudo, String wpassword, String wniveau)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand unComdeSql = new MySqlCommand();
+                unComdeSql.CommandText = "proc_insert_utilisateur";
+                unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
+                unComdeSql.Connection = uneconnexion.getConnexion();
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                unComdeSql.Parameters["wprenom"].Value = wprenom;
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                unComdeSql.Parameters["wnom"].Value = wnom;
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                unComdeSql.Parameters["wpseudo"].Value = wpseudo;
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wpassword", MySqlDbType.String));
+                unComdeSql.Parameters["wpassword"].Value = wpassword;
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wniveau", MySqlDbType.String));
+                unComdeSql.Parameters["wniveau"].Value = wniveau;
+
+                unComdeSql.ExecuteNonQuery();
+
+                uneconnexion.closeConnexion();
+            }
+        }
+
+        public void modification_utilisateur(int wnum, String wprenom, String wnom, String wpseudo, String wpassword, String wniveau)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand unComdeSql = new MySqlCommand();
+                unComdeSql.CommandText = "proc_update_utilisateur";
+                unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
+                unComdeSql.Connection = uneconnexion.getConnexion();
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                unComdeSql.Parameters["wprenom"].Value = wprenom;
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                unComdeSql.Parameters["wnom"].Value = wnom;
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                unComdeSql.Parameters["wpseudo"].Value = wpseudo;
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wpassword", MySqlDbType.String));
+                unComdeSql.Parameters["wpassword"].Value = wpassword;
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wniveau", MySqlDbType.String));
+                unComdeSql.Parameters["wniveau"].Value = wniveau;
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wnum", MySqlDbType.Int16));
+                unComdeSql.Parameters["wnum"].Value = wnum;
+
+                unComdeSql.ExecuteNonQuery();
+
+                uneconnexion.closeConnexion();
+            }
+        }
+
+        public void suppression_utilisateur(int unNum)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand unComdeSql = new MySqlCommand();
+                unComdeSql.CommandText = "proc_delete_utilisateur";
+                unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
+                unComdeSql.Connection = uneconnexion.getConnexion();
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wnum", MySqlDbType.Int16));
+                unComdeSql.Parameters["wnum"].Value = unNum;
+
+                unComdeSql.ExecuteNonQuery();
+
+                uneconnexion.closeConnexion();
+            }
+        }
         #endregion
 
         #region Accesseurs
