@@ -171,16 +171,16 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -189,36 +189,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_1.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_3.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_5.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_6.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_7.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_8.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_9.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1_10.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\2_1.jpg" />
@@ -645,12 +615,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\9_13.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\9_extrait.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\10_1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\10_2.jpg" />
@@ -1509,6 +1473,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\28_13.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ecour-icon.bmp" />
+    <None Include="Resources\ecour-icon.png" />
+    <Content Include="Resources\QuitterIcone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
