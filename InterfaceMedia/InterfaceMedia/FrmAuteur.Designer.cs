@@ -120,7 +120,7 @@
             this.btnQuitter.Location = new System.Drawing.Point(18, 19);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(169, 44);
-            this.btnQuitter.TabIndex = 17;
+            this.btnQuitter.TabIndex = 15;
             this.btnQuitter.Text = "Quitter";
             this.btnQuitter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnQuitter.TileImage = global::InterfaceMedia.Properties.Resources.QuitterIcone;
@@ -157,7 +157,7 @@
             this.btnRechercher.Location = new System.Drawing.Point(24, 197);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(169, 43);
-            this.btnRechercher.TabIndex = 15;
+            this.btnRechercher.TabIndex = 13;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRechercher.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -174,7 +174,7 @@
             this.btnAnnuler.Location = new System.Drawing.Point(24, 463);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
-            this.btnAnnuler.TabIndex = 16;
+            this.btnAnnuler.TabIndex = 14;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAnnuler.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -250,7 +250,7 @@
             this.dgvAuteur.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvAuteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAuteur.Size = new System.Drawing.Size(703, 219);
-            this.dgvAuteur.TabIndex = 19;
+            this.dgvAuteur.TabIndex = 16;
             this.dgvAuteur.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAuteur_CellClick);
             // 
             // grpAuteur

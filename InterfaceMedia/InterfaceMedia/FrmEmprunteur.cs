@@ -104,7 +104,6 @@ namespace InterfaceMedia
             else if (btnAjouter.Text.Equals("Valider"))
             {
                 utilisemethodeprocedure("proc_insert_emprunteur");
-
                 groupAjouterEmp.Enabled = false;
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
@@ -362,13 +361,11 @@ namespace InterfaceMedia
                     String ville = GridEmprunteur.SelectedRows[i].Cells[5].Value.ToString();
                     DateTime naiis = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString());
                     String mail = GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString();
-                    DateTime prem = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[8].Value.ToString());
-                    DateTime ren = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[9].Value.ToString());
 
 
 
                     
-                    lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail, prem, ren));
+                    lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail));
 
                 }
                 FrmFamille lafamille = new FrmFamille(lesfamille);

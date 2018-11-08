@@ -16,11 +16,12 @@ namespace InterfaceMedia
     public partial class FrmFamille : MetroForm
     {
         private List<Famille> lesidfamilles;
-        
+        private Crud_Emprunteur unemprunteur;
+
 
         public FrmFamille(List<Famille> familles)
         {
-            
+            unemprunteur = new Crud_Emprunteur();
             InitializeComponent();
             this.lesidfamilles = familles;
             RefreshGrid();
@@ -42,8 +43,52 @@ namespace InterfaceMedia
 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtnum.Text =  GridFamille.CurrentRow.Cells["numéro"].Value.ToString();
+            txtnum.Text = GridFamille.CurrentRow.Cells["numéro"].Value.ToString();
             txtnom.Text = GridFamille.CurrentRow.Cells["nom"].Value.ToString();
+        }
+
+        private void btnAjouter_Click(object sender, EventArgs e)
+        {
+            if (btnAjouter.Text.Equals("Ajouter"))
+            {
+                btnAjouter.Text = "Valider";
+                btnAnnuler.Visible = true;
+
+            }
+            else if (btnAjouter.Text.Equals("Valider"))
+            {
+                btnAjouter.Text = "Ajouter";
+                btnAjouter.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnModifier.Enabled = true;
+
+
+                
+
+                //Ajoute le chef de famille à tout les membre du datagrid
+                Int32 RowCount = GridFamille.RowCount;
+                if (RowCount > 0)
+                {
+                    //System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+                    for (int i = 0; i < RowCount; i++)
+                    {
+
+                        int num = Convert.ToInt16(GridFamille.Rows[i].Cells[0].Value.ToString());
+                        int compar = Convert.ToInt32(txtnum.Text);
+                        if (compar != num)
+                        {
+                            unemprunteur.InsertFamille("proc_insert_famille", Convert.ToInt32(txtnum.Text), num);
+                        }
+
+                    }
+                }
+
+                //met à jour le datagrid
+                RefreshGrid();
+            }
         }
     }
 }

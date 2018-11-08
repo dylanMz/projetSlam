@@ -16,6 +16,7 @@ namespace LibMedia
         private MySqlCommand rechercheAut;
         private MySqlCommand paysAut;
         private MySqlCommand afficheAut;
+        private MySqlCommand unComdeSql;
         private MySqlDataAdapter unAdapter;
         private DataSet unDataset;
         private ConnexionBase connexion;
@@ -25,6 +26,33 @@ namespace LibMedia
         public Crud_Auteur(ConnexionBase connexion_en_cours)
         {
             connexion = connexion_en_cours;
+        }
+
+        public List<String> CreateListPays()
+        {
+            List<String> ListRetour;
+            ListRetour = new List<String>();
+            connexion.OuvrirConnexion();
+            unComdeSql = new MySqlCommand();
+            unComdeSql.CommandText = "proc_selection_pays_auteur";
+            unComdeSql.CommandType = CommandType.StoredProcedure;
+            unComdeSql.Connection = connexion.getConnexion();
+
+            MySqlDataReader read = unComdeSql.ExecuteReader(); //Permet de lire les lignes
+
+            if (read.HasRows)
+            {
+                while (read.Read())
+                {
+                    ListRetour.Add(read.GetString(0));     //Instancie tout les occurences et les ajoute a la liste
+                }
+            }
+            else
+            {
+                Console.WriteLine("Il n'y a pas d'occurence");
+            }
+
+            return ListRetour;
         }
         #endregion
 
