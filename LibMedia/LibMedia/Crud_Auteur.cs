@@ -29,7 +29,7 @@ namespace LibMedia
         }
 
         public List<String> CreateListPays()
-        {
+        { 
             List<String> ListRetour;
             ListRetour = new List<String>();
             connexion.OuvrirConnexion();
@@ -38,22 +38,24 @@ namespace LibMedia
             unComdeSql.CommandType = CommandType.StoredProcedure;
             unComdeSql.Connection = connexion.getConnexion();
 
-        //    MySqlDataReader read = unComdeSql.ExecuteReader(); //Permet de lire les lignes
+            MySqlDataReader read = unComdeSql.ExecuteReader(); //Permet de lire les lignes
 
-        //    if (read.HasRows)
-        //    {
-        //        while (read.Read())
-        //        {
-        //            ListRetour.Add(read.GetString(0));     //Instancie tout les occurences et les ajoute a la liste
-        //        }
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Il n'y a pas d'occurence");
-        //    }
+            if (read.HasRows)
+            {
+                while (read.Read())
+                {
+                    //ListRetour.Add(read.GetString(0));     
+                    String liste = read.GetString(0);
+                    ListRetour.Add(liste); //Instancie tout les occurences et les ajoute a la liste
+                }
+            }
+            else
+            {
+                Console.WriteLine("Il n'y a pas d'occurence");
+            }
 
-        //    return ListRetour;
-        //}
+            return ListRetour;
+        }
         #endregion
 
         #region appel des procédures
