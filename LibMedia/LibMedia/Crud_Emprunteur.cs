@@ -189,7 +189,7 @@ namespace LibMedia
             }
         }
 
-        //Exécute la procédure d'ajout d'un chef de famille
+        //Exécute la procédure de modification d'un chef de famille
         public void UpdateFamille(String nomprocedure, int widres, int widdep, int ancienresp)
         {
             if (uneconnexion.OuvrirConnexion() == true)
@@ -200,12 +200,12 @@ namespace LibMedia
                 unecommandeSql.CommandType = CommandType.StoredProcedure;
                 unecommandeSql.Connection = uneconnexion.getConnexion();
 
-
+                //Les paramétres
                 unecommandeSql.Parameters.Add(new MySqlParameter("widres", MySqlDbType.Int32));
                 unecommandeSql.Parameters["widres"].Value = widres;
-                unecommandeSql.Parameters.Add(new MySqlParameter("widdep", MySqlDbType.Int32));
+                unecommandeSql.Parameters.Add(new MySqlParameter("widdep", MySqlDbType.Int16));
                 unecommandeSql.Parameters["widdep"].Value = widdep;
-                unecommandeSql.Parameters.Add(new MySqlParameter("wanienresp", MySqlDbType.Int32));
+                unecommandeSql.Parameters.Add(new MySqlParameter("wancienresp", MySqlDbType.Int16));
                 unecommandeSql.Parameters["wancienresp"].Value = ancienresp;
                 unecommandeSql.ExecuteNonQuery();
                 uneconnexion.closeConnexion();
