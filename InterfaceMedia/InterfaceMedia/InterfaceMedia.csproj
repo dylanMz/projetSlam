@@ -74,11 +74,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmAccueilTest.cs">
+    <Compile Include="FrmAccueil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAccueilTest.Designer.cs">
-      <DependentUpon>FrmAccueilTest.cs</DependentUpon>
+    <Compile Include="FrmAccueil.Designer.cs">
+      <DependentUpon>FrmAccueil.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAdmin.cs">
       <SubType>Form</SubType>
@@ -136,8 +136,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmAccueilTest.resx">
-      <DependentUpon>FrmAccueilTest.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAccueil.resx">
+      <DependentUpon>FrmAccueil.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
