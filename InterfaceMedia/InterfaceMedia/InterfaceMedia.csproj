@@ -177,26 +177,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\editeur.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\couverture.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\depositphotos_116550360-stock-illustration-author-icon-author-sign.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\auteurtranspa.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\livreOuvert.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconeEmprunt.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\iconeEmprunteur.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
