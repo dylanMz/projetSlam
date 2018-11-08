@@ -19,9 +19,10 @@ namespace InterfaceMedia
         private Crud_livre unlivre;
         private CRUD_Exemplaire unexemplaire;
         public string format;
+        private List<String> rempauteur;
         Thread th;
-        
-           
+
+
 
         public Frmlivre()
         {
@@ -31,11 +32,24 @@ namespace InterfaceMedia
             unexemplaire = new CRUD_Exemplaire(connexion);
             dtgrvLivre.DataSource = unlivre.afficherlivre();
             remp_cmbx();
+           remp_cmbbx_nomauteur();
+        }
+        
 
-            lbltest.Text = unexemplaire.ajout_exemplaire("out_erreur");
+        public void remp_cmbbx_nomauteur()
+        {
+            rempauteur = unlivre.affiche_nomauteur();
+
+            int i;
+            for (i = 0; i < rempauteur.LongCount(); i++)
+            {
+                if (!rempauteur[i].Equals(""))
+                {
+                    cmbbxauteur.Items.Add(rempauteur[i]);
+                }
+            }
 
         }
-
         #region combo box
         public void remp_cmbx()
         {
@@ -45,7 +59,7 @@ namespace InterfaceMedia
                 cmbbxannee.Items.Add(i);
             }
             // remplissage combo box mois
-            for ( int a =01; a <= 12; a++)
+            for (int a = 01; a <= 12; a++)
             {
                 if (a < 10)
                 {
@@ -56,7 +70,12 @@ namespace InterfaceMedia
                     cmbbxmois.Items.Add(a);
                 }
             }
+
+
         }
+
+
+
 
 
         #endregion
@@ -141,7 +160,7 @@ namespace InterfaceMedia
             }
             else if (btnAjouter.Text.Equals("Valider"))
             {
-               
+
                 if (btnexemp.Text.Equals("exemplaire"))
                 {
 
@@ -170,16 +189,17 @@ namespace InterfaceMedia
 
 
                 }
-                else if  (btnexemp.Text.Equals("Livre")){
+                else if (btnexemp.Text.Equals("Livre"))
+                {
                     string parutiontotal;
-               
 
-                        parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
+
+                    parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
 
                     unlivre.ajout_livre(txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text, Int32.Parse(txtbxediteur.Text), Int32.Parse(txtbxserie.Text));
                 }
-                        // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
-                        btnAjouter.Text = "Ajouter";
+                // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
+                btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
 
@@ -307,7 +327,7 @@ namespace InterfaceMedia
             rdbtnA.Checked = false;
             rdbtnb.Checked = false;
             rdbtnta.Checked = false;
-            rdbtntb.Checked = false; 
+            rdbtntb.Checked = false;
 
             txtbxcode.Text = "";
             txtbxtitre.Text = "";
@@ -323,16 +343,17 @@ namespace InterfaceMedia
             txtbxserie.Text = "";
             txtbxauteur.Text = "";
             txtbxreferencerexemp.Text = "";
-            
+
             cmbbxauteur.Text = "";
             cmbbxediteur.Text = "";
             cmbbxserie.Text = "";
             codelivreexmp.Text = "";
             txtbxmotif.Text = "";
-           
+
             txtbxcommentaire.Text = "";
 
             dtgrvLivre.DataSource = unlivre.afficherlivre();
+
         }
         //bouton rechercher
         private void btnRechercher_Click(object sender, EventArgs e)
@@ -345,10 +366,10 @@ namespace InterfaceMedia
 
 
                 //desactive les autres boutons
-              
-                    btnSupprimer.Enabled = false;
-                    btnModifier.Enabled = false;
-                    btnAjouter.Enabled = false;
+
+                btnSupprimer.Enabled = false;
+                btnModifier.Enabled = false;
+                btnAjouter.Enabled = false;
                 if (btnexemp.Text.Equals("Livre"))
                 {
 
@@ -383,28 +404,28 @@ namespace InterfaceMedia
                     {
                         parutiontotal = "";
                         dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
-                       
+
                     }
                     else
                     {
 
                         parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
                         dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
-                       
+
                     }
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
-                    
+
 
                     if (rdbtnA.Checked == true)
                     {
-                         format = rdbtnA.Text;
+                        format = rdbtnA.Text;
                     }
                     else if (rdbtnb.Checked == true)
                     {
                         format = rdbtnb.Text;
-                   }
+                    }
                     else if (rdbtnta.Checked == true)
                     {
                         format = rdbtnta.Text;
@@ -417,13 +438,13 @@ namespace InterfaceMedia
                     {
                         format = "";
                     }
-                    dtgrvLivre.DataSource =unexemplaire.recherche_exemplaire(codelivreexmp.Text, txtbxreferencerexemp.Text, format);
+                    dtgrvLivre.DataSource = unexemplaire.recherche_exemplaire(codelivreexmp.Text, txtbxreferencerexemp.Text, format);
 
-                   
+
 
                 }
 
-                    btnRechercher.BackColor = Color.SteelBlue;
+                btnRechercher.BackColor = Color.SteelBlue;
                 btnRechercher.Text = "Rechercher";
                 btnAnnuler.Visible = false;
 
@@ -450,7 +471,7 @@ namespace InterfaceMedia
                 txtbxreferencerexemp.BackColor = Color.Silver;
                 codelivreexmp.BackColor = Color.Silver;
             }
-            
+
         }
         // BOUTON SUPPRIMER
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -469,8 +490,8 @@ namespace InterfaceMedia
                 {
                     // textbox activer pour l'insertion
 
-                   txtbxcode.Enabled = true;
-                   
+                    txtbxcode.Enabled = true;
+
                     txtbxmotif.Visible = true;
                     lblmotif.Visible = true;
                     lblcommentaire.Visible = false;
@@ -481,7 +502,7 @@ namespace InterfaceMedia
                     txtbxcode.BackColor = Color.White;
 
 
-                    
+
 
 
                 }
@@ -489,7 +510,7 @@ namespace InterfaceMedia
                 {
                     // textbox activer pour l'insertion
 
-                  
+
 
                     txtbxreferencerexemp.Enabled = true;
                     txtbxmotif.Visible = true;
@@ -499,7 +520,7 @@ namespace InterfaceMedia
 
                     // modification des couleur 
 
-                   
+
 
 
                     txtbxreferencerexemp.BackColor = Color.White;
@@ -511,15 +532,15 @@ namespace InterfaceMedia
                 {
                     unlivre.Delete_livre(Int32.Parse(txtbxcode.Text));
                     unlivre.delet_motif(txtbxmotif.Text, Int32.Parse(txtbxcode.Text));
-                        }
+                }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
                     unexemplaire.delete_exemplaire(txtbxreferencerexemp.Text);
                     unexemplaire.delete_motif(txtbxreferencerexemp.Text, txtbxmotif.Text);
                 }
-                      
 
-                   
+
+
                 btnSupprimer.BackColor = Color.SteelBlue;
                 btnSupprimer.Text = "Supprimer";
                 btnAnnuler.Visible = false;
@@ -539,11 +560,11 @@ namespace InterfaceMedia
                 txtbxcommentaire.Visible = true;
                 // change la couleur 
                 txtbxcode.BackColor = Color.Silver;
-               
+
                 txtbxreferencerexemp.BackColor = Color.Silver;
 
             }
-            }
+        }
 
         //  BOUTON MODIFIER
         private void btnModifier_Click(object sender, EventArgs e)
@@ -771,14 +792,14 @@ namespace InterfaceMedia
                 rdbtnb.Enabled = true;
                 rdbtnta.Enabled = true;
                 rdbtntb.Enabled = true;
-                
+
                 codelivreexmp.Enabled = true;
 
                 // modification des couleur 
-     
+
                 txtbxreferencerexemp.BackColor = Color.White;
                 codelivreexmp.BackColor = Color.White;
-    
+
 
             }
 
@@ -803,16 +824,16 @@ namespace InterfaceMedia
                 txtbxediteur.Enabled = true;
                 txtbxserie.Enabled = true;
                 txtbxauteur.Enabled = true;
-            
-       
+
+
                 cmbbxauteur.Enabled = true;
                 cmbbxediteur.Enabled = true;
                 cmbbxserie.Enabled = true;
-        
+
                 txtbxcode.Enabled = false;
                 txtbxcode.Enabled = true;
                 // modification des couleur 
-              
+
                 txtbxtitre.BackColor = Color.White;
                 txtbxisbn.BackColor = Color.White;
                 txtbxcouleur.BackColor = Color.White;
@@ -826,7 +847,7 @@ namespace InterfaceMedia
                 txtbxserie.BackColor = Color.White;
                 txtbxauteur.BackColor = Color.White;
 
-      
+
                 cmbbxauteur.BackColor = Color.White;
                 cmbbxediteur.BackColor = Color.White;
                 cmbbxserie.BackColor = Color.White;
@@ -837,7 +858,7 @@ namespace InterfaceMedia
                 btnexemp.Text = "exemplaire";
 
 
-               
+
                 txtbxreferencerexemp.Enabled = true;
                 codelivreexmp.Enabled = true;
                 rdbtnA.Enabled = true;
@@ -845,10 +866,10 @@ namespace InterfaceMedia
                 rdbtnta.Enabled = true;
                 rdbtntb.Enabled = true;
                 // modification des couleur 
-              
+
                 txtbxreferencerexemp.BackColor = Color.White;
                 codelivreexmp.BackColor = Color.White;
-             
+
             }
 
 
@@ -872,7 +893,7 @@ namespace InterfaceMedia
                 txtbxediteur.Enabled = true;
                 txtbxserie.Enabled = true;
                 txtbxauteur.Enabled = true;
-      
+
                 cmbbxauteur.Enabled = true;
                 cmbbxediteur.Enabled = true;
                 cmbbxserie.Enabled = true;
@@ -892,7 +913,7 @@ namespace InterfaceMedia
                 txtbxserie.BackColor = Color.White;
                 txtbxauteur.BackColor = Color.White;
 
-                
+
                 cmbbxauteur.BackColor = Color.White;
                 cmbbxediteur.BackColor = Color.White;
                 cmbbxserie.BackColor = Color.White;
@@ -945,7 +966,7 @@ namespace InterfaceMedia
             if (btnexemp.Text.Equals("exemplaire") & btnRechercher.Text.Equals("Valider"))
             {
                 btnexemp.Text = "Livre";
-        
+
 
                 txtbxtitre.Enabled = true;
                 cmbbxannee.Enabled = true;
@@ -955,7 +976,7 @@ namespace InterfaceMedia
                 cmbbxannee.BackColor = Color.White;
                 cmbbxmois.BackColor = Color.White;
             }
-           else  if (btnexemp.Text.Equals("Livre") & btnRechercher.Text.Equals("Valider"))
+            else if (btnexemp.Text.Equals("Livre") & btnRechercher.Text.Equals("Valider"))
             {
                 btnexemp.Text = "exemplaire";
                 codelivreexmp.Enabled = true;
@@ -971,7 +992,7 @@ namespace InterfaceMedia
 
         }
 
-     
+
         // affichage des informations de la base dans le datagridview
         private void dtgrvlivre_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
@@ -997,7 +1018,7 @@ namespace InterfaceMedia
                 txtbxserie.Text = dtgrvLivre.CurrentRow.Cells[9].Value.ToString();
                 txtbxediteur.Text = dtgrvLivre.CurrentRow.Cells[10].Value.ToString();
             }
-            
+
         }
         #endregion
 
@@ -1018,6 +1039,9 @@ namespace InterfaceMedia
         {
             Application.Run(new FrmAccueilTest());
         }
-    }
 
+       
+          
+    }
 }
+

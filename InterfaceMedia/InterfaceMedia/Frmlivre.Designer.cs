@@ -548,6 +548,7 @@
             this.cmbbxauteur.TabIndex = 76;
             this.cmbbxauteur.UseCustomBackColor = true;
             this.cmbbxauteur.UseSelectable = true;
+         
             // 
             // cmbbxserie
             // 

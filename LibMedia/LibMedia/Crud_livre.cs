@@ -19,6 +19,7 @@ namespace LibMedia
         private MySqlDataAdapter unAdapter;
         private DataSet unDataset;
         private ConnexionBase _connexion;
+      
         #endregion
 
         #region constructeur
@@ -156,6 +157,7 @@ namespace LibMedia
 
                 _connexion.closeConnexion();
         }
+        // ajout d'un motif dans archivage en meme temps que la sup
         public void delet_motif(String wmotif, int leCode)
         {
             _connexion.OuvrirConnexion();
@@ -229,8 +231,37 @@ namespace LibMedia
         
         }
 
+        public List<String> affiche_nomauteur()
+        {
+            List<String> ListRetour;
+            ListRetour = new List<String>();
+            _connexion.OuvrirConnexion();
 
-       
+            cmdsql = new MySqlCommand();
+            cmdsql.CommandText = "proc_affiche_nomauteur";
+            cmdsql.CommandType = CommandType.StoredProcedure;
+            cmdsql.Connection = _connexion.getConnexion();
+
+            MySqlDataReader read = cmdsql.ExecuteReader(); //Permet de lire les lignes
+
+            if (read.HasRows)
+            {
+                while (read.Read())
+                {
+                    string L1 = read.GetString(0);
+                    ListRetour.Add(L1);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Il n'y a pas d'occurence");
+            }
+            _connexion.closeConnexion();
+            return ListRetour;
+           
+        }
+
+
         #endregion
 
 
