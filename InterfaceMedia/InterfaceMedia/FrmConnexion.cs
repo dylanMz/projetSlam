@@ -18,5 +18,22 @@ namespace InterfaceMedia
         {
             InitializeComponent();
         }
+
+        private void btnConnexion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void lblMdpOublie_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
