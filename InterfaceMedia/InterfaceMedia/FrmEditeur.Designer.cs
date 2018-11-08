@@ -37,7 +37,7 @@
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel_codepostal = new MetroFramework.Controls.MetroLabel();
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.txtCode = new MetroFramework.Controls.MetroTextBox();
+            this.code = new MetroFramework.Controls.MetroTextBox();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
             this.txtFax = new MetroFramework.Controls.MetroTextBox();
             this.txtMail = new MetroFramework.Controls.MetroTextBox();
@@ -112,7 +112,7 @@
             this.GridEditeur.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEditeur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridEditeur.Size = new System.Drawing.Size(860, 274);
-            this.GridEditeur.TabIndex = 8;
+            this.GridEditeur.TabIndex = 45;
             this.GridEditeur.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridEditeur_CellClick);
             // 
             // metroLabel3
@@ -171,38 +171,38 @@
             this.metroLabel7.Text = "Ville :";
             this.metroLabel7.UseCustomBackColor = true;
             // 
-            // txtCode
+            // code
             // 
-            this.txtCode.BackColor = System.Drawing.Color.Silver;
+            this.code.BackColor = System.Drawing.Color.Silver;
             // 
             // 
             // 
-            this.txtCode.CustomButton.Image = null;
-            this.txtCode.CustomButton.Location = new System.Drawing.Point(35, 1);
-            this.txtCode.CustomButton.Name = "";
-            this.txtCode.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtCode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtCode.CustomButton.TabIndex = 1;
-            this.txtCode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtCode.CustomButton.UseSelectable = true;
-            this.txtCode.CustomButton.Visible = false;
-            this.txtCode.Enabled = false;
-            this.txtCode.Lines = new string[0];
-            this.txtCode.Location = new System.Drawing.Point(138, 20);
-            this.txtCode.MaxLength = 32767;
-            this.txtCode.Name = "txtCode";
-            this.txtCode.PasswordChar = '\0';
-            this.txtCode.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtCode.SelectedText = "";
-            this.txtCode.SelectionLength = 0;
-            this.txtCode.SelectionStart = 0;
-            this.txtCode.ShortcutsEnabled = true;
-            this.txtCode.Size = new System.Drawing.Size(57, 23);
-            this.txtCode.TabIndex = 17;
-            this.txtCode.UseCustomBackColor = true;
-            this.txtCode.UseSelectable = true;
-            this.txtCode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtCode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.code.CustomButton.Image = null;
+            this.code.CustomButton.Location = new System.Drawing.Point(35, 1);
+            this.code.CustomButton.Name = "";
+            this.code.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.code.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.code.CustomButton.TabIndex = 1;
+            this.code.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.code.CustomButton.UseSelectable = true;
+            this.code.CustomButton.Visible = false;
+            this.code.Enabled = false;
+            this.code.Lines = new string[0];
+            this.code.Location = new System.Drawing.Point(138, 20);
+            this.code.MaxLength = 32767;
+            this.code.Name = "code";
+            this.code.PasswordChar = '\0';
+            this.code.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.code.SelectedText = "";
+            this.code.SelectionLength = 0;
+            this.code.SelectionStart = 0;
+            this.code.ShortcutsEnabled = true;
+            this.code.Size = new System.Drawing.Size(57, 23);
+            this.code.TabIndex = 17;
+            this.code.UseCustomBackColor = true;
+            this.code.UseSelectable = true;
+            this.code.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.code.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // txtNom
             // 
@@ -297,7 +297,7 @@
             this.txtMail.SelectionStart = 0;
             this.txtMail.ShortcutsEnabled = true;
             this.txtMail.Size = new System.Drawing.Size(181, 23);
-            this.txtMail.TabIndex = 24;
+            this.txtMail.TabIndex = 25;
             this.txtMail.UseCustomBackColor = true;
             this.txtMail.UseSelectable = true;
             this.txtMail.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -330,7 +330,7 @@
             this.txtTel.SelectionStart = 0;
             this.txtTel.ShortcutsEnabled = true;
             this.txtTel.Size = new System.Drawing.Size(123, 23);
-            this.txtTel.TabIndex = 25;
+            this.txtTel.TabIndex = 24;
             this.txtTel.UseCustomBackColor = true;
             this.txtTel.UseSelectable = true;
             this.txtTel.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -355,7 +355,7 @@
             this.DateTimeCreation.MinimumSize = new System.Drawing.Size(0, 29);
             this.DateTimeCreation.Name = "DateTimeCreation";
             this.DateTimeCreation.Size = new System.Drawing.Size(145, 29);
-            this.DateTimeCreation.TabIndex = 27;
+            this.DateTimeCreation.TabIndex = 19;
             this.DateTimeCreation.UseCustomBackColor = true;
             // 
             // groupBox1
@@ -584,7 +584,7 @@
             this.txtCodePostal.SelectionStart = 0;
             this.txtCodePostal.ShortcutsEnabled = true;
             this.txtCodePostal.Size = new System.Drawing.Size(71, 23);
-            this.txtCodePostal.TabIndex = 22;
+            this.txtCodePostal.TabIndex = 20;
             this.txtCodePostal.UseCustomBackColor = true;
             this.txtCodePostal.UseSelectable = true;
             this.txtCodePostal.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -602,7 +602,7 @@
             this.groupBox2.Controls.Add(this.txtCodePostal);
             this.groupBox2.Controls.Add(this.txtVille);
             this.groupBox2.Controls.Add(this.txtNom);
-            this.groupBox2.Controls.Add(this.txtCode);
+            this.groupBox2.Controls.Add(this.code);
             this.groupBox2.Controls.Add(this.metroLabel10);
             this.groupBox2.Controls.Add(this.metroLabel9);
             this.groupBox2.Controls.Add(this.metroLabel8);
@@ -644,7 +644,7 @@
             this.txtAdr.SelectionStart = 0;
             this.txtAdr.ShortcutsEnabled = true;
             this.txtAdr.Size = new System.Drawing.Size(165, 23);
-            this.txtAdr.TabIndex = 28;
+            this.txtAdr.TabIndex = 22;
             this.txtAdr.UseCustomBackColor = true;
             this.txtAdr.UseSelectable = true;
             this.txtAdr.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -692,7 +692,7 @@
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroLabel metroLabel_codepostal;
         private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroTextBox txtCode;
+        private MetroFramework.Controls.MetroTextBox code;
         private MetroFramework.Controls.MetroTextBox txtNom;
         private MetroFramework.Controls.MetroTextBox txtFax;
         private MetroFramework.Controls.MetroTextBox txtMail;

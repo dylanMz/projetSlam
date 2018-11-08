@@ -82,7 +82,7 @@ namespace InterfaceMedia
                 txtVille.BackColor = Color.White;
 
                 //Reinistialisation des textbox
-                txtCode.Text = "";
+                code.Text = "";
                 txtNom.Text = "";
                 DateTimeCreation.Text = "";
                 txtMail.Text = "";
@@ -130,11 +130,11 @@ namespace InterfaceMedia
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
                 //Ajout d'un editeur
-                unEditeur.ajout_editeur(txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation, unCodeSortie);
+                unEditeur.ajout_editeur(txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
 
 
                 //Reinistialisation des textbox
-                txtCode.Text = "";
+                code.Text = "";
                 txtNom.Text = "";
                 DateTimeCreation.Text = "";
                 txtMail.Text = "";
@@ -222,11 +222,11 @@ namespace InterfaceMedia
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
                 //Modification d'un editeur
-                unEditeur.modification_editeur(txtCode.Text, txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
+                unEditeur.modification_editeur(Convert.ToInt16(code.Text), txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
 
 
                 //Reinistialisation des textbox
-                txtCode.Text = "";
+                code.Text = "";
                 txtNom.Text = "";
                 DateTimeCreation.Text = "";
                 txtMail.Text = "";
@@ -295,7 +295,7 @@ namespace InterfaceMedia
                 btnModifier.Enabled = false;
 
                 //Reinistialisation des textbox
-                txtCode.Text = "";
+                code.Text = "";
                 txtNom.Text = "";
                 DateTimeCreation.Text = "";
                 txtMail.Text = "";
@@ -373,7 +373,7 @@ namespace InterfaceMedia
             txtVille.Enabled = false;
 
             //Reinistialisation des textbox
-            txtCode.Text = "";
+            code.Text = "";
             txtNom.Text = "";
             DateTimeCreation.Text = "";
             txtMail.Text = "";
@@ -419,7 +419,7 @@ namespace InterfaceMedia
         //Affiche dans les textbox les valeurs de la ligne sélectionné.
         private void GridEditeur_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtCode.Text = GridEditeur.CurrentRow.Cells["Numéro"].Value.ToString();
+            code.Text = GridEditeur.CurrentRow.Cells["Numéro"].Value.ToString();
             txtNom.Text = GridEditeur.CurrentRow.Cells["Nom"].Value.ToString();
 
             String date = GridEditeur.CurrentRow.Cells["Création"].Value.ToString();

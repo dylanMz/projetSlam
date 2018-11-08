@@ -28,7 +28,7 @@ namespace LibMedia
             connexion = connexion_en_cours;
         }
 
-        public List<Auteur> CreateListPays()
+        /*public List<Auteur> CreateListPays()
         {
             List<Auteur> ListRetour;
             ListRetour = new List<Auteur>();
@@ -53,7 +53,7 @@ namespace LibMedia
             }
 
             return ListRetour;
-        }
+        }*/
         #endregion
 
         #region appel des procédures
