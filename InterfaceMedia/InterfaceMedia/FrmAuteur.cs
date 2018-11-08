@@ -20,6 +20,7 @@ namespace InterfaceMedia
         private Crud_Auteur unAuteur;
         private Crud_Auteur wpaysAuteur;
         public List<String> listePays;
+        private String leMessage;
 
         public FrmAuteur()
         {
@@ -117,7 +118,13 @@ namespace InterfaceMedia
         //bouton modifier
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            if (btnModifier.Text == "Modifier")
+            if (txtCode.Text == "")
+            {
+                leMessage = "Sélectionnez un auteur dans la liste pour le modifier";
+                btDialog(leMessage);
+
+            }
+            else if (btnModifier.Text == "Modifier")
             {
                 btnModifier.BackColor = Color.Green;
                 btnModifier.Text = "Valider";
@@ -200,15 +207,7 @@ namespace InterfaceMedia
         //bouton rechercher
         private void btnRechercher_Click(object sender, EventArgs e)
         {
-            //Vide des champs
-            txtCode.Text = "";
-            txtNom.Text = "";
-            txtPrenom.Text = "";
-            txtPseudo.Text = "";
-            txtBio.Text = "";
-            rdoVivant.Checked = false;
-            rdoDecede.Checked = false;
-
+                        
             if (btnRechercher.Text == "Rechercher")
             {
                 btnRechercher.BackColor = Color.Green;
@@ -230,27 +229,63 @@ namespace InterfaceMedia
                 //Desactive tous les autres boutons
                 btnAjouter.Enabled = false;
                 btnModifier.Enabled = false;
+
+                //On verouille le DGV
+                dgvAuteur.Enabled = false;
+
+                //Vide des champs
+                txtCode.Text = "";
+                txtNom.Text = "";
+                txtPrenom.Text = "";
+                txtPseudo.Text = "";
+                txtBio.Text = "";
+                rdoVivant.Checked = false;
+                rdoDecede.Checked = false;
             }
 
             else if (btnRechercher.Text == "Valider")
             {
-                btnRechercher.Text = "Rechercher";
-                btnRechercher.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
+                
+                if (txtCode.Text != "" || txtNom.Text != "" || txtPseudo.Text != "")
+                {
+                    btnRechercher.Text = "Rechercher";
+                    btnRechercher.BackColor = Color.SteelBlue;
+                    btnAnnuler.Visible = false;
 
-                //Re active les boutons
-                btnAjouter.Enabled = true;
-                btnModifier.Enabled = true;
+                    //Re active les boutons
+                    btnAjouter.Enabled = true;
+                    btnModifier.Enabled = true;
 
-                //Les textbox sont inacessibles.
-                txtCode.Enabled = false;
-                txtNom.Enabled = false;
-                txtPseudo.Enabled = false;
+                    //Les textbox sont inacessibles.
+                    txtCode.Enabled = false;
+                    txtNom.Enabled = false;
+                    txtPseudo.Enabled = false;
 
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtCode.BackColor = Color.Silver;
-                txtNom.BackColor = Color.Silver;
-                txtPseudo.BackColor = Color.Silver;
+                    //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                    txtCode.BackColor = Color.Silver;
+                    txtNom.BackColor = Color.Silver;
+                    txtPseudo.BackColor = Color.Silver;
+
+                    //on déverouille le DGV
+                    dgvAuteur.Enabled = true;
+
+                    //Vide des champs
+                    txtCode.Text = "";
+                    txtNom.Text = "";
+                    txtPrenom.Text = "";
+                    txtPseudo.Text = "";
+                    txtBio.Text = "";
+                    rdoVivant.Checked = false;
+                    rdoDecede.Checked = false;
+                }
+
+                else //if (txtCode.Text == "" && txtNom.Text == "" && txtPseudo.Text == "")
+                {
+                    leMessage = "Rentrez au moins un critère de recherche" + txtCode.Text ;
+                    btDialog(leMessage);
+
+
+                }
 
             }
         }
@@ -329,7 +364,7 @@ namespace InterfaceMedia
         {
             Application.Run(new FrmAccueilTest());
         }
-
+        
         private void rdoDecede_CheckedChanged(object sender, EventArgs e)
         {
             //Affiche et deverouille le dateTime de décés.
@@ -370,6 +405,14 @@ namespace InterfaceMedia
             }
             cmbPays.Text = dgvAuteur.CurrentRow.Cells[6].Value.ToString();
             txtBio.Text = dgvAuteur.CurrentRow.Cells[7].Value.ToString();
+        }
+
+        //message erreur
+        public void btDialog(String leMessage)
+        {
+            // Affiche une boite de dialogue pour indiquer une erreur
+            MessageBox.Show(leMessage, "Erreur",
+            MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
     }

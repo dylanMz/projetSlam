@@ -11,11 +11,7 @@ namespace LibMedia
 {
     public class CRUD_Couverture
     {
-        private MySqlCommand cmdAjouter;
-        private MySqlCommand cmdModifier;
-        private MySqlCommand cmdSupprimer;
-        private MySqlCommand cmdLire;
-        private MySqlCommand cmdRechercher;
+        private MySqlCommand commande;
         private ConnexionBase _connexion;
         private List<Couverture> bibliotheque;
         private Couverture uneCouverture;
@@ -27,53 +23,55 @@ namespace LibMedia
 
         public void ajouter(int unCodeBd, string uneImageBd)
         {
-            cmdAjouter = new MySqlCommand();
-            cmdAjouter.CommandText = "proc_insert_update_couverture";
-            cmdAjouter.CommandType = System.Data.CommandType.StoredProcedure;
-            cmdAjouter.Connection = _connexion.getConnexion();
-            cmdAjouter.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
-            cmdAjouter.Parameters["unCode"].Value = unCodeBd;
-            cmdAjouter.Parameters.Add(new MySqlParameter("uneCouv", MySqlDbType.String));
-            cmdAjouter.Parameters["uneCouv"].Value = uneImageBd;
-            cmdAjouter.ExecuteNonQuery();
+            _connexion.OuvrirConnexion();
+            commande = new MySqlCommand();
+            commande.CommandText = "proc_insert_update_couverture";
+            commande.CommandType = System.Data.CommandType.StoredProcedure;
+            commande.Connection = _connexion.getConnexion();
+            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
+            commande.Parameters["unCode"].Value = unCodeBd;
+            commande.Parameters.Add(new MySqlParameter("uneCouv", MySqlDbType.String));
+            commande.Parameters["uneCouv"].Value = uneImageBd;
+            commande.ExecuteNonQuery();
             _connexion.closeConnexion();
         }
 
         public void modifier(int unCodeBd, string uneImageBd)
         {
-            cmdModifier = new MySqlCommand();
-            cmdModifier.CommandText = "proc_insert_update_couverture";
-            cmdModifier.CommandType = System.Data.CommandType.StoredProcedure;
-            cmdModifier.Connection = _connexion.getConnexion();
-            cmdModifier.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
-            cmdModifier.Parameters["unCode"].Value = unCodeBd;
-            cmdModifier.Parameters.Add(new MySqlParameter("uneCouv", MySqlDbType.String));
-            cmdModifier.Parameters["uneCouv"].Value = uneImageBd;
-            cmdModifier.ExecuteNonQuery();
+            commande = new MySqlCommand();
+            commande.CommandText = "proc_insert_update_couverture";
+            commande.CommandType = System.Data.CommandType.StoredProcedure;
+            commande.Connection = _connexion.getConnexion();
+            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
+            commande.Parameters["unCode"].Value = unCodeBd;
+            commande.Parameters.Add(new MySqlParameter("uneCouv", MySqlDbType.String));
+            commande.Parameters["uneCouv"].Value = uneImageBd;
+            commande.ExecuteNonQuery();
             _connexion.closeConnexion();
         }
 
         public void Supprimer(int unCodeBd)
         {
-            cmdSupprimer = new MySqlCommand();
-            cmdSupprimer.CommandText = "proc_delete_couverture";
-            cmdSupprimer.CommandType = System.Data.CommandType.StoredProcedure;
-            cmdSupprimer.Connection = _connexion.getConnexion();
-            cmdSupprimer.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
-            cmdSupprimer.Parameters["unCode"].Value = unCodeBd;
-            cmdSupprimer.ExecuteNonQuery();
+            _connexion.OuvrirConnexion();
+            commande = new MySqlCommand();
+            commande.CommandText = "proc_delete_couverture";
+            commande.CommandType = System.Data.CommandType.StoredProcedure;
+            commande.Connection = _connexion.getConnexion();
+            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
+            commande.Parameters["unCode"].Value = unCodeBd;
+            commande.ExecuteNonQuery();
             _connexion.closeConnexion();
         }
 
         public DataTable recupCouverture()
         {
             _connexion.OuvrirConnexion();
-            cmdLire = new MySqlCommand();
-            cmdLire.CommandText = "proc_afficher_couverture";  //Nom de la rpocédure sur MySql
-            cmdLire.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
-            cmdLire.Connection = _connexion.getConnexion();
+            commande = new MySqlCommand();
+            commande.CommandText = "proc_afficher_couverture";  //Nom de la rpocédure sur MySql
+            commande.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
+            commande.Connection = _connexion.getConnexion();
 
-            MySqlDataAdapter unAdapter = new MySqlDataAdapter(cmdLire);
+            MySqlDataAdapter unAdapter = new MySqlDataAdapter(commande);
             DataSet unDataset = new DataSet();
             DataTable uneTable;
             uneTable = new DataTable();
@@ -88,20 +86,20 @@ namespace LibMedia
         public DataTable rechercher(int wcode, string wtitre, int wtome, string wdate)
         {
             _connexion.OuvrirConnexion();
-            cmdRechercher = new MySqlCommand();
-            cmdRechercher.CommandText = "proc_rechercher_couverture";  //Nom de la rpocédure sur MySql
-            cmdRechercher.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
-            cmdRechercher.Connection = _connexion.getConnexion();
-            cmdRechercher.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
-            cmdRechercher.Parameters["unCode"].Value = wcode;
-            cmdRechercher.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.String));
-            cmdRechercher.Parameters["unCode"].Value = wtitre;
-            cmdRechercher.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
-            cmdRechercher.Parameters["unCode"].Value = wtome;
-            cmdRechercher.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.String));
-            cmdRechercher.Parameters["unCode"].Value = wdate;
+            commande = new MySqlCommand();
+            commande.CommandText = "proc_rechercher_couverture";  //Nom de la rpocédure sur MySql
+            commande.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
+            commande.Connection = _connexion.getConnexion();
+            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
+            commande.Parameters["unCode"].Value = wcode;
+            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.String));
+            commande.Parameters["unCode"].Value = wtitre;
+            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
+            commande.Parameters["unCode"].Value = wtome;
+            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.String));
+            commande.Parameters["unCode"].Value = wdate;
 
-            MySqlDataAdapter unAdapter = new MySqlDataAdapter(cmdLire);
+            MySqlDataAdapter unAdapter = new MySqlDataAdapter(commande);
             DataSet unDataset = new DataSet();
             DataTable uneRecherche;
             uneRecherche = new DataTable();
@@ -111,6 +109,29 @@ namespace LibMedia
             _connexion.closeConnexion();
 
             return uneRecherche;
+        }
+
+        public string recupImage (int wcode)
+        {
+            _connexion.OuvrirConnexion();
+            commande = new MySqlCommand();
+            commande.CommandText = "proc_image_couverture";
+            commande.CommandType = CommandType.StoredProcedure;  
+            commande.Connection = _connexion.getConnexion();
+            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
+            commande.Parameters["unCode"].Value = wcode;
+            IDataReader reader = commande.ExecuteReader();
+            reader.Read();
+            string titre = reader.GetString(0);
+            reader.Close();
+            _connexion.closeConnexion();
+            return titre;
+        }
+
+        public List<Couverture> lesCouvertures
+        {
+            get { return bibliotheque; }
+            set { bibliotheque = value; }
         }
     }
 }
