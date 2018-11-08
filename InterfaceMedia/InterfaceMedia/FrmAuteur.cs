@@ -40,6 +40,15 @@ namespace InterfaceMedia
         //bouton ajouter
         private void btnAjouter_Click(object sender, EventArgs e)
         {
+            //Vide des champs
+            txtCode.Text = "";
+            txtNom.Text = "";
+            txtPrenom.Text = "";
+            txtPseudo.Text = "";
+            txtBio.Text = "";
+            rdoVivant.Checked = false;
+            rdoDecede.Checked = false;
+
             if (btnAjouter.Text == "Ajouter")
             {
                 btnAjouter.BackColor = Color.Green;
