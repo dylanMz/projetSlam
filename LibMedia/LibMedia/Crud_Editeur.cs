@@ -54,7 +54,7 @@ namespace LibMedia
         }
 
         //Ajout d'un editeur
-        public void ajout_editeur(String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation, String wUnCodeSortie)
+        public void ajout_editeur(String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -103,7 +103,7 @@ namespace LibMedia
 
 
         //Modification d'un editeur
-        public void modification_editeur(String wEditeurNum, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
+        public void modification_editeur(int wEditeurNum, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -112,7 +112,7 @@ namespace LibMedia
                 unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
                 unComdeSql.Connection = uneconnexion.getConnexion();
 
-                unComdeSql.Parameters.Add(new MySqlParameter("wnum", MySqlDbType.String));
+                unComdeSql.Parameters.Add(new MySqlParameter("wnum", MySqlDbType.Int16));
                 unComdeSql.Parameters["wnum"].Value = wEditeurNum;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
@@ -152,7 +152,6 @@ namespace LibMedia
 
             }
         }
-
 
         //Recherche d'un editeur
         public void recherche_editeur(String wEditeurNom)
