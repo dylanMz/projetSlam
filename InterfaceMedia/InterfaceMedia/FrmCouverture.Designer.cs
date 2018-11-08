@@ -447,7 +447,6 @@
             // pctBoxCouv
             // 
             this.pctBoxCouv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pctBoxCouv.Image = global::InterfaceMedia.Properties.Resources._28_13;
             this.pctBoxCouv.Location = new System.Drawing.Point(544, 40);
             this.pctBoxCouv.Name = "pctBoxCouv";
             this.pctBoxCouv.Size = new System.Drawing.Size(133, 171);

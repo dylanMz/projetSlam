@@ -12,8 +12,10 @@ namespace LibMedia
     {
         #region Proprietés
         private int wsql;
+        private int chef;
         private ConnexionBase uneconnexion;
         private List<Emprunteur> _desEmprunteurs;
+        private List<Famille> _desfamilles;
         private MySqlDataReader _unReader;
         #endregion
 
@@ -23,12 +25,14 @@ namespace LibMedia
         {
             uneconnexion = connexion_en_cours;
             _desEmprunteurs = new List<Emprunteur>();
+            _desfamilles = new List<Famille>();
 
         }
         public Crud_Emprunteur()
         {
             uneconnexion = new ConnexionBase();
             _desEmprunteurs = new List<Emprunteur>();
+            _desfamilles = new List<Famille>();
         }
 
         #endregion
@@ -185,6 +189,79 @@ namespace LibMedia
             }
         }
 
+        //Exécute la procédure de modification d'un chef de famille
+        public void UpdateFamille(String nomprocedure, int widres, int widdep, int ancienresp)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+
+                MySqlCommand unecommandeSql = new MySqlCommand();
+                unecommandeSql.CommandText = nomprocedure;
+                unecommandeSql.CommandType = CommandType.StoredProcedure;
+                unecommandeSql.Connection = uneconnexion.getConnexion();
+
+                //Les paramétres
+                unecommandeSql.Parameters.Add(new MySqlParameter("widres", MySqlDbType.Int32));
+                unecommandeSql.Parameters["widres"].Value = widres;
+                unecommandeSql.Parameters.Add(new MySqlParameter("widdep", MySqlDbType.Int16));
+                unecommandeSql.Parameters["widdep"].Value = widdep;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wancienresp", MySqlDbType.Int16));
+                unecommandeSql.Parameters["wancienresp"].Value = ancienresp;
+                unecommandeSql.ExecuteNonQuery();
+                uneconnexion.closeConnexion();
+            }
+        }
+
+        //Exécute la procédure pour récuperer le responsable famille
+        public int cheffamille(int wid)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand EmprunteurSql = new MySqlCommand();
+                //Nom procedure
+                EmprunteurSql.CommandText = "proc_affiche_famille";
+                EmprunteurSql.CommandType = CommandType.StoredProcedure;
+                EmprunteurSql.Connection = uneconnexion.getConnexion();
+                EmprunteurSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                EmprunteurSql.Parameters["wid"].Value = wid;
+                EmprunteurSql.ExecuteNonQuery();
+                _unReader = EmprunteurSql.ExecuteReader();
+
+                while (_unReader.Read())
+                {
+                    chef = int.Parse(_unReader["fam_emp_resp"].ToString());
+                }
+                _unReader.Close();
+                uneconnexion.closeConnexion();
+            }
+
+            return chef;
+        }
+
+        //Exécute la procédure pour récuper la table emprunteur
+        public void Recup_Toutelafamille(int wid)
+        {
+
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand EmprunteurSql = new MySqlCommand();
+                //Nom procedure
+                EmprunteurSql.CommandText = "proc_afficher_famillecomplet";
+                EmprunteurSql.CommandType = CommandType.StoredProcedure;
+                EmprunteurSql.Connection = uneconnexion.getConnexion();
+                EmprunteurSql.Parameters.Add(new MySqlParameter("widres", MySqlDbType.Int32));
+                EmprunteurSql.Parameters["widres"].Value = wid;
+                _unReader = EmprunteurSql.ExecuteReader();
+
+                while (_unReader.Read())
+                {
+                    _desfamilles.Add(new Famille(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), int.Parse(_unReader["fam_emp_resp"].ToString())));
+                }
+                _unReader.Close();
+                uneconnexion.closeConnexion();
+            }
+        }
+
 
         #endregion
 
@@ -194,6 +271,13 @@ namespace LibMedia
         {
             get { return _desEmprunteurs; }
             set { _desEmprunteurs = value; }
+        }
+
+        //Accesseur de la liste Emprunteur
+        public List<Famille> lesfamilles
+        {
+            get { return _desfamilles; }
+            set { _desfamilles = value; }
         }
         #endregion
     }

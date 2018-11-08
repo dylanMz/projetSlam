@@ -16,13 +16,15 @@ namespace InterfaceMedia
     public partial class FrmEmprunteur : MetroForm
     {
         private int wnum;
+        private int num;
         Thread th;
         private string id;
         private String dateadh;
         private Crud_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
         private List<Famille> lesfamille;
-        private String lesidfamilles;
+        private int unchef;
+        private Boolean newfamille = false;
 
         public FrmEmprunteur()
         {
@@ -101,7 +103,7 @@ namespace InterfaceMedia
                 modifcouleurControlActif();
 
             }
-            else if (btnAjouter.Text.Equals("Valider"))
+            else if (btnAjouter.Text.Equals("Valider")&!txtNom.Text.Equals("")&!txtPrenom.Text.Equals(""))
             {
                 utilisemethodeprocedure("proc_insert_emprunteur");
                 groupAjouterEmp.Enabled = false;
@@ -353,7 +355,7 @@ namespace InterfaceMedia
                 for (int i = 0; i < selectedRowCount; i++)
                 {
 
-                    int num = Convert.ToInt16(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
+                    num = Convert.ToInt16(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
                     String nom = GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString();
                     String prenom = GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString();
                     String rue = GridEmprunteur.SelectedRows[i].Cells[3].Value.ToString();
@@ -362,14 +364,36 @@ namespace InterfaceMedia
                     DateTime naiis = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString());
                     String mail = GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString();
 
-
+                    unchef = unEmprunteur.cheffamille(num);
+                        lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail, unchef));
+                    
 
                     
-                    lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail));
+                    
 
                 }
-                FrmFamille lafamille = new FrmFamille(lesfamille);
-                lafamille.Show();
+                unchef = unEmprunteur.cheffamille(num);
+                if(unchef == 0)
+                {
+                    unchef = num;
+                }
+                if (selectedRowCount == 1)
+                {
+                    newfamille = false;
+                    unEmprunteur.lesfamilles.Clear();
+                    lesfamille.Clear();
+                    unEmprunteur.Recup_Toutelafamille(unchef);
+                    FrmFamille lafamille = new FrmFamille(unEmprunteur.lesfamilles, newfamille);
+                    lafamille.Show();
+                }
+                else
+                {
+                    newfamille = true;
+                    FrmFamille lafamille = new FrmFamille(lesfamille, newfamille);
+                    lafamille.Show();
+                }
+
+
             }
 
 

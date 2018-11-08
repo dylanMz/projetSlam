@@ -8,16 +8,81 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Forms;
+using System.Threading;
+using LibMedia;
 
 namespace InterfaceMedia
 {
     public partial class Frmlivre : MetroForm
     {
+        private ConnexionBase connexion;
+        private Crud_livre unlivre;
+        private CRUD_Exemplaire unexemplaire;
+        public string format;
+        private List<String> rempauteur;
+        Thread th;
+
+
+
         public Frmlivre()
         {
             InitializeComponent();
+            connexion = new ConnexionBase();
+            unlivre = new Crud_livre(connexion);
+            unexemplaire = new CRUD_Exemplaire(connexion);
+            dtgrvLivre.DataSource = unlivre.afficherlivre();
+            remp_cmbx();
+           remp_cmbbx_nomauteur();
+        }
+        
+
+        public void remp_cmbbx_nomauteur()
+        {
+            rempauteur = unlivre.affiche_nomauteur();
+
+            int i;
+            for (i = 0; i < rempauteur.LongCount(); i++)
+            {
+                if (!rempauteur[i].Equals(""))
+                {
+                    cmbbxauteur.Items.Add(rempauteur[i]);
+                }
+            }
+
+        }
+        #region combo box
+        public void remp_cmbx()
+        {
+            // remplissage combo box annee
+            for (int i = 1940; i <= DateTime.Now.Year; i++)
+            {
+                cmbbxannee.Items.Add(i);
+            }
+            // remplissage combo box mois
+            for (int a = 01; a <= 12; a++)
+            {
+                if (a < 10)
+                {
+                    cmbbxmois.Items.Add("0" + a);
+                }
+                else
+                {
+                    cmbbxmois.Items.Add(a);
+                }
+            }
+
+
         }
 
+
+
+
+
+        #endregion
+
+
+        #region Bouton
+        // bouton ajouter
         private void btnAjouter_Click(object sender, EventArgs e)
         {
 
@@ -42,6 +107,7 @@ namespace InterfaceMedia
                     txtbxcouleur.Enabled = true;
                     txtbxtome.Enabled = true;
                     cmbbxannee.Enabled = true;
+                    cmbbxmois.Enabled = true;
                     txtbxformat.Enabled = true;
                     txtbxpage.Enabled = true;
                     txtbxcommentaire.Enabled = true;
@@ -59,6 +125,7 @@ namespace InterfaceMedia
                     txtbxcouleur.BackColor = Color.White;
                     txtbxtome.BackColor = Color.White;
                     cmbbxannee.BackColor = Color.White;
+                    cmbbxmois.BackColor = Color.White;
                     txtbxformat.BackColor = Color.White;
                     txtbxpage.BackColor = Color.White;
                     txtbxcommentaire.BackColor = Color.White;
@@ -93,6 +160,44 @@ namespace InterfaceMedia
             }
             else if (btnAjouter.Text.Equals("Valider"))
             {
+
+                if (btnexemp.Text.Equals("exemplaire"))
+                {
+
+                    if (rdbtnA.Checked == true)
+                    {
+
+                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtnA.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtnb.Checked == true)
+                    {
+
+                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtnb.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtnta.Checked == true)
+                    {
+
+                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtnta.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtntb.Checked == true)
+                    {
+
+                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtntb.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+
+
+
+
+                }
+                else if (btnexemp.Text.Equals("Livre"))
+                {
+                    string parutiontotal;
+
+
+                    parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
+
+                    unlivre.ajout_livre(txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text, Int32.Parse(txtbxediteur.Text), Int32.Parse(txtbxserie.Text));
+                }
                 // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
@@ -109,6 +214,7 @@ namespace InterfaceMedia
                 txtbxcouleur.Enabled = false;
                 txtbxtome.Enabled = false;
                 cmbbxannee.Enabled = false;
+                cmbbxmois.Enabled = false;
                 txtbxformat.Enabled = false;
                 txtbxpage.Enabled = false;
                 txtbxcommentaire.Enabled = false;
@@ -132,6 +238,7 @@ namespace InterfaceMedia
                 txtbxcouleur.BackColor = Color.Silver;
                 txtbxtome.BackColor = Color.Silver;
                 cmbbxannee.BackColor = Color.Silver;
+                cmbbxmois.BackColor = Color.Silver;
                 txtbxformat.BackColor = Color.Silver;
                 txtbxpage.BackColor = Color.Silver;
                 txtbxcommentaire.BackColor = Color.Silver;
@@ -177,6 +284,7 @@ namespace InterfaceMedia
             txtbxcouleur.Enabled = false;
             txtbxtome.Enabled = false;
             cmbbxannee.Enabled = false;
+            cmbbxmois.Enabled = false;
             txtbxformat.Enabled = false;
             txtbxpage.Enabled = false;
             txtbxcommentaire.Enabled = false;
@@ -203,6 +311,7 @@ namespace InterfaceMedia
             txtbxcouleur.BackColor = Color.Silver;
             txtbxtome.BackColor = Color.Silver;
             cmbbxannee.BackColor = Color.Silver;
+            cmbbxmois.BackColor = Color.Silver;
             txtbxformat.BackColor = Color.Silver;
             txtbxpage.BackColor = Color.Silver;
             txtbxcommentaire.BackColor = Color.Silver;
@@ -215,9 +324,38 @@ namespace InterfaceMedia
             cmbbxserie.BackColor = Color.Silver;
             codelivreexmp.BackColor = Color.Silver;
 
+            rdbtnA.Checked = false;
+            rdbtnb.Checked = false;
+            rdbtnta.Checked = false;
+            rdbtntb.Checked = false;
+
+            txtbxcode.Text = "";
+            txtbxtitre.Text = "";
+            txtbxisbn.Text = "";
+            txtbxcouleur.Text = "";
+            txtbxtome.Text = "";
+            cmbbxannee.SelectedItem = null;
+            cmbbxmois.SelectedItem = null;
+            txtbxformat.Text = "";
+            txtbxpage.Text = "";
+            txtbxcommentaire.Text = "";
+            txtbxediteur.Text = "";
+            txtbxserie.Text = "";
+            txtbxauteur.Text = "";
+            txtbxreferencerexemp.Text = "";
+
+            cmbbxauteur.Text = "";
+            cmbbxediteur.Text = "";
+            cmbbxserie.Text = "";
+            codelivreexmp.Text = "";
+            txtbxmotif.Text = "";
+
+            txtbxcommentaire.Text = "";
+
+            dtgrvLivre.DataSource = unlivre.afficherlivre();
 
         }
-
+        //bouton rechercher
         private void btnRechercher_Click(object sender, EventArgs e)
         {
             if (btnRechercher.Text.Equals("Rechercher"))
@@ -228,28 +366,83 @@ namespace InterfaceMedia
 
 
                 //desactive les autres boutons
-              
-                    btnSupprimer.Enabled = false;
-                    btnModifier.Enabled = false;
-                    btnAjouter.Enabled = false;
+
+                btnSupprimer.Enabled = false;
+                btnModifier.Enabled = false;
+                btnAjouter.Enabled = false;
                 if (btnexemp.Text.Equals("Livre"))
                 {
 
                     txtbxtitre.Enabled = true;
                     cmbbxannee.Enabled = true;
+                    cmbbxmois.Enabled = true;
 
                     txtbxtitre.BackColor = Color.White;
                     cmbbxannee.BackColor = Color.White;
+                    cmbbxmois.BackColor = Color.White;
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
                     codelivreexmp.Enabled = true;
+                    txtbxreferencerexemp.Enabled = true;
+                    rdbtnA.Enabled = true;
+                    rdbtnb.Enabled = true;
+                    rdbtnta.Enabled = true;
+                    rdbtntb.Enabled = true;
 
                     codelivreexmp.BackColor = Color.White;
+                    txtbxreferencerexemp.BackColor = Color.White;
                 }
             }
             else if (btnRechercher.Text.Equals("Valider"))
             {
+                if (btnexemp.Text.Equals("Livre"))
+                {
+                    string parutiontotal;
+                    //affichage de la recherche livre  dans le datagridview
+                    if ((cmbbxmois.Text == "") && (cmbbxannee.Text == ""))
+                    {
+                        parutiontotal = "";
+                        dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
+
+                    }
+                    else
+                    {
+
+                        parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
+                        dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
+
+                    }
+                }
+                else if (btnexemp.Text.Equals("exemplaire"))
+                {
+
+
+                    if (rdbtnA.Checked == true)
+                    {
+                        format = rdbtnA.Text;
+                    }
+                    else if (rdbtnb.Checked == true)
+                    {
+                        format = rdbtnb.Text;
+                    }
+                    else if (rdbtnta.Checked == true)
+                    {
+                        format = rdbtnta.Text;
+                    }
+                    else if (rdbtntb.Checked == true)
+                    {
+                        format = rdbtntb.Text;
+                    }
+                    else
+                    {
+                        format = "";
+                    }
+                    dtgrvLivre.DataSource = unexemplaire.recherche_exemplaire(codelivreexmp.Text, txtbxreferencerexemp.Text, format);
+
+
+
+                }
 
                 btnRechercher.BackColor = Color.SteelBlue;
                 btnRechercher.Text = "Rechercher";
@@ -264,15 +457,23 @@ namespace InterfaceMedia
                 // desactive les boutons    
                 txtbxtitre.Enabled = false;
                 cmbbxannee.Enabled = false;
-
+                cmbbxmois.Enabled = false;
+                txtbxreferencerexemp.Enabled = false;
+                codelivreexmp.Enabled = false;
+                rdbtnA.Enabled = false;
+                rdbtnb.Enabled = false;
+                rdbtnta.Enabled = false;
+                rdbtntb.Enabled = false;
                 // change la couleur 
                 txtbxtitre.BackColor = Color.Silver;
                 cmbbxannee.BackColor = Color.Silver;
-
+                cmbbxmois.BackColor = Color.Silver;
+                txtbxreferencerexemp.BackColor = Color.Silver;
+                codelivreexmp.BackColor = Color.Silver;
             }
-            
-        }
 
+        }
+        // BOUTON SUPPRIMER
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
             if (btnSupprimer.Text.Equals("Supprimer"))
@@ -289,8 +490,8 @@ namespace InterfaceMedia
                 {
                     // textbox activer pour l'insertion
 
-                   txtbxcode.Enabled = true;
-                   
+                    txtbxcode.Enabled = true;
+
                     txtbxmotif.Visible = true;
                     lblmotif.Visible = true;
                     lblcommentaire.Visible = false;
@@ -301,7 +502,7 @@ namespace InterfaceMedia
                     txtbxcode.BackColor = Color.White;
 
 
-                    
+
 
 
                 }
@@ -309,7 +510,7 @@ namespace InterfaceMedia
                 {
                     // textbox activer pour l'insertion
 
-                  
+
 
                     txtbxreferencerexemp.Enabled = true;
                     txtbxmotif.Visible = true;
@@ -319,7 +520,7 @@ namespace InterfaceMedia
 
                     // modification des couleur 
 
-                   
+
 
 
                     txtbxreferencerexemp.BackColor = Color.White;
@@ -327,6 +528,18 @@ namespace InterfaceMedia
             }
             else if (btnSupprimer.Text.Equals("Valider"))
             {
+                if (btnexemp.Text.Equals("Livre"))
+                {
+                    unlivre.Delete_livre(Int32.Parse(txtbxcode.Text));
+                    unlivre.delet_motif(txtbxmotif.Text, Int32.Parse(txtbxcode.Text));
+                }
+                else if (btnexemp.Text.Equals("exemplaire"))
+                {
+                    unexemplaire.delete_exemplaire(txtbxreferencerexemp.Text);
+                    unexemplaire.delete_motif(txtbxreferencerexemp.Text, txtbxmotif.Text);
+                }
+
+
 
                 btnSupprimer.BackColor = Color.SteelBlue;
                 btnSupprimer.Text = "Supprimer";
@@ -347,13 +560,13 @@ namespace InterfaceMedia
                 txtbxcommentaire.Visible = true;
                 // change la couleur 
                 txtbxcode.BackColor = Color.Silver;
-               
+
                 txtbxreferencerexemp.BackColor = Color.Silver;
 
             }
-            }
+        }
 
-        
+        //  BOUTON MODIFIER
         private void btnModifier_Click(object sender, EventArgs e)
         {
 
@@ -378,6 +591,7 @@ namespace InterfaceMedia
                     txtbxcouleur.Enabled = true;
                     txtbxtome.Enabled = true;
                     cmbbxannee.Enabled = true;
+                    cmbbxmois.Enabled = true;
                     txtbxformat.Enabled = true;
                     txtbxpage.Enabled = true;
                     txtbxcommentaire.Enabled = true;
@@ -397,6 +611,7 @@ namespace InterfaceMedia
                     txtbxcouleur.BackColor = Color.White;
                     txtbxtome.BackColor = Color.White;
                     cmbbxannee.BackColor = Color.White;
+                    cmbbxmois.BackColor = Color.White;
                     txtbxformat.BackColor = Color.White;
                     txtbxpage.BackColor = Color.White;
                     txtbxcommentaire.BackColor = Color.White;
@@ -407,6 +622,8 @@ namespace InterfaceMedia
                     cmbbxauteur.BackColor = Color.White;
                     cmbbxediteur.BackColor = Color.White;
                     cmbbxserie.BackColor = Color.White;
+
+
 
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
@@ -431,6 +648,37 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
+                if (btnexemp.Text.Equals("Livre"))
+                {
+                    string parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
+                    unlivre.update_livre(Int32.Parse(txtbxcode.Text), txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text, Int32.Parse(txtbxediteur.Text), Int32.Parse(txtbxserie.Text));
+                }
+                else if (btnexemp.Text.Equals("exemplaire"))
+                {
+
+                    if (rdbtnA.Checked == true)
+                    {
+
+                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtnA.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtnb.Checked == true)
+                    {
+
+                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtnb.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtnta.Checked == true)
+                    {
+
+                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtnta.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+                    else if (rdbtntb.Checked == true)
+                    {
+
+                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtntb.Text, Int32.Parse(codelivreexmp.Text));
+                    }
+
+                }
+
                 // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
@@ -447,6 +695,7 @@ namespace InterfaceMedia
                 txtbxcouleur.Enabled = false;
                 txtbxtome.Enabled = false;
                 cmbbxannee.Enabled = false;
+                cmbbxmois.Enabled = false;
                 txtbxformat.Enabled = false;
                 txtbxpage.Enabled = false;
                 txtbxcommentaire.Enabled = false;
@@ -470,6 +719,7 @@ namespace InterfaceMedia
                 txtbxcouleur.BackColor = Color.Silver;
                 txtbxtome.BackColor = Color.Silver;
                 cmbbxannee.BackColor = Color.Silver;
+                cmbbxmois.BackColor = Color.Silver;
                 txtbxformat.BackColor = Color.Silver;
                 txtbxpage.BackColor = Color.Silver;
                 txtbxcommentaire.BackColor = Color.Silver;
@@ -484,7 +734,7 @@ namespace InterfaceMedia
                 txtbxcode.BackColor = Color.Silver;
             }
         }
-
+        //bouton LIVRE/EXEMPLAIRE
         private void btnexemp_Click(object sender, EventArgs e)
         {
             #region remet par defaut 
@@ -493,6 +743,7 @@ namespace InterfaceMedia
             txtbxisbn.Enabled = false;
             txtbxcouleur.Enabled = false;
             txtbxtome.Enabled = false;
+            cmbbxmois.Enabled = false;
             cmbbxannee.Enabled = false;
             txtbxformat.Enabled = false;
             txtbxpage.Enabled = false;
@@ -517,6 +768,7 @@ namespace InterfaceMedia
             txtbxcouleur.BackColor = Color.Silver;
             txtbxtome.BackColor = Color.Silver;
             cmbbxannee.BackColor = Color.Silver;
+            cmbbxmois.BackColor = Color.Silver;
             txtbxformat.BackColor = Color.Silver;
             txtbxpage.BackColor = Color.Silver;
             txtbxcommentaire.BackColor = Color.Silver;
@@ -540,14 +792,14 @@ namespace InterfaceMedia
                 rdbtnb.Enabled = true;
                 rdbtnta.Enabled = true;
                 rdbtntb.Enabled = true;
-                
+
                 codelivreexmp.Enabled = true;
 
                 // modification des couleur 
-     
+
                 txtbxreferencerexemp.BackColor = Color.White;
                 codelivreexmp.BackColor = Color.White;
-    
+
 
             }
 
@@ -565,27 +817,29 @@ namespace InterfaceMedia
                 txtbxcouleur.Enabled = true;
                 txtbxtome.Enabled = true;
                 cmbbxannee.Enabled = true;
+                cmbbxmois.Enabled = true;
                 txtbxformat.Enabled = true;
                 txtbxpage.Enabled = true;
                 txtbxcommentaire.Enabled = true;
                 txtbxediteur.Enabled = true;
                 txtbxserie.Enabled = true;
                 txtbxauteur.Enabled = true;
-            
-       
+
+
                 cmbbxauteur.Enabled = true;
                 cmbbxediteur.Enabled = true;
                 cmbbxserie.Enabled = true;
-        
+
                 txtbxcode.Enabled = false;
                 txtbxcode.Enabled = true;
                 // modification des couleur 
-              
+
                 txtbxtitre.BackColor = Color.White;
                 txtbxisbn.BackColor = Color.White;
                 txtbxcouleur.BackColor = Color.White;
                 txtbxtome.BackColor = Color.White;
                 cmbbxannee.BackColor = Color.White;
+                cmbbxmois.BackColor = Color.White;
                 txtbxformat.BackColor = Color.White;
                 txtbxpage.BackColor = Color.White;
                 txtbxcommentaire.BackColor = Color.White;
@@ -593,7 +847,7 @@ namespace InterfaceMedia
                 txtbxserie.BackColor = Color.White;
                 txtbxauteur.BackColor = Color.White;
 
-      
+
                 cmbbxauteur.BackColor = Color.White;
                 cmbbxediteur.BackColor = Color.White;
                 cmbbxserie.BackColor = Color.White;
@@ -604,7 +858,7 @@ namespace InterfaceMedia
                 btnexemp.Text = "exemplaire";
 
 
-               
+
                 txtbxreferencerexemp.Enabled = true;
                 codelivreexmp.Enabled = true;
                 rdbtnA.Enabled = true;
@@ -612,10 +866,10 @@ namespace InterfaceMedia
                 rdbtnta.Enabled = true;
                 rdbtntb.Enabled = true;
                 // modification des couleur 
-              
+
                 txtbxreferencerexemp.BackColor = Color.White;
                 codelivreexmp.BackColor = Color.White;
-             
+
             }
 
 
@@ -632,13 +886,14 @@ namespace InterfaceMedia
                 txtbxcouleur.Enabled = true;
                 txtbxtome.Enabled = true;
                 cmbbxannee.Enabled = true;
+                cmbbxmois.Enabled = true;
                 txtbxformat.Enabled = true;
                 txtbxpage.Enabled = true;
                 txtbxcommentaire.Enabled = true;
                 txtbxediteur.Enabled = true;
                 txtbxserie.Enabled = true;
                 txtbxauteur.Enabled = true;
-      
+
                 cmbbxauteur.Enabled = true;
                 cmbbxediteur.Enabled = true;
                 cmbbxserie.Enabled = true;
@@ -650,6 +905,7 @@ namespace InterfaceMedia
                 txtbxcouleur.BackColor = Color.White;
                 txtbxtome.BackColor = Color.White;
                 cmbbxannee.BackColor = Color.White;
+                cmbbxmois.BackColor = Color.White;
                 txtbxformat.BackColor = Color.White;
                 txtbxpage.BackColor = Color.White;
                 txtbxcommentaire.BackColor = Color.White;
@@ -657,7 +913,7 @@ namespace InterfaceMedia
                 txtbxserie.BackColor = Color.White;
                 txtbxauteur.BackColor = Color.White;
 
-                
+
                 cmbbxauteur.BackColor = Color.White;
                 cmbbxediteur.BackColor = Color.White;
                 cmbbxserie.BackColor = Color.White;
@@ -710,22 +966,82 @@ namespace InterfaceMedia
             if (btnexemp.Text.Equals("exemplaire") & btnRechercher.Text.Equals("Valider"))
             {
                 btnexemp.Text = "Livre";
-        
+
 
                 txtbxtitre.Enabled = true;
                 cmbbxannee.Enabled = true;
+                cmbbxmois.Enabled = true;
 
                 txtbxtitre.BackColor = Color.White;
                 cmbbxannee.BackColor = Color.White;
+                cmbbxmois.BackColor = Color.White;
             }
-           else  if (btnexemp.Text.Equals("Livre") & btnRechercher.Text.Equals("Valider"))
+            else if (btnexemp.Text.Equals("Livre") & btnRechercher.Text.Equals("Valider"))
             {
                 btnexemp.Text = "exemplaire";
                 codelivreexmp.Enabled = true;
+                txtbxreferencerexemp.Enabled = true;
+                rdbtnA.Enabled = true;
+                rdbtnb.Enabled = true;
+                rdbtnta.Enabled = true;
+                rdbtntb.Enabled = true;
 
                 codelivreexmp.BackColor = Color.White;
+                txtbxreferencerexemp.BackColor = Color.White;
             }
 
-        }  
+        }
+
+
+        // affichage des informations de la base dans le datagridview
+        private void dtgrvlivre_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (btnexemp.Text.Equals("Livre"))
+            {
+                txtbxcode.Text = dtgrvLivre.CurrentRow.Cells[0].Value.ToString();
+                txtbxtitre.Text = dtgrvLivre.CurrentRow.Cells[1].Value.ToString();
+                txtbxisbn.Text = dtgrvLivre.CurrentRow.Cells[2].Value.ToString();
+                txtbxtome.Text = dtgrvLivre.CurrentRow.Cells[3].Value.ToString();
+
+
+                // permet de séparer le mois et l'annee et les affecter leur combo box
+                string totalparution = dtgrvLivre.CurrentRow.Cells[4].Value.ToString();
+                cmbbxmois.Text = totalparution.Substring(0, 2);
+                cmbbxannee.Text = totalparution.Substring(3, 4);
+
+
+                txtbxpage.Text = dtgrvLivre.CurrentRow.Cells[5].Value.ToString();
+                txtbxcouleur.Text = dtgrvLivre.CurrentRow.Cells[6].Value.ToString();
+                txtbxcommentaire.Text = dtgrvLivre.CurrentRow.Cells[7].Value.ToString();
+                txtbxformat.Text = dtgrvLivre.CurrentRow.Cells[8].Value.ToString();
+                txtbxserie.Text = dtgrvLivre.CurrentRow.Cells[9].Value.ToString();
+                txtbxediteur.Text = dtgrvLivre.CurrentRow.Cells[10].Value.ToString();
+            }
+
+        }
+        #endregion
+
+        private void metrotileQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void picHome_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openAccueil);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+
+        }
+        private void openAccueil()
+        {
+            Application.Run(new FrmAccueilTest());
+        }
+
+       
+          
     }
 }
+
