@@ -20,6 +20,7 @@ namespace InterfaceMedia
         private CRUD_Exemplaire unexemplaire;
         public string format;
         private List<String> rempauteur;
+        private List<String> remediteur;
         Thread th;
 
 
@@ -32,24 +33,38 @@ namespace InterfaceMedia
             unexemplaire = new CRUD_Exemplaire(connexion);
             dtgrvLivre.DataSource = unlivre.afficherlivre();
             remp_cmbx();
-           remp_cmbbx_nomauteur();
+            remp_cmbbx_nomauteur();
+            remp_cmbbx_nomediteur();
         }
-        
+
 
         public void remp_cmbbx_nomauteur()
         {
             rempauteur = unlivre.affiche_nomauteur();
 
             int i;
-            for (i = 0; i < rempauteur.LongCount(); i++)
+            for (i = 0; i == rempauteur.LongCount(); i++)
             {
                 if (!rempauteur[i].Equals(""))
                 {
                     cmbbxauteur.Items.Add(rempauteur[i]);
                 }
             }
-
         }
+            public void remp_cmbbx_nomediteur()
+            {
+                remediteur = unlivre.affiche_nomediteur();
+
+                int i;
+                for (i = 0; i == remediteur.LongCount(); i++)
+                {
+                    cmbbxediteur.Items.Add(remediteur[i]);
+
+                }
+
+            }
+        
+
         #region combo box
         public void remp_cmbx()
         {
@@ -1040,8 +1055,6 @@ namespace InterfaceMedia
             Application.Run(new FrmAccueilTest());
         }
 
-       
-          
     }
 }
 

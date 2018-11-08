@@ -233,8 +233,8 @@ namespace LibMedia
 
         public List<String> affiche_nomauteur()
         {
-            List<String> ListRetour;
-            ListRetour = new List<String>();
+            List<String> ListRetourauteur;
+            ListRetourauteur = new List<String>();
             _connexion.OuvrirConnexion();
 
             cmdsql = new MySqlCommand();
@@ -249,7 +249,7 @@ namespace LibMedia
                 while (read.Read())
                 {
                     string L1 = read.GetString(0);
-                    ListRetour.Add(L1);
+                    ListRetourediteur.Add(L1);
                 }
             }
             else
@@ -257,8 +257,39 @@ namespace LibMedia
                 Console.WriteLine("Il n'y a pas d'occurence");
             }
             _connexion.closeConnexion();
-            return ListRetour;
+            return ListRetourauteur;
            
+        }
+
+
+        public List<String> affiche_nomediteur()
+        {
+            List<String> ListRetourediteur;
+            ListRetourediteur = new List<String>();
+            _connexion.OuvrirConnexion();
+
+            cmdsql = new MySqlCommand();
+            cmdsql.CommandText = "proc_affiche_nomediteur";
+            cmdsql.CommandType = CommandType.StoredProcedure;
+            cmdsql.Connection = _connexion.getConnexion();
+
+            MySqlDataReader read = cmdsql.ExecuteReader(); //Permet de lire les lignes
+
+            if (read.HasRows)
+            {
+                while (read.Read())
+                {
+                    string L1 = read.GetString(0);
+                    ListRetourediteur.Add(L1);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Il n'y a pas d'occurence");
+            }
+            _connexion.closeConnexion();
+            return ListRetourediteur;
+
         }
 
 
