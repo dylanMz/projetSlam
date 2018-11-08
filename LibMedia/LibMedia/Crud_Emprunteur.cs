@@ -88,7 +88,7 @@ namespace LibMedia
                 unecommandeSql.Parameters.Add(PSortie_nat);
                 PSortie_nat.Direction = ParameterDirection.Output;
 
-                unecommandeSql.ExecuteNonQuery();
+                //unecommandeSql.ExecuteNonQuery();
 
                 //gestion d'erreurs 
                 try
@@ -162,6 +162,30 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
+
+
+        //Exécute la procédure d'ajout d'un chef de famille
+        public void InsertFamille(String nomprocedure, int widres, int widdep)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+
+                MySqlCommand unecommandeSql = new MySqlCommand();
+                unecommandeSql.CommandText = nomprocedure;
+                unecommandeSql.CommandType = CommandType.StoredProcedure;
+                unecommandeSql.Connection = uneconnexion.getConnexion();
+
+
+                unecommandeSql.Parameters.Add(new MySqlParameter("widres", MySqlDbType.Int32));
+                unecommandeSql.Parameters["widres"].Value = widres;
+                unecommandeSql.Parameters.Add(new MySqlParameter("widdep", MySqlDbType.Int32));
+                unecommandeSql.Parameters["widdep"].Value = widdep;
+                unecommandeSql.ExecuteNonQuery();
+                uneconnexion.closeConnexion();
+            }
+        }
+
+
         #endregion
 
         #region Accesseur

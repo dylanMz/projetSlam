@@ -16,13 +16,11 @@ namespace LibMedia
         public String emp_ville;
         public DateTime emp_date_naiss;
         public String emp_mail;
-        public DateTime emp_prem_adh;
-        public DateTime emp_ren_adh;
 
 
         #region Constructeur
         //constructeur
-        public Famille(int emp_num, String emp_nom, String emp_prenom, String emp_rue, String emp_code_postal, String emp_ville, DateTime emp_date_naiss, String emp_mail, DateTime emp_prem_adh, DateTime emp_ren_adh)
+        public Famille(int emp_num, String emp_nom, String emp_prenom, String emp_rue, String emp_code_postal, String emp_ville, DateTime emp_date_naiss, String emp_mail)
         {
             this.emp_num = emp_num;
             this.emp_nom = emp_nom;
@@ -32,8 +30,6 @@ namespace LibMedia
             this.emp_ville = emp_ville;
             this.emp_date_naiss = emp_date_naiss;
             this.emp_mail = emp_mail;
-            this.emp_prem_adh = emp_prem_adh;
-            this.emp_ren_adh = emp_ren_adh;
         }
         #endregion
 
@@ -88,18 +84,6 @@ namespace LibMedia
         {
             get { return emp_mail; }
             set { emp_mail = value; }
-        }
-
-        public DateTime Adhésion
-        {
-            get { return emp_prem_adh; }
-            set { emp_prem_adh = value; }
-        }
-
-        public DateTime Renouvellement_Adhésion
-        {
-            get { return emp_ren_adh; }
-            set { emp_ren_adh = value; }
         }
 
         #endregion
