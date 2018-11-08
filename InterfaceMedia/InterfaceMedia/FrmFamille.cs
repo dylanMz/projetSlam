@@ -16,6 +16,7 @@ namespace InterfaceMedia
     public partial class FrmFamille : MetroForm
     {
         private List<Famille> lesidfamilles;
+        private string chefvalide;
         private Crud_Emprunteur unemprunteur;
 
 
@@ -39,11 +40,26 @@ namespace InterfaceMedia
             GridFamille.DataSource = lesidfamilles;
             GridFamille.Refresh();
             GridFamille.Update();
+            //chefvalide = GridFamille.Rows[0].Cells[8].Value.ToString();
+            ////Int32 RowCount = GridFamille.RowCount;
+            ////if (RowCount == 1)
+            ////{
+            ////    int lechef = Convert.ToInt32(chefvalide);
+            ////    unemprunteur.Recup_Toutelafamille(lechef);
+            ////    GridFamille.DataSource = lesidfamilles;
+            ////    GridFamille.Refresh();
+            ////    GridFamille.Update();
+            ////}
+
+            //if (chefvalide.Equals("0"))
+            //{
+            //    GridFamille.Columns["Chef_famille"].Visible = false;
+            //}
         }
 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtnum.Text = GridFamille.CurrentRow.Cells["numéro"].Value.ToString();
+            txtnum.Text = chefvalide = GridFamille.CurrentRow.Cells["numéro"].Value.ToString();
             txtnom.Text = GridFamille.CurrentRow.Cells["nom"].Value.ToString();
         }
 

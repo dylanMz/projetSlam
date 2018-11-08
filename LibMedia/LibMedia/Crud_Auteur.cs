@@ -38,7 +38,7 @@ namespace LibMedia
             unComdeSql.CommandType = CommandType.StoredProcedure;
             unComdeSql.Connection = connexion.getConnexion();
 
-            MySqlDataReader read = unComdeSql.ExecuteReader(); //Permet de lire les lignes
+        //    MySqlDataReader read = unComdeSql.ExecuteReader(); //Permet de lire les lignes
 
             if (read.HasRows)
             {
@@ -54,8 +54,8 @@ namespace LibMedia
                 Console.WriteLine("Il n'y a pas d'occurence");
             }
 
-            return ListRetour;
-        }
+        //    return ListRetour;
+        //}
         #endregion
 
         #region appel des procédures
