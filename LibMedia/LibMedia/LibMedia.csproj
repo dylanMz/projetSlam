@@ -58,6 +58,7 @@
     <Compile Include="Auteur.cs" />
     <Compile Include="ConnexionBase.cs" />
     <Compile Include="Couverture.cs" />
+    <Compile Include="CRUD_Exemplaire.cs" />
     <Compile Include="Crud_livre.cs" />
     <Compile Include="Crud_Utilisateur.cs" />
     <Compile Include="Editeur.cs" />
