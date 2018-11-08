@@ -28,13 +28,6 @@ namespace InterfaceMedia
             unAuteur = new Crud_Auteur(connexion);
             dgvAuteur.DataSource = unAuteur.afficheAuteur();
         }
-
-        #region Constructeur.s
-        //public List<String> FrmAuteur()
-        //{
-
- //       }
-        #endregion
             
         #region Code Boutons
         //bouton ajouter
@@ -81,6 +74,9 @@ namespace InterfaceMedia
                 rdoDecede.BackColor = Color.WhiteSmoke;
                 cmbPays.BackColor = Color.White;
 
+                //On verouille le DGV
+                dgvAuteur.Enabled = false;
+
             }
 
             else if (btnAjouter.Text == "Valider")
@@ -112,6 +108,9 @@ namespace InterfaceMedia
                 rdoVivant.BackColor = Color.Silver;
                 rdoDecede.BackColor = Color.Silver;
                 cmbPays.BackColor = Color.Silver;
+
+                //on déverouille le DGV
+                dgvAuteur.Enabled = true;
             }
         }
 
@@ -149,6 +148,9 @@ namespace InterfaceMedia
                 rdoVivant.BackColor = Color.WhiteSmoke;
                 rdoDecede.BackColor = Color.WhiteSmoke;
                 cmbPays.BackColor = Color.White;
+
+                //On verouille le DGV
+                dgvAuteur.Enabled = false;
             }
 
             else if (btnModifier.Text == "Valider")
@@ -189,6 +191,9 @@ namespace InterfaceMedia
                 txtBio.Text = "";
                 rdoVivant.Checked = false;
                 rdoDecede.Checked = false;
+
+                //on déverouille le DGV
+                dgvAuteur.Enabled = true;
             }
         }
 
@@ -285,6 +290,9 @@ namespace InterfaceMedia
             rdoVivant.Enabled = false;
             rdoDecede.Enabled = false;
             cmbPays.Enabled = false;
+
+            //on déverouille le DGV
+            dgvAuteur.Enabled = true;
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont verrouillées
             txtCode.BackColor = Color.Silver;
