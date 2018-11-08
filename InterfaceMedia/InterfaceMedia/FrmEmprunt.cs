@@ -10,6 +10,8 @@ using System.Threading;
 using System.Windows.Forms;
 using MetroFramework.Forms;
 using LibMedia;
+using MySql.Data.MySqlClient;
+using MySql.Data.MySqlClient.Interceptors;
 
 namespace InterfaceMedia
 {
@@ -83,24 +85,33 @@ namespace InterfaceMedia
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            if (btnModifier.Text.Equals("Modifier"))
-            {
-                clickBouton(btnModifier);
+            //try
+           // {
+                if (btnModifier.Text.Equals("Modifier"))
+                {
+                    clickBouton(btnModifier);
 
-                btnModifier.Enabled = true;
-            }
-            else if (btnModifier.Text.Equals("Valider"))
-            {
-                int numE = Int32.Parse(txtbxNumEmp.Text);
-                DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
-                DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
-                DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
-                Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text, dateEm, dateRet, dateRetP);
+                    btnModifier.Enabled = true;
+                }
+                else if (btnModifier.Text.Equals("Valider"))
+                {
+                    int numE = Int32.Parse(txtbxNumEmp.Text);
+                    DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
+                    DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
+                    DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
+                    Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text, dateEm, dateRet, dateRetP);
 
-                Updat.updateEmprunt(lEmprunt);
+                    Updat.updateEmprunt(lEmprunt);
 
-                clickValider(btnModifier, "Modifier");
-            }
+                    clickValider(btnModifier, "Modifier");
+                }
+            //}
+            //catch (MySqlException y)
+            //{
+            //    btDialog(y.Message);
+            //    throw;
+            //}
+            
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
