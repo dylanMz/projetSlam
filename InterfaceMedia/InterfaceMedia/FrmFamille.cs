@@ -18,13 +18,25 @@ namespace InterfaceMedia
         private List<Famille> lesidfamilles;
         private string chefvalide;
         private Crud_Emprunteur unemprunteur;
+        private Boolean newfamille = false;
 
 
-        public FrmFamille(List<Famille> familles)
+        public FrmFamille(List<Famille> familles, Boolean newfamille)
         {
             unemprunteur = new Crud_Emprunteur();
             InitializeComponent();
             this.lesidfamilles = familles;
+            this.newfamille = newfamille;
+            if(newfamille == false)
+            {
+                btnAjouter.Visible = false;
+                btnModifier.Visible = true;
+            }
+            else
+            {
+                btnAjouter.Visible = true;
+                btnModifier.Visible = false;
+            }
             RefreshGrid();
         }
 
@@ -65,7 +77,7 @@ namespace InterfaceMedia
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            if (btnAjouter.Text.Equals("Ajouter"))
+            if (btnAjouter.Text.Equals("Ajouter Chef"))
             {
                 btnAjouter.Text = "Valider";
                 btnAnnuler.Visible = true;
@@ -73,7 +85,7 @@ namespace InterfaceMedia
             }
             else if (btnAjouter.Text.Equals("Valider"))
             {
-                btnAjouter.Text = "Ajouter";
+                btnAjouter.Text = "Ajouter Chef";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
 
@@ -97,6 +109,48 @@ namespace InterfaceMedia
                         if (compar != num)
                         {
                             unemprunteur.InsertFamille("proc_insert_famille", Convert.ToInt32(txtnum.Text), num);
+                        }
+
+                    }
+                }
+
+                //met à jour le datagrid
+                RefreshGrid();
+            }
+        }
+
+        private void btnModifier_Click(object sender, EventArgs e)
+        {
+            if (btnModifier.Text.Equals("Modifier Chef"))
+            {
+                btnModifier.Text = "Valider";
+                btnAnnuler.Visible = true;
+
+            }
+            else if (btnModifier.Text.Equals("Valider"))
+            {
+                btnModifier.Text = "Modifier Chef";
+                btnModifier.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+
+
+
+                //Ajoute le chef de famille à tout les membre du datagrid
+                Int32 RowCount = GridFamille.RowCount;
+                if (RowCount > 0)
+                {
+                    //System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+                    for (int i = 0; i < RowCount; i++)
+                    {
+
+                        int num = Convert.ToInt16(GridFamille.Rows[i].Cells[0].Value.ToString());
+                        int ancien = Convert.ToInt16(GridFamille.Rows[i].Cells[8].Value.ToString());
+                        int compar = Convert.ToInt32(txtnum.Text);
+                        if (compar != num)
+                        {
+                            unemprunteur.UpdateFamille("proc_update_famille", Convert.ToInt32(txtnum.Text), num, ancien);
                         }
 
                     }

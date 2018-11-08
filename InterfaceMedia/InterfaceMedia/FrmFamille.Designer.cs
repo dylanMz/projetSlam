@@ -34,9 +34,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
-            this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.metrotileQuitter = new MetroFramework.Controls.MetroTile();
+            this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.GridFamille = new MetroFramework.Controls.MetroGrid();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.txtnom = new MetroFramework.Controls.MetroTextBox();
@@ -53,7 +53,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnAnnuler);
-            this.groupBox1.Controls.Add(this.btnModifier);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(779, 10);
             this.groupBox1.Name = "groupBox1";
@@ -83,33 +82,17 @@
             this.btnModifier.ActiveControl = null;
             this.btnModifier.BackColor = System.Drawing.Color.SteelBlue;
             this.btnModifier.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModifier.Location = new System.Drawing.Point(13, 19);
+            this.btnModifier.Location = new System.Drawing.Point(426, 22);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(156, 48);
             this.btnModifier.TabIndex = 97;
-            this.btnModifier.Text = "Modifier";
+            this.btnModifier.Text = "Modifier Chef";
             this.btnModifier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnModifier.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
             this.btnModifier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.btnModifier.UseCustomBackColor = true;
             this.btnModifier.UseSelectable = true;
-            // 
-            // btnAjouter
-            // 
-            this.btnAjouter.ActiveControl = null;
-            this.btnAjouter.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAjouter.Location = new System.Drawing.Point(455, 22);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(158, 48);
-            this.btnAjouter.TabIndex = 96;
-            this.btnAjouter.Text = "Ajouter Chef";
-            this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAjouter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.btnAjouter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btnAjouter.UseCustomBackColor = true;
-            this.btnAjouter.UseSelectable = true;
-            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
             // 
             // groupBox2
             // 
@@ -142,6 +125,23 @@
             this.metrotileQuitter.UseSelectable = true;
             this.metrotileQuitter.UseTileImage = true;
             this.metrotileQuitter.Click += new System.EventHandler(this.metrotileQuitter_Click);
+            // 
+            // btnAjouter
+            // 
+            this.btnAjouter.ActiveControl = null;
+            this.btnAjouter.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAjouter.Location = new System.Drawing.Point(455, 22);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(158, 48);
+            this.btnAjouter.TabIndex = 96;
+            this.btnAjouter.Text = "Ajouter Chef";
+            this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAjouter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnAjouter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnAjouter.UseCustomBackColor = true;
+            this.btnAjouter.UseSelectable = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
             // GridFamille
             // 
@@ -286,6 +286,7 @@
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox3.Controls.Add(this.metroLabel3);
+            this.groupBox3.Controls.Add(this.btnModifier);
             this.groupBox3.Controls.Add(this.txtnum);
             this.groupBox3.Controls.Add(this.btnAjouter);
             this.groupBox3.Controls.Add(this.metroLabel1);
