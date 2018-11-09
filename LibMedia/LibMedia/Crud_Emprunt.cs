@@ -61,8 +61,8 @@ namespace LibMedia
             uneCmdSql.Parameters["dateEmp"].Value = unEmprunt.dateEmp;
             uneCmdSql.Parameters.Add(new MySqlParameter("dateRet", MySqlDbType.Date));
             uneCmdSql.Parameters["dateRet"].Value = unEmprunt.dateRetour;
-            uneCmdSql.Parameters.Add(new MySqlParameter("dateRetPrev", MySqlDbType.Date));
-            uneCmdSql.Parameters["dateRetPrev"].Value = unEmprunt.dateRetourPrevu;
+            uneCmdSql.Parameters.Add(new MySqlParameter("dateRetPrevu", MySqlDbType.Date));
+            uneCmdSql.Parameters["dateRetPrevu"].Value = unEmprunt.dateRetourPrevu; 
             uneCmdSql.ExecuteNonQuery();       //Execute la requete
             laConnexion.closeConnexion();       //Ferme la connexion
         }

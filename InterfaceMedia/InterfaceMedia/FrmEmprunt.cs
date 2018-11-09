@@ -83,10 +83,29 @@ namespace InterfaceMedia
             }
         }
 
+        protected void txtbxRefEx_TextChanged(object sender, EventArgs e)
+        {
+            int cpt = 0;
+            StringBuilder sb = new StringBuilder();
+
+            foreach (char c in txtbxRefEx.Text)
+            {
+                cpt++;
+                if(cpt == 4)
+                {
+                    sb.Append("_");
+                }
+                if (Char.IsDigit(c)) 
+                    sb.Append(c);
+            }
+
+            txtbxRefEx.Text = sb.ToString();
+        }
+
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            //try
-           // {
+           try
+           {
                 if (btnModifier.Text.Equals("Modifier"))
                 {
                     clickBouton(btnModifier);
@@ -105,12 +124,12 @@ namespace InterfaceMedia
 
                     clickValider(btnModifier, "Modifier");
                 }
-            //}
-            //catch (MySqlException y)
-            //{
-            //    btDialog(y.Message);
-            //    throw;
-            //}
+           }
+           catch (MySqlException y)
+           {
+                btDialog(y.Message);
+                throw;
+           }
             
         }
 
