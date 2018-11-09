@@ -47,18 +47,20 @@ namespace InterfaceMedia
         //bouton ajouter
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            //Vide des champs
-            txtCode.Text = "";
-            txtNom.Text = "";
-            txtPrenom.Text = "";
-            txtPseudo.Text = "";
-            txtBio.Text = "";
-            rdoVivant.Checked = false;
-            rdoDecede.Checked = false;
-            chkNouvPays.Checked = false;
+            
 
             if (btnAjouter.Text == "Ajouter")
             {
+                //Vide des champs
+                txtCode.Text = "";
+                txtNom.Text = "";
+                txtPrenom.Text = "";
+                txtPseudo.Text = "";
+                txtBio.Text = "";
+                rdoVivant.Checked = false;
+                rdoDecede.Checked = false;
+                chkNouvPays.Checked = false;
+
                 btnAjouter.BackColor = Color.Green;
                 btnAjouter.Text = "Valider";
 
@@ -78,6 +80,7 @@ namespace InterfaceMedia
                 rdoVivant.Enabled = true;
                 rdoDecede.Enabled = true;
                 cmbPays.Enabled = true;
+                chkNouvPays.Enabled = true;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtNom.BackColor = Color.White;
@@ -96,6 +99,10 @@ namespace InterfaceMedia
 
             else if (btnAjouter.Text == "Valider")
             {
+                //ajout de l'auteur à la bdd
+                unAuteur.ajouterAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), txtPays.Text, txtBio.Text);
+
+                //btnValider --> btn Ajouter
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
@@ -113,6 +120,7 @@ namespace InterfaceMedia
                 rdoVivant.Enabled = false;
                 rdoDecede.Enabled = false;
                 cmbPays.Enabled = false;
+                chkNouvPays.Enabled = false;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 txtNom.BackColor = Color.Silver;
@@ -140,6 +148,7 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text == "Modifier")
             {
+                //modifications visuelles
                 btnModifier.BackColor = Color.Green;
                 btnModifier.Text = "Valider";
 
@@ -159,7 +168,7 @@ namespace InterfaceMedia
                 rdoVivant.Enabled = true;
                 rdoDecede.Enabled = true;
                 cmbPays.Enabled = true;
-                chkNouvPays.Checked = true;
+                chkNouvPays.Enabled = true;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtNom.BackColor = Color.White;
@@ -177,6 +186,9 @@ namespace InterfaceMedia
 
             else if (btnModifier.Text == "Valider")
             {
+                //modifiaction de l'auteur dans la bdd
+                unAuteur.modifierAuteur(int.Parse(txtCode.Text), txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), txtPays.Text, txtBio.Text);
+
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
@@ -194,6 +206,7 @@ namespace InterfaceMedia
                 rdoVivant.Enabled = false;
                 rdoDecede.Enabled = false;
                 cmbPays.Enabled = false;
+                chkNouvPays.Enabled = false;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 txtNom.BackColor = Color.Silver;
@@ -263,6 +276,9 @@ namespace InterfaceMedia
                 
                 if (txtCode.Text != "" || txtNom.Text != "" || txtPseudo.Text != "")
                 {
+                    //modifiaction de l'auteur dans la bdd
+                    unAuteur.rechercheAuteur(int.Parse(txtCode.Text), txtNom.Text, txtPseudo.Text);
+
                     btnRechercher.Text = "Rechercher";
                     btnRechercher.BackColor = Color.SteelBlue;
                     btnAnnuler.Visible = false;
@@ -339,6 +355,8 @@ namespace InterfaceMedia
             rdoVivant.Enabled = false;
             rdoDecede.Enabled = false;
             cmbPays.Enabled = false;
+            chkNouvPays.Enabled = false;
+            dtStatut.Visible = false;
 
             //on déverouille le DGV
             dgvAuteur.Enabled = true;

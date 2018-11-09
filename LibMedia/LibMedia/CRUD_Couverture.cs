@@ -92,12 +92,12 @@ namespace LibMedia
             commande.Connection = _connexion.getConnexion();
             commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
             commande.Parameters["unCode"].Value = wcode;
-            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.String));
-            commande.Parameters["unCode"].Value = wtitre;
-            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.Int16));
-            commande.Parameters["unCode"].Value = wtome;
-            commande.Parameters.Add(new MySqlParameter("unCode", MySqlDbType.String));
-            commande.Parameters["unCode"].Value = wdate;
+            commande.Parameters.Add(new MySqlParameter("unTitre", MySqlDbType.String));
+            commande.Parameters["unTitre"].Value = wtitre;
+            commande.Parameters.Add(new MySqlParameter("unTome", MySqlDbType.Int16));
+            commande.Parameters["unTome"].Value = wtome;
+            commande.Parameters.Add(new MySqlParameter("uneDate", MySqlDbType.String));
+            commande.Parameters["uneDate"].Value = wdate;
 
             MySqlDataAdapter unAdapter = new MySqlDataAdapter(commande);
             DataSet unDataset = new DataSet();
