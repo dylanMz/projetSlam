@@ -451,7 +451,7 @@ namespace InterfaceMedia
         }
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest());
+            Application.Run(new FrmAccueilTest(lblRang.Text));
         }
         public void RefreshGrid()
         {

@@ -56,6 +56,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBoxRang = new System.Windows.Forms.GroupBox();
             this.picHome = new System.Windows.Forms.PictureBox();
+            this.lblRang = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridUtilisateur)).BeginInit();
             this.gpbxMenu.SuspendLayout();
@@ -550,11 +551,21 @@
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
+            // lblRang
+            // 
+            this.lblRang.AutoSize = true;
+            this.lblRang.Location = new System.Drawing.Point(253, 30);
+            this.lblRang.Name = "lblRang";
+            this.lblRang.Size = new System.Drawing.Size(53, 19);
+            this.lblRang.TabIndex = 53;
+            this.lblRang.Text = "lblRang";
+            // 
             // FrmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(796, 546);
+            this.Controls.Add(this.lblRang);
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.groupBoxRang);
             this.Controls.Add(this.gpbxMenu);
@@ -572,6 +583,7 @@
             this.groupBoxRang.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -601,5 +613,6 @@
         private MetroFramework.Controls.MetroTextBox txtPassword;
         private MetroFramework.Controls.MetroTextBox txtNom;
         private MetroFramework.Controls.MetroTextBox txtPseudo;
+        private MetroFramework.Controls.MetroLabel lblRang;
     }
 }

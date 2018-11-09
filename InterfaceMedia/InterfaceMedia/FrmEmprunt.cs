@@ -56,7 +56,7 @@ namespace InterfaceMedia
 
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest());
+            Application.Run(new FrmAccueilTest(lblRang.Text));
         }
 
         private void btnAjouter_Click_1(object sender, EventArgs e)
