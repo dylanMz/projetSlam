@@ -1052,7 +1052,7 @@
             this.dtgrvLivre.TabIndex = 105;
             this.dtgrvLivre.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrvlivre_CellContentClick_1);
             // 
-=======
+
             // lbltest
             // 
             this.lbltest.AutoSize = true;
@@ -1079,7 +1079,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(972, 630);
-=======
+
             this.Controls.Add(this.lblRang);
             this.Controls.Add(this.lbltest);
           
@@ -1152,7 +1152,7 @@
         private MetroFramework.Controls.MetroGrid dtgrvLivre;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroComboBox cmbbxmois;
-=======
+
         private MetroFramework.Controls.MetroLabel lbltest;
         private MetroFramework.Controls.MetroLabel lblRang;
     }

@@ -25,11 +25,14 @@ namespace InterfaceMedia
         private List<Famille> lesfamille;
         private int unchef;
         private Boolean newfamille = false;
+        private String leNiveau;
 
-        public FrmEmprunteur()
+        public FrmEmprunteur(String leNiveau)
         {
             InitializeComponent();
+            this.leNiveau = leNiveau;
             RefreshGrid();
+            lblRang.Text = this.leNiveau;
 
 
         }

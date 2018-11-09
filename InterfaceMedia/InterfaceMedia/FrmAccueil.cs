@@ -82,7 +82,7 @@ namespace InterfaceMedia
 
         private void openformEmprunteur()
         {
-            Application.Run(new FrmEmprunteur());
+            Application.Run(new FrmEmprunteur(leNiveau));
         }
 
         private void openformAuteur()
