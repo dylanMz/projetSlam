@@ -15,6 +15,7 @@ namespace InterfaceMedia
 {
     public partial class FrmEmprunteur : MetroForm
     {
+        private int aunefamille;
         private int wnum;
         private int num;
         Thread th;

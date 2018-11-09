@@ -224,18 +224,24 @@ namespace LibMedia
                 EmprunteurSql.Connection = uneconnexion.getConnexion();
                 EmprunteurSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
                 EmprunteurSql.Parameters["wid"].Value = wid;
-                EmprunteurSql.ExecuteNonQuery();
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("wafamille", MySqlDbType.Int16);
+                EmprunteurSql.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
+                //aunefamille = Convert.ToInt16(PSortie_nat.Value.ToString());
+                //EmprunteurSql.ExecuteNonQuery();
                 _unReader = EmprunteurSql.ExecuteReader();
+
+                
 
                 while (_unReader.Read())
                 {
-                    chef = int.Parse(_unReader["fam_emp_resp"].ToString());
+                    chef = int.Parse(_unReader["fam_emp_resp"].ToString()); ;
                 }
                 _unReader.Close();
                 uneconnexion.closeConnexion();
             }
-
-            return chef;
+           return chef;
         }
 
         //Exécute la procédure pour récuper la table emprunteur
@@ -258,6 +264,26 @@ namespace LibMedia
                     _desfamilles.Add(new Famille(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), int.Parse(_unReader["fam_emp_resp"].ToString())));
                 }
                 _unReader.Close();
+                uneconnexion.closeConnexion();
+            }
+        }
+
+
+        //Exécute la procédure de modification d'un chef de famille
+        public void DeleteMembreFamille(String nomprocedure, int wid)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+
+                MySqlCommand unecommandeSql = new MySqlCommand();
+                unecommandeSql.CommandText = nomprocedure;
+                unecommandeSql.CommandType = CommandType.StoredProcedure;
+                unecommandeSql.Connection = uneconnexion.getConnexion();
+
+                //Les paramétres
+                unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                unecommandeSql.Parameters["wid"].Value = wid;
+                unecommandeSql.ExecuteNonQuery();
                 uneconnexion.closeConnexion();
             }
         }
