@@ -15,7 +15,6 @@ namespace InterfaceMedia
 {
     public partial class FrmEmprunteur : MetroForm
     {
-        private int aunefamille;
         private int wnum;
         private int num;
         Thread th;
@@ -355,7 +354,7 @@ namespace InterfaceMedia
 
                 for (int i = 0; i < selectedRowCount; i++)
                 {
-
+                    
                     num = Convert.ToInt16(GridEmprunteur.SelectedRows[i].Cells[0].Value.ToString());
                     String nom = GridEmprunteur.SelectedRows[i].Cells[1].Value.ToString();
                     String prenom = GridEmprunteur.SelectedRows[i].Cells[2].Value.ToString();
@@ -364,9 +363,9 @@ namespace InterfaceMedia
                     String ville = GridEmprunteur.SelectedRows[i].Cells[5].Value.ToString();
                     DateTime naiis = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString());
                     String mail = GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString();
-
-                    unchef = unEmprunteur.cheffamille(num);
-                        lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail, unchef));
+                    //Ajoute dans famille tout les emprunteurs sélectionné
+                    int lechef = unEmprunteur.cheffamille(num); ;
+                        lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail, lechef));
                     
 
                     
