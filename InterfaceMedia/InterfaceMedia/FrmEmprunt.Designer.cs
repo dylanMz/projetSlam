@@ -191,6 +191,7 @@
             this.GridEmprunt.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridEmprunt.Location = new System.Drawing.Point(12, 374);
             this.GridEmprunt.Name = "GridEmprunt";
+            this.GridEmprunt.ReadOnly = true;
             this.GridEmprunt.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -204,6 +205,7 @@
             this.GridEmprunt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridEmprunt.Size = new System.Drawing.Size(714, 180);
             this.GridEmprunt.TabIndex = 12;
+            this.GridEmprunt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridEmprunt_CellClick);
             // 
             // lblDateEmp
             // 

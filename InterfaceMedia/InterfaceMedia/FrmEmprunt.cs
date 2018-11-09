@@ -83,10 +83,29 @@ namespace InterfaceMedia
             }
         }
 
+        protected void txtbxRefEx_TextChanged(object sender, EventArgs e)
+        {
+            int cpt = 0;
+            StringBuilder sb = new StringBuilder();
+
+            foreach (char c in txtbxRefEx.Text)
+            {
+                cpt++;
+                if(cpt == 4)
+                {
+                    sb.Append("_");
+                }
+                if (Char.IsDigit(c)) 
+                    sb.Append(c);
+            }
+
+            txtbxRefEx.Text = sb.ToString();
+        }
+
         private void btnModifier_Click(object sender, EventArgs e)
         {
-            //try
-           // {
+           try
+           {
                 if (btnModifier.Text.Equals("Modifier"))
                 {
                     clickBouton(btnModifier);
@@ -105,12 +124,12 @@ namespace InterfaceMedia
 
                     clickValider(btnModifier, "Modifier");
                 }
-            //}
-            //catch (MySqlException y)
-            //{
-            //    btDialog(y.Message);
-            //    throw;
-            //}
+           }
+           catch (MySqlException y)
+           {
+                btDialog(y.Message);
+                throw;
+           }
             
         }
 
@@ -365,6 +384,20 @@ namespace InterfaceMedia
             // are complete
             MessageBox.Show(leMessage, "Médiateque",
          MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+
+        private void GridEmprunt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string dtNull = GridEmprunt.CurrentRow.Cells["dateRetour"].Value.ToString();
+            txtbxNumEmp.Text = GridEmprunt.CurrentRow.Cells["emp_num"].Value.ToString();
+            txtbxRefEx.Text = GridEmprunt.CurrentRow.Cells["ExempRef"].Value.ToString();
+            dtEmprunt.Text = GridEmprunt.CurrentRow.Cells["dateEmprunt"].Value.ToString();
+            dtRetourPrevu.Text = GridEmprunt.CurrentRow.Cells["dateRetourPrevu"].Value.ToString();
+            if (dtNull != "01/01/0001 00:00:00")
+            {
+                dtRetour.Text = dtNull;
+            }
         }
     }
 }
