@@ -1024,7 +1024,7 @@ namespace InterfaceMedia
         }
         private void openAccueil()
         {
-            Application.Run(new FrmAccueilTest());
+            Application.Run(new FrmAccueilTest(lblRang.Text));
         }
 
     }

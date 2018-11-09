@@ -63,6 +63,7 @@
             this.txtCode = new MetroFramework.Controls.MetroTextBox();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
             this.picHome = new System.Windows.Forms.PictureBox();
+            this.lblRang = new MetroFramework.Controls.MetroLabel();
             this.grpMenu.SuspendLayout();
             this.grpQuitter.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
@@ -671,11 +672,21 @@
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
+            // lblRang
+            // 
+            this.lblRang.AutoSize = true;
+            this.lblRang.Location = new System.Drawing.Point(192, 33);
+            this.lblRang.Name = "lblRang";
+            this.lblRang.Size = new System.Drawing.Size(53, 19);
+            this.lblRang.TabIndex = 47;
+            this.lblRang.Text = "lblRang";
+            // 
             // FrmAuteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 694);
+            this.Controls.Add(this.lblRang);
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.pnlAuteur);
             this.Controls.Add(this.grpMenu);
@@ -691,6 +702,7 @@
             this.grpStatut.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -728,5 +740,6 @@
         private MetroFramework.Controls.MetroGrid dgvAuteur;
         private MetroFramework.Controls.MetroTextBox txtPays;
         private MetroFramework.Controls.MetroCheckBox chkNouvPays;
+        private MetroFramework.Controls.MetroLabel lblRang;
     }
 }
