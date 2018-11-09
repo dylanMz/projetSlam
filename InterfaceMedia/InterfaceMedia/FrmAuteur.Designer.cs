@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpMenu = new System.Windows.Forms.GroupBox();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.grpQuitter = new System.Windows.Forms.GroupBox();
@@ -36,7 +39,10 @@
             this.btnRechercher = new MetroFramework.Controls.MetroTile();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
             this.pnlAuteur = new MetroFramework.Controls.MetroPanel();
+            this.dgvAuteur = new MetroFramework.Controls.MetroGrid();
             this.grpAuteur = new System.Windows.Forms.GroupBox();
+            this.txtPays = new MetroFramework.Controls.MetroTextBox();
+            this.chkNouvPays = new MetroFramework.Controls.MetroCheckBox();
             this.grpStatut = new System.Windows.Forms.GroupBox();
             this.rdoVivant = new MetroFramework.Controls.MetroRadioButton();
             this.dtStatut = new MetroFramework.Controls.MetroDateTime();
@@ -56,14 +62,14 @@
             this.lblPrenom = new MetroFramework.Controls.MetroLabel();
             this.txtCode = new MetroFramework.Controls.MetroTextBox();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
-            this.dgvAuteur = new System.Windows.Forms.DataGridView();
             this.picHome = new System.Windows.Forms.PictureBox();
+            this.lblRang = new MetroFramework.Controls.MetroLabel();
             this.grpMenu.SuspendLayout();
             this.grpQuitter.SuspendLayout();
             this.pnlAuteur.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
             this.grpAuteur.SuspendLayout();
             this.grpStatut.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,9 +109,9 @@
             // 
             this.grpQuitter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.grpQuitter.Controls.Add(this.btnQuitter);
-            this.grpQuitter.Location = new System.Drawing.Point(6, 555);
+            this.grpQuitter.Location = new System.Drawing.Point(0, 555);
             this.grpQuitter.Name = "grpQuitter";
-            this.grpQuitter.Size = new System.Drawing.Size(204, 83);
+            this.grpQuitter.Size = new System.Drawing.Size(216, 83);
             this.grpQuitter.TabIndex = 7;
             this.grpQuitter.TabStop = false;
             // 
@@ -117,7 +123,7 @@
             this.btnQuitter.Location = new System.Drawing.Point(18, 19);
             this.btnQuitter.Name = "btnQuitter";
             this.btnQuitter.Size = new System.Drawing.Size(169, 44);
-            this.btnQuitter.TabIndex = 17;
+            this.btnQuitter.TabIndex = 15;
             this.btnQuitter.Text = "Quitter";
             this.btnQuitter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnQuitter.TileImage = global::InterfaceMedia.Properties.Resources.QuitterIcone;
@@ -154,7 +160,7 @@
             this.btnRechercher.Location = new System.Drawing.Point(24, 197);
             this.btnRechercher.Name = "btnRechercher";
             this.btnRechercher.Size = new System.Drawing.Size(169, 43);
-            this.btnRechercher.TabIndex = 15;
+            this.btnRechercher.TabIndex = 13;
             this.btnRechercher.Text = "Rechercher";
             this.btnRechercher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnRechercher.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -171,7 +177,7 @@
             this.btnAnnuler.Location = new System.Drawing.Point(24, 463);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(169, 43);
-            this.btnAnnuler.TabIndex = 16;
+            this.btnAnnuler.TabIndex = 14;
             this.btnAnnuler.Text = "Annuler";
             this.btnAnnuler.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnAnnuler.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
@@ -186,8 +192,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlAuteur.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pnlAuteur.Controls.Add(this.grpAuteur);
             this.pnlAuteur.Controls.Add(this.dgvAuteur);
+            this.pnlAuteur.Controls.Add(this.grpAuteur);
             this.pnlAuteur.HorizontalScrollbarBarColor = true;
             this.pnlAuteur.HorizontalScrollbarHighlightOnWheel = false;
             this.pnlAuteur.HorizontalScrollbarSize = 10;
@@ -202,12 +208,62 @@
             this.pnlAuteur.VerticalScrollbarHighlightOnWheel = false;
             this.pnlAuteur.VerticalScrollbarSize = 10;
             // 
+            // dgvAuteur
+            // 
+            this.dgvAuteur.AllowUserToAddRows = false;
+            this.dgvAuteur.AllowUserToDeleteRows = false;
+            this.dgvAuteur.AllowUserToResizeRows = false;
+            this.dgvAuteur.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.dgvAuteur.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.dgvAuteur.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgvAuteur.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAuteur.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvAuteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAuteur.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvAuteur.EnableHeadersVisualStyles = false;
+            this.dgvAuteur.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvAuteur.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dgvAuteur.Location = new System.Drawing.Point(12, 386);
+            this.dgvAuteur.MultiSelect = false;
+            this.dgvAuteur.Name = "dgvAuteur";
+            this.dgvAuteur.ReadOnly = true;
+            this.dgvAuteur.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAuteur.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvAuteur.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvAuteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAuteur.Size = new System.Drawing.Size(703, 219);
+            this.dgvAuteur.TabIndex = 16;
+            this.dgvAuteur.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAuteur_CellClick);
+            // 
             // grpAuteur
             // 
             this.grpAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.grpAuteur.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.grpAuteur.Controls.Add(this.txtPays);
+            this.grpAuteur.Controls.Add(this.chkNouvPays);
             this.grpAuteur.Controls.Add(this.grpStatut);
             this.grpAuteur.Controls.Add(this.cmbPays);
             this.grpAuteur.Controls.Add(this.lblPays);
@@ -229,6 +285,49 @@
             this.grpAuteur.Size = new System.Drawing.Size(718, 379);
             this.grpAuteur.TabIndex = 13;
             this.grpAuteur.TabStop = false;
+            // 
+            // txtPays
+            // 
+            // 
+            // 
+            // 
+            this.txtPays.CustomButton.Image = null;
+            this.txtPays.CustomButton.Location = new System.Drawing.Point(147, 1);
+            this.txtPays.CustomButton.Name = "";
+            this.txtPays.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtPays.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtPays.CustomButton.TabIndex = 1;
+            this.txtPays.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtPays.CustomButton.UseSelectable = true;
+            this.txtPays.CustomButton.Visible = false;
+            this.txtPays.Lines = new string[0];
+            this.txtPays.Location = new System.Drawing.Point(141, 194);
+            this.txtPays.MaxLength = 32767;
+            this.txtPays.Name = "txtPays";
+            this.txtPays.PasswordChar = '\0';
+            this.txtPays.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPays.SelectedText = "";
+            this.txtPays.SelectionLength = 0;
+            this.txtPays.SelectionStart = 0;
+            this.txtPays.ShortcutsEnabled = true;
+            this.txtPays.Size = new System.Drawing.Size(169, 23);
+            this.txtPays.TabIndex = 20;
+            this.txtPays.UseSelectable = true;
+            this.txtPays.Visible = false;
+            this.txtPays.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtPays.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // chkNouvPays
+            // 
+            this.chkNouvPays.AutoSize = true;
+            this.chkNouvPays.Enabled = false;
+            this.chkNouvPays.Location = new System.Drawing.Point(316, 198);
+            this.chkNouvPays.Name = "chkNouvPays";
+            this.chkNouvPays.Size = new System.Drawing.Size(96, 30);
+            this.chkNouvPays.TabIndex = 19;
+            this.chkNouvPays.Text = "Ajouter un \r\nnouveau pays";
+            this.chkNouvPays.UseSelectable = true;
+            this.chkNouvPays.CheckedChanged += new System.EventHandler(this.chkNouvPays_CheckedChanged);
             // 
             // grpStatut
             // 
@@ -293,7 +392,6 @@
             this.cmbPays.TabIndex = 9;
             this.cmbPays.UseCustomBackColor = true;
             this.cmbPays.UseSelectable = true;
-            this.cmbPays.SelectedIndexChanged += new System.EventHandler(this.cmbPays_SelectedIndexChanged);
             // 
             // lblPays
             // 
@@ -504,7 +602,7 @@
             // 
             // 
             this.txtCode.CustomButton.Image = null;
-            this.txtCode.CustomButton.Location = new System.Drawing.Point(147, 1);
+            this.txtCode.CustomButton.Location = new System.Drawing.Point(43, 1);
             this.txtCode.CustomButton.Name = "";
             this.txtCode.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtCode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -523,7 +621,7 @@
             this.txtCode.SelectionLength = 0;
             this.txtCode.SelectionStart = 0;
             this.txtCode.ShortcutsEnabled = true;
-            this.txtCode.Size = new System.Drawing.Size(169, 23);
+            this.txtCode.Size = new System.Drawing.Size(65, 23);
             this.txtCode.TabIndex = 1;
             this.txtCode.UseCustomBackColor = true;
             this.txtCode.UseSelectable = true;
@@ -563,26 +661,6 @@
             this.txtNom.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtNom.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // dgvAuteur
-            // 
-            this.dgvAuteur.AllowUserToAddRows = false;
-            this.dgvAuteur.AllowUserToDeleteRows = false;
-            this.dgvAuteur.AllowUserToOrderColumns = true;
-            this.dgvAuteur.AllowUserToResizeRows = false;
-            this.dgvAuteur.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvAuteur.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAuteur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAuteur.Location = new System.Drawing.Point(12, 388);
-            this.dgvAuteur.MultiSelect = false;
-            this.dgvAuteur.Name = "dgvAuteur";
-            this.dgvAuteur.ReadOnly = true;
-            this.dgvAuteur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAuteur.Size = new System.Drawing.Size(703, 205);
-            this.dgvAuteur.TabIndex = 18;
-            this.dgvAuteur.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAuteur_CellClick);
-            // 
             // picHome
             // 
             this.picHome.Image = global::InterfaceMedia.Properties.Resources.maxresdefault;
@@ -594,11 +672,21 @@
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
+            // lblRang
+            // 
+            this.lblRang.AutoSize = true;
+            this.lblRang.Location = new System.Drawing.Point(192, 33);
+            this.lblRang.Name = "lblRang";
+            this.lblRang.Size = new System.Drawing.Size(53, 19);
+            this.lblRang.TabIndex = 47;
+            this.lblRang.Text = "lblRang";
+            // 
             // FrmAuteur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(967, 694);
+            this.Controls.Add(this.lblRang);
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.pnlAuteur);
             this.Controls.Add(this.grpMenu);
@@ -607,13 +695,14 @@
             this.grpMenu.ResumeLayout(false);
             this.grpQuitter.ResumeLayout(false);
             this.pnlAuteur.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
             this.grpAuteur.ResumeLayout(false);
             this.grpAuteur.PerformLayout();
             this.grpStatut.ResumeLayout(false);
             this.grpStatut.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAuteur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -623,7 +712,6 @@
         private MetroFramework.Controls.MetroPanel pnlAuteur;
         private MetroFramework.Controls.MetroLabel lblBio;
         private MetroFramework.Controls.MetroTextBox txtBio;
-        private System.Windows.Forms.DataGridView dgvAuteur;
         private MetroFramework.Controls.MetroTextBox txtPrenom;
         private MetroFramework.Controls.MetroTextBox txtNom;
         private MetroFramework.Controls.MetroTextBox txtCode;
@@ -649,5 +737,9 @@
         private MetroFramework.Controls.MetroTile btnAjouter;
         private MetroFramework.Controls.MetroTile btnModifier;
         private System.Windows.Forms.GroupBox grpStatut;
+        private MetroFramework.Controls.MetroGrid dgvAuteur;
+        private MetroFramework.Controls.MetroTextBox txtPays;
+        private MetroFramework.Controls.MetroCheckBox chkNouvPays;
+        private MetroFramework.Controls.MetroLabel lblRang;
     }
 }

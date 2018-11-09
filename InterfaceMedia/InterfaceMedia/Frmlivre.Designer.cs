@@ -82,6 +82,10 @@
             this.txtbxtitre = new MetroFramework.Controls.MetroTextBox();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.dtgrvLivre = new MetroFramework.Controls.MetroGrid();
+
+            this.lbltest = new MetroFramework.Controls.MetroLabel();
+            this.lblRang = new MetroFramework.Controls.MetroLabel();
+
             this.groupBox1.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.grpboxexemp.SuspendLayout();
@@ -1048,12 +1052,37 @@
             this.dtgrvLivre.TabIndex = 105;
             this.dtgrvLivre.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgrvlivre_CellContentClick_1);
             // 
-            // Frmlivre
+=======
+            // lbltest
+            // 
+            this.lbltest.AutoSize = true;
+            this.lbltest.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lbltest.ForeColor = System.Drawing.Color.Black;
+            this.lbltest.Location = new System.Drawing.Point(418, 27);
+            this.lbltest.Name = "lbltest";
+            this.lbltest.Size = new System.Drawing.Size(0, 0);
+            this.lbltest.TabIndex = 106;
+            this.lbltest.UseCustomBackColor = true;
+            // 
+            // lblRang
+            // 
+            this.lblRang.AutoSize = true;
+            this.lblRang.Location = new System.Drawing.Point(169, 27);
+            this.lblRang.Name = "lblRang";
+            this.lblRang.Size = new System.Drawing.Size(53, 19);
+            this.lblRang.TabIndex = 107;
+            this.lblRang.Text = "lblRang";
+            // 
+            // Frermlivre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(972, 630);
+=======
+            this.Controls.Add(this.lblRang);
+            this.Controls.Add(this.lbltest);
+          
             this.Controls.Add(this.dtgrvLivre);
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.metroPanel1);
@@ -1123,5 +1152,8 @@
         private MetroFramework.Controls.MetroGrid dtgrvLivre;
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroComboBox cmbbxmois;
+=======
+        private MetroFramework.Controls.MetroLabel lbltest;
+        private MetroFramework.Controls.MetroLabel lblRang;
     }
 }

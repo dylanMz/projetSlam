@@ -39,58 +39,58 @@ namespace LibMedia
 
         #region Accesseurs
 
-        public int _EditeurNum
+        public int Numéro
         {
             get { return EditeurNum; }
             set { EditeurNum = value; }
         }
 
-        public string _EditeurNom
+        public string Nom
         {
             get { return EditeurNom; }
             set { EditeurNom = value; }
         }
 
 
-        public int _EditeurCreation
+        public int Création
         {
             get { return EditeurCreation; }
             set { EditeurCreation = value; }
         }
 
 
-        public string _EditeurAdresse
+        public string Adresse
         {
             get { return EditeurAdresse; }
             set { EditeurAdresse = value; }
         }
 
-        public String _EditeurCP
+        public String Code_postal
         {
             get { return EditeurCP; }
             set { EditeurCP = value; }
         }
 
-        public String _EditeurVille
+        public String Ville
         {
             get { return EditeurVille; }
             set { EditeurVille = value; }
         }
 
 
-        public String _EditeurTel
+        public String Téléphone
         {
             get { return EditeurTel; }
             set { EditeurTel = value; }
         }
 
-        public String _EditeurFax
+        public String Fax
         {
             get { return EditeurFax; }
             set { EditeurFax = value; }
         }
 
-        public String _EditeurMail
+        public String Mail
         {
             get { return EditeurMail; }
             set { EditeurMail = value; }

@@ -83,19 +83,9 @@ namespace InterfaceMedia.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap depositphotos_116550360_stock_illustration_author_icon_author_sign {
-            get {
-                object obj = ResourceManager.GetObject("depositphotos_116550360-stock-illustration-author-icon-author-sign", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ecour_icon {
             get {
-                object obj = ResourceManager.GetObject("ecour-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("ecour_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

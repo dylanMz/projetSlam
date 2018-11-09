@@ -18,13 +18,13 @@ namespace InterfaceMedia
         #region Propriétés
         private Crud_Editeur unEditeur;
         private ConnexionBase uneconnexion;
+        private String leNiveau;
         Thread th;
         
 
         private int uneDateCreation;
 
         private String unCodeSortie;
-        private string unCodeEditeur;
         #endregion
 
         public FrmEditeur()
@@ -34,12 +34,18 @@ namespace InterfaceMedia
             uneconnexion = new ConnexionBase();
             unEditeur = new Crud_Editeur(uneconnexion);
 
-            GridEditeur.DataSource = unEditeur.Recup_Table_Editeur("proc_affiche_editeur", "editeur");
+            RefreshGrid();
+
             DateTimeCreation.Format = DateTimePickerFormat.Custom;
             DateTimeCreation.CustomFormat = "yyyy";
             DateTimeCreation.ShowUpDown = true;
         }
 
+        //Rempli le Grid avec les emprunteurs
+        private void RempGridEditeur(List<Editeur> lesEditeurs)
+        {
+            GridEditeur.DataSource = lesEditeurs;
+        }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
@@ -77,7 +83,7 @@ namespace InterfaceMedia
                 txtVille.BackColor = Color.White;
 
                 //Reinistialisation des textbox
-                txtCode.Text = "";
+                code.Text = "";
                 txtNom.Text = "";
                 DateTimeCreation.Text = "";
                 txtMail.Text = "";
@@ -96,9 +102,10 @@ namespace InterfaceMedia
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
 
-                //Re active les boutons
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
+                //Remet les accessibilités des boutons par défauts
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnAjouter.Enabled = true;
                 btnRechercher.Enabled = true;
 
                 //Les textbox sont inacessibles.
@@ -120,14 +127,14 @@ namespace InterfaceMedia
                 txtTel.BackColor = Color.Silver;
                 txtFax.BackColor = Color.Silver;
                 txtVille.BackColor = Color.Silver;
+
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
                 //Ajout d'un editeur
-                unEditeur.ajout_editeur("proc_insert_editeur", txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation, unCodeSortie);
-
+                unEditeur.ajout_editeur(txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
 
                 //Reinistialisation des textbox
-                txtCode.Text = "";
+                code.Text = "";
                 txtNom.Text = "";
                 DateTimeCreation.Text = "";
                 txtMail.Text = "";
@@ -137,8 +144,7 @@ namespace InterfaceMedia
                 txtFax.Text = "";
                 txtVille.Text = "";
 
-                GridEditeur.DataSource = unEditeur.Recup_Table_Editeur("proc_affiche_editeur", "editeur");
-
+                RefreshGrid();
             }
         }
 
@@ -176,20 +182,21 @@ namespace InterfaceMedia
                 txtTel.BackColor = Color.White;
                 txtFax.BackColor = Color.White;
                 txtVille.BackColor = Color.White;
+
+
             }
 
             else if (btnModifier.Text.Equals("Valider"))
             {
-                unCodeEditeur = Convert.ToString(txtCode.Text);
-                unEditeur.modification_editeur(unCodeEditeur,txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
-
+                
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
 
-                //Re active les boutons
+                //Remet les accessibilités des boutons par défauts
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
                 btnAjouter.Enabled = true;
-                btnSupprimer.Enabled = true;
                 btnRechercher.Enabled = true;
 
                 //Les textbox sont inacessibles.
@@ -212,9 +219,25 @@ namespace InterfaceMedia
                 txtFax.BackColor = Color.Silver;
                 txtVille.BackColor = Color.Silver;
 
-                //Actualisation du datagrid
-                GridEditeur.DataSource = unEditeur.Recup_Table_Editeur("proc_affiche_editeur", "editeur");
+                uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
+                //Modification d'un editeur
+                unEditeur.modification_editeur(Convert.ToInt16(code.Text), txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
+
+
+                //Reinistialisation des textbox
+                code.Text = "";
+                txtNom.Text = "";
+                DateTimeCreation.Text = "";
+                txtMail.Text = "";
+                txtCodePostal.Text = "";
+                txtAdr.Text = "";
+                txtTel.Text = "";
+                txtFax.Text = "";
+                txtVille.Text = "";
+
+                //Actualisation du datagrid
+                RefreshGrid();
 
             }
         }
@@ -241,10 +264,12 @@ namespace InterfaceMedia
                 btnSupprimer.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
 
-                //Re active les boutons
+                //Remet les accessibilités des boutons par défauts
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
                 btnAjouter.Enabled = true;
-                btnModifier.Enabled = true;
                 btnRechercher.Enabled = true;
+
             }
         }
 
@@ -268,24 +293,47 @@ namespace InterfaceMedia
                 btnAjouter.Enabled = false;
                 btnSupprimer.Enabled = false;
                 btnModifier.Enabled = false;
+
+                //Reinistialisation des textbox
+                code.Text = "";
+                txtNom.Text = "";
+                DateTimeCreation.Text = "";
+                txtMail.Text = "";
+                txtCodePostal.Text = "";
+                txtAdr.Text = "";
+                txtTel.Text = "";
+                txtFax.Text = "";
+                txtVille.Text = "";
             }
 
             else if (btnRechercher.Text.Equals("Valider"))
             {
                 btnRechercher.Text = "Rechercher";
                 btnRechercher.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
+                
 
-                //Re active les boutons
+                //Remet les accessibilités des boutons par défauts
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
                 btnAjouter.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnModifier.Enabled = true;
+                btnRechercher.Enabled = true;
+                btnAnnuler.Visible = true;
 
                 //Les textbox sont inacessibles.
                 txtNom.Enabled = false;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 txtNom.BackColor = Color.Silver;
+
+                //Vide la liste
+                unEditeur.lesEditeurs.Clear();
+
+                //Recherche d'un ou de plusieurs editeurs
+                uneconnexion = new ConnexionBase();
+                unEditeur = new Crud_Editeur(uneconnexion);
+                unEditeur.recherche_editeur(txtNom.Text);
+                RempGridEditeur(unEditeur.lesEditeurs);
+
 
             }
         }
@@ -303,9 +351,10 @@ namespace InterfaceMedia
             btnSupprimer.BackColor = Color.SteelBlue;
             btnRechercher.BackColor = Color.SteelBlue;
 
+            //Remet les accessibilités des boutons par défauts
+            btnModifier.Enabled = false;
+            btnSupprimer.Enabled = false;
             btnAjouter.Enabled = true;
-            btnModifier.Enabled = true;
-            btnSupprimer.Enabled = true;
             btnRechercher.Enabled = true;
 
             btnAjouter.Text = "Ajouter";
@@ -324,7 +373,7 @@ namespace InterfaceMedia
             txtVille.Enabled = false;
 
             //Reinistialisation des textbox
-            txtCode.Text = "";
+            code.Text = "";
             txtNom.Text = "";
             DateTimeCreation.Text = "";
             txtMail.Text = "";
@@ -348,6 +397,8 @@ namespace InterfaceMedia
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
 
+            RefreshGrid();
+
 
 
         }
@@ -362,26 +413,40 @@ namespace InterfaceMedia
 
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest());
+            Application.Run(new FrmAccueilTest(lblRang.Text));
         }
 
         //Affiche dans les textbox les valeurs de la ligne sélectionné.
         private void GridEditeur_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtCode.Text = GridEditeur.CurrentRow.Cells["EditeurNum"].Value.ToString();
-            txtNom.Text = GridEditeur.CurrentRow.Cells["EditeurNom"].Value.ToString();
+            code.Text = GridEditeur.CurrentRow.Cells["Numéro"].Value.ToString();
+            txtNom.Text = GridEditeur.CurrentRow.Cells["Nom"].Value.ToString();
 
-            String date = GridEditeur.CurrentRow.Cells["EditeurCreation"].Value.ToString();
+            String date = GridEditeur.CurrentRow.Cells["Création"].Value.ToString();
 
             DateTimeCreation.Text = "01/01/"+date+" 00:00:00";
 
-            txtVille.Text = GridEditeur.CurrentRow.Cells["EditeurVille"].Value.ToString();
-            txtAdr.Text = GridEditeur.CurrentRow.Cells["EditeurAdresse"].Value.ToString();
-            txtCodePostal.Text = GridEditeur.CurrentRow.Cells["EditeurCP"].Value.ToString();
-            txtTel.Text = GridEditeur.CurrentRow.Cells["EditeurTel"].Value.ToString();
-            txtFax.Text = GridEditeur.CurrentRow.Cells["EditeurFax"].Value.ToString();
-            txtMail.Text = GridEditeur.CurrentRow.Cells["EditeurMail"].Value.ToString();
+            txtVille.Text = GridEditeur.CurrentRow.Cells["Ville"].Value.ToString();
+            txtAdr.Text = GridEditeur.CurrentRow.Cells["Adresse"].Value.ToString();
+            txtCodePostal.Text = GridEditeur.CurrentRow.Cells["Code_Postal"].Value.ToString();
+            txtTel.Text = GridEditeur.CurrentRow.Cells["Téléphone"].Value.ToString();
+            txtFax.Text = GridEditeur.CurrentRow.Cells["Fax"].Value.ToString();
+            txtMail.Text = GridEditeur.CurrentRow.Cells["Mail"].Value.ToString();
 
+            //Déverouille le bouton modifier et supprimer
+            btnModifier.Enabled = true;
+            btnSupprimer.Enabled = true;
+
+        }
+
+        public void RefreshGrid()
+        {
+            uneconnexion = new ConnexionBase();
+            unEditeur = new Crud_Editeur(uneconnexion);
+            unEditeur.Recup_Table_Editeur();
+            RempGridEditeur(unEditeur.lesEditeurs);
+            GridEditeur.Update();
+            GridEditeur.Refresh();
         }
     }
 }

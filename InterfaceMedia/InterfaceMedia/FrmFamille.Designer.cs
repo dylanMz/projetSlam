@@ -32,16 +32,17 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSupprimer = new MetroFramework.Controls.MetroTile();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
-            this.btnModifier = new MetroFramework.Controls.MetroTile();
-            this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.metrotileQuitter = new MetroFramework.Controls.MetroTile();
+            this.btnModifier = new MetroFramework.Controls.MetroTile();
+            this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.GridFamille = new MetroFramework.Controls.MetroGrid();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.txtnomresponsable = new MetroFramework.Controls.MetroTextBox();
+            this.txtnom = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroTextBox1 = new MetroFramework.Controls.MetroTextBox();
+            this.txtnum = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -52,15 +53,31 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSupprimer);
             this.groupBox1.Controls.Add(this.btnAnnuler);
-            this.groupBox1.Controls.Add(this.btnModifier);
-            this.groupBox1.Controls.Add(this.btnAjouter);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(779, 10);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(175, 529);
             this.groupBox1.TabIndex = 91;
             this.groupBox1.TabStop = false;
+            // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.ActiveControl = null;
+            this.btnSupprimer.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSupprimer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSupprimer.Location = new System.Drawing.Point(12, 19);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(156, 48);
+            this.btnSupprimer.TabIndex = 108;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSupprimer.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnSupprimer.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnSupprimer.UseCustomBackColor = true;
+            this.btnSupprimer.UseSelectable = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnAnnuler
             // 
@@ -78,38 +95,7 @@
             this.btnAnnuler.UseCustomBackColor = true;
             this.btnAnnuler.UseSelectable = true;
             this.btnAnnuler.Visible = false;
-            // 
-            // btnModifier
-            // 
-            this.btnModifier.ActiveControl = null;
-            this.btnModifier.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnModifier.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModifier.Location = new System.Drawing.Point(12, 83);
-            this.btnModifier.Name = "btnModifier";
-            this.btnModifier.Size = new System.Drawing.Size(156, 48);
-            this.btnModifier.TabIndex = 97;
-            this.btnModifier.Text = "Modifier";
-            this.btnModifier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnModifier.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.btnModifier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btnModifier.UseCustomBackColor = true;
-            this.btnModifier.UseSelectable = true;
-            // 
-            // btnAjouter
-            // 
-            this.btnAjouter.ActiveControl = null;
-            this.btnAjouter.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAjouter.Location = new System.Drawing.Point(11, 19);
-            this.btnAjouter.Name = "btnAjouter";
-            this.btnAjouter.Size = new System.Drawing.Size(156, 48);
-            this.btnAjouter.TabIndex = 96;
-            this.btnAjouter.Text = "Ajouter";
-            this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnAjouter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.btnAjouter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btnAjouter.UseCustomBackColor = true;
-            this.btnAjouter.UseSelectable = true;
+            this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
             // 
             // groupBox2
             // 
@@ -143,10 +129,45 @@
             this.metrotileQuitter.UseTileImage = true;
             this.metrotileQuitter.Click += new System.EventHandler(this.metrotileQuitter_Click);
             // 
+            // btnModifier
+            // 
+            this.btnModifier.ActiveControl = null;
+            this.btnModifier.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnModifier.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnModifier.Location = new System.Drawing.Point(426, 22);
+            this.btnModifier.Name = "btnModifier";
+            this.btnModifier.Size = new System.Drawing.Size(156, 48);
+            this.btnModifier.TabIndex = 97;
+            this.btnModifier.Text = "Modifier Chef";
+            this.btnModifier.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnModifier.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnModifier.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnModifier.UseCustomBackColor = true;
+            this.btnModifier.UseSelectable = true;
+            this.btnModifier.Click += new System.EventHandler(this.btnModifier_Click);
+            // 
+            // btnAjouter
+            // 
+            this.btnAjouter.ActiveControl = null;
+            this.btnAjouter.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAjouter.Location = new System.Drawing.Point(455, 22);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(158, 48);
+            this.btnAjouter.TabIndex = 96;
+            this.btnAjouter.Text = "Ajouter Chef";
+            this.btnAjouter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnAjouter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnAjouter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnAjouter.UseCustomBackColor = true;
+            this.btnAjouter.UseSelectable = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
+            // 
             // GridFamille
             // 
             this.GridFamille.AllowUserToResizeRows = false;
-            this.GridFamille.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
+            this.GridFamille.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.GridFamille.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.GridFamille.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridFamille.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridFamille.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -172,6 +193,7 @@
             this.GridFamille.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridFamille.Location = new System.Drawing.Point(23, 187);
             this.GridFamille.Name = "GridFamille";
+            this.GridFamille.ReadOnly = true;
             this.GridFamille.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -183,8 +205,9 @@
             this.GridFamille.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridFamille.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridFamille.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridFamille.Size = new System.Drawing.Size(729, 343);
+            this.GridFamille.Size = new System.Drawing.Size(691, 310);
             this.GridFamille.TabIndex = 92;
+            this.GridFamille.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
             // metroLabel2
             // 
@@ -197,35 +220,35 @@
             this.metroLabel2.Text = "Responsable famille ";
             this.metroLabel2.UseCustomBackColor = true;
             // 
-            // txtnomresponsable
+            // txtnom
             // 
             // 
             // 
             // 
-            this.txtnomresponsable.CustomButton.Image = null;
-            this.txtnomresponsable.CustomButton.Location = new System.Drawing.Point(70, 1);
-            this.txtnomresponsable.CustomButton.Name = "";
-            this.txtnomresponsable.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtnomresponsable.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtnomresponsable.CustomButton.TabIndex = 1;
-            this.txtnomresponsable.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtnomresponsable.CustomButton.UseSelectable = true;
-            this.txtnomresponsable.CustomButton.Visible = false;
-            this.txtnomresponsable.Lines = new string[0];
-            this.txtnomresponsable.Location = new System.Drawing.Point(291, 45);
-            this.txtnomresponsable.MaxLength = 32767;
-            this.txtnomresponsable.Name = "txtnomresponsable";
-            this.txtnomresponsable.PasswordChar = '\0';
-            this.txtnomresponsable.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtnomresponsable.SelectedText = "";
-            this.txtnomresponsable.SelectionLength = 0;
-            this.txtnomresponsable.SelectionStart = 0;
-            this.txtnomresponsable.ShortcutsEnabled = true;
-            this.txtnomresponsable.Size = new System.Drawing.Size(92, 23);
-            this.txtnomresponsable.TabIndex = 94;
-            this.txtnomresponsable.UseSelectable = true;
-            this.txtnomresponsable.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtnomresponsable.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtnom.CustomButton.Image = null;
+            this.txtnom.CustomButton.Location = new System.Drawing.Point(70, 1);
+            this.txtnom.CustomButton.Name = "";
+            this.txtnom.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtnom.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtnom.CustomButton.TabIndex = 1;
+            this.txtnom.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtnom.CustomButton.UseSelectable = true;
+            this.txtnom.CustomButton.Visible = false;
+            this.txtnom.Lines = new string[0];
+            this.txtnom.Location = new System.Drawing.Point(291, 45);
+            this.txtnom.MaxLength = 32767;
+            this.txtnom.Name = "txtnom";
+            this.txtnom.PasswordChar = '\0';
+            this.txtnom.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtnom.SelectedText = "";
+            this.txtnom.SelectionLength = 0;
+            this.txtnom.SelectionStart = 0;
+            this.txtnom.ShortcutsEnabled = true;
+            this.txtnom.Size = new System.Drawing.Size(92, 23);
+            this.txtnom.TabIndex = 94;
+            this.txtnom.UseSelectable = true;
+            this.txtnom.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtnom.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel1
             // 
@@ -238,35 +261,35 @@
             this.metroLabel1.Text = "Nom :";
             this.metroLabel1.UseCustomBackColor = true;
             // 
-            // metroTextBox1
+            // txtnum
             // 
             // 
             // 
             // 
-            this.metroTextBox1.CustomButton.Image = null;
-            this.metroTextBox1.CustomButton.Location = new System.Drawing.Point(70, 1);
-            this.metroTextBox1.CustomButton.Name = "";
-            this.metroTextBox1.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.metroTextBox1.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroTextBox1.CustomButton.TabIndex = 1;
-            this.metroTextBox1.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.metroTextBox1.CustomButton.UseSelectable = true;
-            this.metroTextBox1.CustomButton.Visible = false;
-            this.metroTextBox1.Lines = new string[0];
-            this.metroTextBox1.Location = new System.Drawing.Point(129, 45);
-            this.metroTextBox1.MaxLength = 32767;
-            this.metroTextBox1.Name = "metroTextBox1";
-            this.metroTextBox1.PasswordChar = '\0';
-            this.metroTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.metroTextBox1.SelectedText = "";
-            this.metroTextBox1.SelectionLength = 0;
-            this.metroTextBox1.SelectionStart = 0;
-            this.metroTextBox1.ShortcutsEnabled = true;
-            this.metroTextBox1.Size = new System.Drawing.Size(92, 23);
-            this.metroTextBox1.TabIndex = 98;
-            this.metroTextBox1.UseSelectable = true;
-            this.metroTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.metroTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtnum.CustomButton.Image = null;
+            this.txtnum.CustomButton.Location = new System.Drawing.Point(70, 1);
+            this.txtnum.CustomButton.Name = "";
+            this.txtnum.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtnum.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtnum.CustomButton.TabIndex = 1;
+            this.txtnum.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtnum.CustomButton.UseSelectable = true;
+            this.txtnum.CustomButton.Visible = false;
+            this.txtnum.Lines = new string[0];
+            this.txtnum.Location = new System.Drawing.Point(129, 45);
+            this.txtnum.MaxLength = 32767;
+            this.txtnum.Name = "txtnum";
+            this.txtnum.PasswordChar = '\0';
+            this.txtnum.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtnum.SelectedText = "";
+            this.txtnum.SelectionLength = 0;
+            this.txtnum.SelectionStart = 0;
+            this.txtnum.ShortcutsEnabled = true;
+            this.txtnum.Size = new System.Drawing.Size(92, 23);
+            this.txtnum.TabIndex = 98;
+            this.txtnum.UseSelectable = true;
+            this.txtnum.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtnum.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // metroLabel3
             // 
@@ -283,9 +306,11 @@
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.groupBox3.Controls.Add(this.metroLabel3);
-            this.groupBox3.Controls.Add(this.metroTextBox1);
+            this.groupBox3.Controls.Add(this.btnModifier);
+            this.groupBox3.Controls.Add(this.txtnum);
+            this.groupBox3.Controls.Add(this.btnAjouter);
             this.groupBox3.Controls.Add(this.metroLabel1);
-            this.groupBox3.Controls.Add(this.txtnomresponsable);
+            this.groupBox3.Controls.Add(this.txtnom);
             this.groupBox3.Controls.Add(this.metroLabel2);
             this.groupBox3.Location = new System.Drawing.Point(23, 71);
             this.groupBox3.Name = "groupBox3";
@@ -324,10 +349,11 @@
         private MetroFramework.Controls.MetroTile metrotileQuitter;
         private MetroFramework.Controls.MetroGrid GridFamille;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private MetroFramework.Controls.MetroTextBox txtnomresponsable;
+        private MetroFramework.Controls.MetroTextBox txtnom;
         private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroTextBox metroTextBox1;
+        private MetroFramework.Controls.MetroTextBox txtnum;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private System.Windows.Forms.GroupBox groupBox3;
+        private MetroFramework.Controls.MetroTile btnSupprimer;
     }
 }

@@ -51,6 +51,7 @@
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.GridViewBase = new MetroFramework.Controls.MetroGrid();
             this.ButHome = new System.Windows.Forms.PictureBox();
+            this.lblRang = new MetroFramework.Controls.MetroLabel();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctBoxCouv)).BeginInit();
             this.gpbxMenu.SuspendLayout();
@@ -213,8 +214,7 @@
             // pctBoxCouv
             // 
             this.pctBoxCouv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pctBoxCouv.Image = global::InterfaceMedia.Properties.Resources.nondispo;
-            this.pctBoxCouv.Location = new System.Drawing.Point(555, 42);
+            this.pctBoxCouv.Location = new System.Drawing.Point(544, 40);
             this.pctBoxCouv.Name = "pctBoxCouv";
             this.pctBoxCouv.Size = new System.Drawing.Size(133, 171);
             this.pctBoxCouv.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -286,7 +286,7 @@
             this.btnAnnuler.ActiveControl = null;
             this.btnAnnuler.BackColor = System.Drawing.Color.Tomato;
             this.btnAnnuler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnnuler.Location = new System.Drawing.Point(18, 410);
+            this.btnAnnuler.Location = new System.Drawing.Point(18, 396);
             this.btnAnnuler.Name = "btnAnnuler";
             this.btnAnnuler.Size = new System.Drawing.Size(169, 49);
             this.btnAnnuler.TabIndex = 14;
@@ -370,9 +370,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnQuitter);
-            this.groupBox1.Location = new System.Drawing.Point(0, 462);
+            this.groupBox1.Location = new System.Drawing.Point(0, 451);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(216, 71);
+            this.groupBox1.Size = new System.Drawing.Size(216, 82);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
@@ -398,6 +398,9 @@
             // 
             // GridViewBase
             // 
+            this.GridViewBase.AllowUserToAddRows = false;
+            this.GridViewBase.AllowUserToDeleteRows = false;
+            this.GridViewBase.AllowUserToResizeColumns = false;
             this.GridViewBase.AllowUserToResizeRows = false;
             this.GridViewBase.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.GridViewBase.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -425,6 +428,7 @@
             this.GridViewBase.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.GridViewBase.Location = new System.Drawing.Point(23, 328);
             this.GridViewBase.Name = "GridViewBase";
+            this.GridViewBase.ReadOnly = true;
             this.GridViewBase.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -438,6 +442,7 @@
             this.GridViewBase.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridViewBase.Size = new System.Drawing.Size(764, 206);
             this.GridViewBase.TabIndex = 30;
+            this.GridViewBase.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewBase_CellClick);
             // 
             // ButHome
             // 
@@ -450,11 +455,21 @@
             this.ButHome.TabStop = false;
             this.ButHome.Click += new System.EventHandler(this.picHome_Click);
             // 
+            // lblRang
+            // 
+            this.lblRang.AutoSize = true;
+            this.lblRang.Location = new System.Drawing.Point(221, 31);
+            this.lblRang.Name = "lblRang";
+            this.lblRang.Size = new System.Drawing.Size(53, 19);
+            this.lblRang.TabIndex = 98;
+            this.lblRang.Text = "lblRang";
+            // 
             // FrmCouverture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 545);
+            this.Controls.Add(this.lblRang);
             this.Controls.Add(this.ButHome);
             this.Controls.Add(this.GridViewBase);
             this.Controls.Add(this.gpbxMenu);
@@ -469,6 +484,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButHome)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -493,5 +509,6 @@
         private System.Windows.Forms.PictureBox ButHome;
         private MetroFramework.Controls.MetroTextBox txtBoxTome;
         private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel lblRang;
     }
 }

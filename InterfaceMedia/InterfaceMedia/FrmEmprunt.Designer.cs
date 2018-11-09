@@ -59,6 +59,7 @@
             this.groupQuitter = new System.Windows.Forms.GroupBox();
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
+            this.lblRang = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).BeginInit();
             this.gpbxChoix.SuspendLayout();
             this.GroupSaisie.SuspendLayout();
@@ -191,6 +192,7 @@
             this.GridEmprunt.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.GridEmprunt.Location = new System.Drawing.Point(12, 374);
             this.GridEmprunt.Name = "GridEmprunt";
+            this.GridEmprunt.ReadOnly = true;
             this.GridEmprunt.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
@@ -204,6 +206,7 @@
             this.GridEmprunt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridEmprunt.Size = new System.Drawing.Size(714, 180);
             this.GridEmprunt.TabIndex = 12;
+            this.GridEmprunt.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridEmprunt_CellClick);
             // 
             // lblDateEmp
             // 
@@ -332,7 +335,7 @@
             this.dtRetour.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtRetour.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtRetour.Location = new System.Drawing.Point(176, 150);
-            this.dtRetour.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtRetour.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtRetour.Name = "dtRetour";
             this.dtRetour.Size = new System.Drawing.Size(137, 25);
             this.dtRetour.TabIndex = 25;
@@ -343,7 +346,7 @@
             this.dtRetourPrevu.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtRetourPrevu.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtRetourPrevu.Location = new System.Drawing.Point(501, 87);
-            this.dtRetourPrevu.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtRetourPrevu.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtRetourPrevu.Name = "dtRetourPrevu";
             this.dtRetourPrevu.Size = new System.Drawing.Size(137, 25);
             this.dtRetourPrevu.TabIndex = 23;
@@ -355,7 +358,7 @@
             this.dtEmprunt.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtEmprunt.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtEmprunt.Location = new System.Drawing.Point(176, 87);
-            this.dtEmprunt.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtEmprunt.MinimumSize = new System.Drawing.Size(4, 25);
             this.dtEmprunt.Name = "dtEmprunt";
             this.dtEmprunt.Size = new System.Drawing.Size(137, 25);
             this.dtEmprunt.TabIndex = 24;
@@ -375,9 +378,9 @@
             this.GroupBouton.Controls.Add(this.btnAjouter);
             this.GroupBouton.Controls.Add(this.groupQuitter);
             this.GroupBouton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GroupBouton.Location = new System.Drawing.Point(732, 27);
+            this.GroupBouton.Location = new System.Drawing.Point(732, 32);
             this.GroupBouton.Name = "GroupBouton";
-            this.GroupBouton.Size = new System.Drawing.Size(223, 527);
+            this.GroupBouton.Size = new System.Drawing.Size(223, 522);
             this.GroupBouton.TabIndex = 29;
             this.GroupBouton.TabStop = false;
             // 
@@ -386,7 +389,7 @@
             this.btnSearchEmp.ActiveControl = null;
             this.btnSearchEmp.BackColor = System.Drawing.Color.SteelBlue;
             this.btnSearchEmp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearchEmp.Location = new System.Drawing.Point(18, 261);
+            this.btnSearchEmp.Location = new System.Drawing.Point(18, 267);
             this.btnSearchEmp.Name = "btnSearchEmp";
             this.btnSearchEmp.Size = new System.Drawing.Size(190, 49);
             this.btnSearchEmp.TabIndex = 30;
@@ -403,7 +406,7 @@
             this.btnLivre.ActiveControl = null;
             this.btnLivre.BackColor = System.Drawing.Color.SteelBlue;
             this.btnLivre.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLivre.Location = new System.Drawing.Point(18, 316);
+            this.btnLivre.Location = new System.Drawing.Point(18, 322);
             this.btnLivre.Name = "btnLivre";
             this.btnLivre.Size = new System.Drawing.Size(190, 49);
             this.btnLivre.TabIndex = 31;
@@ -438,7 +441,7 @@
             this.btnAjRetour.ActiveControl = null;
             this.btnAjRetour.BackColor = System.Drawing.Color.SteelBlue;
             this.btnAjRetour.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAjRetour.Location = new System.Drawing.Point(18, 206);
+            this.btnAjRetour.Location = new System.Drawing.Point(18, 212);
             this.btnAjRetour.Name = "btnAjRetour";
             this.btnAjRetour.Size = new System.Drawing.Size(190, 49);
             this.btnAjRetour.TabIndex = 13;
@@ -455,7 +458,7 @@
             this.btnSupprimer.ActiveControl = null;
             this.btnSupprimer.BackColor = System.Drawing.Color.SteelBlue;
             this.btnSupprimer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSupprimer.Location = new System.Drawing.Point(18, 119);
+            this.btnSupprimer.Location = new System.Drawing.Point(18, 125);
             this.btnSupprimer.Name = "btnSupprimer";
             this.btnSupprimer.Size = new System.Drawing.Size(190, 49);
             this.btnSupprimer.TabIndex = 12;
@@ -472,7 +475,7 @@
             this.btnModifier.ActiveControl = null;
             this.btnModifier.BackColor = System.Drawing.Color.SteelBlue;
             this.btnModifier.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnModifier.Location = new System.Drawing.Point(18, 64);
+            this.btnModifier.Location = new System.Drawing.Point(18, 70);
             this.btnModifier.Name = "btnModifier";
             this.btnModifier.Size = new System.Drawing.Size(190, 49);
             this.btnModifier.TabIndex = 11;
@@ -489,7 +492,7 @@
             this.btnAjouter.ActiveControl = null;
             this.btnAjouter.BackColor = System.Drawing.Color.SteelBlue;
             this.btnAjouter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAjouter.Location = new System.Drawing.Point(18, 9);
+            this.btnAjouter.Location = new System.Drawing.Point(18, 15);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(190, 49);
             this.btnAjouter.TabIndex = 10;
@@ -542,11 +545,21 @@
             this.picHome.TabStop = false;
             this.picHome.Click += new System.EventHandler(this.picHome_Click);
             // 
+            // lblRang
+            // 
+            this.lblRang.AutoSize = true;
+            this.lblRang.Location = new System.Drawing.Point(206, 32);
+            this.lblRang.Name = "lblRang";
+            this.lblRang.Size = new System.Drawing.Size(53, 19);
+            this.lblRang.TabIndex = 47;
+            this.lblRang.Text = "lblRang";
+            // 
             // FrmEmprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(961, 566);
+            this.Controls.Add(this.lblRang);
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.GroupSaisie);
             this.Controls.Add(this.GroupBouton);
@@ -563,6 +576,7 @@
             this.groupQuitter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -595,5 +609,6 @@
         private System.Windows.Forms.GroupBox GroupSaisie;
         private MetroFramework.Controls.MetroDateTime dtRetour;
         private System.Windows.Forms.PictureBox picHome;
+        private MetroFramework.Controls.MetroLabel lblRang;
     }
 }
