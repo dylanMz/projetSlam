@@ -366,5 +366,19 @@ namespace InterfaceMedia
             MessageBox.Show(leMessage, "Médiateque",
          MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+
+        private void GridEmprunt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string dtNull = GridEmprunt.CurrentRow.Cells["dateRetour"].Value.ToString();
+            txtbxNumEmp.Text = GridEmprunt.CurrentRow.Cells["emp_num"].Value.ToString();
+            txtbxRefEx.Text = GridEmprunt.CurrentRow.Cells["ExempRef"].Value.ToString();
+            dtEmprunt.Text = GridEmprunt.CurrentRow.Cells["dateEmprunt"].Value.ToString();
+            dtRetourPrevu.Text = GridEmprunt.CurrentRow.Cells["dateRetourPrevu"].Value.ToString();
+            if (dtNull != "01/01/0001 00:00:00")
+            {
+                dtRetour.Text = dtNull;
+            }
+        }
     }
 }
