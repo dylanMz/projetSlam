@@ -71,13 +71,7 @@ namespace InterfaceMedia
                 }
             }
 
-
         }
-
-
-
-
-
         #endregion
 
 
@@ -135,10 +129,6 @@ namespace InterfaceMedia
                     cmbbxauteur.BackColor = Color.White;
                     cmbbxediteur.BackColor = Color.White;
                     cmbbxserie.BackColor = Color.White;
-
-
-
-
                 }
                 if (btnexemp.Text.Equals("exemplaire"))
                 {
@@ -184,9 +174,6 @@ namespace InterfaceMedia
 
                         unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtntb.Text, Int32.Parse(codelivreexmp.Text));
                     }
-
-
-
 
                 }
                 else if (btnexemp.Text.Equals("Livre"))
@@ -1040,8 +1027,6 @@ namespace InterfaceMedia
             Application.Run(new FrmAccueilTest());
         }
 
-       
-          
     }
 }
 
