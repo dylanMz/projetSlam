@@ -17,10 +17,13 @@ namespace InterfaceMedia
     {
 
         Thread th;
+        private String leNiveau;
 
-        public FrmAccueilTest()
+        public FrmAccueilTest(String leNiveau)
         {
             InitializeComponent();
+            this.leNiveau = leNiveau;
+            lblUtilisateur.Text = leNiveau;
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)

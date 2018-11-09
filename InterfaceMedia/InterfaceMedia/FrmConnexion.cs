@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LibMedia;
@@ -17,31 +18,37 @@ namespace InterfaceMedia
     public partial class FrmConnexion : MetroForm
     {
         private ConnexionBase uneconnexion;
+        private Crud_Utilisateur unUtilisateur;
+        private Boolean laVar;
+        private Thread th;
+        private String leNiveau;
 
         public FrmConnexion()
         {
             InitializeComponent();
             uneconnexion = new ConnexionBase();
+            unUtilisateur = new Crud_Utilisateur(uneconnexion);
 
         }
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            uneconnexion = new ConnexionBase();
-            uneconnexion.OuvrirConnexion();
-            SqlCommand cmd = new SqlCommand("SELECT userid,password from login where userid='" + txtIdentifiant.Text + "'and password='" + txtPassword + "'");
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            if (dt.Rows.Count > 0)
+            leNiveau = unUtilisateur.recup_connexion(txtIdentifiant.Text, txtPassword.Text);
+            
+            laVar = unUtilisateur.myVar;
+
+           if (laVar == true)
             {
-                MessageBox.Show("Login sucess");
+                this.Close();
+                th = new Thread(openformAccueil);
+                th.SetApartmentState(ApartmentState.STA);
+                th.Start();
             }
             else
             {
-                MessageBox.Show("Utilisateur ou mot de passes invalide.s");
+                MessageBox.Show("Identifiant incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            uneconnexion.closeConnexion();
+            
         }
 
 
@@ -55,6 +62,11 @@ namespace InterfaceMedia
 
         }
 
+
+        private void openformAccueil()
+        {
+            Application.Run(new FrmAccueilTest(leNiveau));
+        }
 
     }
 }
