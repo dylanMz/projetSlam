@@ -120,7 +120,15 @@ namespace InterfaceMedia
                     DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
                     Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text, dateEm, dateRet, dateRetP);
 
-                    Updat.updateEmprunt(lEmprunt);
+                    if (Updat.verifEmprunt(lEmprunt) == false)
+                    {
+                        btDialog("L'emprunt n'existe pas!");
+                    }
+                    else
+                    {
+                        Updat.updateEmprunt(lEmprunt);
+                    }
+                    
 
                     clickValider(btnModifier, "Modifier");
                 }
