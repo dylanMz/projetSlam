@@ -19,6 +19,7 @@ namespace InterfaceMedia
         private string chefvalide;
         private Crud_Emprunteur unemprunteur;
         private Boolean newfamille = false;
+        private int lecheffamille;
 
 
         public FrmFamille(List<Famille> familles, Boolean newfamille)
@@ -171,6 +172,45 @@ namespace InterfaceMedia
             btnAnnuler.Visible = false;
             btnAjouter.Text = "Ajouter Chef";
             btnAjouter.BackColor = Color.SteelBlue;
+            btnSupprimer.Text = "Supprimer";
+            btnSupprimer.BackColor = Color.SteelBlue;
+        }
+
+        private void btnSupprimer_Click(object sender, EventArgs e)
+        {
+            if (btnSupprimer.Text.Equals("Supprimer") & !txtnum.Text.Equals(""))
+            {
+                btnSupprimer.Text = "Valider";
+                btnAnnuler.Visible = true;
+                btnSupprimer.BackColor = Color.Green;
+
+            }
+            else if (btnSupprimer.Text.Equals("Valider"))
+            {
+                Int32 RowCount = GridFamille.RowCount;
+                if (RowCount > 0)
+                {
+
+                    for (int i = 0; i < RowCount; i++)
+                    {
+                        lecheffamille = Convert.ToInt16(GridFamille.Rows[i].Cells[8].Value.ToString());
+                    }
+                }
+
+                //verifie si le membre de la famille n'est pas un chef et le supprime de la famille
+                if (lecheffamille != Convert.ToInt16(txtnum.Text))
+                {
+                    int wid = Convert.ToInt16(txtnum.Text);
+                    unemprunteur.DeleteMembreFamille("proc_delete_membre_famille", wid);
+                }
+
+                btnSupprimer.Text = "Supprimer";
+                btnSupprimer.BackColor = Color.SteelBlue;
+                btnAnnuler.Visible = false;
+
+                //Re active les boutons
+                btnModifier.Enabled = true;
+            }
         }
     }
 }

@@ -125,6 +125,7 @@ namespace LibMedia
                 unecommandeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
                 unecommandeSql.Parameters["wnom"].Value = wnom;
 
+                //verification pour savoir si un nom ou un id est saisie
                 if (wnom.Equals(""))
                 {
                     wsql = 1;
@@ -224,21 +225,27 @@ namespace LibMedia
                 EmprunteurSql.Connection = uneconnexion.getConnexion();
                 EmprunteurSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
                 EmprunteurSql.Parameters["wid"].Value = wid;
-                EmprunteurSql.ExecuteNonQuery();
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("wafamille", MySqlDbType.Int16);
+                EmprunteurSql.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
+                //aunefamille = Convert.ToInt16(PSortie_nat.Value.ToString());
+                //EmprunteurSql.ExecuteNonQuery();
                 _unReader = EmprunteurSql.ExecuteReader();
+
+                
 
                 while (_unReader.Read())
                 {
-                    chef = int.Parse(_unReader["fam_emp_resp"].ToString());
+                    chef = int.Parse(_unReader["fam_emp_resp"].ToString()); ;
                 }
                 _unReader.Close();
                 uneconnexion.closeConnexion();
             }
-
-            return chef;
+           return chef;
         }
 
-        //Exécute la procédure pour récuper la table emprunteur
+        //Exécute la procédure pour récuperer la famille de l'emprunteur 
         public void Recup_Toutelafamille(int wid)
         {
 
@@ -263,6 +270,26 @@ namespace LibMedia
         }
 
 
+        //Exécute la procédure de modification d'un chef de famille
+        public void DeleteMembreFamille(String nomprocedure, int wid)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+
+                MySqlCommand unecommandeSql = new MySqlCommand();
+                unecommandeSql.CommandText = nomprocedure;
+                unecommandeSql.CommandType = CommandType.StoredProcedure;
+                unecommandeSql.Connection = uneconnexion.getConnexion();
+
+                //Les paramétres
+                unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                unecommandeSql.Parameters["wid"].Value = wid;
+                unecommandeSql.ExecuteNonQuery();
+                uneconnexion.closeConnexion();
+            }
+        }
+
+
         #endregion
 
         #region Accesseur
@@ -273,7 +300,7 @@ namespace LibMedia
             set { _desEmprunteurs = value; }
         }
 
-        //Accesseur de la liste Emprunteur
+        //Accesseur de la liste Famille
         public List<Famille> lesfamilles
         {
             get { return _desfamilles; }
