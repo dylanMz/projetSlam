@@ -125,6 +125,7 @@ namespace LibMedia
                 unecommandeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
                 unecommandeSql.Parameters["wnom"].Value = wnom;
 
+                //verification pour savoir si un nom ou un id est saisie
                 if (wnom.Equals(""))
                 {
                     wsql = 1;
@@ -244,7 +245,7 @@ namespace LibMedia
            return chef;
         }
 
-        //Exécute la procédure pour récuper la table emprunteur
+        //Exécute la procédure pour récuperer la famille de l'emprunteur 
         public void Recup_Toutelafamille(int wid)
         {
 
@@ -299,7 +300,7 @@ namespace LibMedia
             set { _desEmprunteurs = value; }
         }
 
-        //Accesseur de la liste Emprunteur
+        //Accesseur de la liste Famille
         public List<Famille> lesfamilles
         {
             get { return _desfamilles; }
