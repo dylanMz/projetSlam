@@ -118,7 +118,7 @@
     <Compile Include="Frmlivre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frmlivre.Designer.cs">
+    <Compile Include="Frmlivre.designer.cs">
       <DependentUpon>Frmlivre.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />

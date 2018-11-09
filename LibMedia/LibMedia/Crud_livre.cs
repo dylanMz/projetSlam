@@ -36,7 +36,7 @@ namespace LibMedia
 
         #region Livre
         // Insertion d'un livre
-        public void ajout_livre(String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, int wedicode, int wseriecode)
+        public void ajout_livre(String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, String wedicode, String wseriecode)
         {
          
 
@@ -72,11 +72,11 @@ namespace LibMedia
                     unComdeSql.Parameters.Add(new MySqlParameter("commetaire", MySqlDbType.String));
                     unComdeSql.Parameters["commetaire"].Value = wbdcommentaires;
 
-                    unComdeSql.Parameters.Add(new MySqlParameter("editeur", MySqlDbType.Int16));
-                    unComdeSql.Parameters["editeur"].Value = wedicode;
+                    unComdeSql.Parameters.Add(new MySqlParameter("wediteur", MySqlDbType.String));
+                    unComdeSql.Parameters["wediteur"].Value = wedicode;
 
-                    unComdeSql.Parameters.Add(new MySqlParameter("serie", MySqlDbType.Int16));
-                    unComdeSql.Parameters["serie"].Value = wseriecode;
+                    unComdeSql.Parameters.Add(new MySqlParameter("wserie", MySqlDbType.String));
+                    unComdeSql.Parameters["wserie"].Value = wseriecode;
 
 
                     unComdeSql.ExecuteNonQuery();
@@ -88,7 +88,7 @@ namespace LibMedia
 
 
         // modification livre
-        public void update_livre(int wbdcode, String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, int wedicode, int wseriecode)
+        public void update_livre(int wbdcode, String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, String wedicode, String wseriecode)
         {
           
 
@@ -125,11 +125,11 @@ namespace LibMedia
                 unComdeSql.Parameters.Add(new MySqlParameter("commetaire", MySqlDbType.String));
                 unComdeSql.Parameters["commetaire"].Value = wbdcommentaires;
 
-                unComdeSql.Parameters.Add(new MySqlParameter("editeur", MySqlDbType.Int16));
-                unComdeSql.Parameters["editeur"].Value = wedicode;
+                unComdeSql.Parameters.Add(new MySqlParameter("wediteur", MySqlDbType.String));
+                unComdeSql.Parameters["wediteur"].Value = wedicode;
 
-                unComdeSql.Parameters.Add(new MySqlParameter("serie", MySqlDbType.Int16));
-                unComdeSql.Parameters["serie"].Value = wseriecode;
+                unComdeSql.Parameters.Add(new MySqlParameter("wserie", MySqlDbType.String));
+                unComdeSql.Parameters["wserie"].Value = wseriecode;
 
 
                 unComdeSql.ExecuteNonQuery();
@@ -230,8 +230,8 @@ namespace LibMedia
             return (unDataset.Tables["bd"]);
         
         }
-
-        public List<String> affiche_nomauteur()
+        #region procedure pour remplir les combo box
+public List<String> affiche_nomauteur()
         {
             List<String> ListRetourauteur;
             ListRetourauteur = new List<String>();
@@ -249,7 +249,7 @@ namespace LibMedia
                 while (read.Read())
                 {
                     string L1 = read.GetString(0);
-                    ListRetourediteur.Add(L1);
+                    ListRetourauteur.Add(L1);
                 }
             }
             else
@@ -291,6 +291,39 @@ namespace LibMedia
             return ListRetourediteur;
 
         }
+
+        public List<String> affiche_nomserie()
+        {
+            List<String> ListRetourserie;
+            ListRetourserie = new List<String>();
+            _connexion.OuvrirConnexion();
+
+            cmdsql = new MySqlCommand();
+            cmdsql.CommandText = "proc_affiche_nomserie";
+            cmdsql.CommandType = CommandType.StoredProcedure;
+            cmdsql.Connection = _connexion.getConnexion();
+
+            MySqlDataReader read = cmdsql.ExecuteReader(); //Permet de lire les lignes
+
+            if (read.HasRows)
+            {
+                while (read.Read())
+                {
+                    string L1 = read.GetString(0);
+                    ListRetourserie.Add(L1);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Il n'y a pas d'occurence");
+            }
+            _connexion.closeConnexion();
+            return ListRetourserie;
+
+        }
+
+        #endregion
+
 
 
         #endregion
