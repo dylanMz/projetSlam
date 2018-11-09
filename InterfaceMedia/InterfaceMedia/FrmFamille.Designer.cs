@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSupprimer = new MetroFramework.Controls.MetroTile();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.metrotileQuitter = new MetroFramework.Controls.MetroTile();
@@ -52,6 +53,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSupprimer);
             this.groupBox1.Controls.Add(this.btnAnnuler);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(779, 10);
@@ -59,6 +61,23 @@
             this.groupBox1.Size = new System.Drawing.Size(175, 529);
             this.groupBox1.TabIndex = 91;
             this.groupBox1.TabStop = false;
+            // 
+            // btnSupprimer
+            // 
+            this.btnSupprimer.ActiveControl = null;
+            this.btnSupprimer.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnSupprimer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSupprimer.Location = new System.Drawing.Point(12, 19);
+            this.btnSupprimer.Name = "btnSupprimer";
+            this.btnSupprimer.Size = new System.Drawing.Size(156, 48);
+            this.btnSupprimer.TabIndex = 108;
+            this.btnSupprimer.Text = "Supprimer";
+            this.btnSupprimer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSupprimer.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnSupprimer.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.btnSupprimer.UseCustomBackColor = true;
+            this.btnSupprimer.UseSelectable = true;
+            this.btnSupprimer.Click += new System.EventHandler(this.btnSupprimer_Click);
             // 
             // btnAnnuler
             // 
@@ -148,7 +167,7 @@
             // 
             this.GridFamille.AllowUserToResizeRows = false;
             this.GridFamille.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.GridFamille.BackgroundColor = System.Drawing.Color.DeepSkyBlue;
+            this.GridFamille.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.GridFamille.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.GridFamille.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridFamille.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -186,7 +205,7 @@
             this.GridFamille.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.GridFamille.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridFamille.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.GridFamille.Size = new System.Drawing.Size(729, 343);
+            this.GridFamille.Size = new System.Drawing.Size(691, 310);
             this.GridFamille.TabIndex = 92;
             this.GridFamille.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellClick);
             // 
@@ -335,5 +354,6 @@
         private MetroFramework.Controls.MetroTextBox txtnum;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private System.Windows.Forms.GroupBox groupBox3;
+        private MetroFramework.Controls.MetroTile btnSupprimer;
     }
 }
