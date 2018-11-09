@@ -19,6 +19,8 @@ namespace InterfaceMedia
         private CRUD_Couverture uneCouverture;
         private ConnexionBase _connexion;
         private OpenFileDialog openFile;
+        private int wcode;
+        private int wtome;
 
         public FrmCouverture()
         {
@@ -26,7 +28,7 @@ namespace InterfaceMedia
             _connexion = new ConnexionBase();
             _connexion.OuvrirConnexion();
             uneCouverture = new CRUD_Couverture(_connexion);
-           
+
             CRUD_Couverture Export = new CRUD_Couverture(_connexion);
             GridViewBase.DataSource = Export.recupCouverture();
         }
@@ -59,7 +61,7 @@ namespace InterfaceMedia
                 txtBoxTitre.Enabled = true;
                 txtBoxTome.Enabled = true;
                 txtBoxParution.Enabled = true;
-                
+
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtBoxCode.BackColor = Color.White;
@@ -69,7 +71,7 @@ namespace InterfaceMedia
 
                 OpenFileDialog openFile = new OpenFileDialog();
                 openFile.DefaultExt = "InterfaceMedia/Couverture";
-                openFile.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+                openFile.Filter = "Image Files(*.jpeg;*.jpg;*.png)|*.jpeg;*.jpg;*.png|All files (*.*)|*.*";
                 openFile.ShowDialog();
 
 
@@ -298,12 +300,36 @@ namespace InterfaceMedia
                 txtBoxTitre.BackColor = Color.White;
                 txtBoxTome.BackColor = Color.White;
                 txtBoxParution.BackColor = Color.White;
+
+                txtBoxCode.Text = "";
+                txtBoxTitre.Text = "";
+                txtBoxTome.Text = "";
+                txtBoxParution.Text = "";
+
+
             }
             else if (btnRechercher.Text.Equals("Valider"))
             {
-
                 CRUD_Couverture Export = new CRUD_Couverture(_connexion);
-                GridViewBase.DataSource= Export.rechercher(Int16.Parse(txtBoxCode.Text), txtBoxTitre.Text, Int16.Parse(txtBoxTome.Text), txtBoxParution.Text);
+
+                if (!txtBoxCode.Text.Equals(""))
+                {
+                    wcode = Convert.ToInt32(txtBoxCode.Text);
+                }
+                else
+                {
+                    wtome = Convert.ToInt32(txtBoxTome.Text);
+                }
+
+                uneCouverture.lesCouvertures.Clear();
+                _connexion = new ConnexionBase();
+                Export = new CRUD_Couverture(_connexion);
+                Export.rechercher(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
+                RempGridCouverture(uneCouverture.lesCouvertures);
+                GridViewBase.Update();
+                GridViewBase.Refresh();
+
+                GridViewBase.DataSource = Export.rechercher(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
 
                 btnRechercher.Text = "Rechercher";
                 btnRechercher.BackColor = Color.SteelBlue;
@@ -325,6 +351,8 @@ namespace InterfaceMedia
                 txtBoxTitre.BackColor = Color.Silver;
                 txtBoxTome.BackColor = Color.Silver;
                 txtBoxParution.BackColor = Color.Silver;
+
+                RefreshGrid();
             }
         }
 
@@ -335,7 +363,7 @@ namespace InterfaceMedia
             txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
             txtBoxTome.Text = GridViewBase.CurrentRow.Cells["BdTome"].Value.ToString();
 
-            if (uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text))== "nondispo")
+            if (uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text)) == "nondispo")
             {
                 pctBoxCouv.Image = Properties.Resources.nondispo;
             }
@@ -343,21 +371,17 @@ namespace InterfaceMedia
             {
                 string uneImage = uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text));
 
-                /*if (File.Exists("InterfaceMedia/Couverture/" + uneImage + ".png") == true)
+                if (File.Exists("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".png") == true)
                 {
-                    pctBoxCouv.Image = Image.FromFile("InterfaceMedia/Couverture/" + uneImage + ".png");
-                }*/
-                if (File.Exists("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/8_3.png") == false)
-                {
-                    pctBoxCouv.Image = Image.FromFile("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/8_3.png");
+                    pctBoxCouv.Image = Image.FromFile("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".png");
                 }
-                else if (File.Exists("InterfaceMedia/Couverture/" + uneImage + ".jpeg") == true) 
+                else if (File.Exists("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".jpg") == true)
                 {
-                    pctBoxCouv.Image = Image.FromFile("Couverture/" + uneImage + ".jpeg");
+                    pctBoxCouv.Image = Image.FromFile("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".jpg");
                 }
-                else if (File.Exists("InterfaceMedia/Couverture/" + uneImage + ".jpg") == true)
+                else if (File.Exists("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".jpeg") == true)
                 {
-                    pctBoxCouv.Image = Image.FromFile("Couverture/" + uneImage + ".jpg");
+                    pctBoxCouv.Image = Image.FromFile("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".jpeg");
                 }
             }
         }
