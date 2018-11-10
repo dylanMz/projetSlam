@@ -194,6 +194,7 @@
     <None Include="Resources\ecour-icon.bmp" />
     <None Include="Resources\ecour-icon.png" />
     <None Include="Resources\auteurtranspa.png" />
+    <None Include="Resources\deconnexion_318-10026.jpg" />
     <Content Include="Resources\QuitterIcone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
