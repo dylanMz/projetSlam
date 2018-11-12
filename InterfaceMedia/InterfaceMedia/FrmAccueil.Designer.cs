@@ -216,7 +216,7 @@
             this.lblUtilisateur.AutoSize = true;
             this.lblUtilisateur.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblUtilisateur.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblUtilisateur.Location = new System.Drawing.Point(883, 15);
+            this.lblUtilisateur.Location = new System.Drawing.Point(798, 15);
             this.lblUtilisateur.Name = "lblUtilisateur";
             this.lblUtilisateur.Size = new System.Drawing.Size(90, 25);
             this.lblUtilisateur.TabIndex = 17;

@@ -42,12 +42,11 @@
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.txtNom = new MetroFramework.Controls.MetroTextBox();
             this.txtPseudo = new MetroFramework.Controls.MetroTextBox();
-            this.metroRadioInvite = new MetroFramework.Controls.MetroRadioButton();
-            this.metroRadioUtilisateur = new MetroFramework.Controls.MetroRadioButton();
+            this.metroRadioPersonnel = new MetroFramework.Controls.MetroRadioButton();
+            this.metroRadioSecteur = new MetroFramework.Controls.MetroRadioButton();
             this.metroRadioAdmin = new MetroFramework.Controls.MetroRadioButton();
             this.gridUtilisateur = new MetroFramework.Controls.MetroGrid();
             this.btnAnnuler = new MetroFramework.Controls.MetroTile();
-            this.btnRechercher = new MetroFramework.Controls.MetroTile();
             this.btnSupprimer = new MetroFramework.Controls.MetroTile();
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
@@ -55,6 +54,7 @@
             this.gpbxMenu = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBoxRang = new System.Windows.Forms.GroupBox();
+            this.metroRadioStock = new MetroFramework.Controls.MetroRadioButton();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.lblRang = new MetroFramework.Controls.MetroLabel();
             this.groupBox1.SuspendLayout();
@@ -135,7 +135,7 @@
             this.groupBox1.Controls.Add(this.metroLabel3);
             this.groupBox1.Location = new System.Drawing.Point(14, 73);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(550, 150);
+            this.groupBox1.Size = new System.Drawing.Size(677, 150);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
             // 
@@ -305,38 +305,38 @@
             this.txtPseudo.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPseudo.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroRadioInvite
+            // metroRadioPersonnel
             // 
-            this.metroRadioInvite.AutoSize = true;
-            this.metroRadioInvite.Enabled = false;
-            this.metroRadioInvite.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.metroRadioInvite.Location = new System.Drawing.Point(69, 9);
-            this.metroRadioInvite.Name = "metroRadioInvite";
-            this.metroRadioInvite.Size = new System.Drawing.Size(59, 19);
-            this.metroRadioInvite.TabIndex = 46;
-            this.metroRadioInvite.Text = "Invité";
-            this.metroRadioInvite.UseCustomBackColor = true;
-            this.metroRadioInvite.UseSelectable = true;
+            this.metroRadioPersonnel.AutoSize = true;
+            this.metroRadioPersonnel.Enabled = false;
+            this.metroRadioPersonnel.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.metroRadioPersonnel.Location = new System.Drawing.Point(565, 9);
+            this.metroRadioPersonnel.Name = "metroRadioPersonnel";
+            this.metroRadioPersonnel.Size = new System.Drawing.Size(84, 19);
+            this.metroRadioPersonnel.TabIndex = 46;
+            this.metroRadioPersonnel.Text = "Personnel";
+            this.metroRadioPersonnel.UseCustomBackColor = true;
+            this.metroRadioPersonnel.UseSelectable = true;
             // 
-            // metroRadioUtilisateur
+            // metroRadioSecteur
             // 
-            this.metroRadioUtilisateur.AutoSize = true;
-            this.metroRadioUtilisateur.Enabled = false;
-            this.metroRadioUtilisateur.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.metroRadioUtilisateur.Location = new System.Drawing.Point(235, 9);
-            this.metroRadioUtilisateur.Name = "metroRadioUtilisateur";
-            this.metroRadioUtilisateur.Size = new System.Drawing.Size(87, 19);
-            this.metroRadioUtilisateur.TabIndex = 47;
-            this.metroRadioUtilisateur.Text = "Utilisateur";
-            this.metroRadioUtilisateur.UseCustomBackColor = true;
-            this.metroRadioUtilisateur.UseSelectable = true;
+            this.metroRadioSecteur.AutoSize = true;
+            this.metroRadioSecteur.Enabled = false;
+            this.metroRadioSecteur.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.metroRadioSecteur.Location = new System.Drawing.Point(196, 9);
+            this.metroRadioSecteur.Name = "metroRadioSecteur";
+            this.metroRadioSecteur.Size = new System.Drawing.Size(149, 19);
+            this.metroRadioSecteur.TabIndex = 47;
+            this.metroRadioSecteur.Text = "Responsable secteur";
+            this.metroRadioSecteur.UseCustomBackColor = true;
+            this.metroRadioSecteur.UseSelectable = true;
             // 
             // metroRadioAdmin
             // 
             this.metroRadioAdmin.AutoSize = true;
             this.metroRadioAdmin.Enabled = false;
             this.metroRadioAdmin.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.metroRadioAdmin.Location = new System.Drawing.Point(393, 9);
+            this.metroRadioAdmin.Location = new System.Drawing.Point(48, 9);
             this.metroRadioAdmin.Name = "metroRadioAdmin";
             this.metroRadioAdmin.Size = new System.Drawing.Size(116, 19);
             this.metroRadioAdmin.TabIndex = 48;
@@ -389,7 +389,7 @@
             this.gridUtilisateur.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridUtilisateur.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.gridUtilisateur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridUtilisateur.Size = new System.Drawing.Size(550, 262);
+            this.gridUtilisateur.Size = new System.Drawing.Size(677, 258);
             this.gridUtilisateur.TabIndex = 49;
             this.gridUtilisateur.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridUtilisateur_CellClick);
             // 
@@ -410,23 +410,6 @@
             this.btnAnnuler.UseSelectable = true;
             this.btnAnnuler.Visible = false;
             this.btnAnnuler.Click += new System.EventHandler(this.btnAnnuler_Click);
-            // 
-            // btnRechercher
-            // 
-            this.btnRechercher.ActiveControl = null;
-            this.btnRechercher.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnRechercher.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRechercher.Location = new System.Drawing.Point(18, 219);
-            this.btnRechercher.Name = "btnRechercher";
-            this.btnRechercher.Size = new System.Drawing.Size(169, 49);
-            this.btnRechercher.TabIndex = 13;
-            this.btnRechercher.Text = "Rechercher";
-            this.btnRechercher.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnRechercher.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.btnRechercher.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.btnRechercher.UseCustomBackColor = true;
-            this.btnRechercher.UseSelectable = true;
-            this.btnRechercher.Click += new System.EventHandler(this.btnRechercher_Click);
             // 
             // btnSupprimer
             // 
@@ -505,13 +488,12 @@
             // 
             this.gpbxMenu.BackColor = System.Drawing.Color.Transparent;
             this.gpbxMenu.Controls.Add(this.btnAnnuler);
-            this.gpbxMenu.Controls.Add(this.btnRechercher);
             this.gpbxMenu.Controls.Add(this.btnSupprimer);
             this.gpbxMenu.Controls.Add(this.btnModifier);
             this.gpbxMenu.Controls.Add(this.btnAjouter);
             this.gpbxMenu.Controls.Add(this.groupBox2);
             this.gpbxMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gpbxMenu.Location = new System.Drawing.Point(577, 21);
+            this.gpbxMenu.Location = new System.Drawing.Point(709, 17);
             this.gpbxMenu.Name = "gpbxMenu";
             this.gpbxMenu.Size = new System.Drawing.Size(203, 513);
             this.gpbxMenu.TabIndex = 50;
@@ -522,22 +504,36 @@
             this.groupBox2.Controls.Add(this.btnQuitter);
             this.groupBox2.Location = new System.Drawing.Point(0, 431);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(216, 102);
+            this.groupBox2.Size = new System.Drawing.Size(216, 109);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             // 
             // groupBoxRang
             // 
             this.groupBoxRang.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.groupBoxRang.Controls.Add(this.metroRadioStock);
             this.groupBoxRang.Controls.Add(this.metroRadioAdmin);
-            this.groupBoxRang.Controls.Add(this.metroRadioUtilisateur);
-            this.groupBoxRang.Controls.Add(this.metroRadioInvite);
+            this.groupBoxRang.Controls.Add(this.metroRadioSecteur);
+            this.groupBoxRang.Controls.Add(this.metroRadioPersonnel);
             this.groupBoxRang.Location = new System.Drawing.Point(14, 229);
             this.groupBoxRang.Name = "groupBoxRang";
-            this.groupBoxRang.Size = new System.Drawing.Size(550, 37);
+            this.groupBoxRang.Size = new System.Drawing.Size(677, 37);
             this.groupBoxRang.TabIndex = 51;
             this.groupBoxRang.TabStop = false;
             this.groupBoxRang.Text = "Rang";
+            // 
+            // metroRadioStock
+            // 
+            this.metroRadioStock.AutoSize = true;
+            this.metroRadioStock.Enabled = false;
+            this.metroRadioStock.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
+            this.metroRadioStock.Location = new System.Drawing.Point(389, 9);
+            this.metroRadioStock.Name = "metroRadioStock";
+            this.metroRadioStock.Size = new System.Drawing.Size(137, 19);
+            this.metroRadioStock.TabIndex = 49;
+            this.metroRadioStock.Text = "Responsable stock";
+            this.metroRadioStock.UseCustomBackColor = true;
+            this.metroRadioStock.UseSelectable = true;
             // 
             // picHome
             // 
@@ -564,7 +560,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 546);
+            this.ClientSize = new System.Drawing.Size(929, 546);
             this.Controls.Add(this.lblRang);
             this.Controls.Add(this.picHome);
             this.Controls.Add(this.groupBoxRang);
@@ -594,12 +590,11 @@
         private MetroFramework.Controls.MetroLabel metroLabel2;
         private MetroFramework.Controls.MetroLabel metroLabel3;
         private System.Windows.Forms.GroupBox groupBox1;
-        private MetroFramework.Controls.MetroRadioButton metroRadioInvite;
-        private MetroFramework.Controls.MetroRadioButton metroRadioUtilisateur;
+        private MetroFramework.Controls.MetroRadioButton metroRadioPersonnel;
+        private MetroFramework.Controls.MetroRadioButton metroRadioSecteur;
         private MetroFramework.Controls.MetroRadioButton metroRadioAdmin;
         private MetroFramework.Controls.MetroGrid gridUtilisateur;
         private MetroFramework.Controls.MetroTile btnAnnuler;
-        private MetroFramework.Controls.MetroTile btnRechercher;
         private MetroFramework.Controls.MetroTile btnSupprimer;
         private MetroFramework.Controls.MetroTile btnModifier;
         private MetroFramework.Controls.MetroTile btnAjouter;
@@ -614,5 +609,6 @@
         private MetroFramework.Controls.MetroTextBox txtNom;
         private MetroFramework.Controls.MetroTextBox txtPseudo;
         private MetroFramework.Controls.MetroLabel lblRang;
+        private MetroFramework.Controls.MetroRadioButton metroRadioStock;
     }
 }

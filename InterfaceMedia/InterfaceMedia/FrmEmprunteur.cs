@@ -65,17 +65,9 @@ namespace InterfaceMedia
             DateTimeNaissance.Text = GridEmprunteur.CurrentRow.Cells["naissance"].Value.ToString();
 
             String Adhesion = GridEmprunteur.CurrentRow.Cells["adhésion"].Value.ToString();
-            if (Adhesion.Equals("01/01/0001 00:00:00"))
-            {
-                DateTimeAdhesion.Visible = false;
-                ActiverAdh.Checked = false;
-            }
-            else
-            {
-                DateTimeAdhesion.Visible = true;
-                DateTimeAdhesion.Text = Adhesion;
-                ActiverAdh.Checked = true;
-            }
+            DateTimeAdhesion.Text = Adhesion;
+                
+            
             
             DateTimeRenouvellement.Text = GridEmprunteur.CurrentRow.Cells["renouvellement_adhésion"].Value.ToString();
         }
@@ -93,7 +85,6 @@ namespace InterfaceMedia
                 
                 btnAjouter.Text = "Valider";
                 btnAnnuler.Visible = true;
-                ActiverAdh.Enabled = true;
 
                 //Desactive tous les autres boutons
                 btnModifier.Enabled = false;
@@ -113,7 +104,6 @@ namespace InterfaceMedia
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
-                ActiverAdh.Enabled = false;
 
                 //Re active les boutons
                 btnFamille.Enabled = true;
@@ -133,7 +123,11 @@ namespace InterfaceMedia
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            //permet de récuperer le niveau de l'utilisateur
+            leNiveau = lblRang.Text;
+            //Ferme FrmEmprunteur
             this.Close();
+            //Permet d'ouvrir FrmAccueil
             th = new Thread(openformAccueil);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -141,11 +135,13 @@ namespace InterfaceMedia
         }
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest(lblRang.Text));
+            //Ouvre FrmAccueil
+            Application.Run(new FrmAccueilTest(leNiveau));
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            
             if (btnModifier.Text.Equals("Modifier")&!txtNom.Text.Equals(""))
             {
                 groupAjouterEmp.Enabled = true;
@@ -160,7 +156,6 @@ namespace InterfaceMedia
                 btnSupprimer.Enabled = false;
                 btnRechercher.Enabled = false;
                 btnFamille.Enabled = false;
-                ActiverAdh.Enabled = true;
 
 
 
@@ -174,7 +169,6 @@ namespace InterfaceMedia
                 utilisemethodeprocedure("proc_modif_emprunteur");
                
                 groupAjouterEmp.Enabled = false;
-                ActiverAdh.Enabled = false;
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
@@ -230,7 +224,6 @@ namespace InterfaceMedia
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
-            ActiverAdh.Enabled = false;
             vidercontrols();
 
             //met à jour la datagrid
@@ -262,15 +255,7 @@ namespace InterfaceMedia
                     new KeyValuePair<String, Object>("wmail", txtMail.Text),
                   };
 
-            //Verifie si il  ne possede pas une date adhesion est lui met une date null sinon garde la date
-            if (DateTimeAdhesion.Visible == false)
-            {
-                dateadh = "01/01/0001 00:00:00";
-            }
-            else
-            {
-                dateadh = DateTimeAdhesion.Text;
-            }
+            dateadh = DateTimeAdhesion.Text;
             List<KeyValuePair<String, Object>> parametresDate = new List<KeyValuePair<String, Object>>(){
 
                      //w..est le nom du parametre de la procédure stokée, et Date... les valeurs.
@@ -284,19 +269,6 @@ namespace InterfaceMedia
             unEmprunteur.connectprocedure(nomprocedure, ref recupcode, parametresString, parametresDate, Convert.ToInt32(id));
         }
 
-        //Verifier le changement d'etat du metrotoggle
-        private void ActiverAdh_CheckedChanged(object sender, EventArgs e)
-        {
-            if(ActiverAdh.Checked == true)
-            {
-                DateTimeAdhesion.Visible = true;
-            }
-            else
-            {
-                DateTimeAdhesion.Visible = false;
-                DateTimeAdhesion.ResetText();
-            }
-        }
 
 
         //vider les controls du groupbox
@@ -518,7 +490,6 @@ namespace InterfaceMedia
                 btnModifier.Enabled = false;
                 btnRechercher.Enabled = false;
                 btnFamille.Enabled = false;
-                ActiverAdh.Enabled = true;
 
 
 
@@ -544,7 +515,6 @@ namespace InterfaceMedia
                 DateTimeNaissance.Enabled = true;
                 DateTimeAdhesion.Enabled = true;
                 DateTimeRenouvellement.Enabled = true;
-                ActiverAdh.Enabled = false;
                 btnSupprimer.Text = "Supprimer";
                 btnSupprimer.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;

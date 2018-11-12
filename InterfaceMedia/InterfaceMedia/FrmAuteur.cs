@@ -95,12 +95,23 @@ namespace InterfaceMedia
                 //On verouille le DGV
                 dgvAuteur.Enabled = false;
 
+                //maj du dgv
+                dgvAuteur.DataSource = unAuteur.afficheAuteur();
+
             }
 
             else if (btnAjouter.Text == "Valider")
             {
                 //ajout de l'auteur à la bdd
-                unAuteur.ajouterAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), txtPays.Text, txtBio.Text);
+                if (rdoDecede.Checked == true)
+                {
+                    unAuteur.ajouterAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), txtPays.Text, txtBio.Text);
+                }
+                else
+                {
+                    //unAuteur.ajouterAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), txtPays.Text, txtBio.Text);
+                }
+                
 
                 //btnValider --> btn Ajouter
                 btnAjouter.Text = "Ajouter";
@@ -276,7 +287,7 @@ namespace InterfaceMedia
                 
                 if (txtCode.Text != "" || txtNom.Text != "" || txtPseudo.Text != "")
                 {
-                    //modifiaction de l'auteur dans la bdd
+                    //recherche de l'auteur dans la bdd
                     unAuteur.rechercheAuteur(int.Parse(txtCode.Text), txtNom.Text, txtPseudo.Text);
 
                     btnRechercher.Text = "Rechercher";
