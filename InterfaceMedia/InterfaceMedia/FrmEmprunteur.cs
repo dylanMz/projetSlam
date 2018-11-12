@@ -133,7 +133,11 @@ namespace InterfaceMedia
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            //permet de récuperer le niveau de l'utilisateur
+            leNiveau = lblRang.Text;
+            //Ferme FrmEmprunteur
             this.Close();
+            //Permet d'ouvrir FrmAccueil
             th = new Thread(openformAccueil);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -141,11 +145,13 @@ namespace InterfaceMedia
         }
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest(lblRang.Text));
+            //Ouvre FrmAccueil
+            Application.Run(new FrmAccueilTest(leNiveau));
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
         {
+            
             if (btnModifier.Text.Equals("Modifier")&!txtNom.Text.Equals(""))
             {
                 groupAjouterEmp.Enabled = true;
