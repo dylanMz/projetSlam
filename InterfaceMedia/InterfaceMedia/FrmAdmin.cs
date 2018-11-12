@@ -21,17 +21,15 @@ namespace InterfaceMedia
         private ConnexionBase uneconnexion;
         Thread th;
         private String unNiveau;
+        private String leNiveau;
         #endregion
 
-        public FrmAdmin()
+        public FrmAdmin(string leNiveau)
         {
             InitializeComponent();
-
-            uneconnexion = new ConnexionBase();
-            unUtilisateur = new Crud_Utilisateur(uneconnexion);
-
+            this.leNiveau = leNiveau;
+            lblRang.Text = this.leNiveau;
             RefreshGrid();
-
         }
 
         //Rempli le Grid avec les utilisateurs
@@ -47,7 +45,11 @@ namespace InterfaceMedia
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            //permet de récuperer le niveau de l'utilisateur
+            unNiveau = lblRang.Text;
+            //Ferme FrmEmprunteur
             this.Close();
+            //Permet d'ouvrir FrmAccueil
             th = new Thread(openformAccueil);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -63,23 +65,33 @@ namespace InterfaceMedia
             txtPseudo.Text = gridUtilisateur.CurrentRow.Cells["Pseudo"].Value.ToString();
             txtPassword.Text = gridUtilisateur.CurrentRow.Cells["Mot_de_passe"].Value.ToString();
 
-            if (gridUtilisateur.CurrentRow.Cells[5].Value.ToString().Equals("user"))
+            if (gridUtilisateur.CurrentRow.Cells[5].Value.ToString().Equals("Personnel"))
             {
-                metroRadioUtilisateur.Checked = true;
-                metroRadioInvite.Checked = false;
+                metroRadioSecteur.Checked = false;
+                metroRadioPersonnel.Checked = true;
                 metroRadioAdmin.Checked = false;
+                metroRadioStock.Checked = false;
             }
-            if (gridUtilisateur.CurrentRow.Cells[5].Value.ToString().Equals("admin"))
+            if (gridUtilisateur.CurrentRow.Cells[5].Value.ToString().Equals("Admin"))
             {
+                metroRadioSecteur.Checked = false;
+                metroRadioPersonnel.Checked = false;
                 metroRadioAdmin.Checked = true;
-                metroRadioUtilisateur.Checked = false;
-                metroRadioInvite.Checked = false;
+                metroRadioStock.Checked = false;
             }
-            if (gridUtilisateur.CurrentRow.Cells[5].Value.ToString().Equals("invit"))
+            if (gridUtilisateur.CurrentRow.Cells[5].Value.ToString().Equals("Responsable secteur"))
             {
+                metroRadioSecteur.Checked = true;
+                metroRadioPersonnel.Checked = false;
                 metroRadioAdmin.Checked = false;
-                metroRadioUtilisateur.Checked = false;
-                metroRadioInvite.Checked = true;
+                metroRadioStock.Checked = false;
+            }
+            if (gridUtilisateur.CurrentRow.Cells[5].Value.ToString().Equals("Responsable stock"))
+            {
+                metroRadioSecteur.Checked = false;
+                metroRadioPersonnel.Checked = false;
+                metroRadioAdmin.Checked = false;
+                metroRadioStock.Checked = true;
             }
 
             //Déverouille le bouton modifier et supprimer
@@ -99,7 +111,6 @@ namespace InterfaceMedia
                 //Desactive tous les autres boutons
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = false;
-                btnRechercher.Enabled = false;
 
                 //Les textbox (et les boutons radio) à remplir pour l'insertion se déverouille
                 txtNom.Enabled = true;
@@ -107,8 +118,9 @@ namespace InterfaceMedia
                 txtPrenom.Enabled = true;
                 txtPassword.Enabled = true;
                 metroRadioAdmin.Enabled = true;
-                metroRadioInvite.Enabled = true;
-                metroRadioUtilisateur.Enabled = true;
+                metroRadioPersonnel.Enabled = true;
+                metroRadioSecteur.Enabled = true;
+                metroRadioStock.Enabled = true;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtNom.BackColor = Color.White;
@@ -137,7 +149,6 @@ namespace InterfaceMedia
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = false;
                 btnAjouter.Enabled = true;
-                btnRechercher.Enabled = true;
 
                 //Les textbox sont inacessibles.
                 txtNom.Enabled = false;
@@ -170,8 +181,8 @@ namespace InterfaceMedia
                     txtPrenom.Text = "";
                     txtPassword.Text = "";
                     metroRadioAdmin.Checked = false;
-                    metroRadioInvite.Checked = false;
-                    metroRadioUtilisateur.Checked = false;
+                    metroRadioPersonnel.Checked = false;
+                    metroRadioSecteur.Checked = false;
 
                     RefreshGrid();
                 } 
@@ -192,7 +203,6 @@ namespace InterfaceMedia
                 btnAjouter.Enabled = false;
                 btnModifier.Enabled = true;
                 btnSupprimer.Enabled = false;
-                btnRechercher.Enabled = false;
 
                 //Les textbox (et les boutons radio) à remplir pour l'insertion se déverouille
                 txtNom.Enabled = true;
@@ -200,8 +210,10 @@ namespace InterfaceMedia
                 txtPrenom.Enabled = true;
                 txtPassword.Enabled = true;
                 metroRadioAdmin.Enabled = true;
-                metroRadioInvite.Enabled = true;
-                metroRadioUtilisateur.Enabled = true;
+                metroRadioPersonnel.Enabled = true;
+                metroRadioSecteur.Enabled = true;
+                metroRadioStock.Enabled = true;
+
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtNom.BackColor = Color.White;
@@ -220,7 +232,6 @@ namespace InterfaceMedia
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = false;
                 btnAjouter.Enabled = true;
-                btnRechercher.Enabled = true;
 
                 //Les textbox sont inacessibles.
                 txtNom.Enabled = false;
@@ -247,8 +258,8 @@ namespace InterfaceMedia
                 txtPrenom.Text = "";
                 txtPassword.Text = "";
                 metroRadioAdmin.Checked = false;
-                metroRadioInvite.Checked = false;
-                metroRadioUtilisateur.Checked = false;
+                metroRadioPersonnel.Checked = false;
+                metroRadioSecteur.Checked = false;
 
                 RefreshGrid();
             }
@@ -267,7 +278,6 @@ namespace InterfaceMedia
                 btnAjouter.Enabled = false;
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = true;
-                btnRechercher.Enabled = false;
 
             }
             else if (btnSupprimer.Text.Equals("Valider"))
@@ -281,7 +291,6 @@ namespace InterfaceMedia
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = false;
                 btnAjouter.Enabled = true;
-                btnRechercher.Enabled = true;
 
                 //Les textbox sont inacessibles.
                 txtNom.Enabled = false;
@@ -307,115 +316,28 @@ namespace InterfaceMedia
                 txtPrenom.Text = "";
                 txtPassword.Text = "";
                 metroRadioAdmin.Checked = false;
-                metroRadioInvite.Checked = false;
-                metroRadioUtilisateur.Checked = false;
+                metroRadioPersonnel.Checked = false;
+                metroRadioSecteur.Checked = false;
 
                 RefreshGrid();
             }
         }
-        private void btnRechercher_Click(object sender, EventArgs e)
-        {
-            if (btnRechercher.Text.Equals("Rechercher"))
-            {
-                btnRechercher.BackColor = Color.Green;
-                btnRechercher.Text = "Valider";
 
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnAjouter.Enabled = false;
-
-                //Les textbox (et les boutons radio) à remplir pour la recherche se déverouille
-                txtNom.Enabled = true;
-                txtPseudo.Enabled = true;
-                txtPrenom.Enabled = true;
-                metroRadioAdmin.Enabled = true;
-                metroRadioInvite.Enabled = true;
-                metroRadioUtilisateur.Enabled = true;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtNom.BackColor = Color.White;
-                txtPseudo.BackColor = Color.White;
-                txtPrenom.BackColor = Color.White;
-
-                //Reinistialisation des textbox et des boutons radio
-                unId.Text = "";
-                txtNom.Text = "";
-                txtPseudo.Text = "";
-                txtPrenom.Text = "";
-                txtPassword.Text = "";
-            
-                metroRadioAdmin.Checked = false;
-                metroRadioInvite.Checked = false;
-                metroRadioUtilisateur.Checked = false;
-
-            }
-
-            else if (btnRechercher.Text.Equals("Valider"))
-            {
-
-                btnRechercher.Text = "Rechercher";
-                btnRechercher.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Remet les accessibilités des boutons par défauts
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnAjouter.Enabled = true;
-                btnRechercher.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtNom.Enabled = false;
-                txtPseudo.Enabled = false;
-                txtPrenom.Enabled = false;
-                txtPassword.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtNom.BackColor = Color.Silver;
-                txtPseudo.BackColor = Color.Silver;
-                txtPrenom.BackColor = Color.Silver;
-                txtPassword.BackColor = Color.Silver;
-
-                recupNiveau();
-
-                //recherche d'un utilisateur
-                //unUtilisateur.recherche_utilisateur();
-
-
-                //Reinistialisation des textbox et des boutons radio
-                unId.Text = "";
-                txtNom.Text = "";
-                txtPseudo.Text = "";
-                txtPrenom.Text = "";
-                txtPassword.Text = "";
-                metroRadioAdmin.Checked = false;
-                metroRadioInvite.Checked = false;
-                metroRadioUtilisateur.Checked = false;
-
-                RefreshGrid();
-            }
-        }
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             //les boutons sont remis par defaut
             btnAjouter.BackColor = Color.SteelBlue;
             btnModifier.BackColor = Color.SteelBlue;
             btnSupprimer.BackColor = Color.SteelBlue;
-            btnRechercher.BackColor = Color.SteelBlue;
 
             //Remet les accessibilités des boutons par défauts
             btnModifier.Enabled = false;
             btnSupprimer.Enabled = false;
             btnAjouter.Enabled = true;
-            btnRechercher.Enabled = true;
 
             btnAjouter.Text = "Ajouter";
             btnModifier.Text = "Modifier";
             btnSupprimer.Text = "Supprimer";
-            btnRechercher.Text = "Rechercher";
 
             //Les textbox et les boutons radio sont inacessibles.
             txtNom.Enabled = false;
@@ -423,9 +345,11 @@ namespace InterfaceMedia
             txtPseudo.Enabled = false;
             txtPrenom.Enabled = false;
             txtPassword.Enabled = false;
-            metroRadioAdmin.Enabled = true;
-            metroRadioInvite.Enabled = true;
-            metroRadioUtilisateur.Enabled = true;
+            metroRadioAdmin.Enabled = false;
+            metroRadioPersonnel.Enabled = false;
+            metroRadioSecteur.Enabled = false;
+            metroRadioStock.Enabled = false;
+
 
             //Reinistialisation des textbox et des boutons radio
             txtNom.Text = "";
@@ -434,8 +358,8 @@ namespace InterfaceMedia
             txtPrenom.Text = "";
             txtPassword.Text = "";
             metroRadioAdmin.Checked = false;
-            metroRadioInvite.Checked = false;
-            metroRadioUtilisateur.Checked = false;
+            metroRadioPersonnel.Checked = false;
+            metroRadioSecteur.Checked = false;
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont vérouillé
             txtNom.BackColor = Color.Silver;
@@ -451,7 +375,7 @@ namespace InterfaceMedia
         }
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest(lblRang.Text));
+            Application.Run(new FrmAccueilTest(unNiveau));
         }
         public void RefreshGrid()
         {
@@ -459,21 +383,28 @@ namespace InterfaceMedia
             unUtilisateur = new Crud_Utilisateur(uneconnexion);
             unUtilisateur.Recup_Table_Utilisateur();
             RempGridUtilisateur(unUtilisateur.lesUtilisateurs);
-            //gridUtilisateur.Columns["Mot_de_passe"].Visible = false;
             gridUtilisateur.Update();
             gridUtilisateur.Refresh();
         }
         public void recupNiveau()
         {
-            if (metroRadioAdmin.Checked == true)
+
+            if (metroRadioPersonnel.Checked == true)
             {
-                unNiveau = "admin";
+                unNiveau = "Personnel";
             }
-            else if (metroRadioInvite.Checked == true)
+
+            if (metroRadioSecteur.Checked == true)
             {
-                unNiveau = "invit";
+                unNiveau = "Responsable secteur";
             }
-            else unNiveau = "user";
+
+            if (metroRadioStock.Checked == true)
+            {
+                unNiveau = "Responsable stock";
+            }
+            else  unNiveau = "Admin";
+
 
         }
 

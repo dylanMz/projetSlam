@@ -27,12 +27,12 @@ namespace InterfaceMedia
         private String unCodeSortie;
         #endregion
 
-        public FrmEditeur()
+        public FrmEditeur(String leNiveau)
         {
             InitializeComponent();
 
-            uneconnexion = new ConnexionBase();
-            unEditeur = new Crud_Editeur(uneconnexion);
+            this.leNiveau = leNiveau;
+            lblRang.Text = this.leNiveau;
 
             RefreshGrid();
 
@@ -405,7 +405,11 @@ namespace InterfaceMedia
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            //permet de récuperer le niveau de l'utilisateur
+            leNiveau = lblRang.Text;
+            //Ferme FrmEmprunteur
             this.Close();
+            //Permet d'ouvrir FrmAccueil
             th = new Thread(openformAccueil);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -413,7 +417,7 @@ namespace InterfaceMedia
 
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest(lblRang.Text));
+            Application.Run(new FrmAccueilTest(leNiveau));
         }
 
         //Affiche dans les textbox les valeurs de la ligne sélectionné.

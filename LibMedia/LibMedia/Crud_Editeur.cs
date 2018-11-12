@@ -101,7 +101,6 @@ namespace LibMedia
             }
         }
 
-
         //Modification d'un editeur
         public void modification_editeur(int wEditeurNum, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
         {
