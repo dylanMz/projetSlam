@@ -34,7 +34,6 @@
             this.txtIdentifiant = new MetroFramework.Controls.MetroTextBox();
             this.txtPassword = new MetroFramework.Controls.MetroTextBox();
             this.btnConnexion = new MetroFramework.Controls.MetroButton();
-            this.lblMdpOublie = new MetroFramework.Controls.MetroLabel();
             this.btnQuitter = new MetroFramework.Controls.MetroButton();
             this.SuspendLayout();
             // 
@@ -147,20 +146,6 @@
             this.btnConnexion.UseStyleColors = true;
             this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);
             // 
-            // lblMdpOublie
-            // 
-            this.lblMdpOublie.AutoSize = true;
-            this.lblMdpOublie.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblMdpOublie.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.lblMdpOublie.Location = new System.Drawing.Point(154, 192);
-            this.lblMdpOublie.Name = "lblMdpOublie";
-            this.lblMdpOublie.Size = new System.Drawing.Size(138, 19);
-            this.lblMdpOublie.TabIndex = 7;
-            this.lblMdpOublie.Text = "Mot de passe oublié ?";
-            this.lblMdpOublie.UseCustomForeColor = true;
-            this.lblMdpOublie.UseStyleColors = true;
-            this.lblMdpOublie.Click += new System.EventHandler(this.lblMdpOublie_Click);
-            // 
             // btnQuitter
             // 
             this.btnQuitter.BackColor = System.Drawing.Color.Tomato;
@@ -184,7 +169,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 307);
             this.Controls.Add(this.btnQuitter);
-            this.Controls.Add(this.lblMdpOublie);
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.btnConnexion);
             this.Controls.Add(this.metroLabel1);
@@ -193,6 +177,7 @@
             this.Controls.Add(this.txtIdentifiant);
             this.Name = "FrmConnexion";
             this.Text = "LesMotsTordus";
+            //this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.FrmConnexion_KeyUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,7 +190,6 @@
         private MetroFramework.Controls.MetroTextBox txtIdentifiant;
         private MetroFramework.Controls.MetroTextBox txtPassword;
         private MetroFramework.Controls.MetroButton btnConnexion;
-        private MetroFramework.Controls.MetroLabel lblMdpOublie;
         private MetroFramework.Controls.MetroButton btnQuitter;
     }
 }

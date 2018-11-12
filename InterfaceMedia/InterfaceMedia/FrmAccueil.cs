@@ -80,9 +80,25 @@ namespace InterfaceMedia
             th.Start();
         }
 
+        private void picDeconnexion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openformConnexion);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
+        private void btnAdmin_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openformAdmin);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
         private void openformEmprunteur()
         {
-            Application.Run(new FrmEmprunteur());
+            Application.Run(new FrmEmprunteur(leNiveau));
         }
 
         private void openformAuteur()
@@ -92,7 +108,7 @@ namespace InterfaceMedia
 
         private void openformEditeur()
         {
-            Application.Run(new FrmEditeur());
+            Application.Run(new FrmEditeur(leNiveau));
         }
 
         private void openformLivre()
@@ -112,16 +128,15 @@ namespace InterfaceMedia
 
         private void openformAdmin()
         {
-            Application.Run(new FrmAdmin());
+            Application.Run(new FrmAdmin(leNiveau));
         }
 
-        private void btnAdmin_Click(object sender, EventArgs e)
+        private void openformConnexion()
         {
-            this.Close();
-            th = new Thread(openformAdmin);
-            th.SetApartmentState(ApartmentState.STA);
-            th.Start();
+            Application.Run(new FrmConnexion());
         }
+
+
 
 
     }

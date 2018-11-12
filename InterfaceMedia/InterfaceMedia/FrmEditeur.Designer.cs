@@ -666,7 +666,7 @@
             // lblRang
             // 
             this.lblRang.AutoSize = true;
-            this.lblRang.Location = new System.Drawing.Point(186, 31);
+            this.lblRang.Location = new System.Drawing.Point(186, 29);
             this.lblRang.Name = "lblRang";
             this.lblRang.Size = new System.Drawing.Size(53, 19);
             this.lblRang.TabIndex = 46;

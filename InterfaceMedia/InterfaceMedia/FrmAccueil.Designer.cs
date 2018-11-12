@@ -43,12 +43,14 @@
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.lblUtilisateur = new MetroFramework.Controls.MetroLabel();
             this.btnAdmin = new MetroFramework.Controls.MetroTile();
+            this.picDeconnexion = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picEditeur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEmprunt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEmprunteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAuteur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLivre)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCouverture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeconnexion)).BeginInit();
             this.SuspendLayout();
             // 
             // metroTileEmprunteur
@@ -214,7 +216,7 @@
             this.lblUtilisateur.AutoSize = true;
             this.lblUtilisateur.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblUtilisateur.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblUtilisateur.Location = new System.Drawing.Point(904, 19);
+            this.lblUtilisateur.Location = new System.Drawing.Point(798, 15);
             this.lblUtilisateur.Name = "lblUtilisateur";
             this.lblUtilisateur.Size = new System.Drawing.Size(90, 25);
             this.lblUtilisateur.TabIndex = 17;
@@ -240,6 +242,17 @@
             this.btnAdmin.UseTileImage = true;
             this.btnAdmin.Click += new System.EventHandler(this.btnAdmin_Click);
             // 
+            // picDeconnexion
+            // 
+            this.picDeconnexion.Image = global::InterfaceMedia.Properties.Resources.deconnexion_318_10026;
+            this.picDeconnexion.Location = new System.Drawing.Point(979, 15);
+            this.picDeconnexion.Name = "picDeconnexion";
+            this.picDeconnexion.Size = new System.Drawing.Size(25, 25);
+            this.picDeconnexion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picDeconnexion.TabIndex = 19;
+            this.picDeconnexion.TabStop = false;
+            this.picDeconnexion.Click += new System.EventHandler(this.picDeconnexion_Click);
+            // 
             // FrmAccueilTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -248,6 +261,7 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.BackImagePadding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.ClientSize = new System.Drawing.Size(1080, 570);
+            this.Controls.Add(this.picDeconnexion);
             this.Controls.Add(this.btnAdmin);
             this.Controls.Add(this.lblUtilisateur);
             this.Controls.Add(this.btnQuitter);
@@ -273,6 +287,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picAuteur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLivre)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCouverture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picDeconnexion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,5 +310,6 @@
         private MetroFramework.Controls.MetroTile btnQuitter;
         private MetroFramework.Controls.MetroLabel lblUtilisateur;
         private MetroFramework.Controls.MetroTile btnAdmin;
+        private System.Windows.Forms.PictureBox picDeconnexion;
     }
 }

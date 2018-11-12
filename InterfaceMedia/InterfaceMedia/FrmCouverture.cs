@@ -26,11 +26,13 @@ namespace InterfaceMedia
         {
             InitializeComponent();
             _connexion = new ConnexionBase();
-            _connexion.OuvrirConnexion();
+            //_connexion.OuvrirConnexion();
             uneCouverture = new CRUD_Couverture(_connexion);
 
-            CRUD_Couverture Export = new CRUD_Couverture(_connexion);
+            RefreshGrid();
+            /*CRUD_Couverture Export = new CRUD_Couverture(_connexion);
             GridViewBase.DataSource = Export.recupCouverture();
+            RempGridCouverture(uneCouverture.lesCouvertures);*/
         }
 
         private void picHome_Click(object sender, EventArgs e)
@@ -310,26 +312,22 @@ namespace InterfaceMedia
             }
             else if (btnRechercher.Text.Equals("Valider"))
             {
-                CRUD_Couverture Export = new CRUD_Couverture(_connexion);
 
                 if (!txtBoxCode.Text.Equals(""))
                 {
                     wcode = Convert.ToInt32(txtBoxCode.Text);
                 }
-                else
+
+                if (!txtBoxTome.Text.Equals(""))
                 {
                     wtome = Convert.ToInt32(txtBoxTome.Text);
                 }
 
-                uneCouverture.lesCouvertures.Clear();
                 _connexion = new ConnexionBase();
-                Export = new CRUD_Couverture(_connexion);
-                Export.rechercher(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
-                RempGridCouverture(uneCouverture.lesCouvertures);
+                uneCouverture = new CRUD_Couverture(_connexion);
+                GridViewBase.DataSource = uneCouverture.rechercher(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
                 GridViewBase.Update();
                 GridViewBase.Refresh();
-
-                GridViewBase.DataSource = Export.rechercher(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
 
                 btnRechercher.Text = "Rechercher";
                 btnRechercher.BackColor = Color.SteelBlue;
@@ -352,7 +350,7 @@ namespace InterfaceMedia
                 txtBoxTome.BackColor = Color.Silver;
                 txtBoxParution.BackColor = Color.Silver;
 
-                RefreshGrid();
+              //  RefreshGrid();
             }
         }
 
@@ -371,18 +369,31 @@ namespace InterfaceMedia
             {
                 string uneImage = uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text));
 
-                if (File.Exists("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".png") == true)
+                if (File.Exists(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".png")) == true)
                 {
-                    pctBoxCouv.Image = Image.FromFile("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".png");
+                    pctBoxCouv.Image = Image.FromFile(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".png"));
                 }
-                else if (File.Exists("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".jpg") == true)
+                else if (File.Exists(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".jpg")) == true)
                 {
-                    pctBoxCouv.Image = Image.FromFile("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".jpg");
+                    pctBoxCouv.Image = Image.FromFile(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".jpg"));
                 }
-                else if (File.Exists("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".jpeg") == true)
+                else if (File.Exists(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".jpeg")) == true)
                 {
-                    pctBoxCouv.Image = Image.FromFile("C:/Users/h.zagorjewsky/source/repos/dylanMz/projetSlam/InterfaceMedia/Couverture/" + uneImage + ".jpeg");
+                    pctBoxCouv.Image = Image.FromFile(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".jpeg"));
                 }
+
+                //if (File.Exists("/../InterfaceMedia/Couverture/" + uneImage + ".png") == true)
+                //{
+                //    pctBoxCouv.Image = Image.FromFile("/../InterfaceMedia/Couverture/" + uneImage + ".png");
+                //}
+                //else if (File.Exists("/../InterfaceMedia/Couverture/" + uneImage + ".jpg") == true)
+                //{
+                //    pctBoxCouv.Image = Image.FromFile("/../InterfaceMedia/Couverture/" + uneImage + ".jpg");
+                //}
+                //else if (File.Exists("/../InterfaceMedia/Couverture/" + uneImage + ".jpeg") == true)
+                //{
+                //    pctBoxCouv.Image = Image.FromFile("/../InterfaceMedia/Couverture/" + uneImage + ".jpeg");
+                //}
             }
         }
 
