@@ -37,7 +37,7 @@ namespace InterfaceMedia
 
         private void picHome_Click(object sender, EventArgs e)
         {
-            FrmAccueilTest wAccueilTest = new FrmAccueilTest();
+            FrmAccueilTest wAccueilTest = new FrmAccueilTest(lblRang.Text);
             wAccueilTest.ShowDialog();
             Form.ActiveForm.Close();
         }

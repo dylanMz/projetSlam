@@ -38,6 +38,7 @@
             this.txtBoxParution = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pctBoxCouv = new System.Windows.Forms.PictureBox();
             this.txtBoxTome = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.gpbxMenu = new System.Windows.Forms.GroupBox();
@@ -47,16 +48,16 @@
             this.btnModifier = new MetroFramework.Controls.MetroTile();
             this.btnAjouter = new MetroFramework.Controls.MetroTile();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.GridViewBase = new MetroFramework.Controls.MetroGrid();
             this.ButHome = new System.Windows.Forms.PictureBox();
-            this.btnQuitter = new MetroFramework.Controls.MetroTile();
-            this.pctBoxCouv = new System.Windows.Forms.PictureBox();
+            this.lblRang = new MetroFramework.Controls.MetroLabel();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxCouv)).BeginInit();
             this.gpbxMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButHome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctBoxCouv)).BeginInit();
             this.SuspendLayout();
             // 
             // metroLabel3
@@ -209,6 +210,16 @@
             this.groupBox2.Size = new System.Drawing.Size(764, 248);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
+            // 
+            // pctBoxCouv
+            // 
+            this.pctBoxCouv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pctBoxCouv.Location = new System.Drawing.Point(544, 40);
+            this.pctBoxCouv.Name = "pctBoxCouv";
+            this.pctBoxCouv.Size = new System.Drawing.Size(133, 171);
+            this.pctBoxCouv.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctBoxCouv.TabIndex = 16;
+            this.pctBoxCouv.TabStop = false;
             // 
             // txtBoxTome
             // 
@@ -365,6 +376,26 @@
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             // 
+            // btnQuitter
+            // 
+            this.btnQuitter.ActiveControl = null;
+            this.btnQuitter.BackColor = System.Drawing.Color.Tomato;
+            this.btnQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuitter.Location = new System.Drawing.Point(18, 15);
+            this.btnQuitter.Name = "btnQuitter";
+            this.btnQuitter.Size = new System.Drawing.Size(169, 44);
+            this.btnQuitter.TabIndex = 15;
+            this.btnQuitter.Text = "Quitter";
+            this.btnQuitter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnQuitter.TileImage = global::InterfaceMedia.Properties.Resources.QuitterIcone;
+            this.btnQuitter.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnQuitter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.btnQuitter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
+            this.btnQuitter.UseCustomBackColor = true;
+            this.btnQuitter.UseSelectable = true;
+            this.btnQuitter.UseTileImage = true;
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
+            // 
             // GridViewBase
             // 
             this.GridViewBase.AllowUserToAddRows = false;
@@ -424,41 +455,21 @@
             this.ButHome.TabStop = false;
             this.ButHome.Click += new System.EventHandler(this.picHome_Click);
             // 
-            // btnQuitter
+            // lblRang
             // 
-            this.btnQuitter.ActiveControl = null;
-            this.btnQuitter.BackColor = System.Drawing.Color.Tomato;
-            this.btnQuitter.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnQuitter.Location = new System.Drawing.Point(18, 15);
-            this.btnQuitter.Name = "btnQuitter";
-            this.btnQuitter.Size = new System.Drawing.Size(169, 44);
-            this.btnQuitter.TabIndex = 15;
-            this.btnQuitter.Text = "Quitter";
-            this.btnQuitter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnQuitter.TileImage = global::InterfaceMedia.Properties.Resources.QuitterIcone;
-            this.btnQuitter.TileImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnQuitter.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.btnQuitter.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Bold;
-            this.btnQuitter.UseCustomBackColor = true;
-            this.btnQuitter.UseSelectable = true;
-            this.btnQuitter.UseTileImage = true;
-            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click);
-            // 
-            // pctBoxCouv
-            // 
-            this.pctBoxCouv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pctBoxCouv.Location = new System.Drawing.Point(544, 40);
-            this.pctBoxCouv.Name = "pctBoxCouv";
-            this.pctBoxCouv.Size = new System.Drawing.Size(133, 171);
-            this.pctBoxCouv.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctBoxCouv.TabIndex = 16;
-            this.pctBoxCouv.TabStop = false;
+            this.lblRang.AutoSize = true;
+            this.lblRang.Location = new System.Drawing.Point(221, 31);
+            this.lblRang.Name = "lblRang";
+            this.lblRang.Size = new System.Drawing.Size(53, 19);
+            this.lblRang.TabIndex = 98;
+            this.lblRang.Text = "lblRang";
             // 
             // FrmCouverture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1020, 545);
+            this.Controls.Add(this.lblRang);
             this.Controls.Add(this.ButHome);
             this.Controls.Add(this.GridViewBase);
             this.Controls.Add(this.gpbxMenu);
@@ -467,12 +478,13 @@
             this.Text = "Couverture";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctBoxCouv)).EndInit();
             this.gpbxMenu.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ButHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctBoxCouv)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -497,5 +509,6 @@
         private System.Windows.Forms.PictureBox ButHome;
         private MetroFramework.Controls.MetroTextBox txtBoxTome;
         private MetroFramework.Controls.MetroLabel metroLabel4;
+        private MetroFramework.Controls.MetroLabel lblRang;
     }
 }

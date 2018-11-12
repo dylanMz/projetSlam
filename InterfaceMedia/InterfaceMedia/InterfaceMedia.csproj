@@ -131,7 +131,7 @@
     <Compile Include="Frmlivre.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frmlivre.Designer.cs">
+    <Compile Include="Frmlivre.designer.cs">
       <DependentUpon>Frmlivre.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -194,6 +194,7 @@
     <None Include="Resources\ecour-icon.bmp" />
     <None Include="Resources\ecour-icon.png" />
     <None Include="Resources\auteurtranspa.png" />
+    <None Include="Resources\deconnexion_318-10026.jpg" />
     <Content Include="Resources\QuitterIcone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

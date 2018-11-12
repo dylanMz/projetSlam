@@ -18,6 +18,7 @@ namespace InterfaceMedia
         #region Propriétés
         private Crud_Editeur unEditeur;
         private ConnexionBase uneconnexion;
+        private String leNiveau;
         Thread th;
         
 
@@ -131,7 +132,6 @@ namespace InterfaceMedia
 
                 //Ajout d'un editeur
                 unEditeur.ajout_editeur(txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
-
 
                 //Reinistialisation des textbox
                 code.Text = "";
@@ -413,7 +413,7 @@ namespace InterfaceMedia
 
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest());
+            Application.Run(new FrmAccueilTest(lblRang.Text));
         }
 
         //Affiche dans les textbox les valeurs de la ligne sélectionné.

@@ -394,7 +394,7 @@ namespace InterfaceMedia
         //ouverture du formulaire accueil
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest());
+            Application.Run(new FrmAccueilTest(lblRang.Text));
         }
         
         private void rdoDecede_CheckedChanged(object sender, EventArgs e)

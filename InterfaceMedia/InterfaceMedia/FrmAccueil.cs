@@ -17,10 +17,13 @@ namespace InterfaceMedia
     {
 
         Thread th;
+        private String leNiveau;
 
-        public FrmAccueilTest()
+        public FrmAccueilTest(String leNiveau)
         {
             InitializeComponent();
+            this.leNiveau = leNiveau;
+            lblUtilisateur.Text = leNiveau;
         }
 
         private void btnQuitter_Click(object sender, EventArgs e)
@@ -77,9 +80,17 @@ namespace InterfaceMedia
             th.Start();
         }
 
+        private void picDeconnexion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            th = new Thread(openformConnexion);
+            th.SetApartmentState(ApartmentState.STA);
+            th.Start();
+        }
+
         private void openformEmprunteur()
         {
-            Application.Run(new FrmEmprunteur());
+            Application.Run(new FrmEmprunteur(leNiveau));
         }
 
         private void openformAuteur()
@@ -110,6 +121,11 @@ namespace InterfaceMedia
         private void openformAdmin()
         {
             Application.Run(new FrmAdmin());
+        }
+
+        private void openformConnexion()
+        {
+            Application.Run(new FrmConnexion());
         }
 
         private void btnAdmin_Click(object sender, EventArgs e)
