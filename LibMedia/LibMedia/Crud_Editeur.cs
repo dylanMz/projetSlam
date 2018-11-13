@@ -152,6 +152,26 @@ namespace LibMedia
             }
         }
 
+        //Suppression d'un editeur
+        public void suppression_editeur(int wEditeurNum)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand unComdeSql = new MySqlCommand();
+                unComdeSql.CommandText = "proc_delete_editeur";
+                unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
+                unComdeSql.Connection = uneconnexion.getConnexion();
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wnum", MySqlDbType.Int16));
+                unComdeSql.Parameters["wnum"].Value = wEditeurNum;
+
+                unComdeSql.ExecuteNonQuery();
+
+                uneconnexion.closeConnexion();
+
+            }
+        }
+
         //Recherche d'un editeur
         public void recherche_editeur(String wEditeurNom)
         {

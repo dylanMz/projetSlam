@@ -270,6 +270,23 @@ namespace InterfaceMedia
                 btnAjouter.Enabled = true;
                 btnRechercher.Enabled = true;
 
+                //Suppression d'un editeur
+                unEditeur.suppression_editeur(Convert.ToInt16(code.Text));
+
+                //Reinistialisation des textbox
+                code.Text = "";
+                txtNom.Text = "";
+                DateTimeCreation.Text = "";
+                txtMail.Text = "";
+                txtCodePostal.Text = "";
+                txtAdr.Text = "";
+                txtTel.Text = "";
+                txtFax.Text = "";
+                txtVille.Text = "";
+
+                //Actualisation du datagrid
+                RefreshGrid();
+
             }
         }
 

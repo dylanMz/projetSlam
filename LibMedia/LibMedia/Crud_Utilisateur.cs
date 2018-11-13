@@ -132,6 +132,7 @@ namespace LibMedia
             return unNiveau;
         }
 
+        //Ajout d'un utilisateur
         public void ajout_utilisateur(String wprenom, String wnom, String wpseudo, String wpassword, String wniveau)
         {
             if (uneconnexion.OuvrirConnexion() == true)
@@ -162,6 +163,7 @@ namespace LibMedia
             }
         }
 
+        //Modification d'un utilisateur
         public void modification_utilisateur(int wnum, String wprenom, String wnom, String wpseudo, String wpassword, String wniveau)
         {
             if (uneconnexion.OuvrirConnexion() == true)
@@ -194,7 +196,8 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
-
+        
+        //Suppression d'un utilisateur
         public void suppression_utilisateur(int unNum)
         {
             if (uneconnexion.OuvrirConnexion() == true)
