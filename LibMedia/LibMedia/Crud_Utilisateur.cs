@@ -157,6 +157,11 @@ namespace LibMedia
                 unComdeSql.Parameters.Add(new MySqlParameter("wniveau", MySqlDbType.String));
                 unComdeSql.Parameters["wniveau"].Value = wniveau;
 
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
+                unComdeSql.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
+
                 unComdeSql.ExecuteNonQuery();
 
                 uneconnexion.closeConnexion();

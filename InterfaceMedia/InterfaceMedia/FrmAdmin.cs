@@ -165,9 +165,20 @@ namespace InterfaceMedia
                 recupNiveau();
 
                 //Gestion des erreurs
-                if (txtPassword.Text == "")
+                if (txtPassword.Text == "" | txtPseudo.Text == "")
                 {
                     MessageBox.Show("Un ou des champs obligatoire.s sont manquant.s", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //Reinistialisation des textbox et des boutons radios
+                    unId.Text = "";
+                    txtNom.Text = "";
+                    txtPseudo.Text = "";
+                    txtPrenom.Text = "";
+                    txtPassword.Text = "";
+                    metroRadioAdmin.Checked = false;
+                    metroRadioPersonnel.Checked = false;
+                    metroRadioSecteur.Checked = false;
+                    metroRadioStock.Checked = false;
                 }
                 else
                 {
@@ -251,7 +262,7 @@ namespace InterfaceMedia
                 unUtilisateur.modification_utilisateur(Convert.ToInt16(unId.Text), txtPrenom.Text, txtNom.Text, txtPseudo.Text, txtPassword.Text, unNiveau);
 
 
-                //Reinistialisation des textbox
+                //Reinistialisation des textbox et des boutons radios
                 unId.Text = "";
                 txtNom.Text = "";
                 txtPseudo.Text = "";
