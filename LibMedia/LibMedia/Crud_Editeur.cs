@@ -53,6 +53,27 @@ namespace LibMedia
             }
         }
 
+        //Affiche la table editeur archive.
+        public void Recup_Table_Editeur_archive()
+        {
+
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand EditeurSql = new MySqlCommand();
+                EditeurSql.CommandText = "proc_affiche_editeur_archive";
+                EditeurSql.CommandType = CommandType.StoredProcedure;
+                EditeurSql.Connection = uneconnexion.getConnexion();
+                _unReader = EditeurSql.ExecuteReader();
+
+                while (_unReader.Read())
+                {
+                    _desEditeurs.Add(new Editeur(int.Parse(_unReader["EditeurNum"].ToString()), _unReader["EditeurNom"].ToString(), int.Parse(_unReader["EditeurCreation"].ToString()), _unReader["EditeurAdresse"].ToString(), _unReader["EditeurCP"].ToString(), _unReader["EditeurVille"].ToString(), _unReader["EditeurTel"].ToString(), _unReader["EditeurFax"].ToString(), _unReader["EditeurMail"].ToString()));
+                }
+                _unReader.Close();
+                uneconnexion.closeConnexion();
+            }
+        }
+
         //Ajout d'un editeur
         public void ajout_editeur(String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
         {

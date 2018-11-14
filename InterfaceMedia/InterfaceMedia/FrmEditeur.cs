@@ -462,12 +462,25 @@ namespace InterfaceMedia
 
         public void RefreshGrid()
         {
-            uneconnexion = new ConnexionBase();
-            unEditeur = new Crud_Editeur(uneconnexion);
-            unEditeur.Recup_Table_Editeur();
-            RempGridEditeur(unEditeur.lesEditeurs);
-            GridEditeur.Update();
-            GridEditeur.Refresh();
+            if (lblRang.Text == "Admin")
+            {
+                uneconnexion = new ConnexionBase();
+                unEditeur = new Crud_Editeur(uneconnexion);
+                unEditeur.Recup_Table_Editeur_archive();
+                RempGridEditeur(unEditeur.lesEditeurs);
+                GridEditeur.Update();
+                GridEditeur.Refresh();
+            }
+            else
+            {
+                uneconnexion = new ConnexionBase();
+                unEditeur = new Crud_Editeur(uneconnexion);
+                unEditeur.Recup_Table_Editeur();
+                RempGridEditeur(unEditeur.lesEditeurs);
+                GridEditeur.Update();
+                GridEditeur.Refresh();
+            }
+
         }
     }
 }
