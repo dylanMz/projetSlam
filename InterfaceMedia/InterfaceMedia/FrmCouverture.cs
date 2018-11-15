@@ -19,20 +19,22 @@ namespace InterfaceMedia
         private CRUD_Couverture uneCouverture;
         private ConnexionBase _connexion;
         private OpenFileDialog openFile;
+        private String leNiveau;
         private int wcode;
         private int wtome;
+        private string nomCouv;
+        private string unChemin;
 
-        public FrmCouverture()
+        public FrmCouverture(String leNiveau)
         {
             InitializeComponent();
-            _connexion = new ConnexionBase();
-            //_connexion.OuvrirConnexion();
-            uneCouverture = new CRUD_Couverture(_connexion);
 
+            this.leNiveau = leNiveau;
+            lblRang.Text = this.leNiveau;
+
+            _connexion = new ConnexionBase();
+            uneCouverture = new CRUD_Couverture(_connexion);      
             RefreshGrid();
-            /*CRUD_Couverture Export = new CRUD_Couverture(_connexion);
-            GridViewBase.DataSource = Export.recupCouverture();
-            RempGridCouverture(uneCouverture.lesCouvertures);*/
         }
 
         private void picHome_Click(object sender, EventArgs e)
@@ -76,12 +78,7 @@ namespace InterfaceMedia
                 openFile.Filter = "Image Files(*.jpeg;*.jpg;*.png)|*.jpeg;*.jpg;*.png|All files (*.*)|*.*";
                 openFile.ShowDialog();
 
-
-                string nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
-                uneCouverture.ajouter(Int16.Parse(txtBoxCode.Text), nomCouv);
-                pctBoxCouv.Image = Image.FromFile(openFile.FileName);
-
-
+                nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
             }
 
 
@@ -108,6 +105,8 @@ namespace InterfaceMedia
                 txtBoxTome.BackColor = Color.Silver;
                 txtBoxParution.BackColor = Color.Silver;
 
+                uneCouverture.ajouter(Int16.Parse(txtBoxCode.Text), nomCouv);
+                afficheImage();
                 RefreshGrid();
             }
         }
@@ -147,17 +146,16 @@ namespace InterfaceMedia
                 openFile.ShowDialog();
 
                 string nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
-                uneCouverture.modifier(Int16.Parse(txtBoxCode.Text), nomCouv);
-                pctBoxCouv.Image = Image.FromFile(openFile.FileName);
+                
             }
-            else if (btnAjouter.Text.Equals("Valider"))
+            else if (btnModifier.Text.Equals("Valider"))
             {
-                btnAjouter.Text = "Modifier";
-                btnAjouter.BackColor = Color.SteelBlue;
+                btnModifier.Text = "Modifier";
+                btnModifier.BackColor = Color.SteelBlue;
                 btnAnnuler.Visible = false;
 
                 //Re active les boutons
-                btnModifier.Enabled = true;
+                btnAjouter.Enabled = true;
                 btnSupprimer.Enabled = true;
                 btnRechercher.Enabled = true;
 
@@ -173,8 +171,8 @@ namespace InterfaceMedia
                 txtBoxTome.BackColor = Color.Silver;
                 txtBoxParution.BackColor = Color.Silver;
 
-                Image couv = new Bitmap(openFile.FileName);
-                pctBoxCouv.BackgroundImage = couv;
+                uneCouverture.modifier(Int16.Parse(txtBoxCode.Text), nomCouv);
+                afficheImage();
                 RefreshGrid();
             }
         }
@@ -369,25 +367,7 @@ namespace InterfaceMedia
             }
             else
             {
-                string uneImage = uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text));
-
-                string unChemin = "";
-
-                if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".png") == true)
-                {
-                    unChemin = (Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".png");
-                }
-                else if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpg") == true)
-                {
-                    unChemin = (Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpg");
-                }
-                else if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpeg") == true)
-                {
-                    unChemin = (Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpeg");
-                }
-
-                pctBoxCouv.Image = Image.FromFile(unChemin);
-             
+                afficheImage();            
             }
         }
 
@@ -402,6 +382,26 @@ namespace InterfaceMedia
             GridViewBase.DataSource = Export.recupCouverture();
             GridViewBase.Update();
             GridViewBase.Refresh();
+        }
+        public void afficheImage()
+        {
+
+            string uneImage = uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text));
+
+            if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".png") == true)
+            {
+                unChemin = (Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".png");
+            }
+            else if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpg") == true)
+            {
+                unChemin = (Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpg");
+            }
+            else if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpeg") == true)
+            {
+                unChemin = (Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpeg");
+            }
+
+            pctBoxCouv.Image = Image.FromFile(unChemin);
         }
 
         private void clickBouton(MetroFramework.Controls.MetroTile btn)
