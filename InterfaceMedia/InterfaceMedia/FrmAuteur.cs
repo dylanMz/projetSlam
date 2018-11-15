@@ -174,6 +174,9 @@ namespace InterfaceMedia
 
                 //on déverouille le DGV
                 dgvAuteur.Enabled = true;
+
+                //on met a jour le DGV
+                dgvAuteur.DataSource = unAuteur.afficheAuteur();
             }
             
         }
@@ -303,6 +306,9 @@ namespace InterfaceMedia
 
                 //on déverouille le DGV
                 dgvAuteur.Enabled = true;
+
+                //on met a jour le DGV
+                dgvAuteur.DataSource = unAuteur.afficheAuteur();
             }
         }
 
@@ -374,6 +380,8 @@ namespace InterfaceMedia
 
                     //on déverouille le DGV
                     dgvAuteur.Enabled = true;
+                    //on met a jour le DGV
+                    dgvAuteur.DataSource = unAuteur.afficheAuteur();
 
                     //Vide des champs
                     txtCode.Text = "";
@@ -383,6 +391,7 @@ namespace InterfaceMedia
                     txtBio.Text = "";
                     rdoVivant.Checked = false;
                     rdoDecede.Checked = false;
+                    chkDateNaiss.Checked = false;
                 }
 
                 else //if (txtCode.Text == "" && txtNom.Text == "" && txtPseudo.Text == "")
@@ -419,6 +428,7 @@ namespace InterfaceMedia
             rdoVivant.Checked = false;
             rdoDecede.Checked = false;
             chkNouvPays.Checked = false;
+            chkDateNaiss.Checked = false;
 
             //Les textbox sont inacessibles.
             txtCode.Enabled = false;
@@ -438,6 +448,8 @@ namespace InterfaceMedia
 
             //on déverouille le DGV
             dgvAuteur.Enabled = true;
+            //on met a jour le DGV
+            dgvAuteur.DataSource = unAuteur.afficheAuteur();
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont verrouillées
             txtCode.BackColor = Color.Silver;
@@ -493,11 +505,20 @@ namespace InterfaceMedia
 
         private void dgvAuteur_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            String dtNaisNull = dgvAuteur.CurrentRow.Cells["Date_Naissance"].Value.ToString();
+            String dtDecesNull = dgvAuteur.CurrentRow.Cells["Date_Décès"].Value.ToString();
             txtCode.Text = dgvAuteur.CurrentRow.Cells["Id"].Value.ToString();
             txtNom.Text = dgvAuteur.CurrentRow.Cells["Nom"].Value.ToString();
             txtPrenom.Text = dgvAuteur.CurrentRow.Cells["Prénom"].Value.ToString();
             txtPseudo.Text = dgvAuteur.CurrentRow.Cells["Pseudo"].Value.ToString();
-            dtDateNaiss.Text = dgvAuteur.CurrentRow.Cells["Date_Naissance"].Value.ToString();
+            if (dtNaisNull != "01/01/1753 00:00:00")
+            {
+                dtDateNaiss.Text = dtNaisNull;
+            }
+            if (dtDecesNull != "01/01/1753 00:00:00")
+            {
+                dtStatut.Text = dtDecesNull;
+            }
             dtStatut.Text = dgvAuteur.CurrentRow.Cells["Date_Décès"].Value.ToString();
             if (dgvAuteur.CurrentRow.Cells["Date_Décès"].Value.ToString() == "")
             {
