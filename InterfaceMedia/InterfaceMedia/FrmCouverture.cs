@@ -182,9 +182,9 @@ namespace InterfaceMedia
             }
             else if (btnRechercher.Text.Equals("Valider"))
             {
-                wcouverture = new Couverture(txtBoxTitre.Text);
-                if (uneCouverture.getExist(wcouverture) == true)
-                {
+                    
+
+               
                     if (!txtBoxCode.Text.Equals(""))
                     {
                         wcode = Convert.ToInt32(txtBoxCode.Text);
@@ -204,11 +204,14 @@ namespace InterfaceMedia
 
                     if (txtBoxTitre.Text != "")
                     {
+                        if (uneCouverture.getExist(wcouverture) == true)
+                        {
+                        wcouverture = new Couverture(txtBoxTitre.Text);
                         uneCouverture.getCode(wcouverture);
                         txtBoxCode.Text = uneCouverture.getCode(wcouverture).ToString();
-                        afficheImage();
+                        }
                     }
-
+                
                     txtBoxCode.Text = GridViewBase.CurrentRow.Cells["BdId"].Value.ToString();
                     txtBoxTitre.Text = GridViewBase.CurrentRow.Cells["BdTitre"].Value.ToString();
                     txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
@@ -217,12 +220,13 @@ namespace InterfaceMedia
 
                     afficheImage();
                     btnAnnuler.Visible = true;
+
                 }
                 else
                 {
                     MessageBox.Show("Ce Titre n'existe pas dans la base de données");
                 } 
-            }
+            
         }
 
         private void GridViewBase_CellClick(object sender, DataGridViewCellEventArgs e)
