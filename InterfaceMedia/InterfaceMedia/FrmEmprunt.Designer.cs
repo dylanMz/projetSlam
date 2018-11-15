@@ -28,12 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblNumEmp = new MetroFramework.Controls.MetroLabel();
             this.txtbxNumEmp = new MetroFramework.Controls.MetroTextBox();
-            this.txtbxRefEx = new MetroFramework.Controls.MetroTextBox();
             this.lblRefEx = new MetroFramework.Controls.MetroLabel();
             this.GridEmprunt = new MetroFramework.Controls.MetroGrid();
             this.lblDateEmp = new MetroFramework.Controls.MetroLabel();
@@ -60,6 +59,9 @@
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.lblRang = new MetroFramework.Controls.MetroLabel();
+            this.MtxtbxRefEx = new System.Windows.Forms.MaskedTextBox();
+            this.ttpMauvaiseSaisie = new MetroFramework.Components.MetroToolTip();
+            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).BeginInit();
             this.gpbxChoix.SuspendLayout();
             this.GroupSaisie.SuspendLayout();
@@ -114,39 +116,6 @@
             this.txtbxNumEmp.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtbxNumEmp.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // txtbxRefEx
-            // 
-            this.txtbxRefEx.BackColor = System.Drawing.Color.Silver;
-            // 
-            // 
-            // 
-            this.txtbxRefEx.CustomButton.Image = null;
-            this.txtbxRefEx.CustomButton.Location = new System.Drawing.Point(57, 1);
-            this.txtbxRefEx.CustomButton.Name = "";
-            this.txtbxRefEx.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtbxRefEx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtbxRefEx.CustomButton.TabIndex = 1;
-            this.txtbxRefEx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtbxRefEx.CustomButton.UseSelectable = true;
-            this.txtbxRefEx.CustomButton.Visible = false;
-            this.txtbxRefEx.Enabled = false;
-            this.txtbxRefEx.Lines = new string[0];
-            this.txtbxRefEx.Location = new System.Drawing.Point(501, 25);
-            this.txtbxRefEx.MaxLength = 32767;
-            this.txtbxRefEx.Name = "txtbxRefEx";
-            this.txtbxRefEx.PasswordChar = '\0';
-            this.txtbxRefEx.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtbxRefEx.SelectedText = "";
-            this.txtbxRefEx.SelectionLength = 0;
-            this.txtbxRefEx.SelectionStart = 0;
-            this.txtbxRefEx.ShortcutsEnabled = true;
-            this.txtbxRefEx.Size = new System.Drawing.Size(79, 23);
-            this.txtbxRefEx.TabIndex = 11;
-            this.txtbxRefEx.UseCustomBackColor = true;
-            this.txtbxRefEx.UseSelectable = true;
-            this.txtbxRefEx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtbxRefEx.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
             // lblRefEx
             // 
             this.lblRefEx.AutoSize = true;
@@ -170,23 +139,23 @@
             this.GridEmprunt.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridEmprunt.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridEmprunt.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.GridEmprunt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.GridEmprunt.DefaultCellStyle = dataGridViewCellStyle14;
             this.GridEmprunt.EnableHeadersVisualStyles = false;
             this.GridEmprunt.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GridEmprunt.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -194,14 +163,14 @@
             this.GridEmprunt.Name = "GridEmprunt";
             this.GridEmprunt.ReadOnly = true;
             this.GridEmprunt.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.GridEmprunt.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.GridEmprunt.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEmprunt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridEmprunt.Size = new System.Drawing.Size(714, 180);
@@ -312,6 +281,7 @@
             // GroupSaisie
             // 
             this.GroupSaisie.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.GroupSaisie.Controls.Add(this.MtxtbxRefEx);
             this.GroupSaisie.Controls.Add(this.gpbxChoix);
             this.GroupSaisie.Controls.Add(this.dtRetour);
             this.GroupSaisie.Controls.Add(this.lblNumEmp);
@@ -319,7 +289,6 @@
             this.GroupSaisie.Controls.Add(this.txtbxNumEmp);
             this.GroupSaisie.Controls.Add(this.dtEmprunt);
             this.GroupSaisie.Controls.Add(this.lblRefEx);
-            this.GroupSaisie.Controls.Add(this.txtbxRefEx);
             this.GroupSaisie.Controls.Add(this.lblDateRetourRéel);
             this.GroupSaisie.Controls.Add(this.lblDateEmp);
             this.GroupSaisie.Controls.Add(this.lblDateRetourPrev);
@@ -554,6 +523,29 @@
             this.lblRang.TabIndex = 47;
             this.lblRang.Text = "lblRang";
             // 
+            // MtxtbxRefEx
+            // 
+            this.MtxtbxRefEx.BackColor = System.Drawing.Color.Silver;
+            this.MtxtbxRefEx.Enabled = false;
+            this.MtxtbxRefEx.Location = new System.Drawing.Point(501, 24);
+            this.MtxtbxRefEx.Mask = "0000_00";
+            this.MtxtbxRefEx.Name = "MtxtbxRefEx";
+            this.MtxtbxRefEx.Size = new System.Drawing.Size(100, 20);
+            this.MtxtbxRefEx.TabIndex = 26;
+            this.MtxtbxRefEx.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.MtxtbxRefEx_MaskInputRejected);
+            // 
+            // ttpMauvaiseSaisie
+            // 
+            this.ttpMauvaiseSaisie.Style = MetroFramework.MetroColorStyle.Blue;
+            this.ttpMauvaiseSaisie.StyleManager = null;
+            this.ttpMauvaiseSaisie.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
+            // metroToolTip1
+            // 
+            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
+            this.metroToolTip1.StyleManager = null;
+            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
+            // 
             // FrmEmprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -565,7 +557,9 @@
             this.Controls.Add(this.GroupBouton);
             this.Controls.Add(this.GridEmprunt);
             this.ForeColor = System.Drawing.Color.Black;
+            this.MaximizeBox = false;
             this.Name = "FrmEmprunt";
+            this.Resizable = false;
             this.Text = "Emprunt";
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).EndInit();
             this.gpbxChoix.ResumeLayout(false);
@@ -583,7 +577,6 @@
         #endregion
         private MetroFramework.Controls.MetroLabel lblNumEmp;
         private MetroFramework.Controls.MetroTextBox txtbxNumEmp;
-        private MetroFramework.Controls.MetroTextBox txtbxRefEx;
         private MetroFramework.Controls.MetroLabel lblRefEx;
         private MetroFramework.Controls.MetroGrid GridEmprunt;
         private MetroFramework.Controls.MetroLabel lblDateEmp;
@@ -610,5 +603,8 @@
         private MetroFramework.Controls.MetroDateTime dtRetour;
         private System.Windows.Forms.PictureBox picHome;
         private MetroFramework.Controls.MetroLabel lblRang;
+        private System.Windows.Forms.MaskedTextBox MtxtbxRefEx;
+        private MetroFramework.Components.MetroToolTip ttpMauvaiseSaisie;
+        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }
