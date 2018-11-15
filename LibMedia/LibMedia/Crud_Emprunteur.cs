@@ -61,7 +61,7 @@ namespace LibMedia
             }
         }
         //Exécute la procédure avec les paramétres pour modifier et insert
-        public void connectprocedure(String nomprocedure, ref string codeErreur, List<KeyValuePair<String, Object>> parametresString, List<KeyValuePair<String, Object>> parametresDate, int wid)
+        public void connectprocedure(String nomprocedure, ref string codeErreur, Emprunteur connectEmprunteur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -73,19 +73,30 @@ namespace LibMedia
                 unecommandeSql.Connection = uneconnexion.getConnexion();
 
                 //paramétre de la procédure
-                foreach (KeyValuePair<String, Object> unParametre in parametresString)
-                {
-                    unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.String));
-                    unecommandeSql.Parameters[unParametre.Key].Value = unParametre.Value;
-                }
+                
+                unecommandeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                unecommandeSql.Parameters["wnom"].Value = connectEmprunteur.emp_nom;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                unecommandeSql.Parameters["wprenom"].Value = connectEmprunteur.emp_prenom;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wrue", MySqlDbType.String));
+                unecommandeSql.Parameters["wrue"].Value = connectEmprunteur.emp_rue;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wcodepostal", MySqlDbType.String));
+                unecommandeSql.Parameters["wcodepostal"].Value = connectEmprunteur.emp_code_postal;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wville", MySqlDbType.String));
+                unecommandeSql.Parameters["wville"].Value = connectEmprunteur.emp_ville;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wdatenaiss", MySqlDbType.Date));
+                unecommandeSql.Parameters["wdatenaiss"].Value = connectEmprunteur.emp_date_naiss;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wmail", MySqlDbType.String));
+                unecommandeSql.Parameters["wmail"].Value = connectEmprunteur.emp_mail;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wpremadh", MySqlDbType.Date));
+                unecommandeSql.Parameters["wpremadh"].Value = connectEmprunteur.emp_prem_adh;
+                unecommandeSql.Parameters.Add(new MySqlParameter("wrenadh", MySqlDbType.Date));
+                unecommandeSql.Parameters["wrenadh"].Value = connectEmprunteur.emp_ren_adh;
 
-                foreach (KeyValuePair<String, Object> unParametre in parametresDate)
-                {
-                    unecommandeSql.Parameters.Add(new MySqlParameter(unParametre.Key, MySqlDbType.Date));
-                    unecommandeSql.Parameters[unParametre.Key].Value = unParametre.Value;
-                }
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                unecommandeSql.Parameters["wid"].Value = wid;
+                unecommandeSql.Parameters["wid"].Value = connectEmprunteur.emp_num;
+
+
 
                 //mise en place du paramètre de sortie
                 MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
@@ -109,7 +120,7 @@ namespace LibMedia
 
 
         //connection à la procédure de recherche
-        public void recherche(String nomprocedure, string wnom, int wid)
+        public void recherche(String nomprocedure, Emprunteur Remprunteur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -121,12 +132,12 @@ namespace LibMedia
 
                 //paramétre de la procédure
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                unecommandeSql.Parameters["wid"].Value = wid;
+                unecommandeSql.Parameters["wid"].Value = Remprunteur.emp_num;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                unecommandeSql.Parameters["wnom"].Value = wnom;
+                unecommandeSql.Parameters["wnom"].Value = Remprunteur.emp_nom;
 
                 //verification pour savoir si un nom ou un id est saisie
-                if (wnom.Equals(""))
+                if (Remprunteur.emp_num.Equals(""))
                 {
                     wsql = 1;
                 }

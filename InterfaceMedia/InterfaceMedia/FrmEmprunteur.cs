@@ -19,7 +19,6 @@ namespace InterfaceMedia
         private int num;
         Thread th;
         private string id;
-        private String dateadh;
         private Crud_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
         private List<Famille> lesfamille;
@@ -85,20 +84,13 @@ namespace InterfaceMedia
             if (btnAjouter.Text.Equals("Ajouter"))
             {
                 groupAjouterEmp.Enabled = true;
-                btnAjouter.BackColor = Color.Green;
+                
 
                 //vide les controls du groupbox
                 vidercontrols();
 
-                
-                btnAjouter.Text = "Valider";
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnFamille.Enabled = false;
-                btnRechercher.Enabled = false;
+                clickButton(btnAjouter);
+                btnAjouter.Enabled = true;
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
@@ -109,16 +101,8 @@ namespace InterfaceMedia
             {
                 utilisemethodeprocedure("proc_insert_emprunteur");
                 groupAjouterEmp.Enabled = false;
-                btnAjouter.Text = "Ajouter";
-                btnAjouter.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
 
-                //Re active les boutons
-                btnFamille.Enabled = true;
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnRechercher.Enabled = true;
-
+                clickvalider(btnAjouter);
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 modifcouleurControlVerou();
 
@@ -153,17 +137,12 @@ namespace InterfaceMedia
             if (btnModifier.Text.Equals("Modifier")&!txtNom.Text.Equals(""))
             {
                 groupAjouterEmp.Enabled = true;
-                btnModifier.BackColor = Color.Green;
-                btnModifier.Text = "Valider";
-
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
+               
 
                 //Desactive tous les autres boutons
-                btnAjouter.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnRechercher.Enabled = false;
-                btnFamille.Enabled = false;
+                clickButton(btnModifier);
+
+                btnModifier.Enabled = true;
 
 
 
@@ -174,19 +153,11 @@ namespace InterfaceMedia
             else if (btnModifier.Text.Equals("Valider"))
             {
 
-                utilisemethodeprocedure("proc_modif_emprunteur");
+                utilisemethodeprocedure("proc_update_emprunteur");
                
                 groupAjouterEmp.Enabled = false;
-                btnModifier.Text = "Modifier";
-                btnModifier.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
 
-                //Re active les boutons
-                btnAjouter.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnRechercher.Enabled = true;
-                btnFamille.Enabled = true;
-
+                clickvalider(btnModifier);
 
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
@@ -252,29 +223,10 @@ namespace InterfaceMedia
         //Permets de faire appel à la méthode connectprocedure et de remplir les paramètres de la procédure dans les listes
         public void utilisemethodeprocedure(String nomprocedure)
         {
-            List<KeyValuePair<String, Object>> parametresString = new List<KeyValuePair<String, Object>>(){
-
-                     //w.. est le nom du parametre de la procédure stokée, et txt.. les valeurs.
-                    new KeyValuePair<String, Object>("wnom", txtNom.Text),
-                    new KeyValuePair<String, Object>("wprenom", txtPrenom.Text),
-                    new KeyValuePair<String, Object>("wrue", txtAdresse.Text),
-                    new KeyValuePair<String, Object>("wcodepostal", txtCodePostal.Text),
-                    new KeyValuePair<String, Object>("wville", txtVille.Text),
-                    new KeyValuePair<String, Object>("wmail", txtMail.Text),
-                  };
-
-            dateadh = DateTimeAdhesion.Text;
-            List<KeyValuePair<String, Object>> parametresDate = new List<KeyValuePair<String, Object>>(){
-
-                     //w..est le nom du parametre de la procédure stokée, et Date... les valeurs.
-                     new KeyValuePair<String, Object>("wdatenaiss", DateTime.Parse(DateTimeNaissance.Text).ToString("yyyy-MM-dd")),
-                     new KeyValuePair<String, Object>("wpremadh", DateTime.Parse(dateadh).ToString("yyyy-MM-dd")),
-                     new KeyValuePair<String, Object>("wrenadh", DateTime.Parse(DateTimeRenouvellement.Text).ToString("yyyy-MM-dd")),
-                  };
-
             String recupcode = null;
+            Emprunteur ConnectEmprunteur = new Emprunteur(Convert.ToInt32(id),txtNom.Text, txtPrenom.Text, txtAdresse.Text, txtCodePostal.Text, txtVille.Text, Convert.ToDateTime(DateTime.Parse(DateTimeNaissance.Text).ToString("yyyy-MM-dd")), txtMail.Text, Convert.ToDateTime(DateTime.Parse(DateTimeAdhesion.Text).ToString("yyyy-MM-dd")), Convert.ToDateTime(DateTime.Parse(DateTimeRenouvellement.Text).ToString("yyyy-MM-dd")));
             //appel de la methode connectprocedure de Crud_Emprunteur
-            unEmprunteur.connectprocedure(nomprocedure, ref recupcode, parametresString, parametresDate, Convert.ToInt32(id));
+            unEmprunteur.connectprocedure(nomprocedure, ref recupcode, ConnectEmprunteur);
         }
 
 
@@ -431,7 +383,8 @@ namespace InterfaceMedia
                 unEmprunteur.lesEmprunteurs.Clear();
                 uneconnexion = new ConnexionBase();
                 unEmprunteur = new Crud_Emprunteur(uneconnexion);
-                unEmprunteur.recherche("proc_recherche_emprunteur", txtNom.Text, wnum);
+                Emprunteur Remprunteur = new Emprunteur(wnum,txtNom.Text);
+                unEmprunteur.recherche("proc_recherche_emprunteur", Remprunteur);
                 RempGridEmprunteur(unEmprunteur.lesEmprunteurs);
                 GridEmprunteur.Update();
                 GridEmprunteur.Refresh();
@@ -544,6 +497,38 @@ namespace InterfaceMedia
                 RefreshGrid();
 
             }
+            
+        }
+
+        //Méthode correspondant au click sur un des boutons
+        public void clickButton(MetroFramework.Controls.MetroTile btn)
+        {
+            btn.BackColor = Color.Green;
+            btn.Text = "Valider";
+            //le bouton annuler apparait
+            btnAnnuler.Visible = true;
+
+            //Desactive tous les autres boutons
+            btnAjouter.Enabled = false;
+            btnModifier.Enabled = false;
+            btnSupprimer.Enabled = false;
+            btnFamille.Enabled = false;
+            btnRechercher.Enabled = false;
+        }
+
+        //Méthode correspondant au click sur un des boutons pour valider
+        public void clickvalider(MetroFramework.Controls.MetroTile btn)
+        {
+            btn.Text = "Ajouter";
+            btn.BackColor = Color.SteelBlue;
+            btnAnnuler.Visible = false;
+
+            //Re active les boutons
+            btnAjouter.Enabled = true;
+            btnFamille.Enabled = true;
+            btnModifier.Enabled = true;
+            btnSupprimer.Enabled = true;
+            btnRechercher.Enabled = true;
         }
     }
 }
