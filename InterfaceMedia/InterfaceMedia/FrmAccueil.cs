@@ -144,7 +144,7 @@ namespace InterfaceMedia
         private void GestionAcces()
         {
             //Desactive l'accès à certaines interfaces aux personnels de l'accueil 
-            if (lblUtilisateur.Text == "Personnel")
+            if (lblUtilisateur.Text.Equals("Personnel"))
             {
                 metroTileAuteur.Enabled = false;
                 metroTileCouverture.Enabled = false;
@@ -154,14 +154,14 @@ namespace InterfaceMedia
             }
 
             //Desactive l'accès à certaines interfaces aux Responsable stock 
-            if (lblUtilisateur.Text == "Responsable stock")
+            if (lblUtilisateur.Text.Equals("Responsable stock"))
             {
                 metroTileEmprunteur.Enabled = false;
                 btnAdmin.Enabled = false;
             }
 
             //Desactive l'accès à certaines interfaces aux Responsable secteur
-            if (lblUtilisateur.Text == "Responsable secteur")
+            if (lblUtilisateur.Text.Equals("Responsable secteur"))
             {
                 metroTileAuteur.Enabled = false;
                 metroTileCouverture.Enabled = false;

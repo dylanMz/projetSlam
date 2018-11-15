@@ -25,7 +25,7 @@ namespace InterfaceMedia
 
         private int uneDateCreation;
 
-        private String unCodeSortie;
+        private int unCodeSortie;
         #endregion
 
         public FrmEditeur(String leNiveau)
@@ -35,11 +35,6 @@ namespace InterfaceMedia
             this.leNiveau = leNiveau;
             lblRang.Text = this.leNiveau;
 
-            /*if (leNiveau.Equals("Personnel stock"))
-            {
-                
-            }
-            */
             unEditeur = new Crud_Editeur();
 
             RefreshGrid();
@@ -105,7 +100,6 @@ namespace InterfaceMedia
 
             else if (btnAjouter.Text.Equals("Valider"))
             {
-                unCodeSortie = "";
 
                 btnAjouter.Text = "Ajouter";
                 btnAjouter.BackColor = Color.SteelBlue;
@@ -139,9 +133,16 @@ namespace InterfaceMedia
 
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
+
+
                 //Ajout d'un editeur
                 Editeur lEditeur = new Editeur(txtNom.Text, uneDateCreation, txtAdr.Text, txtCodePostal.Text,txtVille.Text, txtTel.Text, txtFax.Text, txtMail.Text);
-                unEditeur.ajout_editeur(lEditeur);
+                unCodeSortie = unEditeur.ajout_editeur(lEditeur);
+
+                if (unCodeSortie == 99)
+                {
+                    MessageBox.Show("Cet editeur est déjà présent dans la base, insertion annulé", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
                 //Reinistialisation des textbox
                 code.Text = "";
@@ -153,6 +154,9 @@ namespace InterfaceMedia
                 txtTel.Text = "";
                 txtFax.Text = "";
                 txtVille.Text = "";
+
+
+
 
                 RefreshGrid();
             }

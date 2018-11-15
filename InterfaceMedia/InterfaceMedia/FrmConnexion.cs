@@ -47,7 +47,7 @@ namespace InterfaceMedia
                 }
                 else
                 {
-                    MessageBox.Show("Identifiant incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Pseudo ou mot de passe invalide", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             
             
