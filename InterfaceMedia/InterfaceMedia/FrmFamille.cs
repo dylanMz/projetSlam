@@ -20,6 +20,7 @@ namespace InterfaceMedia
         private Crud_Famille unefamille;
         private Boolean newfamille = false;
         private int lecheffamille;
+        private int unchef;
 
 
         public FrmFamille(List<Famille> familles, Boolean newfamille)
@@ -50,6 +51,7 @@ namespace InterfaceMedia
         //Methode pour mettre à jour le grid
         public void RefreshGrid()
         {
+            
             GridFamille.DataSource = lesidfamilles;
             GridFamille.Refresh();
             GridFamille.Update();
@@ -117,7 +119,10 @@ namespace InterfaceMedia
                 }
 
                 //met à jour le datagrid
-                RefreshGrid();
+                unchef = Convert.ToInt16(GridFamille.Rows[1].Cells[8].Value.ToString());
+                Famille idfamille = new Famille(unchef);
+                unefamille.Recup_Toutelafamille(idfamille);
+                GridFamille.DataSource = unefamille.lesfamilles;
             }
         }
 

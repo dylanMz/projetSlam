@@ -115,6 +115,7 @@ namespace InterfaceMedia
                 {
                     utilisemethodeprocedure("proc_insert_emprunteur");
                     groupAjouterEmp.Enabled = false;
+                    btnAjouter.Text = "Ajouter";
 
                     clickvalider(btnAjouter);
                     //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
@@ -169,7 +170,8 @@ namespace InterfaceMedia
             {
 
                 utilisemethodeprocedure("proc_update_emprunteur");
-               
+
+                btnModifier.Text = "Modifier";
                 groupAjouterEmp.Enabled = false;
 
                 clickvalider(btnModifier);
@@ -550,7 +552,7 @@ namespace InterfaceMedia
         //Méthode correspondant au click sur un des boutons pour valider
         public void clickvalider(MetroFramework.Controls.MetroTile btn)
         {
-            btn.Text = "Ajouter";
+            
             btn.BackColor = Color.SteelBlue;
             btnAnnuler.Visible = false;
 
