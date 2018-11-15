@@ -71,7 +71,7 @@ namespace LibMedia
             _numEmp = EmpNum;
             _refEx = ExRef;
             _dateEmp = dtEmp;
-            _dateRetourPrevu = dtRet;
+            _dateRetour = dtRet;
         }
 
         public Emprunt(int EmpNum, string ExRef)

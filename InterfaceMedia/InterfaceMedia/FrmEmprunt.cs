@@ -17,7 +17,7 @@ namespace InterfaceMedia
 {
     public partial class FrmEmprunt : MetroForm
     {
-
+        //Déclaration des objet permettant l'execution des procédure
         private Crud_Emprunt Ajout;
         private Crud_Emprunt Updat;
         private Crud_Emprunt Suppr;
@@ -30,7 +30,7 @@ namespace InterfaceMedia
         public FrmEmprunt()
         {
             InitializeComponent();
-            //Déclaration des objet permettant l'execution des procédure
+            //Instanciation des objet permettant l'execution des procédure
             Ajout = new Crud_Emprunt();
             Updat = new Crud_Emprunt();
             Suppr = new Crud_Emprunt();
@@ -83,10 +83,14 @@ namespace InterfaceMedia
                 DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
                 Emprunt lEmprunt = new Emprunt(numE, MtxtbxRefEx.Text, dateEm, dateRet, dateRetP);
 
+                
                 Ajout.insertEmprunt(lEmprunt);
 
                 clickValider(btnAjouter, "Ajouter");
+                
             }
+            //Actualise la DataGridView
+            GridEmprunt.DataSource = Ajout.afficheEmprunt();
         }
 
         
@@ -108,7 +112,7 @@ namespace InterfaceMedia
 
                 if (Updat.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                    btDialog("L'emprunt n'existe pas!",1);
+                    btDialog("L'emprunt n'existe pas!",false);
                 }
                 else
                 {
@@ -117,7 +121,10 @@ namespace InterfaceMedia
                     
 
                 clickValider(btnModifier, "Modifier");
+                
             }
+            //Actualise la DataGridView
+            GridEmprunt.DataSource = Updat.afficheEmprunt();
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -140,14 +147,17 @@ namespace InterfaceMedia
 
                 if (Suppr.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                    btDialog("L'emprunt n'existe pas!",1);
+                    btDialog("L'emprunt n'existe pas!",false);
                 }
                 else
                 {
                     Suppr.deleteEmprunt(lEmprunt);
                 }
                 clickValider(btnSupprimer, "Supprimer");
+                
             }
+            //Actualise la DataGridView
+            GridEmprunt.DataSource = Suppr.afficheEmprunt();
         }
 
         private void btnAjRetour_Click(object sender, EventArgs e)
@@ -171,7 +181,7 @@ namespace InterfaceMedia
 
                 if (ajRetour.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                    btDialog("L'emprunt n'existe pas!",1);
+                    btDialog("L'emprunt n'existe pas!",false);
                 }
                 else
                 {
@@ -179,7 +189,10 @@ namespace InterfaceMedia
                 }
                 
                 clickValider(btnAjRetour, "Ajouter un retour");
+                
             }
+
+            GridEmprunt.DataSource = ajRetour.afficheEmprunt();
         }
 
         private void btnSearchEmp_Click(object sender, EventArgs e)
@@ -200,7 +213,7 @@ namespace InterfaceMedia
 
                 if (Search.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                    btDialog("L'emprunt n'existe pas!",1);
+                    btDialog("L'emprunt n'existe pas!", false);
                 }
                 else
                 {
@@ -247,7 +260,7 @@ namespace InterfaceMedia
                 }
                 else
                 {
-                    btDialog("Vous devez selectionner une proposition",0);
+                    btDialog("Vous devez selectionner une proposition",true);
                 }
 
                 clickValider(btnLivre, "Rechercher livre");
@@ -259,7 +272,7 @@ namespace InterfaceMedia
         //Ouvre une boite de dialogue quand la saisie est incorrecte sur le Mask
         private void MtxtbxRefEx_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            btDialog("Désolé la saisie autorisé est de la forme 0000_00",1);
+            btDialog("Désolé la saisie autorisé est de la forme 0000_00",false);
         }
 
         //Permet de quitter l'application
@@ -312,6 +325,9 @@ namespace InterfaceMedia
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
+
+            //Actualise la DataGridView
+            GridEmprunt.DataSource = ajRetour.afficheEmprunt();
 
         }
 
@@ -397,13 +413,13 @@ namespace InterfaceMedia
         }
 
         //Methode affichant une boite de dialogue avec un message personnaliser
-        public void btDialog(String leMessage,int zeroOuUn)
+        public void btDialog(String leMessage,Boolean zeroOuUn)
         {
-            if(zeroOuUn == 0)
+            if(zeroOuUn == true)
             {
                 MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(zeroOuUn == 1)
+            else if(zeroOuUn == false)
             {
                 MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
             }

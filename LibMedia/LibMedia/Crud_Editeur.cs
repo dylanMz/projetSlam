@@ -14,6 +14,7 @@ namespace LibMedia
         private ConnexionBase uneconnexion;
         private MySqlDataReader _unReader;
         private List<Editeur> _desEditeurs;
+        private int CodeOut;
         #endregion
 
         #region Constructeur.s
@@ -75,7 +76,7 @@ namespace LibMedia
         }
 
         //Ajout d'un editeur
-        public void ajout_editeur(Editeur unEditeur)
+        public int ajout_editeur(Editeur unEditeur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -114,12 +115,16 @@ namespace LibMedia
                 unComdeSql.Parameters.Add(PSortie_nat);
                 PSortie_nat.Direction = ParameterDirection.Output;
 
-                unComdeSql.ExecuteNonQuery();
+                unComdeSql.ExecuteNonQuery(); // Execute la requête
 
-                uneconnexion.closeConnexion();
+                uneconnexion.closeConnexion(); // Ferme la connexion
 
+                CodeOut = Convert.ToInt32(PSortie_nat.Value); 
 
             }
+
+            return CodeOut;
+
         }
 
         //Modification d'un editeur
