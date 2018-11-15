@@ -133,6 +133,8 @@ namespace LibMedia
             get { return AncienNom; }
             set { AncienNom = value; }
         }
+
+    
         #endregion
 
     }
