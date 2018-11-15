@@ -465,12 +465,6 @@ namespace InterfaceMedia
             btn.BackColor = Color.SteelBlue;
             btnAnnuler.Visible = false;
 
-            /*//Re active les boutons
-            btnAjouter.Enabled = true;
-            btnModifier.Enabled = true;
-            btnSupprimer.Enabled = true;
-            btnRechercher.Enabled = true;*/
-
             //Déverouille les boutons modifier et supprimer en fonction des droits de l'utilisateur.
             if (leNiveau.Equals("Responsable stock"))
             {
@@ -479,8 +473,10 @@ namespace InterfaceMedia
             }
             else
             {
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
+                btnAjouter.Enabled = true;
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+                btnRechercher.Enabled = true;
             }
 
             //Les textbox sont inacessibles.
