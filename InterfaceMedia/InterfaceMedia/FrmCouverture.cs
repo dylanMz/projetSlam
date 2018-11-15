@@ -84,6 +84,7 @@ namespace InterfaceMedia
 
             }
 
+
             else if (btnAjouter.Text.Equals("Valider"))
             {
                 btnAjouter.Text = "Ajouter";
@@ -111,6 +112,7 @@ namespace InterfaceMedia
             }
         }
 
+        
         private void btnModifier_Click(object sender, EventArgs e)
         {
             if (btnModifier.Text.Equals("Modifier"))
@@ -402,5 +404,58 @@ namespace InterfaceMedia
             GridViewBase.Refresh();
         }
 
+        private void clickBouton(MetroFramework.Controls.MetroTile btn)
+        {
+            btn.BackColor = Color.Green;
+            btn.Text = "Valider";
+
+            //le bouton annuler apparait
+            btnAnnuler.Visible = true;
+
+            //Desactive tous les autres boutons
+            btnModifier.Enabled = false;
+            btnSupprimer.Enabled = false;
+            btnRechercher.Enabled = false;
+            btnAjouter.Enabled = false;
+
+            //Les textbox à remplir pour l'insertion se déverouille
+            txtBoxCode.Enabled = true;
+            txtBoxTitre.Enabled = true;
+            txtBoxTome.Enabled = true;
+            txtBoxParution.Enabled = true;
+
+
+            //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+            txtBoxCode.BackColor = Color.White;
+            txtBoxTitre.BackColor = Color.White;
+            txtBoxTome.BackColor = Color.White;
+            txtBoxParution.BackColor = Color.White;
+        }
+
+        private void clickValider(MetroFramework.Controls.MetroTile btn, string nomBtn)
+        {
+            btn.Text = nomBtn;
+            btn.BackColor = Color.SteelBlue;
+
+            btnAnnuler.Visible = false;
+
+            //Re active les boutons
+            btnModifier.Enabled = true;
+            btnSupprimer.Enabled = true;
+            btnRechercher.Enabled = true;
+            btnAjouter.Enabled = true;
+
+            //Les textbox sont inacessibles.
+            txtBoxCode.Enabled = false;
+            txtBoxTitre.Enabled = false;
+            txtBoxTome.Enabled = false;
+            txtBoxParution.Enabled = false;
+
+            //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+            txtBoxCode.BackColor = Color.Silver;
+            txtBoxTitre.BackColor = Color.Silver;
+            txtBoxTome.BackColor = Color.Silver;
+            txtBoxParution.BackColor = Color.Silver;
+        }
     }
 }
