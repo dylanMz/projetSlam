@@ -197,8 +197,12 @@ namespace InterfaceMedia
                     }
                 }
 
-                //verifie si le membre de la famille n'est pas un chef et le supprime de la famille
-                if (lecheffamille != Convert.ToInt16(txtnum.Text))
+                //si le membre de la famille est un chef de famille affiche un message d'erreur
+                if (lecheffamille == Convert.ToInt16(txtnum.Text))
+                {
+                    MessageBox.Show("Impossible de supprimer un chef de famille", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
                 {
                     int wid = Convert.ToInt16(txtnum.Text);
                     unemprunteur.DeleteMembreFamille("proc_delete_membre_famille", wid);

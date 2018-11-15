@@ -159,7 +159,7 @@ namespace LibMedia
         }
 
         //Exécute la procédure de suppression d"un emprunteur
-        public void deleteEmprunteur(String nomprocedure, int wid,String wmotif)
+        public void deleteEmprunteur(String nomprocedure, Emprunteur NumEmprunteur,String wmotif)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -171,7 +171,7 @@ namespace LibMedia
 
 
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                unecommandeSql.Parameters["wid"].Value = wid;
+                unecommandeSql.Parameters["wid"].Value = NumEmprunteur.emp_num;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wmotif", MySqlDbType.String));
                 unecommandeSql.Parameters["wmotif"].Value = wmotif;
                 unecommandeSql.ExecuteNonQuery();
