@@ -44,11 +44,16 @@ namespace LibMedia
                 bdCouleur = wcouleur;
                 bdCommentaires = wbdcommentaires;
                 bdFormat = wbdformat;
-
-
-
-
-
+            }
+            public Livre ( String wbdtitre, String wbdanneeparution)
+            {
+             
+                 bdTitre = wbdtitre;
+                bdAnneeParution = wbdanneeparution;
+            }
+            public Livre ( int wbdcode )
+           {
+                bdCode = wbdcode;
             }
             #endregion
 

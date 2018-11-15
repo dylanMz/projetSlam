@@ -19,7 +19,7 @@ namespace InterfaceMedia
     {
         private ConnexionBase uneconnexion;
         private Crud_Utilisateur unUtilisateur;
-        private Boolean laVar;
+        private Boolean uneCo;
         private Thread th;
         private String leNiveau;
 
@@ -33,12 +33,12 @@ namespace InterfaceMedia
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            
-                leNiveau = unUtilisateur.recup_connexion(txtIdentifiant.Text, txtPassword.Text);
+            Utilisateur lUtilisateur = new Utilisateur(txtIdentifiant.Text, txtPassword.Text);
+            leNiveau = unUtilisateur.recup_connexion(lUtilisateur);
 
-                laVar = unUtilisateur.myVar;
+                uneCo = unUtilisateur.myVar;
 
-                if (laVar == true)
+                if (uneCo == true)
                 {
                     this.Close();
                     th = new Thread(openformAccueil);
@@ -49,10 +49,7 @@ namespace InterfaceMedia
                 {
                     MessageBox.Show("Identifiant ou mot de passe incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            
-            
         }
-
 
         private void btnQuitter_Click(object sender, EventArgs e)
         {
@@ -64,7 +61,7 @@ namespace InterfaceMedia
 
         }
 
-
+        //Ouvre l'interface Accueil avec son type d'utilisateur (leNiveau)
         private void openformAccueil()
         {
             Application.Run(new FrmAccueilTest(leNiveau));
