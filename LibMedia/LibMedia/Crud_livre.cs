@@ -36,6 +36,7 @@ namespace LibMedia
 
         #region Livre
         // Insertion d'un livre
+
         public void ajout_livre(String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, String wedicode, String wseriecode)
         {
          
@@ -84,8 +85,29 @@ namespace LibMedia
                     _connexion.closeConnexion();
 
 
-                } 
+                }
 
+        // insertion participer
+        public void insert_participer(String wlauteur  ,int letype)
+        {
+
+            _connexion.OuvrirConnexion();
+
+            MySqlCommand unComdeSql = new MySqlCommand();
+            unComdeSql.CommandText = "proc_insert_Participer";
+            unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
+            unComdeSql.Connection = _connexion.getConnexion();
+
+       
+            unComdeSql.Parameters.Add(new MySqlParameter("wauteur", MySqlDbType.String));
+            unComdeSql.Parameters["wauteur"].Value = wlauteur;
+            unComdeSql.Parameters.Add(new MySqlParameter("wtype", MySqlDbType.Int16));
+            unComdeSql.Parameters["wtype"].Value = letype;
+
+            unComdeSql.ExecuteNonQuery();
+
+            _connexion.closeConnexion();
+        }
 
         // modification livre
         public void update_livre(int wbdcode, String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, String wedicode, String wseriecode)
@@ -326,7 +348,9 @@ public List<String> affiche_nomauteur()
 
 
 
+
         #endregion
+
 
 
 
