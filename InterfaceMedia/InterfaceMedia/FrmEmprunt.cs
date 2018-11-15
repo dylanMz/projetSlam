@@ -30,6 +30,7 @@ namespace InterfaceMedia
         public FrmEmprunt()
         {
             InitializeComponent();
+            //Déclaration des objet permettant l'execution des procédure
             Ajout = new Crud_Emprunt();
             Updat = new Crud_Emprunt();
             Suppr = new Crud_Emprunt();
@@ -38,13 +39,16 @@ namespace InterfaceMedia
             LivreNonRendu = new Crud_Emprunt();
             Search = new Crud_Emprunt();
 
+            //Création du mask exemplaire
+            MtxtbxRefEx.Mask = "0000_00";
+            MtxtbxRefEx.MaskInputRejected += new MaskInputRejectedEventHandler(MtxtbxRefEx_MaskInputRejected);
+
+            //Rempli dès l'ouverture la DataGridView
             Crud_Emprunt Export = new Crud_Emprunt();
             GridEmprunt.DataSource = Export.afficheEmprunt();
         }
 
-
-
-
+        //Bouton permettant de revenir a la page d'acceuil
         private void picHome_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -54,10 +58,12 @@ namespace InterfaceMedia
 
         }
 
+        //Ouvre la form acceuil
         private void openformAccueil()
         {
             Application.Run(new FrmAccueilTest(lblRang.Text));
         }
+
 
         private void btnAjouter_Click_1(object sender, EventArgs e)
         {
@@ -75,7 +81,7 @@ namespace InterfaceMedia
                 DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
                 DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
                 DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
-                Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text, dateEm, dateRet, dateRetP);
+                Emprunt lEmprunt = new Emprunt(numE, MtxtbxRefEx.Text, dateEm, dateRet, dateRetP);
 
                 Ajout.insertEmprunt(lEmprunt);
 
@@ -83,62 +89,35 @@ namespace InterfaceMedia
             }
         }
 
-        protected void txtbxRefEx_TextChanged(object sender, EventArgs e)
-        {
-            int cpt = 0;
-            StringBuilder sb = new StringBuilder();
-
-            foreach (char c in txtbxRefEx.Text)
-            {
-                cpt++;
-                if(cpt == 4)
-                {
-                    sb.Append("_");
-                }
-                if (Char.IsDigit(c)) 
-                    sb.Append(c);
-            }
-
-            txtbxRefEx.Text = sb.ToString();
-        }
-
+        
         private void btnModifier_Click(object sender, EventArgs e)
         {
-           try
-           {
-                if (btnModifier.Text.Equals("Modifier"))
-                {
-                    clickBouton(btnModifier);
+            if (btnModifier.Text.Equals("Modifier"))
+            {
+                clickBouton(btnModifier);
 
-                    btnModifier.Enabled = true;
+                btnModifier.Enabled = true;
+            }
+            else if (btnModifier.Text.Equals("Valider"))
+            {
+                int numE = Int32.Parse(txtbxNumEmp.Text);
+                DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
+                DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
+                DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
+                Emprunt lEmprunt = new Emprunt(numE, MtxtbxRefEx.Text, dateEm, dateRet, dateRetP);
+
+                if (Updat.verifEmprunt(lEmprunt).Equals("0"))
+                {
+                    btDialog("L'emprunt n'existe pas!",1);
                 }
-                else if (btnModifier.Text.Equals("Valider"))
+                else
                 {
-                    int numE = Int32.Parse(txtbxNumEmp.Text);
-                    DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
-                    DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
-                    DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
-                    Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text, dateEm, dateRet, dateRetP);
-
-                    if (Updat.verifEmprunt(lEmprunt).Equals("0"))
-                    {
-                        btDialog("L'emprunt n'existe pas!");
-                    }
-                    else
-                    {
-                        Updat.updateEmprunt(lEmprunt);
-                    }
+                    Updat.updateEmprunt(lEmprunt);
+                }
                     
 
-                    clickValider(btnModifier, "Modifier");
-                }
-           }
-           catch (MySqlException y)
-           {
-                btDialog(y.Message);
-                throw;
-           }
-            
+                clickValider(btnModifier, "Modifier");
+            }
         }
 
         private void btnSupprimer_Click(object sender, EventArgs e)
@@ -157,10 +136,16 @@ namespace InterfaceMedia
             {
                 int numE = Int32.Parse(txtbxNumEmp.Text);
                 DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
-                Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text);
+                Emprunt lEmprunt = new Emprunt(numE, MtxtbxRefEx.Text);
 
-                Suppr.deleteEmprunt(lEmprunt);
-
+                if (Suppr.verifEmprunt(lEmprunt).Equals("0"))
+                {
+                    btDialog("L'emprunt n'existe pas!",1);
+                }
+                else
+                {
+                    Suppr.deleteEmprunt(lEmprunt);
+                }
                 clickValider(btnSupprimer, "Supprimer");
             }
         }
@@ -182,10 +167,17 @@ namespace InterfaceMedia
                 int numE = Int32.Parse(txtbxNumEmp.Text);
                 DateTime dateEm = Convert.ToDateTime(dtEmprunt.Text);
                 DateTime dateRet = Convert.ToDateTime(dtRetour.Text);
-                Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text, dateEm, dateRet);
+                Emprunt lEmprunt = new Emprunt(numE, MtxtbxRefEx.Text, dateEm, dateRet);
 
-                ajRetour.modifDate_Retour(lEmprunt);
-
+                if (ajRetour.verifEmprunt(lEmprunt).Equals("0"))
+                {
+                    btDialog("L'emprunt n'existe pas!",1);
+                }
+                else
+                {
+                    ajRetour.modifDate_Retour(lEmprunt);
+                }
+                
                 clickValider(btnAjRetour, "Ajouter un retour");
             }
         }
@@ -204,9 +196,17 @@ namespace InterfaceMedia
             else if (btnSearchEmp.Text.Equals("Valider"))
             {
                 int numE = Int32.Parse(txtbxNumEmp.Text);
-                Emprunt lEmprunt = new Emprunt(numE, txtbxRefEx.Text);
+                Emprunt lEmprunt = new Emprunt(numE, MtxtbxRefEx.Text);
 
-                GridEmprunt.DataSource = Search.rechercheEmprunt(lEmprunt);
+                if (Search.verifEmprunt(lEmprunt).Equals("0"))
+                {
+                    btDialog("L'emprunt n'existe pas!",1);
+                }
+                else
+                {
+                    GridEmprunt.DataSource = Search.rechercheEmprunt(lEmprunt);
+                }
+                
 
                 clickValider(btnSearchEmp, "Rechercher emprunt");
             }
@@ -222,6 +222,8 @@ namespace InterfaceMedia
                 rbLivreEmprunter.Enabled = true;
                 rbLivreNonRendu.Enabled = true;
                 btnLivre.Enabled = true;
+                MtxtbxRefEx.Enabled = false;
+                txtbxNumEmp.Enabled = false;
 
                 //Les textbox à remplir pour l'insertion se déverouille
                 dtDate.Enabled = true;
@@ -245,7 +247,7 @@ namespace InterfaceMedia
                 }
                 else
                 {
-                    btDialog("Vous devez selectionner une proposition");
+                    btDialog("Vous devez selectionner une proposition",0);
                 }
 
                 clickValider(btnLivre, "Rechercher livre");
@@ -254,12 +256,19 @@ namespace InterfaceMedia
             }
         }
 
+        //Ouvre une boite de dialogue quand la saisie est incorrecte sur le Mask
+        private void MtxtbxRefEx_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+            btDialog("Désolé la saisie autorisé est de la forme 0000_00",1);
+        }
 
+        //Permet de quitter l'application
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //Permet de remettre les bouton a 0 sans valider
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             if (btnLivre.Text.Equals("Valider"))
@@ -293,19 +302,20 @@ namespace InterfaceMedia
             btnSearchEmp.Text = "Rechercher emprunt";
 
             txtbxNumEmp.Enabled = false;
-            txtbxRefEx.Enabled = false;
+            MtxtbxRefEx.Enabled = false;
             dtEmprunt.Enabled = false;
             dtRetour.Enabled = false;
             dtRetourPrevu.Enabled = false;
 
             txtbxNumEmp.BackColor = Color.Silver;
-            txtbxRefEx.BackColor = Color.Silver;
+            MtxtbxRefEx.BackColor = Color.Silver;
 
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
 
         }
 
+        //Méthode correspondant au click sur un des boutons
         public void clickBouton(MetroFramework.Controls.MetroTile btn)
         {
 
@@ -325,19 +335,19 @@ namespace InterfaceMedia
 
             //Les textbox à remplir pour l'insertion se déverouille
             txtbxNumEmp.Enabled = true;
-            txtbxRefEx.Enabled = true;
+            MtxtbxRefEx.Enabled = true;
             dtEmprunt.Enabled = true;
             dtRetour.Enabled = true;
             dtRetourPrevu.Enabled = true;
 
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-            txtbxRefEx.BackColor = Color.White;
+            MtxtbxRefEx.BackColor = Color.White;
             txtbxNumEmp.BackColor = Color.White;
 
             //Reinistialisation des textbox
             txtbxNumEmp.Text = "";
-            txtbxRefEx.Text = "";
+            MtxtbxRefEx.Text = "";
             dtRetourPrevu.Text = "";
             dtRetour.Text = "";
             dtEmprunt.Text = "";
@@ -348,6 +358,7 @@ namespace InterfaceMedia
 
         }
 
+        //Methode correspondant la validation des saisies utilisateurs
         public void clickValider(MetroFramework.Controls.MetroTile btn, string nomBtn)
         {
 
@@ -365,18 +376,18 @@ namespace InterfaceMedia
 
             //Les textbox sont inacessibles.
             txtbxNumEmp.Enabled = false;
-            txtbxRefEx.Enabled = false;
+            MtxtbxRefEx.Enabled = false;
             dtEmprunt.Enabled = false;
             dtRetour.Enabled = false;
             dtRetourPrevu.Enabled = false;
 
             //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-            txtbxRefEx.BackColor = Color.Silver;
+            MtxtbxRefEx.BackColor = Color.Silver;
             txtbxNumEmp.BackColor = Color.Silver;
 
             //Reinistialisation des textbox
             txtbxNumEmp.Text = "";
-            txtbxRefEx.Text = "";
+            MtxtbxRefEx.Text = "";
             dtRetourPrevu.Text = "";
             dtRetour.Text = "";
             dtEmprunt.Text = "";
@@ -385,21 +396,26 @@ namespace InterfaceMedia
             rbLivreNonRendu.Checked = false;
         }
 
-        public void btDialog(String leMessage)
+        //Methode affichant une boite de dialogue avec un message personnaliser
+        public void btDialog(String leMessage,int zeroOuUn)
         {
-            // Code is entered here that performs a calculation
-            // Display a message box informing the user that the calculations 
-            // are complete
-            MessageBox.Show(leMessage, "Médiateque",
-         MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if(zeroOuUn == 0)
+            {
+                MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(zeroOuUn == 1)
+            {
+                MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+            }
+            
         }
 
-
+        //Permet quand on clique sur une ligne de la DataGridView de remplir les champs
         private void GridEmprunt_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string dtNull = GridEmprunt.CurrentRow.Cells["dateRetour"].Value.ToString();
             txtbxNumEmp.Text = GridEmprunt.CurrentRow.Cells["emp_num"].Value.ToString();
-            txtbxRefEx.Text = GridEmprunt.CurrentRow.Cells["ExempRef"].Value.ToString();
+            MtxtbxRefEx.Text = GridEmprunt.CurrentRow.Cells["ExempRef"].Value.ToString();
             dtEmprunt.Text = GridEmprunt.CurrentRow.Cells["dateEmprunt"].Value.ToString();
             dtRetourPrevu.Text = GridEmprunt.CurrentRow.Cells["dateRetourPrevu"].Value.ToString();
             if (dtNull != "01/01/0001 00:00:00")
@@ -407,5 +423,7 @@ namespace InterfaceMedia
                 dtRetour.Text = dtNull;
             }
         }
+
+
     }
 }

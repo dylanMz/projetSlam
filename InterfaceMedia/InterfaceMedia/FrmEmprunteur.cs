@@ -33,6 +33,16 @@ namespace InterfaceMedia
             this.leNiveau = leNiveau;
             RefreshGrid();
             lblRang.Text = this.leNiveau;
+            if (this.leNiveau.Equals("Personnel"))
+            {
+                btnAjouter.Enabled = false;
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+
+            }else if(this.leNiveau.Equals("Responsable secteur"))
+            {
+                btnSupprimer.Enabled = false;
+            }
 
 
         }
@@ -53,8 +63,6 @@ namespace InterfaceMedia
         //au clic dans le dataGrid rempli les informations dans les textbox ou datetime 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnModifier.Enabled = true;
-            btnSupprimer.Enabled = true;
             id = GridEmprunteur.CurrentRow.Cells["numéro"].Value.ToString(); ;
             txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
             txtPrenom.Text = GridEmprunteur.CurrentRow.Cells["prénom"].Value.ToString();
@@ -241,7 +249,7 @@ namespace InterfaceMedia
             GridEmprunteur.Refresh();
         }
 
-        //Permet de faire appel à la methode connectprocedure et de remplir les paramétres de la procédure dans les listes
+        //Permets de faire appel à la méthode connectprocedure et de remplir les paramètres de la procédure dans les listes
         public void utilisemethodeprocedure(String nomprocedure)
         {
             List<KeyValuePair<String, Object>> parametresString = new List<KeyValuePair<String, Object>>(){
@@ -317,7 +325,7 @@ namespace InterfaceMedia
         }
 
 
-        //permet de recuperer les lignes séléctionné dans le datagrid
+        //Permets de récupérer les lignes sélectionnées dans le datagrid
         public void recupeselectionfamille()
         {
             lesfamille = new List<Famille>();
@@ -338,7 +346,7 @@ namespace InterfaceMedia
                     String ville = GridEmprunteur.SelectedRows[i].Cells[5].Value.ToString();
                     DateTime naiis = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString());
                     String mail = GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString();
-                    //Ajoute dans famille tout les emprunteurs sélectionné
+                    //Ajoute dans famille tout les emprunteurs sélectionnés
                     int lechef = unEmprunteur.cheffamille(num); ;
                         lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail, lechef));
                     
