@@ -198,7 +198,7 @@ namespace InterfaceMedia
             else if (btnModifier.Text == "Valider")
             {
                 //modifiaction de l'auteur dans la bdd
-                unAuteur.modifierAuteur(int.Parse(txtCode.Text), txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), txtPays.Text, txtBio.Text);
+                unAuteur.modifierAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), txtPays.Text, txtBio.Text, int.Parse(txtCode.Text));
 
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
