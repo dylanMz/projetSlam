@@ -118,7 +118,7 @@ namespace InterfaceMedia
 
         private void openformLivre()
         {
-            Application.Run(new Frmlivre());
+            Application.Run(new Frmlivre(leNiveau));
         }
 
         private void openformCouverture()

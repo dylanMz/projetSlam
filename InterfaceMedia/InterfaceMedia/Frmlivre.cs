@@ -22,11 +22,12 @@ namespace InterfaceMedia
         private List<String> rempauteur;
         private List<String> remediteur;
         private List<String> remserie;
+        private String leNiveau;
         Thread th;
 
 
 
-        public Frmlivre()
+        public Frmlivre(String leNiveau)
         {
             InitializeComponent();
             connexion = new ConnexionBase();
@@ -37,6 +38,9 @@ namespace InterfaceMedia
             remp_cmbbx_nomauteur();
             remp_cmbbx_nomediteur();
             remp_cmbbx_nomserie();
+
+            this.leNiveau = leNiveau;
+            lblRang.Text = this.leNiveau;
         }
 
 
@@ -214,20 +218,25 @@ namespace InterfaceMedia
 
 
                     parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
-                    if (txtbxtitre.Text != null && txtbxisbn.Text != null && txtbxcouleur.Text != null && txtbxtome.Text != null && parutiontotal != null && txtbxformat.Text != null && txtbxpage.Text != null && txtbxcommentaire.Text != null && cmbbxediteur.Text != null && cmbbxserie.Text != null)
+                    if (!txtbxtitre.Text.Equals("") && !txtbxisbn.Equals("") && !txtbxcouleur.Text.Equals("") && !txtbxtome.Text.Equals("") && !parutiontotal.Equals("") && !txtbxformat.Text.Equals("") && !txtbxpage.Text.Equals("") && !txtbxcommentaire.Text.Equals("") && cmbbxediteur.Text.Equals("") && cmbbxserie.Text.Equals(""))
+                    {
 
                         unlivre.ajout_livre(txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text, cmbbxediteur.Text, cmbbxserie.Text);
 
-                
-                    if (cmbbxauteur.Text != null)
-                    {
-                        unlivre.insert_participer( cmbbxauteur.Text, 0);
+                        if (cmbbxauteur.Text != null)
+                        {
+                            unlivre.insert_participer(cmbbxauteur.Text, 0);
+                        }
+                        if (cmbbauteurdessin.Text != null)
+                        {
+                            unlivre.insert_participer(cmbbauteurdessin.Text, 1);
+                        }
                     }
-                    if (cmbbauteurdessin.Text != null)
+                    else
                     {
-                        unlivre.insert_participer( cmbbauteurdessin.Text, 1);
+                        btDialog("Tout les champs doivent etre remplis", true);
                     }
-
+                    
                 }
                 // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
                 btnAjouter.Text = "Ajouter";
@@ -1049,6 +1058,9 @@ namespace InterfaceMedia
         // retourne au menu
         private void picHome_Click(object sender, EventArgs e)
         {
+            //permet de récuperer le niveau de l'utilisateur
+            leNiveau = lblRang.Text;
+
             this.Close();
             th = new Thread(openAccueil);
             th.SetApartmentState(ApartmentState.STA);
@@ -1059,12 +1071,25 @@ namespace InterfaceMedia
     
         private void openAccueil()
         {
-            Application.Run(new FrmAccueilTest(lblRang.Text));
+            Application.Run(new FrmAccueilTest(leNiveau));
         }
 
-   
+        //Methode affichant une boite de dialogue avec un message personnaliser
+        public void btDialog(String leMessage, Boolean zeroOuUn)
+        {
+            if (zeroOuUn == true)
+            {
+                MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (zeroOuUn == false)
+            {
+                MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+            }
 
-      
+        }
+
+
     }
+
 }
 
