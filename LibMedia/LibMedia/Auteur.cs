@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace LibMedia
 {
-    class Auteur
+    public class Auteur
     {
         #region Propriétés
         public int Auteurld;
         public String AuteurNom;
         public String AuteurPrenom;
         public String AuteurPseudo;
-        public DateTime DateNaissance;
-        public DateTime AuteurDeces;
+        public DateTime? DateNaissance;
+        public DateTime? AuteurDeces;
         public String AuteurPays;
         public String AuteurBiographie;
         public List<Auteur> listePays;
@@ -35,7 +35,23 @@ namespace LibMedia
             AuteurBiographie = uneBiographie;
         }
 
-        
+        public Auteur(String unNom, String unPrenom, String unPseudo, DateTime? uneDateNaiss, DateTime? uneDateDeces, String unPays, String uneBiographie)
+        {
+            AuteurNom = unNom;
+            AuteurPrenom = unPrenom;
+            AuteurPseudo = unPseudo;
+            DateNaissance = uneDateNaiss;
+            AuteurDeces = uneDateDeces;
+            AuteurPays = unPays;
+            AuteurBiographie = uneBiographie;
+        }
+
+        public Auteur(int unAuteurld, String unNom, String unPseudo)
+        {
+            Auteurld = unAuteurld;
+            AuteurNom = unNom;
+            AuteurPseudo = unPseudo;
+        }
         #endregion
 
         #region Accesseurs
@@ -62,13 +78,13 @@ namespace LibMedia
             set { AuteurPseudo = value; }
         }
 
-        public DateTime _DateNaissance
+        public DateTime? _DateNaissance
         {
             get { return DateNaissance; }
             set { DateNaissance = value; }
         }
 
-        public DateTime _AuteurDeces
+        public DateTime? _AuteurDeces
         {
             get { return AuteurDeces; }
             set { AuteurDeces = value; }

@@ -42,7 +42,7 @@ namespace LibMedia
             PSortie_nat.Direction = ParameterDirection.Output;
             uneCmdSql.ExecuteNonQuery();       //Execute la requete
             laConnexion.closeConnexion();       //Ferme la connexion
-
+            
             return PSortie_nat.Value.ToString();
         }
 

@@ -128,7 +128,7 @@ namespace LibMedia
         }
 
         //Modification d'un editeur
-        public void modification_editeur(Editeur unEditeur)
+        public void modification_editeur(Editeur unEditeur, String wAncienNom)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -165,7 +165,7 @@ namespace LibMedia
                 unComdeSql.Parameters["wcreation"].Value = unEditeur.Création;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wAncienNom", MySqlDbType.String));
-                unComdeSql.Parameters["wAncienNom"].Value = unEditeur._AncienNom;
+                unComdeSql.Parameters["wAncienNom"].Value = wAncienNom;
 
 
                 //mise en place du paramètre de sortie
@@ -202,7 +202,7 @@ namespace LibMedia
         }
 
         //Recherche d'un editeur
-        public void recherche_editeur(String wEditeurNom)
+        public void recherche_editeur(Editeur unEditeur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -212,7 +212,7 @@ namespace LibMedia
                 EditeurSql.Connection = uneconnexion.getConnexion();
 
                 EditeurSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                EditeurSql.Parameters["wnom"].Value = wEditeurNom;
+                EditeurSql.Parameters["wnom"].Value = unEditeur.Nom;
                 _unReader = EditeurSql.ExecuteReader();
 
                 while (_unReader.Read())

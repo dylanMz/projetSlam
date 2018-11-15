@@ -17,14 +17,15 @@ namespace InterfaceMedia
     {
         private List<Famille> lesidfamilles;
         private string chefvalide;
-        private Crud_Emprunteur unemprunteur;
+        private Crud_Famille unefamille;
         private Boolean newfamille = false;
         private int lecheffamille;
+        private int unchef;
 
 
         public FrmFamille(List<Famille> familles, Boolean newfamille)
         {
-            unemprunteur = new Crud_Emprunteur();
+            unefamille = new Crud_Famille();
             InitializeComponent();
             this.lesidfamilles = familles;
             this.newfamille = newfamille;
@@ -50,6 +51,7 @@ namespace InterfaceMedia
         //Methode pour mettre à jour le grid
         public void RefreshGrid()
         {
+            
             GridFamille.DataSource = lesidfamilles;
             GridFamille.Refresh();
             GridFamille.Update();
@@ -110,14 +112,17 @@ namespace InterfaceMedia
                         int compar = Convert.ToInt32(txtnum.Text);
                         if (compar != num)
                         {
-                            unemprunteur.InsertFamille("proc_insert_famille", Convert.ToInt32(txtnum.Text), num);
+                            unefamille.InsertFamille("proc_insert_famille", Convert.ToInt32(txtnum.Text), num);
                         }
 
                     }
                 }
 
                 //met à jour le datagrid
-                RefreshGrid();
+                unchef = Convert.ToInt16(GridFamille.Rows[1].Cells[8].Value.ToString());
+                Famille idfamille = new Famille(unchef);
+                unefamille.Recup_Toutelafamille(idfamille);
+                GridFamille.DataSource = unefamille.lesfamilles;
             }
         }
 
@@ -154,7 +159,7 @@ namespace InterfaceMedia
                         int compar = Convert.ToInt32(txtnum.Text);
                         if (compar != num)
                         {
-                            unemprunteur.UpdateFamille("proc_update_famille", Convert.ToInt32(txtnum.Text), num, ancienresp);
+                            unefamille.UpdateFamille("proc_update_famille", Convert.ToInt32(txtnum.Text), num, ancienresp);
                         }
 
                     }
@@ -197,11 +202,15 @@ namespace InterfaceMedia
                     }
                 }
 
-                //verifie si le membre de la famille n'est pas un chef et le supprime de la famille
-                if (lecheffamille != Convert.ToInt16(txtnum.Text))
+                //si le membre de la famille est un chef de famille affiche un message d'erreur
+                if (lecheffamille == Convert.ToInt16(txtnum.Text))
+                {
+                    MessageBox.Show("Impossible de supprimer un chef de famille", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
                 {
                     int wid = Convert.ToInt16(txtnum.Text);
-                    unemprunteur.DeleteMembreFamille("proc_delete_membre_famille", wid);
+                    unefamille.DeleteMembreFamille("proc_delete_membre_famille", wid);
                 }
 
                 btnSupprimer.Text = "Supprimer";
