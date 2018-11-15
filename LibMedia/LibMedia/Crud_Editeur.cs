@@ -123,7 +123,7 @@ namespace LibMedia
         }
 
         //Modification d'un editeur
-        public void modification_editeur(int wEditeurNum, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
+        public void modification_editeur(int wEditeurNum, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation, String wAncienNom)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -159,6 +159,9 @@ namespace LibMedia
                 unComdeSql.Parameters.Add(new MySqlParameter("wcreation", MySqlDbType.Int16));
                 unComdeSql.Parameters["wcreation"].Value = wEditeurCreation;
 
+                unComdeSql.Parameters.Add(new MySqlParameter("wAncienNom", MySqlDbType.String));
+                unComdeSql.Parameters["wAncienNom"].Value = wAncienNom;
+
 
                 //mise en place du paramètre de sortie
                 MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
@@ -174,7 +177,7 @@ namespace LibMedia
         }
 
         //Suppression d'un editeur
-        public void suppression_editeur(int wEditeurNum)
+        public void suppression_editeur(String wEditeurNom)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -183,8 +186,8 @@ namespace LibMedia
                 unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
                 unComdeSql.Connection = uneconnexion.getConnexion();
 
-                unComdeSql.Parameters.Add(new MySqlParameter("wnum", MySqlDbType.Int16));
-                unComdeSql.Parameters["wnum"].Value = wEditeurNum;
+                unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                unComdeSql.Parameters["wnom"].Value = wEditeurNom;
 
                 unComdeSql.ExecuteNonQuery();
 
