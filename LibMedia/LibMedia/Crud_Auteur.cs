@@ -234,29 +234,29 @@ namespace LibMedia
 
                 //mise en place des paramètres
                 //id
-                rechercheAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                rechercheAut.Parameters["wid"].Value = unAuteur._Auteurld;
+                modifierAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                modifierAut.Parameters["wid"].Value = unAuteur._Auteurld;
                 //nom
-                ajouterAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                ajouterAut.Parameters["wnom"].Value = unAuteur._AuteurNom;
+                modifierAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                modifierAut.Parameters["wnom"].Value = unAuteur._AuteurNom;
                 //Prenom
-                ajouterAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
-                ajouterAut.Parameters["wprenom"].Value = unAuteur._AuteurPrenom;
+                modifierAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                modifierAut.Parameters["wprenom"].Value = unAuteur._AuteurPrenom;
                 //Pseudo
-                ajouterAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
-                ajouterAut.Parameters["wpseudo"].Value = unAuteur._AuteurPseudo;
+                modifierAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                modifierAut.Parameters["wpseudo"].Value = unAuteur._AuteurPseudo;
                 //dateNais
-                ajouterAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
-                ajouterAut.Parameters["wdateNaiss"].Value = unAuteur._DateNaissance;
+                modifierAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
+                modifierAut.Parameters["wdateNaiss"].Value = unAuteur._DateNaissance;
                 //dateDeces
-                ajouterAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
-                ajouterAut.Parameters["wdeces"].Value = unAuteur._AuteurDeces;
+                modifierAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
+                modifierAut.Parameters["wdeces"].Value = unAuteur._AuteurDeces;
                 //Pays
-                ajouterAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
-                ajouterAut.Parameters["wpays"].Value = unAuteur._AuteurPays;
+                modifierAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
+                modifierAut.Parameters["wpays"].Value = unAuteur._AuteurPays;
                 //Biographie
-                ajouterAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
-                ajouterAut.Parameters["wbio"].Value = unAuteur._AuteurBiographie;
+                modifierAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
+                modifierAut.Parameters["wbio"].Value = unAuteur._AuteurBiographie;
 
                 modifierAut.ExecuteNonQuery(); //execute la requete
                 connexion.closeConnexion(); // Ferme la connexion
@@ -280,29 +280,29 @@ namespace LibMedia
 
                 //mise en place des paramètres
                 //id
-                rechercheAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                rechercheAut.Parameters["wid"].Value = unAuteur._Auteurld;
+                modifierAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                modifierAut.Parameters["wid"].Value = unAuteur._Auteurld;
                 //nom
-                ajouterAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                ajouterAut.Parameters["wnom"].Value = unAuteur._AuteurNom;
+                modifierAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                modifierAut.Parameters["wnom"].Value = unAuteur._AuteurNom;
                 //Prenom
-                ajouterAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
-                ajouterAut.Parameters["wprenom"].Value = unAuteur._AuteurPrenom;
+                modifierAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                modifierAut.Parameters["wprenom"].Value = unAuteur._AuteurPrenom;
                 //Pseudo
-                ajouterAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
-                ajouterAut.Parameters["wpseudo"].Value = unAuteur._AuteurPseudo;
+                modifierAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                modifierAut.Parameters["wpseudo"].Value = unAuteur._AuteurPseudo;
                 //dateNais
-                ajouterAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
-                ajouterAut.Parameters["wdateNaiss"].Value = null;
+                modifierAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
+                modifierAut.Parameters["wdateNaiss"].Value = null;
                 //dateDeces
-                ajouterAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
-                ajouterAut.Parameters["wdeces"].Value = null;
+                modifierAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
+                modifierAut.Parameters["wdeces"].Value = null;
                 //Pays
-                ajouterAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
-                ajouterAut.Parameters["wpays"].Value = unAuteur._AuteurPays;
+                modifierAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
+                modifierAut.Parameters["wpays"].Value = unAuteur._AuteurPays;
                 //Biographie
-                ajouterAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
-                ajouterAut.Parameters["wbio"].Value = unAuteur._AuteurBiographie;
+                modifierAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
+                modifierAut.Parameters["wbio"].Value = unAuteur._AuteurBiographie;
 
                 modifierAut.ExecuteNonQuery(); //execute la requete
                 connexion.closeConnexion(); // Ferme la connexion
@@ -326,29 +326,29 @@ namespace LibMedia
 
                 //mise en place des paramètres
                 //id
-                rechercheAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                rechercheAut.Parameters["wid"].Value = unAuteur._Auteurld;
+                modifierAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                modifierAut.Parameters["wid"].Value = unAuteur._Auteurld;
                 //nom
-                ajouterAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                ajouterAut.Parameters["wnom"].Value = unAuteur._AuteurNom;
+                modifierAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                modifierAut.Parameters["wnom"].Value = unAuteur._AuteurNom;
                 //Prenom
-                ajouterAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
-                ajouterAut.Parameters["wprenom"].Value = unAuteur._AuteurPrenom;
+                modifierAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                modifierAut.Parameters["wprenom"].Value = unAuteur._AuteurPrenom;
                 //Pseudo
-                ajouterAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
-                ajouterAut.Parameters["wpseudo"].Value = unAuteur._AuteurPseudo;
+                modifierAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                modifierAut.Parameters["wpseudo"].Value = unAuteur._AuteurPseudo;
                 //dateNais
-                ajouterAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
-                ajouterAut.Parameters["wdateNaiss"].Value = unAuteur._DateNaissance;
+                modifierAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
+                modifierAut.Parameters["wdateNaiss"].Value = unAuteur._DateNaissance;
                 //dateDeces
-                ajouterAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
-                ajouterAut.Parameters["wdeces"].Value = null;
+                modifierAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
+                modifierAut.Parameters["wdeces"].Value = null;
                 //Pays
-                ajouterAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
-                ajouterAut.Parameters["wpays"].Value = unAuteur._AuteurPays;
+                modifierAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
+                modifierAut.Parameters["wpays"].Value = unAuteur._AuteurPays;
                 //Biographie
-                ajouterAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
-                ajouterAut.Parameters["wbio"].Value = unAuteur._AuteurBiographie;
+                modifierAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
+                modifierAut.Parameters["wbio"].Value = unAuteur._AuteurBiographie;
 
                 modifierAut.ExecuteNonQuery(); //execute la requete
                 connexion.closeConnexion(); // Ferme la connexion
@@ -357,7 +357,7 @@ namespace LibMedia
         }
 
         //recherche_auteur
-        public void rechercheAuteur(Auteur unAuteur)
+        public String rechercheAuteur(Auteur unAuteur)
         {
             if (connexion.OuvrirConnexion() == true)
             {
@@ -372,12 +372,11 @@ namespace LibMedia
 
                 //mise en place des paramètres
                 //id
-                //id
                 rechercheAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
                 rechercheAut.Parameters["wid"].Value = unAuteur._Auteurld;
                 //nom
-                ajouterAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                ajouterAut.Parameters["wnom"].Value = unAuteur._AuteurNom;
+                rechercheAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                rechercheAut.Parameters["wnom"].Value = unAuteur._AuteurNom;
                 //Pseudo
                 rechercheAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
                 rechercheAut.Parameters["wpseudo"].Value = unAuteur._AuteurPseudo;
@@ -389,8 +388,9 @@ namespace LibMedia
 
                 rechercheAut.ExecuteNonQuery(); //execute la requete
                 connexion.closeConnexion(); // Ferme la connexion
+                CodeOut = PSortie_nat.Value.ToString();
             }
-            
+            return CodeOut;
         }
 
         //affiche_auteur

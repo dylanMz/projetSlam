@@ -44,11 +44,13 @@ namespace InterfaceMedia
             gridUtilisateur.DataSource = lesUtilisateurs;
         }
 
+        //Quitte l'application
         private void btnQuitter_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        //Retourne sur l'interface d'accueil
         private void picHome_Click(object sender, EventArgs e)
         {
             //permet de récuperer le niveau de l'utilisateur
@@ -238,12 +240,14 @@ namespace InterfaceMedia
                 metroRadioSecteur.Enabled = true;
                 metroRadioStock.Enabled = true;
 
-
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtNom.BackColor = Color.White;
                 txtPseudo.BackColor = Color.White;
                 txtPrenom.BackColor = Color.White;
                 txtPassword.BackColor = Color.White;
+
+                //Le grid est inacessible en attendant que l'utilisateur valide ou annule
+                gridUtilisateur.Enabled = false;
 
             }
             else if (btnModifier.Text.Equals("Valider"))
@@ -275,8 +279,6 @@ namespace InterfaceMedia
                 Utilisateur lUtilisateur = new Utilisateur(Convert.ToInt16(unId.Text), txtPrenom.Text, txtNom.Text, txtPseudo.Text, txtPassword.Text, unNiveau);
                 unUtilisateur.modification_utilisateur(lUtilisateur);
 
-
-
                 //Reinistialisation des textbox et des boutons radios
                 unId.Text = "";
                 txtNom.Text = "";
@@ -287,6 +289,9 @@ namespace InterfaceMedia
                 metroRadioPersonnel.Checked = false;
                 metroRadioSecteur.Checked = false;
                 metroRadioStock.Checked = false;
+
+                //Le grid est de nouveau accessible
+                gridUtilisateur.Enabled = true;
 
                 RefreshGrid();
             }
@@ -305,6 +310,9 @@ namespace InterfaceMedia
                 btnAjouter.Enabled = false;
                 btnModifier.Enabled = false;
                 btnSupprimer.Enabled = true;
+
+                //Le grid est inacessible en attendant que l'utilisateur valide ou annule
+                gridUtilisateur.Enabled = false;
 
             }
             else if (btnSupprimer.Text.Equals("Valider"))
@@ -347,10 +355,12 @@ namespace InterfaceMedia
                 metroRadioPersonnel.Checked = false;
                 metroRadioSecteur.Checked = false;
 
+                //Le grid est de nouveau accessible en attendant que l'utilisateur valide ou annule
+                gridUtilisateur.Enabled = true;
+
                 RefreshGrid();
             }
         }
-
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
             //les boutons sont remis par defaut
@@ -396,11 +406,16 @@ namespace InterfaceMedia
             txtPrenom.BackColor = Color.Silver;
             txtPassword.BackColor = Color.Silver;
 
+            //Le grid est de nouveau clicquable
+            gridUtilisateur.Enabled = true;
+
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
 
             RefreshGrid();
         }
+
+        //Ouvre l'interface accueil avec le niveau de l'utilisateur
         private void openformAccueil()
         {
             Application.Run(new FrmAccueilTest(leNiveau));

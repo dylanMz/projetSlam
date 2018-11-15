@@ -35,7 +35,7 @@ namespace InterfaceMedia
             lblRang.Text = this.leNiveau;
 
             _connexion = new ConnexionBase();
-            uneCouverture = new CRUD_Couverture(_connexion);      
+            uneCouverture = new CRUD_Couverture(_connexion);
             RefreshGrid();
         }
 
@@ -65,7 +65,7 @@ namespace InterfaceMedia
                 {
                     btnAnnuler_Click(null, null);
                 }
-               
+
             }
 
 
@@ -79,7 +79,7 @@ namespace InterfaceMedia
             }
         }
 
-        
+
         private void btnModifier_Click(object sender, EventArgs e)
         {
             if (btnModifier.Text.Equals("Modifier"))
@@ -182,9 +182,37 @@ namespace InterfaceMedia
             }
             else if (btnRechercher.Text.Equals("Valider"))
             {
-                    
+                
+                if (txtBoxTitre.Text != "")
+                {
+                    wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
+                    if (uneCouverture.getExist(wcouverture) == true)
+                    {
+                        txtBoxCode.Text = uneCouverture.getCode(wcouverture).ToString();
 
-               
+                        _connexion = new ConnexionBase();
+                        uneCouverture = new CRUD_Couverture(_connexion);
+                        GridViewBase.DataSource = uneCouverture.rechercher(wcouverture);
+                        GridViewBase.Update();
+                        GridViewBase.Refresh();
+
+                        txtBoxCode.Text = GridViewBase.CurrentRow.Cells["BdId"].Value.ToString();
+                        txtBoxTitre.Text = GridViewBase.CurrentRow.Cells["BdTitre"].Value.ToString();
+                        txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
+                        txtBoxTome.Text = GridViewBase.CurrentRow.Cells["BdTome"].Value.ToString();
+
+                        clickValider(btnRechercher, "Rechercher");
+
+                        afficheImage();
+                        btnAnnuler.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ce Titre n'existe pas dans la base de données");
+                    }
+                }
+                else
+                {
                     if (!txtBoxCode.Text.Equals(""))
                     {
                         wcode = Convert.ToInt32(txtBoxCode.Text);
@@ -202,31 +230,15 @@ namespace InterfaceMedia
                     GridViewBase.Update();
                     GridViewBase.Refresh();
 
-                    if (txtBoxTitre.Text != "")
-                    {
-                        if (uneCouverture.getExist(wcouverture) == true)
-                        {
-                        wcouverture = new Couverture(txtBoxTitre.Text);
-                        uneCouverture.getCode(wcouverture);
-                        txtBoxCode.Text = uneCouverture.getCode(wcouverture).ToString();
-                        }
-                    }
-                
                     txtBoxCode.Text = GridViewBase.CurrentRow.Cells["BdId"].Value.ToString();
                     txtBoxTitre.Text = GridViewBase.CurrentRow.Cells["BdTitre"].Value.ToString();
                     txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
                     txtBoxTome.Text = GridViewBase.CurrentRow.Cells["BdTome"].Value.ToString();
                     clickValider(btnRechercher, "Rechercher");
-
                     afficheImage();
                     btnAnnuler.Visible = true;
-
                 }
-                else
-                {
-                    MessageBox.Show("Ce Titre n'existe pas dans la base de données");
-                } 
-            
+            }
         }
 
         private void GridViewBase_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -243,7 +255,7 @@ namespace InterfaceMedia
             }
             else
             {
-                afficheImage();            
+                afficheImage();
             }
         }
 
