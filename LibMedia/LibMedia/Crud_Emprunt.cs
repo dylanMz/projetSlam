@@ -46,50 +46,23 @@ namespace LibMedia
             return PSortie_nat.Value.ToString();
         }
 
-        public String verifExemplaire(Emprunt unEmprunt)
+        public void insertEmprunt(Emprunt unEmprunt)
         {
             laConnexion.OuvrirConnexion();
             uneCmdSql = new MySqlCommand();
-            uneCmdSql.CommandText = "verif_exist_exemp";  //Nom de la rpocédure sur MySql
+            uneCmdSql.CommandText = "proc_insert_emprunt";  //Nom de la rpocédure sur MySql
             uneCmdSql.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
             uneCmdSql.Connection = laConnexion.getConnexion();
+            uneCmdSql.Parameters.Add(new MySqlParameter("NumEmp", MySqlDbType.Int16));  // c'est deux ligne pour chaque parametre de la procedure
+            uneCmdSql.Parameters["NumEmp"].Value = unEmprunt.numEmp;
             uneCmdSql.Parameters.Add(new MySqlParameter("RefEx", MySqlDbType.String));
             uneCmdSql.Parameters["RefEx"].Value = unEmprunt.refEx;
-            MySqlParameter PSortie_nat = new MySqlParameter("ret", MySqlDbType.String);
-            uneCmdSql.Parameters.Add(PSortie_nat);
-            PSortie_nat.Direction = ParameterDirection.Output;
+            uneCmdSql.Parameters.Add(new MySqlParameter("dateEmp", MySqlDbType.Date));
+            uneCmdSql.Parameters["dateEmp"].Value = unEmprunt.dateEmp;
+            uneCmdSql.Parameters.Add(new MySqlParameter("dateRetPrev", MySqlDbType.Date));
+            uneCmdSql.Parameters["dateRetPrev"].Value = unEmprunt.dateRetourPrevu;
             uneCmdSql.ExecuteNonQuery();       //Execute la requete
             laConnexion.closeConnexion();       //Ferme la connexion
-
-            return PSortie_nat.Value.ToString();
-        }
-
-        public void insertEmprunt(Emprunt unEmprunt)
-        {
-            try
-            {
-                laConnexion.OuvrirConnexion();
-                uneCmdSql = new MySqlCommand();
-                uneCmdSql.CommandText = "proc_insert_emprunt";  //Nom de la rpocédure sur MySql
-                uneCmdSql.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
-                uneCmdSql.Connection = laConnexion.getConnexion();
-                uneCmdSql.Parameters.Add(new MySqlParameter("NumEmp", MySqlDbType.Int16));  // c'est deux ligne pour chaque parametre de la procedure
-                uneCmdSql.Parameters["NumEmp"].Value = unEmprunt.numEmp;
-                uneCmdSql.Parameters.Add(new MySqlParameter("RefEx", MySqlDbType.String));
-                uneCmdSql.Parameters["RefEx"].Value = unEmprunt.refEx;
-                uneCmdSql.Parameters.Add(new MySqlParameter("dateEmp", MySqlDbType.Date));
-                uneCmdSql.Parameters["dateEmp"].Value = unEmprunt.dateEmp;
-                uneCmdSql.Parameters.Add(new MySqlParameter("dateRetPrev", MySqlDbType.Date));
-                uneCmdSql.Parameters["dateRetPrev"].Value = unEmprunt.dateRetourPrevu;
-                uneCmdSql.ExecuteNonQuery();       //Execute la requete
-                laConnexion.closeConnexion();       //Ferme la connexion
-            }
-            catch (MySqlException)
-            {
-                
-                throw;
-            }
-            
 
         }
 
