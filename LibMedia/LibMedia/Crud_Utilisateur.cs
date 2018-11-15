@@ -61,7 +61,7 @@ namespace LibMedia
         }
 
         //Verifie si les identifiants de l'utilisateur sont dans la base de données.
-        public String recup_connexion(String wpseudo, String wpassword)
+        public String recup_connexion(Utilisateur unUtilisateur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -71,12 +71,12 @@ namespace LibMedia
                 UtilisateurSql.Connection = uneconnexion.getConnexion();
 
                 UtilisateurSql.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
-                UtilisateurSql.Parameters["wpseudo"].Value = wpseudo;
+                UtilisateurSql.Parameters["wpseudo"].Value = unUtilisateur.Pseudo;
 
                 MD5 md5HashAlgo = MD5.Create();
 
                 // Place le texte à hacher dans un tableau d'octets 
-                byte[] byteArrayToHash = Encoding.UTF8.GetBytes(wpassword);
+                byte[] byteArrayToHash = Encoding.UTF8.GetBytes(unUtilisateur.Mot_de_passe);
 
                 // Hash le texte et place le résulat dans un tableau d'octets 
                 byte[] hashResult = md5HashAlgo.ComputeHash(byteArrayToHash);
@@ -115,7 +115,7 @@ namespace LibMedia
                 UtilisateurSqlNiveau.Connection = uneconnexion.getConnexion();
 
                 UtilisateurSqlNiveau.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
-                UtilisateurSqlNiveau.Parameters["wpseudo"].Value = wpseudo;
+                UtilisateurSqlNiveau.Parameters["wpseudo"].Value = unUtilisateur.Pseudo;
 
                 _unReader = UtilisateurSqlNiveau.ExecuteReader();
 

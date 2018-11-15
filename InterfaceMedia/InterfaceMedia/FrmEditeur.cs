@@ -65,19 +65,28 @@ namespace InterfaceMedia
             {
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
-                //Ajout d'un editeur
-                Editeur lEditeur = new Editeur(txtNom.Text, uneDateCreation, txtAdr.Text, txtCodePostal.Text,txtVille.Text, txtTel.Text, txtFax.Text, txtMail.Text);
-                unCodeSortie = unEditeur.ajout_editeur(lEditeur);
-
-                //Affiche une erreur si le nom de l'éditeur est déjà présent dans la base.
-                if (unCodeSortie == 99)
+                //Affiche un message d'erreur si le champ nom est vide
+                if (txtNom.Text.Equals(""))
                 {
-                    MessageBox.Show("Cet editeur est déjà présent dans la base, insertion annulé", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Veuillez renseigner un nom", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Ajout d'un editeur
+                    Editeur lEditeur = new Editeur(txtNom.Text, uneDateCreation, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtTel.Text, txtFax.Text, txtMail.Text);
+                    unCodeSortie = unEditeur.ajout_editeur(lEditeur);
+
+                    //Affiche une erreur si le nom de l'éditeur est déjà présent dans la base.
+                    if (unCodeSortie == 99)
+                    {
+                        MessageBox.Show("Cet editeur est déjà présent dans la base, insertion annulé", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                    clickValider(btnAjouter, "Ajouter");
+
+                    RefreshGrid();
                 }
 
-                clickValider(btnAjouter, "Ajouter");
-
-                RefreshGrid();
             }
         }
 
@@ -116,6 +125,9 @@ namespace InterfaceMedia
                 txtFax.BackColor = Color.White;
                 txtVille.BackColor = Color.White;
 
+                //Le grid est inacessible en attendant que l'utilisateur valide ou annule
+                GridEditeur.Enabled = false;
+
 
             }
 
@@ -144,6 +156,9 @@ namespace InterfaceMedia
                 txtFax.Text = "";
                 txtVille.Text = "";
 
+                //Le grid est de nouveau accessible
+                GridEditeur.Enabled = true;
+
                 //Actualisation du datagrid
                 RefreshGrid();
 
@@ -164,6 +179,11 @@ namespace InterfaceMedia
                 btnAjouter.Enabled = false;
                 btnModifier.Enabled = false;
                 btnRechercher.Enabled = false;
+
+                //Le grid est inacessible en attendant que l'utilisateur valide ou annule
+                GridEditeur.Enabled = false;
+
+
             }
 
             else if (btnSupprimer.Text.Equals("Valider"))
@@ -192,6 +212,9 @@ namespace InterfaceMedia
                 txtTel.Text = "";
                 txtFax.Text = "";
                 txtVille.Text = "";
+
+                //Le grid est de nouveau accessible
+                GridEditeur.Enabled = true;
 
                 //Actualisation du datagrid
                 RefreshGrid();
@@ -325,6 +348,9 @@ namespace InterfaceMedia
             //le bouton annuler disparait
             btnAnnuler.Visible = false;
 
+            //Le grid est de nouveau accessible
+            GridEditeur.Enabled = true;
+
             RefreshGrid();
 
 
@@ -343,6 +369,7 @@ namespace InterfaceMedia
             th.Start();
         }
 
+        //Ouvre l'interface accueil avec le niveau de l'utilisateur
         private void openformAccueil()
         {
             Application.Run(new FrmAccueilTest(leNiveau));
