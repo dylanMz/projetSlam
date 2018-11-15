@@ -26,7 +26,7 @@ namespace InterfaceMedia
         private String leNiveau;
         Thread th;
         private String resultat;
-
+        private bool pasvalide;
 
 
         public Frmlivre(String leNiveau)
@@ -36,13 +36,16 @@ namespace InterfaceMedia
             unlivre = new Crud_livre();
             unexemplaire = new CRUD_Exemplaire();
             dtgrvLivre.DataSource = unlivre.afficherlivre();
+            // remplissage des combo box
             remp_cmbx();
             remp_cmbbx_nomauteur();
             remp_cmbbx_nomediteur();
             remp_cmbbx_nomserie();
 
+
             this.leNiveau = leNiveau;
             lblRang.Text = this.leNiveau;
+      
         }
 
 
@@ -148,7 +151,8 @@ namespace InterfaceMedia
                     txtbxformat.Enabled = true;
                     txtbxpage.Enabled = true;
                     txtbxcommentaire.Enabled = true;
-             
+                    
+
                     cmbbxauteur.Enabled = true;
                     cmbbauteurdessin.Enabled = true;
                     cmbbxediteur.Enabled = true;
@@ -181,6 +185,7 @@ namespace InterfaceMedia
                     rdbtnb.Enabled = true;
                     rdbtnta.Enabled = true;
                     rdbtntb.Enabled = true;
+
 
                     // modification des couleur 
 
@@ -262,7 +267,8 @@ namespace InterfaceMedia
                 txtbxformat.Enabled = false;
                 txtbxpage.Enabled = false;
                 txtbxcommentaire.Enabled = false;
-             
+                txtbxcode.Enabled = false; 
+                    
                 txtbxreferencerexemp.Enabled = false;
                 rdbtnA.Enabled = false;
                 rdbtnb.Enabled = false;
@@ -458,7 +464,7 @@ namespace InterfaceMedia
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
 
-
+                    format = "";
                     if (rdbtnA.Checked == true)
                     {
                         format = rdbtnA.Text;
@@ -475,15 +481,40 @@ namespace InterfaceMedia
                     {
                         format = rdbtntb.Text;
                     }
-                    else
+                    //  || (!txtbxreferencerexemp.Text.Equals("   _") && !codelivreexmp.Equals("")) || (!format.Equals("") && !codelivreexmp.Equals(""))
+                    pasvalide = false;
+                    if (!txtbxreferencerexemp.Text.Equals("    _") && !format.Equals(""))
                     {
-                        format = "";
+                       
+                        pasvalide = true;
+                    }
+                    if (!txtbxreferencerexemp.Text.Equals("    _") && !codelivreexmp.Text.Equals(""))
+                    {
+                        pasvalide = true;
                     }
 
-                    Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, format, codelivreexmp.Text);
-                    dtgrvLivre.DataSource = unexemplaire.recherche_exemplaire(lexemplaire);
+                    if (!format.Equals("") && !codelivreexmp.Text.Equals(""))
+                    {
+                        pasvalide = true;
+                    }
+                    if (pasvalide == false)
+                    {
+                        Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, format, codelivreexmp.Text);
+                        dtgrvLivre.DataSource = unexemplaire.recherche_exemplaire(lexemplaire);
 
-
+                        rdbtnA.Checked = false;
+                        rdbtnb.Checked = false;
+                        rdbtnta.Checked = false;
+                        rdbtntb.Checked = false;
+                    }
+                    if(pasvalide == true)
+                    {
+                        btDialog("vous ne pouvez faire qu'une recherche a la foie", true);
+                        rdbtnA.Checked = false;
+                        rdbtnb.Checked = false;
+                        rdbtnta.Checked = false;
+                        rdbtntb.Checked = false;
+                    }
 
                 }
 
