@@ -369,31 +369,23 @@ namespace InterfaceMedia
             {
                 string uneImage = uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text));
 
-                if (File.Exists(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".png")) == true)
+                string unChemin = "";
+
+                if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".png") == true)
                 {
-                    pctBoxCouv.Image = Image.FromFile(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".png"));
+                    unChemin = (Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".png");
                 }
-                else if (File.Exists(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".jpg")) == true)
+                else if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpg") == true)
                 {
-                    pctBoxCouv.Image = Image.FromFile(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".jpg"));
+                    unChemin = (Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpg");
                 }
-                else if (File.Exists(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".jpeg")) == true)
+                else if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpeg") == true)
                 {
-                    pctBoxCouv.Image = Image.FromFile(Path.Combine(Application.StartupPath, "/InterfaceMedia/Couverture/" + uneImage + ".jpeg"));
+                    unChemin = (Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".jpeg");
                 }
 
-                //if (File.Exists("/../InterfaceMedia/Couverture/" + uneImage + ".png") == true)
-                //{
-                //    pctBoxCouv.Image = Image.FromFile("/../InterfaceMedia/Couverture/" + uneImage + ".png");
-                //}
-                //else if (File.Exists("/../InterfaceMedia/Couverture/" + uneImage + ".jpg") == true)
-                //{
-                //    pctBoxCouv.Image = Image.FromFile("/../InterfaceMedia/Couverture/" + uneImage + ".jpg");
-                //}
-                //else if (File.Exists("/../InterfaceMedia/Couverture/" + uneImage + ".jpeg") == true)
-                //{
-                //    pctBoxCouv.Image = Image.FromFile("/../InterfaceMedia/Couverture/" + uneImage + ".jpeg");
-                //}
+                pctBoxCouv.Image = Image.FromFile(unChemin);
+             
             }
         }
 
