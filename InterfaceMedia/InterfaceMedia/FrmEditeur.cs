@@ -19,6 +19,7 @@ namespace InterfaceMedia
         private Crud_Editeur unEditeur;
         private ConnexionBase uneconnexion;
         private String leNiveau;
+        private String ancienNom;
         Thread th;
         
 
@@ -221,8 +222,10 @@ namespace InterfaceMedia
 
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
+                ancienNom = GridEditeur.CurrentRow.Cells["Nom"].Value.ToString();
+
                 //Modification d'un editeur
-                unEditeur.modification_editeur(Convert.ToInt16(code.Text), txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
+                unEditeur.modification_editeur(Convert.ToInt16(code.Text), txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation, ancienNom);
 
 
                 //Reinistialisation des textbox
@@ -271,7 +274,7 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = true;
 
                 //Suppression d'un editeur
-                unEditeur.suppression_editeur(Convert.ToInt16(code.Text));
+                unEditeur.suppression_editeur(txtNom.Text);
 
                 //Reinistialisation des textbox
                 code.Text = "";
