@@ -123,7 +123,7 @@ namespace InterfaceMedia
 
         private void openformCouverture()
         {
-            Application.Run(new FrmCouverture());
+            Application.Run(new FrmCouverture(leNiveau));
         }
 
         private void openformEmprunt()
