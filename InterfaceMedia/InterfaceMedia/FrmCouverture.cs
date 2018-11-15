@@ -24,6 +24,8 @@ namespace InterfaceMedia
         private int wtome;
         private string nomCouv;
         private string unChemin;
+        private Couverture wcouverture;
+
 
         public FrmCouverture(String leNiveau)
         {
@@ -51,22 +53,27 @@ namespace InterfaceMedia
 
                 clickBouton(btnAjouter);
                 btnAjouter.Enabled = true;
-
                 OpenFileDialog openFile = new OpenFileDialog();
                 openFile.DefaultExt = "InterfaceMedia/Couverture";
                 openFile.Filter = "Image Files(*.jpeg;*.jpg;*.png)|*.jpeg;*.jpg;*.png|All files (*.*)|*.*";
-                openFile.ShowDialog();
-
-                nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
-                pctBoxCouv.Image = Image.FromFile(openFile.FileName);
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
+                    pctBoxCouv.Image = Image.FromFile(openFile.FileName);
+                }
+                else
+                {
+                    btnAnnuler_Click(null, null);
+                }
+               
             }
 
 
             else if (btnAjouter.Text.Equals("Valider"))
             {
                 clickValider(btnAjouter, "Ajouter");
-
-                uneCouverture.ajouter(Int16.Parse(txtBoxCode.Text), nomCouv);
+                wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text), nomCouv);
+                uneCouverture.ajouter(wcouverture);
                 afficheImage();
                 RefreshGrid();
             }
@@ -94,8 +101,9 @@ namespace InterfaceMedia
             else if (btnModifier.Text.Equals("Valider"))
             {
                 clickValider(btnModifier, "Modifier");
-
-                uneCouverture.modifier(Int16.Parse(txtBoxCode.Text), nomCouv);
+                btnAnnuler.Visible = true;
+                wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text), nomCouv);
+                uneCouverture.modifier(wcouverture);
                 afficheImage();
                 RefreshGrid();
             }
@@ -147,8 +155,8 @@ namespace InterfaceMedia
             {
                 clickBouton(btnSupprimer);
                 btnSupprimer.Enabled = true;
-
-                uneCouverture.Supprimer(Int16.Parse(txtBoxCode.Text));
+                wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text));
+                uneCouverture.Supprimer(wcouverture);
             }
 
             else if (btnSupprimer.Text.Equals("Valider"))
@@ -174,37 +182,46 @@ namespace InterfaceMedia
             }
             else if (btnRechercher.Text.Equals("Valider"))
             {
-
-                if (!txtBoxCode.Text.Equals(""))
+                wcouverture = new Couverture(txtBoxTitre.Text);
+                if (uneCouverture.getExist(wcouverture) == true)
                 {
-                    wcode = Convert.ToInt32(txtBoxCode.Text);
-                }
+                    if (!txtBoxCode.Text.Equals(""))
+                    {
+                        wcode = Convert.ToInt32(txtBoxCode.Text);
+                    }
 
-                if (!txtBoxTome.Text.Equals(""))
-                {
-                    wtome = Convert.ToInt32(txtBoxTome.Text);
-                }
+                    if (!txtBoxTome.Text.Equals(""))
+                    {
+                        wtome = Convert.ToInt32(txtBoxTome.Text);
+                    }
 
-                _connexion = new ConnexionBase();
-                uneCouverture = new CRUD_Couverture(_connexion);
-                GridViewBase.DataSource = uneCouverture.rechercher(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
-                GridViewBase.Update();
-                GridViewBase.Refresh();
+                    _connexion = new ConnexionBase();
+                    uneCouverture = new CRUD_Couverture(_connexion);
+                    wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
+                    GridViewBase.DataSource = uneCouverture.rechercher(wcouverture);
+                    GridViewBase.Update();
+                    GridViewBase.Refresh();
 
-                if (txtBoxTitre.Text != "")
-                {
-                    uneCouverture.getCode(txtBoxTitre.Text);
-                    txtBoxCode.Text = uneCouverture.getCode(txtBoxTitre.Text).ToString();
+                    if (txtBoxTitre.Text != "")
+                    {
+                        uneCouverture.getCode(wcouverture);
+                        txtBoxCode.Text = uneCouverture.getCode(wcouverture).ToString();
+                        afficheImage();
+                    }
+
+                    txtBoxCode.Text = GridViewBase.CurrentRow.Cells["BdId"].Value.ToString();
+                    txtBoxTitre.Text = GridViewBase.CurrentRow.Cells["BdTitre"].Value.ToString();
+                    txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
+                    txtBoxTome.Text = GridViewBase.CurrentRow.Cells["BdTome"].Value.ToString();
+                    clickValider(btnRechercher, "Rechercher");
+
                     afficheImage();
+                    btnAnnuler.Visible = true;
                 }
-
-                txtBoxCode.Text = GridViewBase.CurrentRow.Cells["BdId"].Value.ToString();
-                txtBoxTitre.Text = GridViewBase.CurrentRow.Cells["BdTitre"].Value.ToString();
-                txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
-                txtBoxTome.Text = GridViewBase.CurrentRow.Cells["BdTome"].Value.ToString();
-                clickValider(btnRechercher, "Rechercher");
-
-                afficheImage();
+                else
+                {
+                    MessageBox.Show("Ce Titre n'existe pas dans la base de données");
+                } 
             }
         }
 
@@ -214,8 +231,9 @@ namespace InterfaceMedia
             txtBoxTitre.Text = GridViewBase.CurrentRow.Cells["BdTitre"].Value.ToString();
             txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
             txtBoxTome.Text = GridViewBase.CurrentRow.Cells["BdTome"].Value.ToString();
+            wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text));
 
-            if (uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text)) == "nondispo")
+            if (uneCouverture.recupImage(wcouverture) == "nondispo")
             {
                 pctBoxCouv.Image = Properties.Resources.nondispo;
             }
@@ -239,8 +257,8 @@ namespace InterfaceMedia
         }
         public void afficheImage()
         {
-
-            string uneImage = uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text));
+            wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text));
+            string uneImage = uneCouverture.recupImage(wcouverture);
 
             if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".png") == true)
             {
