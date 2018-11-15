@@ -346,7 +346,7 @@ namespace InterfaceMedia
                     String ville = GridEmprunteur.SelectedRows[i].Cells[5].Value.ToString();
                     DateTime naiis = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString());
                     String mail = GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString();
-                    //Ajoute dans famille tout les emprunteurs sélectionné
+                    //Ajoute dans famille tout les emprunteurs sélectionnés
                     int lechef = unEmprunteur.cheffamille(num); ;
                         lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail, lechef));
                     
