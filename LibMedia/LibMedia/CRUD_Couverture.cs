@@ -38,6 +38,7 @@ namespace LibMedia
 
         public void modifier(int unCodeBd, string uneImageBd)
         {
+            _connexion.OuvrirConnexion();
             commande = new MySqlCommand();
             commande.CommandText = "proc_insert_update_couverture";
             commande.CommandType = System.Data.CommandType.StoredProcedure;
