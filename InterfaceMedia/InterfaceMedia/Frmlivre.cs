@@ -11,6 +11,7 @@ using MetroFramework.Forms;
 using System.Threading;
 using LibMedia;
 
+
 namespace InterfaceMedia
 {
     public partial class Frmlivre : MetroForm
@@ -24,6 +25,7 @@ namespace InterfaceMedia
         private List<String> remserie;
         private String leNiveau;
         Thread th;
+        private String resultat;
 
 
 
@@ -31,8 +33,8 @@ namespace InterfaceMedia
         {
             InitializeComponent();
             connexion = new ConnexionBase();
-            unlivre = new Crud_livre(connexion);
-            unexemplaire = new CRUD_Exemplaire(connexion);
+            unlivre = new Crud_livre();
+            unexemplaire = new CRUD_Exemplaire();
             dtgrvLivre.DataSource = unlivre.afficherlivre();
             remp_cmbx();
             remp_cmbbx_nomauteur();
@@ -42,6 +44,9 @@ namespace InterfaceMedia
             this.leNiveau = leNiveau;
             lblRang.Text = this.leNiveau;
         }
+
+
+
 
 
 
@@ -192,25 +197,24 @@ namespace InterfaceMedia
 
                     if (rdbtnA.Checked == true)
                     {
-
-                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtnA.Text, Int32.Parse(codelivreexmp.Text));
+                        resultat = rdbtnA.Text;
                     }
                     else if (rdbtnb.Checked == true)
                     {
-
-                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtnb.Text, Int32.Parse(codelivreexmp.Text));
+                        resultat = rdbtnb.Text;
+                        
                     }
                     else if (rdbtnta.Checked == true)
                     {
-
-                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtnta.Text, Int32.Parse(codelivreexmp.Text));
+                        resultat = rdbtnta.Text;
+                        
                     }
                     else if (rdbtntb.Checked == true)
                     {
-
-                        unexemplaire.ajout_exemplaire(txtbxreferencerexemp.Text, rdbtntb.Text, Int32.Parse(codelivreexmp.Text));
+                        resultat = rdbtntb.Text;
                     }
-
+                    Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, resultat,codelivreexmp.Text);
+                    unexemplaire.ajout_exemplaire(lexemplaire);
                 }
                 else if (btnexemp.Text.Equals("Livre"))
                 {
@@ -218,10 +222,10 @@ namespace InterfaceMedia
 
 
                     parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
-                    if (!txtbxtitre.Text.Equals("") && !txtbxisbn.Equals("") && !txtbxcouleur.Text.Equals("") && !txtbxtome.Text.Equals("") && !parutiontotal.Equals("") && !txtbxformat.Text.Equals("") && !txtbxpage.Text.Equals("") && !txtbxcommentaire.Text.Equals("") && cmbbxediteur.Text.Equals("") && cmbbxserie.Text.Equals(""))
+                    if (!txtbxtitre.Text.Equals("") && !txtbxisbn.Equals("") && !txtbxcouleur.Text.Equals("") && !txtbxtome.Text.Equals("") && !parutiontotal.Equals("") && !txtbxformat.Text.Equals("") && !txtbxpage.Text.Equals("") && !txtbxcommentaire.Text.Equals("") && !cmbbxediteur.Text.Equals("") && !cmbbxserie.Text.Equals(""))
                     {
-
-                        unlivre.ajout_livre(txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text, cmbbxediteur.Text, cmbbxserie.Text);
+                        Livre lelivre = new Livre(1,txtbxtitre.Text, txtbxisbn.Text, Int32.Parse(txtbxtome.Text) , parutiontotal, Int32.Parse(txtbxpage.Text),"", txtbxcouleur.Text,txtbxcommentaire.Text,   txtbxformat.Text, Int32.Parse(cmbbxediteur.Text), Int32.Parse(cmbbxserie.Text));
+                        unlivre.ajout_livre( lelivre, cmbbxediteur.Text, cmbbxserie.Text);
 
                         if (cmbbxauteur.Text != null)
                         {
@@ -475,7 +479,9 @@ namespace InterfaceMedia
                     {
                         format = "";
                     }
-                    dtgrvLivre.DataSource = unexemplaire.recherche_exemplaire(codelivreexmp.Text, txtbxreferencerexemp.Text, format);
+
+                    Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, format, codelivreexmp.Text);
+                    dtgrvLivre.DataSource = unexemplaire.recherche_exemplaire(lexemplaire);
 
 
 
@@ -571,8 +577,9 @@ namespace InterfaceMedia
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
-                    unexemplaire.delete_exemplaire(txtbxreferencerexemp.Text);
-                    unexemplaire.delete_motif(txtbxreferencerexemp.Text, txtbxmotifexemp.Text);
+                    Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, resultat, codelivreexmp.Text);
+                    unexemplaire.delete_exemplaire(lexemplaire);
+                    unexemplaire.delete_motif(lexemplaire,txtbxmotifexemp.Text);
                 }
 
 
@@ -594,9 +601,11 @@ namespace InterfaceMedia
                 lblmotif.Visible = false;
                 lblcommentaire.Visible = true;
                 txtbxcommentaire.Visible = true;
+                txtbxmotifexemp.Enabled = false;
+
                 // change la couleur 
                 txtbxcode.BackColor = Color.Silver;
-
+                txtbxmotifexemp.BackColor = Color.Silver;
                 txtbxreferencerexemp.BackColor = Color.Silver;
 
             }
@@ -692,25 +701,22 @@ namespace InterfaceMedia
                     //verifie en l'etat du radiobouton
                     if (rdbtnA.Checked == true)
                     {
-
-                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtnA.Text, Int32.Parse(codelivreexmp.Text));
+                        resultat = rdbtnA.Text;
                     }
                     else if (rdbtnb.Checked == true)
                     {
-
-                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtnb.Text, Int32.Parse(codelivreexmp.Text));
+                        resultat = rdbtnb.Text;                 
                     }
                     else if (rdbtnta.Checked == true)
                     {
-
-                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtnta.Text, Int32.Parse(codelivreexmp.Text));
+                        resultat = rdbtnta.Text;                
                     }
                     else if (rdbtntb.Checked == true)
                     {
-
-                        unexemplaire.update_exemplaire(txtbxreferencerexemp.Text, rdbtntb.Text, Int32.Parse(codelivreexmp.Text));
+                        resultat = rdbtntb.Text;                    
                     }
-
+                    Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, resultat, Int32.Parse(codelivreexmp.Text));
+                    unexemplaire.update_exemplaire(lexemplaire);
                 }
 
                 // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler

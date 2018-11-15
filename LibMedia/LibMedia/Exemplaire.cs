@@ -1,5 +1,4 @@
-﻿using LibMedia.LaibrairieClasses;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +10,26 @@ namespace LibMedia
     {
         private String ExempRef;
         private String ExempEtat;
-        private int bdcope;
+        private String bdcode;
+        private int lecode;
         #region Constructeur
 
- public Exemplaire(String WExempRef, String WExempEtat, int wbdcode) 
+ public Exemplaire(String WExempRef, String WExempEtat, String wbdcode) 
         {
             ExempRef = WExempRef;
             ExempEtat = WExempEtat;
-            bdcope = wbdcode;
+            bdcode = wbdcode;
+        }
+        public Exemplaire(String WExempRef, String WExempEtat, int lebdcode)
+        {
+            ExempRef = WExempRef;
+            ExempEtat = WExempEtat;
+            lecode = lebdcode;
         }
         #endregion
 
-       
-       
+
+
 
         public String wExempRef
         {
@@ -38,11 +44,20 @@ namespace LibMedia
         }
        
 
-        public int wbdcode
+        public String wbdcode
         {
-            get { return bdcope; }
-            set { bdcope = value; }
+            get { return bdcode; }
+            set { bdcode = value; }
         }
+
+     
+
+        public int lebdcode
+        {
+            get { return lecode; }
+            set { lecode = value; }
+        }
+
 
     }
 }
