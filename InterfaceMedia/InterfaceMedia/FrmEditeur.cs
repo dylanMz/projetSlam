@@ -35,8 +35,11 @@ namespace InterfaceMedia
             this.leNiveau = leNiveau;
             lblRang.Text = this.leNiveau;
 
+            unEditeur = new Crud_Editeur();
+
             RefreshGrid();
 
+            //Permet d'avoir que l'année
             DateTimeCreation.Format = DateTimePickerFormat.Custom;
             DateTimeCreation.CustomFormat = "yyyy";
             DateTimeCreation.ShowUpDown = true;
@@ -132,7 +135,8 @@ namespace InterfaceMedia
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
                 //Ajout d'un editeur
-                unEditeur.ajout_editeur(txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
+                Editeur lEditeur = new Editeur(txtNom.Text, uneDateCreation, txtAdr.Text, txtCodePostal.Text,txtVille.Text, txtTel.Text, txtFax.Text, txtMail.Text);
+                unEditeur.ajout_editeur(lEditeur);
 
                 //Reinistialisation des textbox
                 code.Text = "";
@@ -225,8 +229,8 @@ namespace InterfaceMedia
                 ancienNom = GridEditeur.CurrentRow.Cells["Nom"].Value.ToString();
 
                 //Modification d'un editeur
-                unEditeur.modification_editeur(Convert.ToInt16(code.Text), txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation, ancienNom);
-
+                Editeur lEditeur = new Editeur(Convert.ToInt16(code.Text), txtNom.Text, uneDateCreation, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtTel.Text, txtFax.Text, txtMail.Text, ancienNom);
+                unEditeur.modification_editeur(lEditeur);
 
                 //Reinistialisation des textbox
                 code.Text = "";
@@ -274,7 +278,8 @@ namespace InterfaceMedia
                 btnRechercher.Enabled = true;
 
                 //Suppression d'un editeur
-                unEditeur.suppression_editeur(txtNom.Text);
+                Editeur lEditeur = new Editeur(txtNom.Text);
+                unEditeur.suppression_editeur(lEditeur);
 
                 //Reinistialisation des textbox
                 code.Text = "";
@@ -358,7 +363,7 @@ namespace InterfaceMedia
             }
         }
 
-        private void metroTile1_Click(object sender, EventArgs e)
+        private void btnQuitter_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -485,5 +490,7 @@ namespace InterfaceMedia
             }
 
         }
+
+
     }
 }

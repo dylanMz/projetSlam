@@ -18,6 +18,8 @@ namespace InterfaceMedia
     {
         #region Propriétés
         private Crud_Utilisateur unUtilisateur;
+
+
         private ConnexionBase uneconnexion;
         Thread th;
         private String unNiveau;
@@ -29,6 +31,9 @@ namespace InterfaceMedia
             InitializeComponent();
             this.leNiveau = leNiveau;
             lblRang.Text = this.leNiveau;
+
+            unUtilisateur = new Crud_Utilisateur();
+
             RefreshGrid();
         }
 
@@ -183,7 +188,8 @@ namespace InterfaceMedia
                 else
                 {
                     //Ajout d'un utilisateur
-                    unUtilisateur.ajout_utilisateur(txtPrenom.Text, txtNom.Text, txtPseudo.Text, txtPassword.Text, unNiveau);
+                    Utilisateur lUtilisateur = new Utilisateur(txtPrenom.Text, txtNom.Text, txtPseudo.Text, txtPassword.Text, unNiveau);
+                    unUtilisateur.ajout_utilisateur(lUtilisateur);
 
                     //Reinistialisation des textbox et des boutons radio
                     unId.Text = "";
@@ -259,7 +265,9 @@ namespace InterfaceMedia
                 recupNiveau();
 
                 //Modification d'un utilisateur
-                unUtilisateur.modification_utilisateur(Convert.ToInt16(unId.Text), txtPrenom.Text, txtNom.Text, txtPseudo.Text, txtPassword.Text, unNiveau);
+                Utilisateur lUtilisateur = new Utilisateur(Convert.ToInt16(unId.Text), txtPrenom.Text, txtNom.Text, txtPseudo.Text, txtPassword.Text, unNiveau);
+                unUtilisateur.modification_utilisateur(lUtilisateur);
+
 
 
                 //Reinistialisation des textbox et des boutons radios
@@ -319,7 +327,8 @@ namespace InterfaceMedia
                 recupNiveau();
 
                 //Suppression d'un utilisateur
-                unUtilisateur.suppression_utilisateur(Convert.ToInt16(unId.Text));
+                Utilisateur lUtilisateur = new Utilisateur(Convert.ToInt16(unId.Text));
+                unUtilisateur.suppression_utilisateur(lUtilisateur);
 
                 //Reinistialisation des textbox et boutons radio
                 unId.Text = "";
