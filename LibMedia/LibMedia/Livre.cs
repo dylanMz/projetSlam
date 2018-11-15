@@ -41,11 +41,25 @@ namespace LibMedia
 
                 bdIsbn = wbdisbn;
                 bdPages = wpages;
-                bdCouleur = wcouleur;
+                bdCouleur = wbdcouleur;
                 bdCommentaires = wbdcommentaires;
                 bdFormat = wbdformat;
             }
-            public Livre ( String wbdtitre, String wbdanneeparution)
+        public Livre( String wbdtitre, String wbdisbn, int wbdnumtome, String wbdanneeparution, int wbdpages, String wbdcouleur, String wbdcommentaires, String wbdformat)
+        {
+          
+            bdTitre = wbdtitre;
+            bdNumTome = wbdnumtome;
+            bdAnneeParution = wbdanneeparution;
+        
+
+            bdIsbn = wbdisbn;
+            bdPages = wpages;
+            bdCouleur = wbdcouleur;
+            bdCommentaires = wbdcommentaires;
+            bdFormat = wbdformat;
+        }
+        public Livre ( String wbdtitre, String wbdanneeparution)
             {
              
                  bdTitre = wbdtitre;
