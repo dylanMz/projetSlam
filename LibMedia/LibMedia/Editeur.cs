@@ -20,12 +20,44 @@ namespace LibMedia
         private String EditeurTel;
         private String EditeurFax;
         private String EditeurMail;
+        private String AncienNom;
         #endregion
 
         #region Constructeur.s
         public Editeur(int wEditeurNum, String wEditeurNom, int wEditeurCreation, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurTel, String wEditeurFax, String wEditeurMail)
         {
             EditeurNum = wEditeurNum;
+            EditeurNom = wEditeurNom;
+            EditeurCreation = wEditeurCreation;
+            EditeurAdresse = wEditeurAdresse;
+            EditeurCP = wEditeurCP;
+            EditeurVille = wEditeurVille;
+            EditeurTel = wEditeurTel;
+            EditeurFax = wEditeurFax;
+            EditeurMail = wEditeurMail;
+        }
+
+        public Editeur(String wEditeurNom)
+        {
+            EditeurNom = wEditeurNom;
+        }
+
+        public Editeur(int wEditeurNum, String wEditeurNom, int wEditeurCreation, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurTel, String wEditeurFax, String wEditeurMail, String wunAncienNom)
+        {
+            EditeurNum = wEditeurNum;
+            EditeurNom = wEditeurNom;
+            EditeurCreation = wEditeurCreation;
+            EditeurAdresse = wEditeurAdresse;
+            EditeurCP = wEditeurCP;
+            EditeurVille = wEditeurVille;
+            EditeurTel = wEditeurTel;
+            EditeurFax = wEditeurFax;
+            EditeurMail = wEditeurMail;
+            AncienNom = wunAncienNom;
+        }
+
+        public Editeur(String wEditeurNom, int wEditeurCreation, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurTel, String wEditeurFax, String wEditeurMail)
+        {
             EditeurNom = wEditeurNom;
             EditeurCreation = wEditeurCreation;
             EditeurAdresse = wEditeurAdresse;
@@ -94,6 +126,12 @@ namespace LibMedia
         {
             get { return EditeurMail; }
             set { EditeurMail = value; }
+        }
+
+        public String _AncienNom
+        {
+            get { return AncienNom; }
+            set { AncienNom = value; }
         }
         #endregion
 

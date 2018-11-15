@@ -35,6 +35,11 @@ namespace LibMedia
             this.emp_prem_adh = emp_prem_adh;
             this.emp_ren_adh = emp_ren_adh;
         }
+        public Emprunteur(int emp_num,String emp_nom)
+        {
+            this.emp_num = emp_num;
+            this.emp_nom = emp_nom;
+        }
         #endregion
 
         #region Accesseur        

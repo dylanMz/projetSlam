@@ -14,6 +14,7 @@ namespace LibMedia
         private ConnexionBase uneconnexion;
         private MySqlDataReader _unReader;
         private List<Editeur> _desEditeurs;
+        private int CodeOut;
         #endregion
 
         #region Constructeur.s
@@ -75,7 +76,7 @@ namespace LibMedia
         }
 
         //Ajout d'un editeur
-        public void ajout_editeur(String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
+        public int ajout_editeur(Editeur unEditeur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -85,28 +86,28 @@ namespace LibMedia
                 unComdeSql.Connection = uneconnexion.getConnexion();
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                unComdeSql.Parameters["wnom"].Value = wEditeurNom;
+                unComdeSql.Parameters["wnom"].Value = unEditeur.Nom;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wadresse", MySqlDbType.String));
-                unComdeSql.Parameters["wadresse"].Value = wEditeurAdresse;
+                unComdeSql.Parameters["wadresse"].Value = unEditeur.Adresse;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wcp", MySqlDbType.String));
-                unComdeSql.Parameters["wcp"].Value = wEditeurCP;
+                unComdeSql.Parameters["wcp"].Value = unEditeur.Code_postal;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wville", MySqlDbType.String));
-                unComdeSql.Parameters["wville"].Value = wEditeurVille;
+                unComdeSql.Parameters["wville"].Value = unEditeur.Ville;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wmail", MySqlDbType.String));
-                unComdeSql.Parameters["wmail"].Value = wEditeurMail;
+                unComdeSql.Parameters["wmail"].Value = unEditeur.Mail;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wfax", MySqlDbType.String));
-                unComdeSql.Parameters["wfax"].Value = wEditeurFax;
+                unComdeSql.Parameters["wfax"].Value = unEditeur.Fax;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wtel", MySqlDbType.String));
-                unComdeSql.Parameters["wtel"].Value = wEditeurTel;
+                unComdeSql.Parameters["wtel"].Value = unEditeur.Téléphone;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wcreation", MySqlDbType.Int16));
-                unComdeSql.Parameters["wcreation"].Value = wEditeurCreation;
+                unComdeSql.Parameters["wcreation"].Value = unEditeur.Création;
 
 
                 //mise en place du paramètre de sortie
@@ -114,16 +115,20 @@ namespace LibMedia
                 unComdeSql.Parameters.Add(PSortie_nat);
                 PSortie_nat.Direction = ParameterDirection.Output;
 
-                unComdeSql.ExecuteNonQuery();
+                unComdeSql.ExecuteNonQuery(); // Execute la requête
 
-                uneconnexion.closeConnexion();
+                uneconnexion.closeConnexion(); // Ferme la connexion
 
+                CodeOut = Convert.ToInt32(PSortie_nat.Value); 
 
             }
+
+            return CodeOut;
+
         }
 
         //Modification d'un editeur
-        public void modification_editeur(int wEditeurNum, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation, String wAncienNom)
+        public void modification_editeur(Editeur unEditeur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -133,34 +138,34 @@ namespace LibMedia
                 unComdeSql.Connection = uneconnexion.getConnexion();
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wnum", MySqlDbType.Int16));
-                unComdeSql.Parameters["wnum"].Value = wEditeurNum;
+                unComdeSql.Parameters["wnum"].Value = unEditeur.Numéro;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                unComdeSql.Parameters["wnom"].Value = wEditeurNom;
+                unComdeSql.Parameters["wnom"].Value = unEditeur.Nom;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wadresse", MySqlDbType.String));
-                unComdeSql.Parameters["wadresse"].Value = wEditeurAdresse;
+                unComdeSql.Parameters["wadresse"].Value = unEditeur.Adresse;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wcp", MySqlDbType.String));
-                unComdeSql.Parameters["wcp"].Value = wEditeurCP;
+                unComdeSql.Parameters["wcp"].Value = unEditeur.Code_postal;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wville", MySqlDbType.String));
-                unComdeSql.Parameters["wville"].Value = wEditeurVille;
+                unComdeSql.Parameters["wville"].Value = unEditeur.Ville;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wmail", MySqlDbType.String));
-                unComdeSql.Parameters["wmail"].Value = wEditeurMail;
+                unComdeSql.Parameters["wmail"].Value = unEditeur.Mail;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wfax", MySqlDbType.String));
-                unComdeSql.Parameters["wfax"].Value = wEditeurFax;
+                unComdeSql.Parameters["wfax"].Value = unEditeur.Fax;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wtel", MySqlDbType.String));
-                unComdeSql.Parameters["wtel"].Value = wEditeurTel;
+                unComdeSql.Parameters["wtel"].Value = unEditeur.Téléphone;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wcreation", MySqlDbType.Int16));
-                unComdeSql.Parameters["wcreation"].Value = wEditeurCreation;
+                unComdeSql.Parameters["wcreation"].Value = unEditeur.Création;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wAncienNom", MySqlDbType.String));
-                unComdeSql.Parameters["wAncienNom"].Value = wAncienNom;
+                unComdeSql.Parameters["wAncienNom"].Value = unEditeur._AncienNom;
 
 
                 //mise en place du paramètre de sortie
@@ -177,7 +182,7 @@ namespace LibMedia
         }
 
         //Suppression d'un editeur
-        public void suppression_editeur(String wEditeurNom)
+        public void suppression_editeur(Editeur unEditeur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -187,7 +192,7 @@ namespace LibMedia
                 unComdeSql.Connection = uneconnexion.getConnexion();
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                unComdeSql.Parameters["wnom"].Value = wEditeurNom;
+                unComdeSql.Parameters["wnom"].Value = unEditeur.Nom;
 
                 unComdeSql.ExecuteNonQuery();
 

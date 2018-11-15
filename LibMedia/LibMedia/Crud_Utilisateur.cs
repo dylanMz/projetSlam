@@ -133,7 +133,7 @@ namespace LibMedia
         }
 
         //Ajout d'un utilisateur
-        public void ajout_utilisateur(String wprenom, String wnom, String wpseudo, String wpassword, String wniveau)
+        public void ajout_utilisateur(Utilisateur unUtilisateur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -143,19 +143,19 @@ namespace LibMedia
                 unComdeSql.Connection = uneconnexion.getConnexion();
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
-                unComdeSql.Parameters["wprenom"].Value = wprenom;
+                unComdeSql.Parameters["wprenom"].Value = unUtilisateur.Prénom;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                unComdeSql.Parameters["wnom"].Value = wnom;
+                unComdeSql.Parameters["wnom"].Value = unUtilisateur.Nom;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
-                unComdeSql.Parameters["wpseudo"].Value = wpseudo;
+                unComdeSql.Parameters["wpseudo"].Value = unUtilisateur.Pseudo;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wpassword", MySqlDbType.String));
-                unComdeSql.Parameters["wpassword"].Value = wpassword;
+                unComdeSql.Parameters["wpassword"].Value = unUtilisateur.Mot_de_passe;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wniveau", MySqlDbType.String));
-                unComdeSql.Parameters["wniveau"].Value = wniveau;
+                unComdeSql.Parameters["wniveau"].Value = unUtilisateur.Niveau;
 
                 //mise en place du paramètre de sortie
                 MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
@@ -169,7 +169,7 @@ namespace LibMedia
         }
 
         //Modification d'un utilisateur
-        public void modification_utilisateur(int wnum, String wprenom, String wnom, String wpseudo, String wpassword, String wniveau)
+        public void modification_utilisateur(Utilisateur unUtilisateur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -179,22 +179,22 @@ namespace LibMedia
                 unComdeSql.Connection = uneconnexion.getConnexion();
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
-                unComdeSql.Parameters["wprenom"].Value = wprenom;
+                unComdeSql.Parameters["wprenom"].Value = unUtilisateur.Prénom;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                unComdeSql.Parameters["wnom"].Value = wnom;
+                unComdeSql.Parameters["wnom"].Value = unUtilisateur.Nom;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
-                unComdeSql.Parameters["wpseudo"].Value = wpseudo;
+                unComdeSql.Parameters["wpseudo"].Value = unUtilisateur.Pseudo;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wpassword", MySqlDbType.String));
-                unComdeSql.Parameters["wpassword"].Value = wpassword;
+                unComdeSql.Parameters["wpassword"].Value = unUtilisateur.Mot_de_passe;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wniveau", MySqlDbType.String));
-                unComdeSql.Parameters["wniveau"].Value = wniveau;
+                unComdeSql.Parameters["wniveau"].Value = unUtilisateur.Niveau;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wnum", MySqlDbType.Int16));
-                unComdeSql.Parameters["wnum"].Value = wnum;
+                unComdeSql.Parameters["wnum"].Value = unUtilisateur.Numéro;
 
                 unComdeSql.ExecuteNonQuery();
 
@@ -203,7 +203,7 @@ namespace LibMedia
         }
         
         //Suppression d'un utilisateur
-        public void suppression_utilisateur(int unNum)
+        public void suppression_utilisateur(Utilisateur unUtilisateur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -213,7 +213,7 @@ namespace LibMedia
                 unComdeSql.Connection = uneconnexion.getConnexion();
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wnum", MySqlDbType.Int16));
-                unComdeSql.Parameters["wnum"].Value = unNum;
+                unComdeSql.Parameters["wnum"].Value = unUtilisateur.Numéro;
 
                 unComdeSql.ExecuteNonQuery();
 

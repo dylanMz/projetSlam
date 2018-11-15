@@ -18,6 +18,8 @@ namespace LibMedia
         #endregion
 
         #region Constructeur.s
+
+        //Constructeur pour la modification
         public Utilisateur(int wutil_id, String wutil_prenom, String wutil_nom, String wutil_pseudo, String wutil_password, String wutil_niveau)
         {
             util_id = wutil_id;
@@ -27,9 +29,26 @@ namespace LibMedia
             util_password = wutil_password;
             util_niveau = wutil_niveau;
         }
+
+        //Constructeur pour l'ajout
+        public Utilisateur(String wutil_prenom, String wutil_nom, String wutil_pseudo, String wutil_password, String wutil_niveau)
+        {
+            util_prenom = wutil_prenom;
+            util_nom = wutil_nom;
+            util_pseudo = wutil_pseudo;
+            util_password = wutil_password;
+            util_niveau = wutil_niveau;
+        }
+
+        //Constructeur pour la suppression
+        public Utilisateur(int wutil_id)
+        {
+            util_id = wutil_id;
+
+        }
         #endregion
 
-       #region Accesseurs
+        #region Accesseurs
         public int Numéro
         {
             get { return util_id; }
