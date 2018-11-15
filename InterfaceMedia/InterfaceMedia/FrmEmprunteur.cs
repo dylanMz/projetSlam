@@ -44,6 +44,11 @@ namespace InterfaceMedia
             {
                 btnSupprimer.Enabled = false;
             }
+            else if(this.leNiveau.Equals("Admin"))
+            {
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+            }
 
 
         }
@@ -65,11 +70,7 @@ namespace InterfaceMedia
         //au clic dans le dataGrid rempli les informations dans les textbox ou datetime 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.leNiveau.Equals("Admin"))
-            {
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
-            }
+            
             id = GridEmprunteur.CurrentRow.Cells["numéro"].Value.ToString(); ;
             txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
             txtPrenom.Text = GridEmprunteur.CurrentRow.Cells["prénom"].Value.ToString();
@@ -150,7 +151,7 @@ namespace InterfaceMedia
         private void btnModifier_Click(object sender, EventArgs e)
         {
             
-            if (btnModifier.Text.Equals("Modifier")&!txtNom.Text.Equals(""))
+            if (btnModifier.Text.Equals("Modifier"))
             {
                 groupAjouterEmp.Enabled = true;
                

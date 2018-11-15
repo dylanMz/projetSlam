@@ -40,6 +40,13 @@ namespace LibMedia
             util_niveau = wutil_niveau;
         }
 
+        //Constructeur pour la connexion
+        public Utilisateur(String wutil_pseudo, String wutil_password)
+        {
+            util_pseudo = wutil_pseudo;
+            util_password = wutil_password;
+        }
+
         //Constructeur pour la suppression
         public Utilisateur(int wutil_id)
         {
