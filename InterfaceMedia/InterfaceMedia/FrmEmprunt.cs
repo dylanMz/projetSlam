@@ -108,7 +108,7 @@ namespace InterfaceMedia
 
                 if (Updat.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                    btDialog("L'emprunt n'existe pas!");
+                    btDialog("L'emprunt n'existe pas!",1);
                 }
                 else
                 {
@@ -140,7 +140,7 @@ namespace InterfaceMedia
 
                 if (Suppr.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                    btDialog("L'emprunt n'existe pas!");
+                    btDialog("L'emprunt n'existe pas!",1);
                 }
                 else
                 {
@@ -171,7 +171,7 @@ namespace InterfaceMedia
 
                 if (ajRetour.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                    btDialog("L'emprunt n'existe pas!");
+                    btDialog("L'emprunt n'existe pas!",1);
                 }
                 else
                 {
@@ -200,7 +200,7 @@ namespace InterfaceMedia
 
                 if (Search.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                    btDialog("L'emprunt n'existe pas!");
+                    btDialog("L'emprunt n'existe pas!",1);
                 }
                 else
                 {
@@ -247,7 +247,7 @@ namespace InterfaceMedia
                 }
                 else
                 {
-                    btDialog("Vous devez selectionner une proposition");
+                    btDialog("Vous devez selectionner une proposition",0);
                 }
 
                 clickValider(btnLivre, "Rechercher livre");
@@ -259,7 +259,7 @@ namespace InterfaceMedia
         //Ouvre une boite de dialogue quand la saisie est incorrecte sur le Mask
         private void MtxtbxRefEx_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            btDialog("Désolé la saisie autorisé est de la forme 0000_00");
+            btDialog("Désolé la saisie autorisé est de la forme 0000_00",1);
         }
 
         //Permet de quitter l'application
@@ -397,10 +397,17 @@ namespace InterfaceMedia
         }
 
         //Methode affichant une boite de dialogue avec un message personnaliser
-        public void btDialog(String leMessage)
+        public void btDialog(String leMessage,int zeroOuUn)
         {
+            if(zeroOuUn == 0)
+            {
+                MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if(zeroOuUn == 1)
+            {
+                MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+            }
             
-            MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         //Permet quand on clique sur une ligne de la DataGridView de remplir les champs
