@@ -35,6 +35,11 @@ namespace InterfaceMedia
             this.leNiveau = leNiveau;
             lblRang.Text = this.leNiveau;
 
+            /*if (leNiveau.Equals("Personnel stock"))
+            {
+                
+            }
+            */
             unEditeur = new Crud_Editeur();
 
             RefreshGrid();

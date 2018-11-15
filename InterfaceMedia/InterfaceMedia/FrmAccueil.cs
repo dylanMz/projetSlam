@@ -148,7 +148,7 @@ namespace InterfaceMedia
             {
                 metroTileAuteur.Enabled = false;
                 metroTileCouverture.Enabled = false;
-                metroTileEmprunt.Enabled = false;
+                metroTileEmprunt.Enabled = true;
                 metroTileEditeur.Enabled = false;
                 btnAdmin.Enabled = false;
             }
