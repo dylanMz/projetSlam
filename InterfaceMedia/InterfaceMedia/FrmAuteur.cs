@@ -123,7 +123,7 @@ namespace InterfaceMedia
 
                 
                 //ajout de l'auteur à la bdd
-                if (chkDateNaiss.Checked == true && rdoDecede.Checked == true) //on a une date de naisance et une date de décès
+                if (chkDateNaiss.Checked == false && rdoDecede.Checked == true) //on a une date de naisance et une date de décès
                 {
                     Auteur lAuteur = new Auteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), pays, txtBio.Text);
                     unAuteur.ajouterAuteur(lAuteur);
@@ -147,6 +147,16 @@ namespace InterfaceMedia
                 //Re active les boutons
                 btnModifier.Enabled = true;
                 btnRechercher.Enabled = true;
+
+                //Vide des champs
+                txtCode.Text = "";
+                txtNom.Text = "";
+                txtPrenom.Text = "";
+                txtPseudo.Text = "";
+                txtBio.Text = "";
+                rdoVivant.Checked = false;
+                rdoDecede.Checked = false;
+                chkNouvPays.Checked = false;
 
                 //Les textbox sont inacessibles.
                 txtNom.Enabled = false;
@@ -555,7 +565,6 @@ namespace InterfaceMedia
             {
                 cmbPays.Visible = true;
                 txtPays.Visible = false;
-                
             }
             
         }
