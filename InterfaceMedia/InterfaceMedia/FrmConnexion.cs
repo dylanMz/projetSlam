@@ -33,22 +33,23 @@ namespace InterfaceMedia
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-
-            leNiveau = unUtilisateur.recup_connexion(txtIdentifiant.Text, txtPassword.Text);
             
-            laVar = unUtilisateur.myVar;
+                leNiveau = unUtilisateur.recup_connexion(txtIdentifiant.Text, txtPassword.Text);
 
-           if (laVar == true)
-            {
-                this.Close();
-                th = new Thread(openformAccueil);
-                th.SetApartmentState(ApartmentState.STA);
-                th.Start();
-            }
-            else
-            {
-                MessageBox.Show("Identifiant incorrect", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                laVar = unUtilisateur.myVar;
+
+                if (laVar == true)
+                {
+                    this.Close();
+                    th = new Thread(openformAccueil);
+                    th.SetApartmentState(ApartmentState.STA);
+                    th.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Pseudo ou mot de passe invalide", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
             
         }
 
@@ -69,5 +70,13 @@ namespace InterfaceMedia
             Application.Run(new FrmAccueilTest(leNiveau));
         }
 
+        private void Entrer(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                btnConnexion.PerformClick();
+            }
+            
+        }
     }
 }

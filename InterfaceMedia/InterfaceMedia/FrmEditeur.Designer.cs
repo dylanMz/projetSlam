@@ -386,7 +386,7 @@
             this.btnQuitter.UseCustomBackColor = true;
             this.btnQuitter.UseSelectable = true;
             this.btnQuitter.UseTileImage = true;
-            this.btnQuitter.Click += new System.EventHandler(this.metroTile1_Click);
+            this.btnQuitter.Click += new System.EventHandler(this.btnQuitter_Click_1);
             // 
             // gpbxMenu
             // 

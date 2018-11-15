@@ -52,7 +52,7 @@
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel1.Location = new System.Drawing.Point(99, 73);
+            this.metroLabel1.Location = new System.Drawing.Point(99, 75);
             this.metroLabel1.Name = "metroLabel1";
             this.metroLabel1.Size = new System.Drawing.Size(78, 19);
             this.metroLabel1.TabIndex = 0;
@@ -62,7 +62,7 @@
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.metroLabel2.Location = new System.Drawing.Point(99, 139);
+            this.metroLabel2.Location = new System.Drawing.Point(99, 141);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(99, 19);
             this.metroLabel2.TabIndex = 1;
@@ -83,7 +83,7 @@
             this.txtIdentifiant.CustomButton.UseSelectable = true;
             this.txtIdentifiant.CustomButton.Visible = false;
             this.txtIdentifiant.Lines = new string[0];
-            this.txtIdentifiant.Location = new System.Drawing.Point(99, 95);
+            this.txtIdentifiant.Location = new System.Drawing.Point(99, 97);
             this.txtIdentifiant.MaxLength = 32767;
             this.txtIdentifiant.Name = "txtIdentifiant";
             this.txtIdentifiant.PasswordChar = '\0';
@@ -113,7 +113,7 @@
             this.txtPassword.CustomButton.UseSelectable = true;
             this.txtPassword.CustomButton.Visible = false;
             this.txtPassword.Lines = new string[0];
-            this.txtPassword.Location = new System.Drawing.Point(99, 161);
+            this.txtPassword.Location = new System.Drawing.Point(99, 163);
             this.txtPassword.MaxLength = 32767;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '●';
@@ -128,6 +128,7 @@
             this.txtPassword.UseSystemPasswordChar = true;
             this.txtPassword.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtPassword.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Entrer);
             // 
             // btnConnexion
             // 
@@ -175,6 +176,7 @@
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.txtIdentifiant);
+            this.MaximizeBox = false;
             this.Name = "FrmConnexion";
             this.Text = "LesMotsTordus";
             this.ResumeLayout(false);
