@@ -60,8 +60,6 @@
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.lblRang = new MetroFramework.Controls.MetroLabel();
-            this.ttpMauvaiseSaisie = new MetroFramework.Components.MetroToolTip();
-            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).BeginInit();
             this.gpbxChoix.SuspendLayout();
             this.GroupSaisie.SuspendLayout();
@@ -236,6 +234,7 @@
             this.dtDate.FontSize = MetroFramework.MetroDateTimeSize.Small;
             this.dtDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtDate.Location = new System.Drawing.Point(158, 16);
+            this.dtDate.MinDate = new System.DateTime(1753, 1, 9, 0, 0, 0, 0);
             this.dtDate.MinimumSize = new System.Drawing.Size(0, 25);
             this.dtDate.Name = "dtDate";
             this.dtDate.Size = new System.Drawing.Size(137, 25);
@@ -305,7 +304,7 @@
             this.MtxtbxRefEx.Location = new System.Drawing.Point(501, 24);
             this.MtxtbxRefEx.Mask = "0000_00";
             this.MtxtbxRefEx.Name = "MtxtbxRefEx";
-            this.MtxtbxRefEx.PromptChar = '0';
+            this.MtxtbxRefEx.PromptChar = 'X';
             this.MtxtbxRefEx.Size = new System.Drawing.Size(100, 20);
             this.MtxtbxRefEx.TabIndex = 26;
             this.MtxtbxRefEx.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.MtxtbxRefEx_MaskInputRejected);
@@ -535,18 +534,6 @@
             this.lblRang.TabIndex = 47;
             this.lblRang.Text = "lblRang";
             // 
-            // ttpMauvaiseSaisie
-            // 
-            this.ttpMauvaiseSaisie.Style = MetroFramework.MetroColorStyle.Blue;
-            this.ttpMauvaiseSaisie.StyleManager = null;
-            this.ttpMauvaiseSaisie.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // metroToolTip1
-            // 
-            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroToolTip1.StyleManager = null;
-            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
             // FrmEmprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,7 +592,5 @@
         private System.Windows.Forms.PictureBox picHome;
         private MetroFramework.Controls.MetroLabel lblRang;
         private System.Windows.Forms.MaskedTextBox MtxtbxRefEx;
-        private MetroFramework.Components.MetroToolTip ttpMauvaiseSaisie;
-        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

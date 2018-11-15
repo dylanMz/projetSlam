@@ -53,6 +53,8 @@ namespace InterfaceMedia
             GridEmprunt.DataSource = Export.afficheEmprunt();
         }
 
+        #region Evenement
+
         //Bouton permettant de revenir a la page d'acceuil
         private void picHome_Click(object sender, EventArgs e)
         {
@@ -63,15 +65,7 @@ namespace InterfaceMedia
             home = new Thread(openformAccueil);
             home.SetApartmentState(ApartmentState.STA);
             home.Start();
-
         }
-
-        //Ouvre la form acceuil
-        private void openformAccueil()
-        {
-            Application.Run(new FrmAccueilTest(leNiveau));
-        }
-
 
         private void btnAjouter_Click_1(object sender, EventArgs e)
         {
@@ -91,8 +85,15 @@ namespace InterfaceMedia
                 DateTime dateRetP = Convert.ToDateTime(dtRetourPrevu.Text);
                 Emprunt lEmprunt = new Emprunt(numE, MtxtbxRefEx.Text, dateEm, dateRet, dateRetP);
 
-                
-                Ajout.insertEmprunt(lEmprunt);
+                if (Ajout.verifExemplaire(lEmprunt).Equals("0"))
+                {
+                   
+                    btDialog("L'exemplaire n'existe pas! Pour ajouter un exemplaire cliquer sur Recommencer", false);
+                }
+                else
+                {
+                    Ajout.insertEmprunt(lEmprunt);
+                }
 
                 clickValider(btnAjouter, "Ajouter");
                 
@@ -101,7 +102,6 @@ namespace InterfaceMedia
             GridEmprunt.DataSource = Ajout.afficheEmprunt();
         }
 
-        
         private void btnModifier_Click(object sender, EventArgs e)
         {
             if (btnModifier.Text.Equals("Modifier"))
@@ -120,7 +120,7 @@ namespace InterfaceMedia
 
                 if (Updat.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                     btDialog("L'emprunt n'existe pas!",false);
+                     btDialog("L'emprunt n'existe pas!",true);
 
                 }
                 else
@@ -276,16 +276,23 @@ namespace InterfaceMedia
             }
         }
 
+        private void GridEmprunt_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string dtNull = GridEmprunt.CurrentRow.Cells["dateRetour"].Value.ToString();
+            txtbxNumEmp.Text = GridEmprunt.CurrentRow.Cells["emp_num"].Value.ToString();
+            MtxtbxRefEx.Text = GridEmprunt.CurrentRow.Cells["ExempRef"].Value.ToString();
+            dtEmprunt.Text = GridEmprunt.CurrentRow.Cells["dateEmprunt"].Value.ToString();
+            dtRetourPrevu.Text = GridEmprunt.CurrentRow.Cells["dateRetourPrevu"].Value.ToString();
+            if (dtNull != "01/01/0001 00:00:00")
+            {
+                dtRetour.Text = dtNull;
+            }
+        }
+
         //Ouvre une boite de dialogue quand la saisie est incorrecte sur le Mask
         private void MtxtbxRefEx_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            btDialog("Désolé la saisie autorisé est de la forme 0000_00",false);
-        }
-
-        //Permet de quitter l'application
-        private void btnQuitter_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            btDialog("Désolé la saisie autorisé est de la forme 0000_00", false);
         }
 
         //Permet de remettre les bouton a 0 sans valider
@@ -337,6 +344,16 @@ namespace InterfaceMedia
             GridEmprunt.DataSource = ajRetour.afficheEmprunt();
 
         }
+
+        //Permet de quitter l'application
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        #endregion
+
+        #region Méthodes
 
         //Méthode correspondant au click sur un des boutons
         public void clickBouton(MetroFramework.Controls.MetroTile btn)
@@ -422,33 +439,38 @@ namespace InterfaceMedia
         //Methode affichant une boite de dialogue avec un message personnaliser
         public void btDialog(String leMessage,Boolean zeroOuUn)
         {
-
+            DialogResult result;
             if (zeroOuUn == true)
             {
                 MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if(zeroOuUn == false)
             {
-                MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+                result = MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
 
-                
+                if(result == DialogResult.Retry)
+                {
+                    this.Close();
+                    home = new Thread(openExemp);
+                    home.SetApartmentState(ApartmentState.STA);
+                    home.Start();
+                }
             }
         }
 
         //Permet quand on clique sur une ligne de la DataGridView de remplir les champs
-        private void GridEmprunt_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void openExemp()
         {
-            string dtNull = GridEmprunt.CurrentRow.Cells["dateRetour"].Value.ToString();
-            txtbxNumEmp.Text = GridEmprunt.CurrentRow.Cells["emp_num"].Value.ToString();
-            MtxtbxRefEx.Text = GridEmprunt.CurrentRow.Cells["ExempRef"].Value.ToString();
-            dtEmprunt.Text = GridEmprunt.CurrentRow.Cells["dateEmprunt"].Value.ToString();
-            dtRetourPrevu.Text = GridEmprunt.CurrentRow.Cells["dateRetourPrevu"].Value.ToString();
-            if (dtNull != "01/01/0001 00:00:00")
-            {
-                dtRetour.Text = dtNull;
-            }
+            Application.Run(new Frmlivre(leNiveau));
         }
 
+        //Ouvre la form acceuil
+        private void openformAccueil()
+        {
+            Application.Run(new FrmAccueilTest(leNiveau));
+        }
+
+        #endregion
 
     }
 }
