@@ -12,10 +12,8 @@ namespace LibMedia
     {
         #region Proprietés
         private int wsql;
-        private int chef;
         private ConnexionBase uneconnexion;
         private List<Emprunteur> _desEmprunteurs;
-        private List<Famille> _desfamilles;
         private MySqlDataReader _unReader;
         #endregion
 
@@ -25,14 +23,12 @@ namespace LibMedia
         {
             uneconnexion = connexion_en_cours;
             _desEmprunteurs = new List<Emprunteur>();
-            _desfamilles = new List<Famille>();
 
         }
         public Crud_Emprunteur()
         {
             uneconnexion = new ConnexionBase();
             _desEmprunteurs = new List<Emprunteur>();
-            _desfamilles = new List<Famille>();
         }
 
         #endregion
@@ -61,7 +57,7 @@ namespace LibMedia
             }
         }
         //Exécute la procédure avec les paramétres pour modifier et insert
-        public void connectprocedure(String nomprocedure, ref string codeErreur, Emprunteur connectEmprunteur)
+        public void connectprocedure(String nomprocedure, ref string codeErreur, Emprunteur Emprunteur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -75,26 +71,26 @@ namespace LibMedia
                 //paramétre de la procédure
                 
                 unecommandeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                unecommandeSql.Parameters["wnom"].Value = connectEmprunteur.emp_nom;
+                unecommandeSql.Parameters["wnom"].Value = Emprunteur.emp_nom;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
-                unecommandeSql.Parameters["wprenom"].Value = connectEmprunteur.emp_prenom;
+                unecommandeSql.Parameters["wprenom"].Value = Emprunteur.emp_prenom;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wrue", MySqlDbType.String));
-                unecommandeSql.Parameters["wrue"].Value = connectEmprunteur.emp_rue;
+                unecommandeSql.Parameters["wrue"].Value = Emprunteur.emp_rue;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wcodepostal", MySqlDbType.String));
-                unecommandeSql.Parameters["wcodepostal"].Value = connectEmprunteur.emp_code_postal;
+                unecommandeSql.Parameters["wcodepostal"].Value = Emprunteur.emp_code_postal;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wville", MySqlDbType.String));
-                unecommandeSql.Parameters["wville"].Value = connectEmprunteur.emp_ville;
+                unecommandeSql.Parameters["wville"].Value = Emprunteur.emp_ville;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wdatenaiss", MySqlDbType.Date));
-                unecommandeSql.Parameters["wdatenaiss"].Value = connectEmprunteur.emp_date_naiss;
+                unecommandeSql.Parameters["wdatenaiss"].Value = Emprunteur.emp_date_naiss;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wmail", MySqlDbType.String));
-                unecommandeSql.Parameters["wmail"].Value = connectEmprunteur.emp_mail;
+                unecommandeSql.Parameters["wmail"].Value = Emprunteur.emp_mail;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wpremadh", MySqlDbType.Date));
-                unecommandeSql.Parameters["wpremadh"].Value = connectEmprunteur.emp_prem_adh;
+                unecommandeSql.Parameters["wpremadh"].Value = Emprunteur.emp_prem_adh;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wrenadh", MySqlDbType.Date));
-                unecommandeSql.Parameters["wrenadh"].Value = connectEmprunteur.emp_ren_adh;
+                unecommandeSql.Parameters["wrenadh"].Value = Emprunteur.emp_ren_adh;
 
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                unecommandeSql.Parameters["wid"].Value = connectEmprunteur.emp_num;
+                unecommandeSql.Parameters["wid"].Value = Emprunteur.emp_num;
 
 
 
@@ -137,7 +133,7 @@ namespace LibMedia
                 unecommandeSql.Parameters["wnom"].Value = Remprunteur.emp_nom;
 
                 //verification pour savoir si un nom ou un id est saisie
-                if (Remprunteur.emp_num.Equals(""))
+                if (Remprunteur.emp_num != 0)
                 {
                     wsql = 1;
                 }
@@ -159,7 +155,7 @@ namespace LibMedia
         }
 
         //Exécute la procédure de suppression d"un emprunteur
-        public void deleteEmprunteur(String nomprocedure, int wid,String wmotif)
+        public void deleteEmprunteur(String nomprocedure, Emprunteur NumEmprunteur,String wmotif)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -171,130 +167,9 @@ namespace LibMedia
 
 
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                unecommandeSql.Parameters["wid"].Value = wid;
+                unecommandeSql.Parameters["wid"].Value = NumEmprunteur.emp_num;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wmotif", MySqlDbType.String));
                 unecommandeSql.Parameters["wmotif"].Value = wmotif;
-                unecommandeSql.ExecuteNonQuery();
-                uneconnexion.closeConnexion();
-            }
-        }
-
-
-        //Exécute la procédure d'ajout d'un chef de famille
-        public void InsertFamille(String nomprocedure, int widres, int widdep)
-        {
-            if (uneconnexion.OuvrirConnexion() == true)
-            {
-
-                MySqlCommand unecommandeSql = new MySqlCommand();
-                unecommandeSql.CommandText = nomprocedure;
-                unecommandeSql.CommandType = CommandType.StoredProcedure;
-                unecommandeSql.Connection = uneconnexion.getConnexion();
-
-
-                unecommandeSql.Parameters.Add(new MySqlParameter("widres", MySqlDbType.Int32));
-                unecommandeSql.Parameters["widres"].Value = widres;
-                unecommandeSql.Parameters.Add(new MySqlParameter("widdep", MySqlDbType.Int32));
-                unecommandeSql.Parameters["widdep"].Value = widdep;
-                unecommandeSql.ExecuteNonQuery();
-                uneconnexion.closeConnexion();
-            }
-        }
-
-        //Exécute la procédure de modification d'un chef de famille
-        public void UpdateFamille(String nomprocedure, int widres, int widdep, int ancienresp)
-        {
-            if (uneconnexion.OuvrirConnexion() == true)
-            {
-
-                MySqlCommand unecommandeSql = new MySqlCommand();
-                unecommandeSql.CommandText = nomprocedure;
-                unecommandeSql.CommandType = CommandType.StoredProcedure;
-                unecommandeSql.Connection = uneconnexion.getConnexion();
-
-                //Les paramétres
-                unecommandeSql.Parameters.Add(new MySqlParameter("widres", MySqlDbType.Int32));
-                unecommandeSql.Parameters["widres"].Value = widres;
-                unecommandeSql.Parameters.Add(new MySqlParameter("widdep", MySqlDbType.Int16));
-                unecommandeSql.Parameters["widdep"].Value = widdep;
-                unecommandeSql.Parameters.Add(new MySqlParameter("wancienresp", MySqlDbType.Int16));
-                unecommandeSql.Parameters["wancienresp"].Value = ancienresp;
-                unecommandeSql.ExecuteNonQuery();
-                uneconnexion.closeConnexion();
-            }
-        }
-
-        //Exécute la procédure pour récuperer le responsable famille
-        public int cheffamille(int wid)
-        {
-            if (uneconnexion.OuvrirConnexion() == true)
-            {
-                MySqlCommand EmprunteurSql = new MySqlCommand();
-                //Nom procedure
-                EmprunteurSql.CommandText = "proc_affiche_famille";
-                EmprunteurSql.CommandType = CommandType.StoredProcedure;
-                EmprunteurSql.Connection = uneconnexion.getConnexion();
-                EmprunteurSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                EmprunteurSql.Parameters["wid"].Value = wid;
-                //mise en place du paramètre de sortie
-                MySqlParameter PSortie_nat = new MySqlParameter("wafamille", MySqlDbType.Int16);
-                EmprunteurSql.Parameters.Add(PSortie_nat);
-                PSortie_nat.Direction = ParameterDirection.Output;
-                //aunefamille = Convert.ToInt16(PSortie_nat.Value.ToString());
-                //EmprunteurSql.ExecuteNonQuery();
-                _unReader = EmprunteurSql.ExecuteReader();
-
-                
-
-                while (_unReader.Read())
-                {
-                    chef = int.Parse(_unReader["fam_emp_resp"].ToString()); ;
-                }
-                _unReader.Close();
-                uneconnexion.closeConnexion();
-            }
-           return chef;
-        }
-
-        //Exécute la procédure pour récuperer la famille de l'emprunteur 
-        public void Recup_Toutelafamille(int wid)
-        {
-
-            if (uneconnexion.OuvrirConnexion() == true)
-            {
-                MySqlCommand EmprunteurSql = new MySqlCommand();
-                //Nom procedure
-                EmprunteurSql.CommandText = "proc_afficher_famillecomplet";
-                EmprunteurSql.CommandType = CommandType.StoredProcedure;
-                EmprunteurSql.Connection = uneconnexion.getConnexion();
-                EmprunteurSql.Parameters.Add(new MySqlParameter("widres", MySqlDbType.Int32));
-                EmprunteurSql.Parameters["widres"].Value = wid;
-                _unReader = EmprunteurSql.ExecuteReader();
-
-                while (_unReader.Read())
-                {
-                    _desfamilles.Add(new Famille(int.Parse(_unReader["emp_num"].ToString()), _unReader["emp_nom"].ToString(), _unReader["emp_prenom"].ToString(), _unReader["emp_rue"].ToString(), _unReader["emp_code_postal"].ToString(), _unReader["emp_ville"].ToString(), DateTime.Parse(_unReader["emp_date_naiss"].ToString()), _unReader["emp_mail"].ToString(), int.Parse(_unReader["fam_emp_resp"].ToString())));
-                }
-                _unReader.Close();
-                uneconnexion.closeConnexion();
-            }
-        }
-
-
-        //Exécute la procédure de modification d'un chef de famille
-        public void DeleteMembreFamille(String nomprocedure, int wid)
-        {
-            if (uneconnexion.OuvrirConnexion() == true)
-            {
-
-                MySqlCommand unecommandeSql = new MySqlCommand();
-                unecommandeSql.CommandText = nomprocedure;
-                unecommandeSql.CommandType = CommandType.StoredProcedure;
-                unecommandeSql.Connection = uneconnexion.getConnexion();
-
-                //Les paramétres
-                unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                unecommandeSql.Parameters["wid"].Value = wid;
                 unecommandeSql.ExecuteNonQuery();
                 uneconnexion.closeConnexion();
             }
@@ -309,13 +184,6 @@ namespace LibMedia
         {
             get { return _desEmprunteurs; }
             set { _desEmprunteurs = value; }
-        }
-
-        //Accesseur de la liste Famille
-        public List<Famille> lesfamilles
-        {
-            get { return _desfamilles; }
-            set { _desfamilles = value; }
         }
         #endregion
     }
