@@ -229,7 +229,7 @@ namespace InterfaceMedia
                     parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
                     if (!txtbxtitre.Text.Equals("") && !txtbxisbn.Equals("") && !txtbxcouleur.Text.Equals("") && !txtbxtome.Text.Equals("") && !parutiontotal.Equals("") && !txtbxformat.Text.Equals("") && !txtbxpage.Text.Equals("") && !txtbxcommentaire.Text.Equals("") && !cmbbxediteur.Text.Equals("") && !cmbbxserie.Text.Equals(""))
                     {
-                        Livre lelivre = new Livre(1,txtbxtitre.Text, txtbxisbn.Text, Int32.Parse(txtbxtome.Text) , parutiontotal, Int32.Parse(txtbxpage.Text),"", txtbxcouleur.Text,txtbxcommentaire.Text,   txtbxformat.Text, Int32.Parse(cmbbxediteur.Text), Int32.Parse(cmbbxserie.Text));
+                        Livre lelivre = new Livre(1,txtbxtitre.Text, txtbxisbn.Text, Int32.Parse(txtbxtome.Text) , parutiontotal, Int32.Parse(txtbxpage.Text),"", txtbxcouleur.Text,txtbxcommentaire.Text,   txtbxformat.Text, 1,1);
                         unlivre.ajout_livre( lelivre, cmbbxediteur.Text, cmbbxserie.Text);
 
                         if (cmbbxauteur.Text != null)
@@ -450,14 +450,16 @@ namespace InterfaceMedia
                     if ((cmbbxmois.Text == "") && (cmbbxannee.Text == ""))
                     {
                         parutiontotal = "";
-                        dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
+                        Livre lelivre = new Livre(txtbxtitre.Text, parutiontotal);
+                        dtgrvLivre.DataSource = unlivre.recherche_livre(lelivre);
 
                     }
                     else
                     {
 
                         parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
-                        dtgrvLivre.DataSource = unlivre.recherche_livre(txtbxtitre.Text, parutiontotal);
+                        Livre lelivre = new Livre(txtbxtitre.Text, parutiontotal);
+                        dtgrvLivre.DataSource = unlivre.recherche_livre(lelivre);
 
                     }
                 }
@@ -603,8 +605,11 @@ namespace InterfaceMedia
             {
                 if (btnexemp.Text.Equals("Livre"))
                 {
-                    unlivre.Delete_livre(Int32.Parse(txtbxcode.Text));
-                    unlivre.delet_motif(txtbxmotif.Text, Int32.Parse(txtbxcode.Text));
+                    Livre lelivre = new Livre(Int32.Parse(txtbxcode.Text));
+                    unlivre.Delete_livre(lelivre);
+
+                   
+                    unlivre.delet_motif(txtbxmotif.Text,lelivre);
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
@@ -725,7 +730,8 @@ namespace InterfaceMedia
                 if (btnexemp.Text.Equals("Livre"))
                 {
                     string parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
-                    unlivre.update_livre(Int32.Parse(txtbxcode.Text), txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text,cmbbxediteur.Text, cmbbxserie.Text);
+                    Livre lelivre = new Livre(Int32.Parse(txtbxcode.Text), txtbxtitre.Text, txtbxisbn.Text, Int32.Parse(txtbxtome.Text), parutiontotal, Int32.Parse(txtbxpage.Text), "", txtbxcouleur.Text, txtbxcommentaire.Text, txtbxformat.Text,  1 , 1);
+                    unlivre.update_livre(lelivre, cmbbxediteur.Text, cmbbxserie.Text );
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
