@@ -53,6 +53,27 @@ namespace LibMedia
             }
         }
 
+        //Affiche la table editeur archive.
+        public void Recup_Table_Editeur_archive()
+        {
+
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand EditeurSql = new MySqlCommand();
+                EditeurSql.CommandText = "proc_affiche_editeur_archive";
+                EditeurSql.CommandType = CommandType.StoredProcedure;
+                EditeurSql.Connection = uneconnexion.getConnexion();
+                _unReader = EditeurSql.ExecuteReader();
+
+                while (_unReader.Read())
+                {
+                    _desEditeurs.Add(new Editeur(int.Parse(_unReader["EditeurNum"].ToString()), _unReader["EditeurNom"].ToString(), int.Parse(_unReader["EditeurCreation"].ToString()), _unReader["EditeurAdresse"].ToString(), _unReader["EditeurCP"].ToString(), _unReader["EditeurVille"].ToString(), _unReader["EditeurTel"].ToString(), _unReader["EditeurFax"].ToString(), _unReader["EditeurMail"].ToString()));
+                }
+                _unReader.Close();
+                uneconnexion.closeConnexion();
+            }
+        }
+
         //Ajout d'un editeur
         public void ajout_editeur(String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
         {
@@ -102,7 +123,7 @@ namespace LibMedia
         }
 
         //Modification d'un editeur
-        public void modification_editeur(int wEditeurNum, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation)
+        public void modification_editeur(int wEditeurNum, String wEditeurNom, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurMail, String wEditeurFax, String wEditeurTel, int wEditeurCreation, String wAncienNom)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -138,6 +159,9 @@ namespace LibMedia
                 unComdeSql.Parameters.Add(new MySqlParameter("wcreation", MySqlDbType.Int16));
                 unComdeSql.Parameters["wcreation"].Value = wEditeurCreation;
 
+                unComdeSql.Parameters.Add(new MySqlParameter("wAncienNom", MySqlDbType.String));
+                unComdeSql.Parameters["wAncienNom"].Value = wAncienNom;
+
 
                 //mise en place du paramètre de sortie
                 MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
@@ -148,6 +172,26 @@ namespace LibMedia
 
                 uneconnexion.closeConnexion();
 
+
+            }
+        }
+
+        //Suppression d'un editeur
+        public void suppression_editeur(String wEditeurNom)
+        {
+            if (uneconnexion.OuvrirConnexion() == true)
+            {
+                MySqlCommand unComdeSql = new MySqlCommand();
+                unComdeSql.CommandText = "proc_delete_editeur";
+                unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
+                unComdeSql.Connection = uneconnexion.getConnexion();
+
+                unComdeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                unComdeSql.Parameters["wnom"].Value = wEditeurNom;
+
+                unComdeSql.ExecuteNonQuery();
+
+                uneconnexion.closeConnexion();
 
             }
         }

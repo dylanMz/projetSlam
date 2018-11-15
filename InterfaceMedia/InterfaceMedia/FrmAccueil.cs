@@ -24,12 +24,12 @@ namespace InterfaceMedia
             InitializeComponent();
             this.leNiveau = leNiveau;
             lblUtilisateur.Text = leNiveau;
+
+            GestionAcces();
+
         }
 
-        private void btnQuitter_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+
 
         private void MetroTileEditeur_Click(object sender, EventArgs e)
         {
@@ -96,6 +96,11 @@ namespace InterfaceMedia
             th.Start();
         }
 
+        private void btnQuitter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void openformEmprunteur()
         {
             Application.Run(new FrmEmprunteur(leNiveau));
@@ -136,7 +141,35 @@ namespace InterfaceMedia
             Application.Run(new FrmConnexion());
         }
 
+        private void GestionAcces()
+        {
+            //Desactive l'accès à certaines interfaces aux personnels de l'accueil 
+            if (lblUtilisateur.Text == "Personnel")
+            {
+                metroTileAuteur.Enabled = false;
+                metroTileCouverture.Enabled = false;
+                metroTileEmprunt.Enabled = false;
+                metroTileEditeur.Enabled = false;
+                btnAdmin.Enabled = false;
+            }
 
+            //Desactive l'accès à certaines interfaces aux Responsable stock 
+            if (lblUtilisateur.Text == "Responsable stock")
+            {
+                metroTileEmprunteur.Enabled = false;
+                btnAdmin.Enabled = false;
+            }
+
+            //Desactive l'accès à certaines interfaces aux Responsable secteur
+            if (lblUtilisateur.Text == "Responsable secteur")
+            {
+                metroTileAuteur.Enabled = false;
+                metroTileCouverture.Enabled = false;
+                metroTileEditeur.Enabled = false;
+                metroTileLivre.Enabled = false;
+                btnAdmin.Enabled = false;
+            }
+        }
 
 
     }

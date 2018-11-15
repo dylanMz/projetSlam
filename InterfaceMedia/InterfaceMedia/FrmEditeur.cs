@@ -19,6 +19,7 @@ namespace InterfaceMedia
         private Crud_Editeur unEditeur;
         private ConnexionBase uneconnexion;
         private String leNiveau;
+        private String ancienNom;
         Thread th;
         
 
@@ -221,8 +222,10 @@ namespace InterfaceMedia
 
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
+                ancienNom = GridEditeur.CurrentRow.Cells["Nom"].Value.ToString();
+
                 //Modification d'un editeur
-                unEditeur.modification_editeur(Convert.ToInt16(code.Text), txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation);
+                unEditeur.modification_editeur(Convert.ToInt16(code.Text), txtNom.Text, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtMail.Text, txtFax.Text, txtTel.Text, uneDateCreation, ancienNom);
 
 
                 //Reinistialisation des textbox
@@ -269,6 +272,23 @@ namespace InterfaceMedia
                 btnSupprimer.Enabled = false;
                 btnAjouter.Enabled = true;
                 btnRechercher.Enabled = true;
+
+                //Suppression d'un editeur
+                unEditeur.suppression_editeur(txtNom.Text);
+
+                //Reinistialisation des textbox
+                code.Text = "";
+                txtNom.Text = "";
+                DateTimeCreation.Text = "";
+                txtMail.Text = "";
+                txtCodePostal.Text = "";
+                txtAdr.Text = "";
+                txtTel.Text = "";
+                txtFax.Text = "";
+                txtVille.Text = "";
+
+                //Actualisation du datagrid
+                RefreshGrid();
 
             }
         }
@@ -445,12 +465,25 @@ namespace InterfaceMedia
 
         public void RefreshGrid()
         {
-            uneconnexion = new ConnexionBase();
-            unEditeur = new Crud_Editeur(uneconnexion);
-            unEditeur.Recup_Table_Editeur();
-            RempGridEditeur(unEditeur.lesEditeurs);
-            GridEditeur.Update();
-            GridEditeur.Refresh();
+            if (lblRang.Text == "Admin")
+            {
+                uneconnexion = new ConnexionBase();
+                unEditeur = new Crud_Editeur(uneconnexion);
+                unEditeur.Recup_Table_Editeur_archive();
+                RempGridEditeur(unEditeur.lesEditeurs);
+                GridEditeur.Update();
+                GridEditeur.Refresh();
+            }
+            else
+            {
+                uneconnexion = new ConnexionBase();
+                unEditeur = new Crud_Editeur(uneconnexion);
+                unEditeur.Recup_Table_Editeur();
+                RempGridEditeur(unEditeur.lesEditeurs);
+                GridEditeur.Update();
+                GridEditeur.Refresh();
+            }
+
         }
     }
 }
