@@ -123,7 +123,7 @@ namespace InterfaceMedia
 
         private void openformCouverture()
         {
-            Application.Run(new FrmCouverture());
+            Application.Run(new FrmCouverture(leNiveau));
         }
 
         private void openformEmprunt()
@@ -148,7 +148,7 @@ namespace InterfaceMedia
             {
                 metroTileAuteur.Enabled = false;
                 metroTileCouverture.Enabled = false;
-                metroTileEmprunt.Enabled = false;
+                metroTileEmprunt.Enabled = true;
                 metroTileEditeur.Enabled = false;
                 btnAdmin.Enabled = false;
             }
