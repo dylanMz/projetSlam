@@ -14,15 +14,38 @@ namespace LibMedia
         private string Auteur;
         private string editeurBd;
         private string imageBd;
+        private int tomeBd;
+        private string anneeParution;
         #endregion
         #region constructeur
-        public Couverture(int unCodeBd, string unTitreBd, string unAuteurBd, string unEditeurBd, string uneImageBd)
+        public Couverture(int unCodeBd, string uneImageBd, string unTitreBd, int unTomeBd, string uneAnneeParution)
         {
             codeBd = unCodeBd;
             titreBd = unTitreBd;
-            Auteur = unAuteurBd;
-            editeurBd = unEditeurBd;
             imageBd = uneImageBd;
+            tomeBd = unTomeBd;
+            anneeParution = uneAnneeParution;
+        }
+        public Couverture(int unCodeBd, string uneImageBd)
+        {
+            codeBd = unCodeBd;
+            imageBd = uneImageBd;
+        }
+        public Couverture(int unCodeBd)
+        {
+            codeBd = unCodeBd;
+        }
+        public Couverture(string unTitre)
+        {
+            titreBd = unTitre;
+        }
+
+        public Couverture(int unCodeBd, string unTitreBd, int unTomeBd, string uneAnneeParution)
+        {
+            codeBd = unCodeBd;
+            titreBd = unTitreBd;
+            tomeBd = unTomeBd;
+            anneeParution = uneAnneeParution;
         }
         #endregion
         #region accesseur
@@ -44,23 +67,6 @@ namespace LibMedia
             titreBd = unTitre;
         }
 
-        public string getAuteurBd()
-        {
-            return Auteur;
-        }
-        public void setSerieBd(string unAuteur)
-        {
-            Auteur = unAuteur;
-        }
-        public string getEditeurBd()
-        {
-            return editeurBd;
-        }
-        public void setEditeurBd(string unEditeurBd)
-        {
-            editeurBd = unEditeurBd;
-        }
-
         public string getImageBd()
         {
             return imageBd;
@@ -68,6 +74,24 @@ namespace LibMedia
         public void setImageBd(string uneImageBd)
         {
             imageBd = uneImageBd;
+        }
+
+        public int getTomeBd()
+        {
+            return tomeBd;
+        }
+        public void setTomeBd(int unTome)
+        {
+            tomeBd = unTome;
+        }
+
+        public string getAnneeParution()
+        {
+            return anneeParution;
+        }
+        public void setAnneeParution(string uneAnneeParution)
+        {
+            anneeParution = uneAnneeParution;
         }
         #endregion
     }

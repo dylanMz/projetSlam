@@ -24,6 +24,7 @@ namespace InterfaceMedia
         Thread th;
         private String unNiveau;
         private String leNiveau;
+        private int unCodeSortie;
         #endregion
 
         public FrmAdmin(string leNiveau)
@@ -189,7 +190,13 @@ namespace InterfaceMedia
                 {
                     //Ajout d'un utilisateur
                     Utilisateur lUtilisateur = new Utilisateur(txtPrenom.Text, txtNom.Text, txtPseudo.Text, txtPassword.Text, unNiveau);
-                    unUtilisateur.ajout_utilisateur(lUtilisateur);
+                    unCodeSortie = unUtilisateur.ajout_utilisateur(lUtilisateur);
+
+                    //Affiche une erreur si le mot de passe ne fait pas plus de 4 caractères ainsi que le pseudo. unCodeSortie etant le paramètre de sortie de la procédure stockée
+                    if (unCodeSortie == 99)
+                    {
+                        MessageBox.Show("Le pseudo et le mot de passe doivent faire au moins 4 caractères", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
 
                     //Reinistialisation des textbox et des boutons radio
                     unId.Text = "";

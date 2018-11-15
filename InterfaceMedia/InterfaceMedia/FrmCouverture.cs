@@ -24,6 +24,8 @@ namespace InterfaceMedia
         private int wtome;
         private string nomCouv;
         private string unChemin;
+        private Couverture wcouverture;
+
 
         public FrmCouverture(String leNiveau)
         {
@@ -49,63 +51,29 @@ namespace InterfaceMedia
             if (btnAjouter.Text.Equals("Ajouter"))
             {
 
-                btnAjouter.BackColor = Color.Green;
-                btnAjouter.Text = "Valider";
-
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnRechercher.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtBoxCode.Enabled = true;
-                txtBoxTitre.Enabled = true;
-                txtBoxTome.Enabled = true;
-                txtBoxParution.Enabled = true;
-
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtBoxCode.BackColor = Color.White;
-                txtBoxTitre.BackColor = Color.White;
-                txtBoxTome.BackColor = Color.White;
-                txtBoxParution.BackColor = Color.White;
-
+                clickBouton(btnAjouter);
+                btnAjouter.Enabled = true;
                 OpenFileDialog openFile = new OpenFileDialog();
                 openFile.DefaultExt = "InterfaceMedia/Couverture";
                 openFile.Filter = "Image Files(*.jpeg;*.jpg;*.png)|*.jpeg;*.jpg;*.png|All files (*.*)|*.*";
-                openFile.ShowDialog();
-
-                nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
+                    pctBoxCouv.Image = Image.FromFile(openFile.FileName);
+                }
+                else
+                {
+                    btnAnnuler_Click(null, null);
+                }
+               
             }
 
 
             else if (btnAjouter.Text.Equals("Valider"))
             {
-                btnAjouter.Text = "Ajouter";
-                btnAjouter.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnRechercher.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtBoxCode.Enabled = false;
-                txtBoxTitre.Enabled = false;
-                txtBoxTome.Enabled = false;
-                txtBoxParution.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtBoxCode.BackColor = Color.Silver;
-                txtBoxTitre.BackColor = Color.Silver;
-                txtBoxTome.BackColor = Color.Silver;
-                txtBoxParution.BackColor = Color.Silver;
-
-                uneCouverture.ajouter(Int16.Parse(txtBoxCode.Text), nomCouv);
+                clickValider(btnAjouter, "Ajouter");
+                wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text), nomCouv);
+                uneCouverture.ajouter(wcouverture);
                 afficheImage();
                 RefreshGrid();
             }
@@ -116,62 +84,26 @@ namespace InterfaceMedia
         {
             if (btnModifier.Text.Equals("Modifier"))
             {
-                btnModifier.BackColor = Color.Green;
-                btnModifier.Text = "Valider";
 
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnAjouter.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnRechercher.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtBoxCode.Enabled = true;
-                txtBoxTitre.Enabled = true;
-                txtBoxTome.Enabled = true;
-                txtBoxParution.Enabled = true;
-
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtBoxCode.BackColor = Color.White;
-                txtBoxTitre.BackColor = Color.White;
-                txtBoxTome.BackColor = Color.White;
-                txtBoxParution.BackColor = Color.White;
+                clickBouton(btnModifier);
+                btnModifier.Enabled = true;
 
                 OpenFileDialog openFile = new OpenFileDialog();
                 openFile.DefaultExt = "InterfaceMedia/Couverture";
-                openFile.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*";
+                openFile.Filter = "Image Files(*.jpeg;*.jpg;*.png)|*.jpeg;*.jpg;*.png|All files (*.*)|*.*";
                 openFile.ShowDialog();
 
-                string nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
-                
+                nomCouv = System.IO.Path.GetFileNameWithoutExtension(openFile.FileName);
+                pctBoxCouv.Image = Image.FromFile(openFile.FileName);
             }
+
+
             else if (btnModifier.Text.Equals("Valider"))
             {
-                btnModifier.Text = "Modifier";
-                btnModifier.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnAjouter.Enabled = true;
-                btnSupprimer.Enabled = true;
-                btnRechercher.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtBoxCode.Enabled = false;
-                txtBoxTitre.Enabled = false;
-                txtBoxTome.Enabled = false;
-                txtBoxParution.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtBoxCode.BackColor = Color.Silver;
-                txtBoxTitre.BackColor = Color.Silver;
-                txtBoxTome.BackColor = Color.Silver;
-                txtBoxParution.BackColor = Color.Silver;
-
-                uneCouverture.modifier(Int16.Parse(txtBoxCode.Text), nomCouv);
+                clickValider(btnModifier, "Modifier");
+                btnAnnuler.Visible = true;
+                wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text), nomCouv);
+                uneCouverture.modifier(wcouverture);
                 afficheImage();
                 RefreshGrid();
             }
@@ -221,56 +153,15 @@ namespace InterfaceMedia
         {
             if (btnSupprimer.Text.Equals("Supprimer"))
             {
-                btnSupprimer.BackColor = Color.Green;
-                btnSupprimer.Text = "Valider";
-
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnModifier.Enabled = false;
-                btnAjouter.Enabled = false;
-                btnRechercher.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtBoxCode.Enabled = true;
-                txtBoxTitre.Enabled = true;
-                txtBoxTome.Enabled = true;
-                txtBoxParution.Enabled = true;
-
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtBoxCode.BackColor = Color.White;
-                txtBoxTitre.BackColor = Color.White;
-                txtBoxTome.BackColor = Color.White;
-                txtBoxParution.BackColor = Color.White;
-
-                uneCouverture.Supprimer(Int16.Parse(txtBoxCode.Text));
+                clickBouton(btnSupprimer);
+                btnSupprimer.Enabled = true;
+                wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text));
+                uneCouverture.Supprimer(wcouverture);
             }
 
             else if (btnSupprimer.Text.Equals("Valider"))
             {
-                btnSupprimer.Text = "Supprimer";
-                btnSupprimer.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnModifier.Enabled = true;
-                btnAjouter.Enabled = true;
-                btnRechercher.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtBoxCode.Enabled = false;
-                txtBoxTitre.Enabled = false;
-                txtBoxTome.Enabled = false;
-                txtBoxParution.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtBoxCode.BackColor = Color.Silver;
-                txtBoxTitre.BackColor = Color.Silver;
-                txtBoxTome.BackColor = Color.Silver;
-                txtBoxParution.BackColor = Color.Silver;
-
+                clickValider(btnSupprimer, "Supprimer");
                 RefreshGrid();
             }
         }
@@ -279,29 +170,8 @@ namespace InterfaceMedia
         {
             if (btnRechercher.Text.Equals("Rechercher"))
             {
-                btnRechercher.BackColor = Color.Green;
-                btnRechercher.Text = "Valider";
-
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnModifier.Enabled = false;
-                btnAjouter.Enabled = false;
-                btnSupprimer.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtBoxCode.Enabled = true;
-                txtBoxTitre.Enabled = true;
-                txtBoxTome.Enabled = true;
-                txtBoxParution.Enabled = true;
-
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtBoxCode.BackColor = Color.White;
-                txtBoxTitre.BackColor = Color.White;
-                txtBoxTome.BackColor = Color.White;
-                txtBoxParution.BackColor = Color.White;
+                clickBouton(btnRechercher);
+                btnRechercher.Enabled = true;
 
                 txtBoxCode.Text = "";
                 txtBoxTitre.Text = "";
@@ -312,45 +182,46 @@ namespace InterfaceMedia
             }
             else if (btnRechercher.Text.Equals("Valider"))
             {
-
-                if (!txtBoxCode.Text.Equals(""))
+                wcouverture = new Couverture(txtBoxTitre.Text);
+                if (uneCouverture.getExist(wcouverture) == true)
                 {
-                    wcode = Convert.ToInt32(txtBoxCode.Text);
-                }
+                    if (!txtBoxCode.Text.Equals(""))
+                    {
+                        wcode = Convert.ToInt32(txtBoxCode.Text);
+                    }
 
-                if (!txtBoxTome.Text.Equals(""))
+                    if (!txtBoxTome.Text.Equals(""))
+                    {
+                        wtome = Convert.ToInt32(txtBoxTome.Text);
+                    }
+
+                    _connexion = new ConnexionBase();
+                    uneCouverture = new CRUD_Couverture(_connexion);
+                    wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
+                    GridViewBase.DataSource = uneCouverture.rechercher(wcouverture);
+                    GridViewBase.Update();
+                    GridViewBase.Refresh();
+
+                    if (txtBoxTitre.Text != "")
+                    {
+                        uneCouverture.getCode(wcouverture);
+                        txtBoxCode.Text = uneCouverture.getCode(wcouverture).ToString();
+                        afficheImage();
+                    }
+
+                    txtBoxCode.Text = GridViewBase.CurrentRow.Cells["BdId"].Value.ToString();
+                    txtBoxTitre.Text = GridViewBase.CurrentRow.Cells["BdTitre"].Value.ToString();
+                    txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
+                    txtBoxTome.Text = GridViewBase.CurrentRow.Cells["BdTome"].Value.ToString();
+                    clickValider(btnRechercher, "Rechercher");
+
+                    afficheImage();
+                    btnAnnuler.Visible = true;
+                }
+                else
                 {
-                    wtome = Convert.ToInt32(txtBoxTome.Text);
-                }
-
-                _connexion = new ConnexionBase();
-                uneCouverture = new CRUD_Couverture(_connexion);
-                GridViewBase.DataSource = uneCouverture.rechercher(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text);
-                GridViewBase.Update();
-                GridViewBase.Refresh();
-
-                btnRechercher.Text = "Rechercher";
-                btnRechercher.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Re active les boutons
-                btnModifier.Enabled = true;
-                btnAjouter.Enabled = true;
-                btnSupprimer.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtBoxCode.Enabled = false;
-                txtBoxTitre.Enabled = false;
-                txtBoxTome.Enabled = false;
-                txtBoxParution.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtBoxCode.BackColor = Color.Silver;
-                txtBoxTitre.BackColor = Color.Silver;
-                txtBoxTome.BackColor = Color.Silver;
-                txtBoxParution.BackColor = Color.Silver;
-
-              //  RefreshGrid();
+                    MessageBox.Show("Ce Titre n'existe pas dans la base de données");
+                } 
             }
         }
 
@@ -360,8 +231,9 @@ namespace InterfaceMedia
             txtBoxTitre.Text = GridViewBase.CurrentRow.Cells["BdTitre"].Value.ToString();
             txtBoxParution.Text = GridViewBase.CurrentRow.Cells["BdParution"].Value.ToString();
             txtBoxTome.Text = GridViewBase.CurrentRow.Cells["BdTome"].Value.ToString();
+            wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text));
 
-            if (uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text)) == "nondispo")
+            if (uneCouverture.recupImage(wcouverture) == "nondispo")
             {
                 pctBoxCouv.Image = Properties.Resources.nondispo;
             }
@@ -385,8 +257,8 @@ namespace InterfaceMedia
         }
         public void afficheImage()
         {
-
-            string uneImage = uneCouverture.recupImage(Int16.Parse(txtBoxCode.Text));
+            wcouverture = new Couverture(Int16.Parse(txtBoxCode.Text));
+            string uneImage = uneCouverture.recupImage(wcouverture);
 
             if (File.Exists(Application.StartupPath.Substring(0, Application.StartupPath.Length - 25).Replace('\\', '/') + "/Couverture/" + uneImage + ".png") == true)
             {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace LibMedia
 {
-    namespace LaibrairieClasses
-    {
+
         public class Livre
         {
             #region Propriete
@@ -29,7 +29,7 @@ namespace LibMedia
 
              
             #region Constructeur
-         public Livre(int wbdcode, String wbdtitre,String wbdisbn, int wbdnumtome ,String wbdanneeparution,int wbdpages, String wbdimage,String wbdcouleur,String wbdcommentaires,String wbdformat ,int wseriecode, int wedicode)
+            public Livre(int wbdcode, String wbdtitre,String wbdisbn, int wbdnumtome ,String wbdanneeparution,int wbdpages, String wbdimage,String wbdcouleur,String wbdcommentaires,String wbdformat ,int wseriecode, int wedicode)
             {
                 bdCode = wbdcode;
                 bdTitre = wbdtitre;
@@ -152,4 +152,4 @@ namespace LibMedia
 
         }
     }
-}
+
