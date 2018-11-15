@@ -19,6 +19,7 @@ namespace LibMedia
         private Boolean uneVar;
         private DataSet unDataset;
         private String unNiveau;
+        private int CodeOut;
         #endregion
 
         #region Constructeur.s
@@ -133,7 +134,7 @@ namespace LibMedia
         }
 
         //Ajout d'un utilisateur
-        public void ajout_utilisateur(Utilisateur unUtilisateur)
+        public int ajout_utilisateur(Utilisateur unUtilisateur)
         {
             if (uneconnexion.OuvrirConnexion() == true)
             {
@@ -162,10 +163,14 @@ namespace LibMedia
                 unComdeSql.Parameters.Add(PSortie_nat);
                 PSortie_nat.Direction = ParameterDirection.Output;
 
-                unComdeSql.ExecuteNonQuery();
+                unComdeSql.ExecuteNonQuery(); //Execute la requête
 
-                uneconnexion.closeConnexion();
+                uneconnexion.closeConnexion(); //Ferme la connexion
+
+                CodeOut = Convert.ToInt32(PSortie_nat.Value);
             }
+
+            return CodeOut;
         }
 
         //Modification d'un utilisateur
