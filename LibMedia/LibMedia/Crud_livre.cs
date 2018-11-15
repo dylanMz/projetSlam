@@ -107,7 +107,7 @@ namespace LibMedia
         }
 
         // modification livre
-        public void update_livre(int wbdcode, String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, String wedicode, String wseriecode)
+        public void update_livre(Livre unlivre, String wedicode, String wseriecode)
         {
           
 
@@ -118,31 +118,31 @@ namespace LibMedia
                 unComdeSql.Connection = _connexion.getConnexion();
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int16));
-                unComdeSql.Parameters["wcode"].Value = wbdcode;
+                unComdeSql.Parameters["wcode"].Value = unlivre.Wbd_code;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("titre", MySqlDbType.String));
-                unComdeSql.Parameters["titre"].Value = wbdtitre;
+                unComdeSql.Parameters["titre"].Value = unlivre.wbd_titre;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("nisbn", MySqlDbType.String));
-                unComdeSql.Parameters["nisbn"].Value = wbdisbn;
+                unComdeSql.Parameters["nisbn"].Value = unlivre.wisbn;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("couleur", MySqlDbType.String));
-                unComdeSql.Parameters["couleur"].Value = wbdcouleur;
+                unComdeSql.Parameters["couleur"].Value = unlivre.wcouleur;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("ntome", MySqlDbType.String));
-                unComdeSql.Parameters["ntome"].Value = wbdnumtome;
+                unComdeSql.Parameters["ntome"].Value = unlivre.Wbd_num_tome;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("anneparution", MySqlDbType.String));
-                unComdeSql.Parameters["anneparution"].Value = wbdanneeparution;
+                unComdeSql.Parameters["anneparution"].Value = unlivre.wbd_annee_parution;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("format", MySqlDbType.String));
-                unComdeSql.Parameters["format"].Value = wbdformat;
+                unComdeSql.Parameters["format"].Value = unlivre.wFormat;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("nbrpage", MySqlDbType.String));
-                unComdeSql.Parameters["nbrpage"].Value = wbdpages;
+                unComdeSql.Parameters["nbrpage"].Value = unlivre.wpages;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("commetaire", MySqlDbType.String));
-                unComdeSql.Parameters["commetaire"].Value = wbdcommentaires;
+                unComdeSql.Parameters["commetaire"].Value = unlivre.wcommentaires;
 
                 unComdeSql.Parameters.Add(new MySqlParameter("wediteur", MySqlDbType.String));
                 unComdeSql.Parameters["wediteur"].Value = wedicode;
@@ -159,7 +159,7 @@ namespace LibMedia
         }
         //supprime Livre
 
-        public void Delete_livre(int leCode)
+        public void Delete_livre(Livre unlivre)
         {
           
                 _connexion.OuvrirConnexion();
@@ -169,15 +169,15 @@ namespace LibMedia
                 unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
                 unComdeSql.Connection = _connexion.getConnexion();
 
-                unComdeSql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int16));
-                unComdeSql.Parameters["wcode"].Value = leCode;
+                unComdeSql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int32));
+                unComdeSql.Parameters["wcode"].Value = unlivre.Wbd_code;
 
                 unComdeSql.ExecuteNonQuery();
 
                 _connexion.closeConnexion();
         }
         // ajout d'un motif dans archivage en meme temps que la sup
-        public void delet_motif(String wmotif, int leCode)
+        public void delet_motif(String wmotif, Livre unlivre)
         {
             _connexion.OuvrirConnexion();
 
@@ -187,9 +187,9 @@ namespace LibMedia
             unComdeSql.Connection = _connexion.getConnexion();
 
             unComdeSql.Parameters.Add(new MySqlParameter("wmotifret", MySqlDbType.String));
-            unComdeSql.Parameters["wmotifret"].Value = leCode;
-            unComdeSql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int16));
-            unComdeSql.Parameters["wcode"].Value = leCode;
+            unComdeSql.Parameters["wmotifret"].Value = wmotif;
+            unComdeSql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int32));
+            unComdeSql.Parameters["wcode"].Value = unlivre.Wbd_code;
             unComdeSql.ExecuteNonQuery();
 
             _connexion.closeConnexion();
@@ -226,7 +226,7 @@ namespace LibMedia
 
 
 
-        public DataTable recherche_livre(String wbdtitre,String wbdanneeparution)
+        public DataTable recherche_livre(Livre unlivre)
         {
             //déclaration et instanciation
             cmdsql = new MySqlCommand();
@@ -236,9 +236,9 @@ namespace LibMedia
             cmdsql.Connection = _connexion.getConnexion();
 
             cmdsql.Parameters.Add(new MySqlParameter("wtitre", MySqlDbType.String));
-            cmdsql.Parameters["wtitre"].Value = wbdtitre;
+            cmdsql.Parameters["wtitre"].Value = unlivre.wbd_titre;
             cmdsql.Parameters.Add(new MySqlParameter("wparution", MySqlDbType.String));
-            cmdsql.Parameters["wparution"].Value = wbdanneeparution;
+            cmdsql.Parameters["wparution"].Value = unlivre.wbd_annee_parution;
 
          
                 unAdapter = new MySqlDataAdapter(cmdsql);
