@@ -134,6 +134,23 @@ namespace LibMedia
             get { return bibliotheque; }
             set { bibliotheque = value; }
         }
+
+        public int getCode(string wTitre)
+        {
+            _connexion.OuvrirConnexion();
+            commande = new MySqlCommand();
+            commande.CommandText = "proc_code_couverture";
+            commande.CommandType = CommandType.StoredProcedure;
+            commande.Connection = _connexion.getConnexion();
+            commande.Parameters.Add(new MySqlParameter("unTitre", MySqlDbType.String));
+            commande.Parameters["unTitre"].Value = wTitre;
+            IDataReader reader = commande.ExecuteReader();
+            reader.Read();
+            int unCode = reader.GetInt16(0);
+            reader.Close();
+            _connexion.closeConnexion();
+            return unCode;
+        }
     }
 }
 
