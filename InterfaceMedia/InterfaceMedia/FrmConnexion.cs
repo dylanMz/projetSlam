@@ -33,6 +33,7 @@ namespace InterfaceMedia
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
+
             leNiveau = unUtilisateur.recup_connexion(txtIdentifiant.Text, txtPassword.Text);
             
             laVar = unUtilisateur.myVar;

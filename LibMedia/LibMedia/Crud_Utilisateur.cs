@@ -132,6 +132,7 @@ namespace LibMedia
             return unNiveau;
         }
 
+        //Ajout d'un utilisateur
         public void ajout_utilisateur(String wprenom, String wnom, String wpseudo, String wpassword, String wniveau)
         {
             if (uneconnexion.OuvrirConnexion() == true)
@@ -156,12 +157,18 @@ namespace LibMedia
                 unComdeSql.Parameters.Add(new MySqlParameter("wniveau", MySqlDbType.String));
                 unComdeSql.Parameters["wniveau"].Value = wniveau;
 
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
+                unComdeSql.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
+
                 unComdeSql.ExecuteNonQuery();
 
                 uneconnexion.closeConnexion();
             }
         }
 
+        //Modification d'un utilisateur
         public void modification_utilisateur(int wnum, String wprenom, String wnom, String wpseudo, String wpassword, String wniveau)
         {
             if (uneconnexion.OuvrirConnexion() == true)
@@ -194,7 +201,8 @@ namespace LibMedia
                 uneconnexion.closeConnexion();
             }
         }
-
+        
+        //Suppression d'un utilisateur
         public void suppression_utilisateur(int unNum)
         {
             if (uneconnexion.OuvrirConnexion() == true)

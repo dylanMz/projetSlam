@@ -299,6 +299,8 @@ namespace InterfaceMedia
             txtbxformat.Enabled = false;
             txtbxpage.Enabled = false;
             txtbxcommentaire.Enabled = false;
+            txtbxmotifexemp.Enabled = false;
+
    
             txtbxreferencerexemp.Enabled = false;
             rdbtnA.Enabled = false;
@@ -324,7 +326,7 @@ namespace InterfaceMedia
             txtbxformat.BackColor = Color.Silver;
             txtbxpage.BackColor = Color.Silver;
             txtbxcommentaire.BackColor = Color.Silver;
-      
+            txtbxmotifexemp.BackColor = Color.Silver;
             txtbxreferencerexemp.BackColor = Color.Silver;
             cmbbxauteur.BackColor = Color.Silver;
             cmbbxediteur.BackColor = Color.Silver;
@@ -349,9 +351,9 @@ namespace InterfaceMedia
          
             txtbxreferencerexemp.Text = "";
 
-            cmbbxauteur.Text = "";
-            cmbbxediteur.Text = "";
-            cmbbxserie.Text = "";
+            cmbbxauteur.SelectedItem = null;
+            cmbbxediteur.SelectedItem = null;
+            cmbbxserie.SelectedItem = null;
             codelivreexmp.Text = "";
             txtbxmotif.Text = "";
 
@@ -518,15 +520,14 @@ namespace InterfaceMedia
 
 
                     txtbxreferencerexemp.Enabled = true;
-                    txtbxmotif.Visible = true;
-                    lblmotif.Visible = true;
-                    lblcommentaire.Visible = false;
-                    txtbxcommentaire.Visible = false;
+                    txtbxmotifexemp.Enabled = true;
+
 
                     // modification des couleur 
 
 
 
+                    txtbxmotifexemp.BackColor = Color.White;
 
                     txtbxreferencerexemp.BackColor = Color.White;
                 }
@@ -541,7 +542,7 @@ namespace InterfaceMedia
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
                     unexemplaire.delete_exemplaire(txtbxreferencerexemp.Text);
-                    unexemplaire.delete_motif(txtbxreferencerexemp.Text, txtbxmotif.Text);
+                    unexemplaire.delete_motif(txtbxreferencerexemp.Text, txtbxmotifexemp.Text);
                 }
 
 
@@ -755,6 +756,7 @@ namespace InterfaceMedia
             cmbbxauteur.Enabled = false;
             cmbbxediteur.Enabled = false;
             cmbbxserie.Enabled = false;
+            txtbxmotifexemp.Enabled = false;
 
             // modification des couleur 
             txtbxcode.BackColor = Color.Silver;
@@ -767,7 +769,8 @@ namespace InterfaceMedia
             txtbxformat.BackColor = Color.Silver;
             txtbxpage.BackColor = Color.Silver;
             txtbxcommentaire.BackColor = Color.Silver;
-         
+
+            txtbxmotifexemp.BackColor = Color.Silver;
             txtbxreferencerexemp.BackColor = Color.Silver;
             codelivreexmp.BackColor = Color.Silver;
             cmbbxauteur.BackColor = Color.Silver;
@@ -1031,8 +1034,9 @@ namespace InterfaceMedia
             Application.Run(new FrmAccueilTest(lblRang.Text));
         }
 
-     
+   
 
+      
     }
 }
 

@@ -46,7 +46,7 @@ namespace InterfaceMedia
         private void picHome_Click(object sender, EventArgs e)
         {
             //permet de récuperer le niveau de l'utilisateur
-            unNiveau = lblRang.Text;
+            leNiveau = lblRang.Text;
             //Ferme FrmEmprunteur
             this.Close();
             //Permet d'ouvrir FrmAccueil
@@ -165,9 +165,20 @@ namespace InterfaceMedia
                 recupNiveau();
 
                 //Gestion des erreurs
-                if (txtPassword.Text == "")
+                if (txtPassword.Text == "" | txtPseudo.Text == "")
                 {
                     MessageBox.Show("Un ou des champs obligatoire.s sont manquant.s", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    //Reinistialisation des textbox et des boutons radios
+                    unId.Text = "";
+                    txtNom.Text = "";
+                    txtPseudo.Text = "";
+                    txtPrenom.Text = "";
+                    txtPassword.Text = "";
+                    metroRadioAdmin.Checked = false;
+                    metroRadioPersonnel.Checked = false;
+                    metroRadioSecteur.Checked = false;
+                    metroRadioStock.Checked = false;
                 }
                 else
                 {
@@ -251,7 +262,7 @@ namespace InterfaceMedia
                 unUtilisateur.modification_utilisateur(Convert.ToInt16(unId.Text), txtPrenom.Text, txtNom.Text, txtPseudo.Text, txtPassword.Text, unNiveau);
 
 
-                //Reinistialisation des textbox
+                //Reinistialisation des textbox et des boutons radios
                 unId.Text = "";
                 txtNom.Text = "";
                 txtPseudo.Text = "";
@@ -260,6 +271,7 @@ namespace InterfaceMedia
                 metroRadioAdmin.Checked = false;
                 metroRadioPersonnel.Checked = false;
                 metroRadioSecteur.Checked = false;
+                metroRadioStock.Checked = false;
 
                 RefreshGrid();
             }
@@ -375,7 +387,7 @@ namespace InterfaceMedia
         }
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest(unNiveau));
+            Application.Run(new FrmAccueilTest(leNiveau));
         }
         public void RefreshGrid()
         {
@@ -394,16 +406,16 @@ namespace InterfaceMedia
                 unNiveau = "Personnel";
             }
 
-            if (metroRadioSecteur.Checked == true)
+            else if (metroRadioSecteur.Checked == true)
             {
                 unNiveau = "Responsable secteur";
             }
 
-            if (metroRadioStock.Checked == true)
+            else if (metroRadioStock.Checked == true)
             {
                 unNiveau = "Responsable stock";
             }
-            else  unNiveau = "Admin";
+            else unNiveau = "Admin";
 
 
         }
