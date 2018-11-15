@@ -115,6 +115,102 @@ namespace LibMedia
             
         }
 
+        //Ajouter un auteur avec une date de naissance et décès null
+        public void ajouterAuteurNaissNull(String unNom, String unPrenom, String unPseudo, DateTime? uneDateNaiss, DateTime? uneDateDeces, String unPays, String uneBiographie)
+        {
+            if (connexion.OuvrirConnexion() == true)
+            {
+                //déclaration et instanciation
+                ajouterAut = new MySqlCommand();
+                //associer à la property CommandText la P.stockée
+                ajouterAut.CommandText = "Proc_insert_auteur";
+                //associer au type du command le fait que c’est une procédure stockée
+                ajouterAut.CommandType = CommandType.StoredProcedure;
+                //associer la connection du command et celle en cours
+                ajouterAut.Connection = connexion.getConnexion();
+
+                //mise en place des paramètres
+                //nom
+                ajouterAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                ajouterAut.Parameters["wnom"].Value = unNom;
+                //Prenom
+                ajouterAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                ajouterAut.Parameters["wprenom"].Value = unPrenom;
+                //Pseudo
+                ajouterAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                ajouterAut.Parameters["wpseudo"].Value = unPseudo;
+                //dateNais
+                ajouterAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
+                ajouterAut.Parameters["wdateNaiss"].Value = null;
+                //dateDeces
+                ajouterAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
+                ajouterAut.Parameters["wdeces"].Value = null;
+                //Pays
+                ajouterAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
+                ajouterAut.Parameters["wpays"].Value = unPays;
+                //Biographie
+                ajouterAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
+                ajouterAut.Parameters["wbio"].Value = uneBiographie;
+
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("out_code_retour", MySqlDbType.Int16);
+                ajouterAut.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
+
+                ajouterAut.ExecuteNonQuery();
+                connexion.closeConnexion();
+            }
+
+        }
+
+        //ajouter un uteur avec une date de nassance mais pas de date de décès
+        public void ajouterAuteurDecesNull(String unNom, String unPrenom, String unPseudo, DateTime uneDateNaiss, DateTime? uneDateDeces, String unPays, String uneBiographie)
+        {
+            if (connexion.OuvrirConnexion() == true)
+            {
+                //déclaration et instanciation
+                ajouterAut = new MySqlCommand();
+                //associer à la property CommandText la P.stockée
+                ajouterAut.CommandText = "Proc_insert_auteur";
+                //associer au type du command le fait que c’est une procédure stockée
+                ajouterAut.CommandType = CommandType.StoredProcedure;
+                //associer la connection du command et celle en cours
+                ajouterAut.Connection = connexion.getConnexion();
+
+                //mise en place des paramètres
+                //nom
+                ajouterAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                ajouterAut.Parameters["wnom"].Value = unNom;
+                //Prenom
+                ajouterAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                ajouterAut.Parameters["wprenom"].Value = unPrenom;
+                //Pseudo
+                ajouterAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                ajouterAut.Parameters["wpseudo"].Value = unPseudo;
+                //dateNais
+                ajouterAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
+                ajouterAut.Parameters["wdateNaiss"].Value = uneDateNaiss;
+                //dateDeces
+                ajouterAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
+                ajouterAut.Parameters["wdeces"].Value = null;
+                //Pays
+                ajouterAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
+                ajouterAut.Parameters["wpays"].Value = unPays;
+                //Biographie
+                ajouterAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
+                ajouterAut.Parameters["wbio"].Value = uneBiographie;
+
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("out_code_retour", MySqlDbType.Int16);
+                ajouterAut.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
+
+                ajouterAut.ExecuteNonQuery();
+                connexion.closeConnexion();
+            }
+
+        }
+
         //Modifier auteur
         public void modifierAuteur(String unNom, String unPrenom, String unPseudo, DateTime uneDateNaiss, DateTime uneDateDeces, String unPays, String uneBiographie, int unId)
         {
@@ -159,6 +255,98 @@ namespace LibMedia
                 connexion.closeConnexion();
             }
                 
+        }
+
+        //modification d'un auteur avec une date de naissance null
+        public void modifierAuteurNaissNull(String unNom, String unPrenom, String unPseudo, DateTime? uneDateNaiss, DateTime? uneDateDeces, String unPays, String uneBiographie, int unId)
+        {
+            if (connexion.OuvrirConnexion() == true)
+            {
+                //déclaration et instanciation
+                modifierAut = new MySqlCommand();
+                //associer à la property CommandText la P.stockée
+                modifierAut.CommandText = "Proc_modif_auteur";
+                //associer au type du command le fait que c’est une procédure stockée
+                modifierAut.CommandType = CommandType.StoredProcedure;
+                //associer la connection du command et celle en cours
+                modifierAut.Connection = connexion.getConnexion();
+
+                //mise en place des paramètres
+                //id
+                modifierAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.String));
+                modifierAut.Parameters["wid"].Value = unId;
+                //nom
+                modifierAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                modifierAut.Parameters["wnom"].Value = unNom;
+                //Prenom
+                modifierAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                modifierAut.Parameters["wprenom"].Value = unPrenom;
+                //Pseudo
+                modifierAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                modifierAut.Parameters["wpseudo"].Value = unPseudo;
+                //dateNais
+                modifierAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
+                modifierAut.Parameters["wdateNaiss"].Value = null;
+                //dateDeces
+                modifierAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
+                modifierAut.Parameters["wdeces"].Value = null;
+                //Pays
+                modifierAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
+                modifierAut.Parameters["wpays"].Value = unPays;
+                //Biographie
+                modifierAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
+                modifierAut.Parameters["wbio"].Value = uneBiographie;
+
+                modifierAut.ExecuteNonQuery();
+                connexion.closeConnexion();
+            }
+
+        }
+
+        //Modification auteur avec une date de décès null
+        public void modifierAuteurDecesNull(String unNom, String unPrenom, String unPseudo, DateTime uneDateNaiss, DateTime? uneDateDeces, String unPays, String uneBiographie, int unId)
+        {
+            if (connexion.OuvrirConnexion() == true)
+            {
+                //déclaration et instanciation
+                modifierAut = new MySqlCommand();
+                //associer à la property CommandText la P.stockée
+                modifierAut.CommandText = "Proc_modif_auteur";
+                //associer au type du command le fait que c’est une procédure stockée
+                modifierAut.CommandType = CommandType.StoredProcedure;
+                //associer la connection du command et celle en cours
+                modifierAut.Connection = connexion.getConnexion();
+
+                //mise en place des paramètres
+                //id
+                modifierAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.String));
+                modifierAut.Parameters["wid"].Value = unId;
+                //nom
+                modifierAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                modifierAut.Parameters["wnom"].Value = unNom;
+                //Prenom
+                modifierAut.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
+                modifierAut.Parameters["wprenom"].Value = unPrenom;
+                //Pseudo
+                modifierAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                modifierAut.Parameters["wpseudo"].Value = unPseudo;
+                //dateNais
+                modifierAut.Parameters.Add(new MySqlParameter("wdateNaiss", MySqlDbType.Date));
+                modifierAut.Parameters["wdateNaiss"].Value = uneDateNaiss;
+                //dateDeces
+                modifierAut.Parameters.Add(new MySqlParameter("wdeces", MySqlDbType.Date));
+                modifierAut.Parameters["wdeces"].Value = null;
+                //Pays
+                modifierAut.Parameters.Add(new MySqlParameter("wpays", MySqlDbType.String));
+                modifierAut.Parameters["wpays"].Value = unPays;
+                //Biographie
+                modifierAut.Parameters.Add(new MySqlParameter("wbio", MySqlDbType.String));
+                modifierAut.Parameters["wbio"].Value = uneBiographie;
+
+                modifierAut.ExecuteNonQuery();
+                connexion.closeConnexion();
+            }
+
         }
 
         //recherche_auteur

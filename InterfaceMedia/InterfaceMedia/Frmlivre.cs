@@ -22,11 +22,12 @@ namespace InterfaceMedia
         private List<String> rempauteur;
         private List<String> remediteur;
         private List<String> remserie;
+        private String leNiveau;
         Thread th;
 
 
 
-        public Frmlivre()
+        public Frmlivre(String leNiveau)
         {
             InitializeComponent();
             connexion = new ConnexionBase();
@@ -37,12 +38,16 @@ namespace InterfaceMedia
             remp_cmbbx_nomauteur();
             remp_cmbbx_nomediteur();
             remp_cmbbx_nomserie();
+
+            this.leNiveau = leNiveau;
+            lblRang.Text = this.leNiveau;
         }
 
 
 
 
         #region combo box
+        //remplissage des 2 combobox auteur 
         public void remp_cmbbx_nomauteur()
         {
             rempauteur = unlivre.affiche_nomauteur();
@@ -53,6 +58,7 @@ namespace InterfaceMedia
                 if (!rempauteur[i].Equals(""))
                 {
                     cmbbxauteur.Items.Add(rempauteur[i]);
+                    cmbbauteurdessin.Items.Add(rempauteur[i]);
                 }
             }
         }
@@ -139,6 +145,7 @@ namespace InterfaceMedia
                     txtbxcommentaire.Enabled = true;
              
                     cmbbxauteur.Enabled = true;
+                    cmbbauteurdessin.Enabled = true;
                     cmbbxediteur.Enabled = true;
                     cmbbxserie.Enabled = true;
 
@@ -155,6 +162,7 @@ namespace InterfaceMedia
                     txtbxcommentaire.BackColor = Color.White;
                    
                     cmbbxauteur.BackColor = Color.White;
+                    cmbbauteurdessin.BackColor = Color.White;
                     cmbbxediteur.BackColor = Color.White;
                     cmbbxserie.BackColor = Color.White;
                 }
@@ -210,8 +218,25 @@ namespace InterfaceMedia
 
 
                     parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
+                    if (!txtbxtitre.Text.Equals("") && !txtbxisbn.Equals("") && !txtbxcouleur.Text.Equals("") && !txtbxtome.Text.Equals("") && !parutiontotal.Equals("") && !txtbxformat.Text.Equals("") && !txtbxpage.Text.Equals("") && !txtbxcommentaire.Text.Equals("") && cmbbxediteur.Text.Equals("") && cmbbxserie.Text.Equals(""))
+                    {
 
-                    unlivre.ajout_livre(txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text, cmbbxediteur.Text, cmbbxserie.Text);
+                        unlivre.ajout_livre(txtbxtitre.Text, txtbxisbn.Text, txtbxcouleur.Text, Int32.Parse(txtbxtome.Text), parutiontotal, txtbxformat.Text, Int32.Parse(txtbxpage.Text), txtbxcommentaire.Text, cmbbxediteur.Text, cmbbxserie.Text);
+
+                        if (cmbbxauteur.Text != null)
+                        {
+                            unlivre.insert_participer(cmbbxauteur.Text, 0);
+                        }
+                        if (cmbbauteurdessin.Text != null)
+                        {
+                            unlivre.insert_participer(cmbbauteurdessin.Text, 1);
+                        }
+                    }
+                    else
+                    {
+                        btDialog("Tout les champs doivent etre remplis", true);
+                    }
+                    
                 }
                 // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler
                 btnAjouter.Text = "Ajouter";
@@ -241,6 +266,7 @@ namespace InterfaceMedia
                 rdbtntb.Enabled = false;
                 codelivreexmp.Enabled = false;
                 cmbbxauteur.Enabled = false;
+                cmbbauteurdessin.Enabled = false;
                 cmbbxediteur.Enabled = false;
                 cmbbxserie.Enabled = false;
 
@@ -259,6 +285,7 @@ namespace InterfaceMedia
                 txtbxreferencerexemp.BackColor = Color.Silver;
                 codelivreexmp.BackColor = Color.Silver;
                 cmbbxauteur.BackColor = Color.Silver;
+                cmbbauteurdessin.BackColor = Color.Silver;
                 cmbbxediteur.BackColor = Color.Silver;
                 cmbbxserie.BackColor = Color.Silver;
 
@@ -308,6 +335,7 @@ namespace InterfaceMedia
             rdbtnta.Enabled = false;
             rdbtntb.Enabled = false;
             cmbbxauteur.Enabled = false;
+            cmbbauteurdessin.Enabled = false;
             cmbbxediteur.Enabled = false;
             cmbbxserie.Enabled = false;
             codelivreexmp.Enabled = false;
@@ -329,6 +357,7 @@ namespace InterfaceMedia
             txtbxmotifexemp.BackColor = Color.Silver;
             txtbxreferencerexemp.BackColor = Color.Silver;
             cmbbxauteur.BackColor = Color.Silver;
+            cmbbauteurdessin.BackColor = Color.Silver;
             cmbbxediteur.BackColor = Color.Silver;
             cmbbxserie.BackColor = Color.Silver;
             codelivreexmp.BackColor = Color.Silver;
@@ -352,6 +381,7 @@ namespace InterfaceMedia
             txtbxreferencerexemp.Text = "";
 
             cmbbxauteur.SelectedItem = null;
+            cmbbauteurdessin.SelectedItem = null;
             cmbbxediteur.SelectedItem = null;
             cmbbxserie.SelectedItem = null;
             codelivreexmp.Text = "";
@@ -604,6 +634,7 @@ namespace InterfaceMedia
                   
 
                     cmbbxauteur.Enabled = true;
+                    cmbbauteurdessin.Enabled = true;
                     cmbbxediteur.Enabled = true;
                     cmbbxserie.Enabled = true;
 
@@ -622,6 +653,7 @@ namespace InterfaceMedia
                 
 
                     cmbbxauteur.BackColor = Color.White;
+                    cmbbauteurdessin.BackColor = Color.White;
                     cmbbxediteur.BackColor = Color.White;
                     cmbbxserie.BackColor = Color.White;
 
@@ -709,6 +741,7 @@ namespace InterfaceMedia
                 rdbtntb.Enabled = false;
                 codelivreexmp.Enabled = false;
                 cmbbxauteur.Enabled = false;
+                cmbbauteurdessin.Enabled = false;
                 cmbbxediteur.Enabled = false;
                 cmbbxserie.Enabled = false;
 
@@ -727,6 +760,7 @@ namespace InterfaceMedia
                 txtbxreferencerexemp.BackColor = Color.Silver;
                 codelivreexmp.BackColor = Color.Silver;
                 cmbbxauteur.BackColor = Color.Silver;
+                cmbbauteurdessin.BackColor = Color.Silver;
                 cmbbxediteur.BackColor = Color.Silver;
                 cmbbxserie.BackColor = Color.Silver;
                 txtbxcode.BackColor = Color.Silver;
@@ -754,6 +788,7 @@ namespace InterfaceMedia
             rdbtntb.Enabled = false;
             codelivreexmp.Enabled = false;
             cmbbxauteur.Enabled = false;
+            cmbbauteurdessin.Enabled = false;
             cmbbxediteur.Enabled = false;
             cmbbxserie.Enabled = false;
             txtbxmotifexemp.Enabled = false;
@@ -774,6 +809,7 @@ namespace InterfaceMedia
             txtbxreferencerexemp.BackColor = Color.Silver;
             codelivreexmp.BackColor = Color.Silver;
             cmbbxauteur.BackColor = Color.Silver;
+            cmbbauteurdessin.BackColor = Color.Silver;
             cmbbxediteur.BackColor = Color.Silver;
             cmbbxserie.BackColor = Color.Silver;
             #endregion
@@ -822,6 +858,7 @@ namespace InterfaceMedia
 
 
                 cmbbxauteur.Enabled = true;
+                cmbbauteurdessin.Enabled = true;
                 cmbbxediteur.Enabled = true;
                 cmbbxserie.Enabled = true;
 
@@ -838,9 +875,9 @@ namespace InterfaceMedia
                 txtbxformat.BackColor = Color.White;
                 txtbxpage.BackColor = Color.White;
                 txtbxcommentaire.BackColor = Color.White;
-            
 
 
+                cmbbauteurdessin.BackColor = Color.White;
                 cmbbxauteur.BackColor = Color.White;
                 cmbbxediteur.BackColor = Color.White;
                 cmbbxserie.BackColor = Color.White;
@@ -883,8 +920,8 @@ namespace InterfaceMedia
                 txtbxformat.Enabled = true;
                 txtbxpage.Enabled = true;
                 txtbxcommentaire.Enabled = true;
-           
 
+                cmbbauteurdessin.Enabled = true;
                 cmbbxauteur.Enabled = true;
                 cmbbxediteur.Enabled = true;
                 cmbbxserie.Enabled = true;
@@ -900,9 +937,9 @@ namespace InterfaceMedia
                 txtbxformat.BackColor = Color.White;
                 txtbxpage.BackColor = Color.White;
                 txtbxcommentaire.BackColor = Color.White;
-           
 
 
+                cmbbauteurdessin.BackColor = Color.White;
                 cmbbxauteur.BackColor = Color.White;
                 cmbbxediteur.BackColor = Color.White;
                 cmbbxserie.BackColor = Color.White;
@@ -1021,6 +1058,9 @@ namespace InterfaceMedia
         // retourne au menu
         private void picHome_Click(object sender, EventArgs e)
         {
+            //permet de récuperer le niveau de l'utilisateur
+            leNiveau = lblRang.Text;
+
             this.Close();
             th = new Thread(openAccueil);
             th.SetApartmentState(ApartmentState.STA);
@@ -1031,12 +1071,25 @@ namespace InterfaceMedia
     
         private void openAccueil()
         {
-            Application.Run(new FrmAccueilTest(lblRang.Text));
+            Application.Run(new FrmAccueilTest(leNiveau));
         }
 
-   
+        //Methode affichant une boite de dialogue avec un message personnaliser
+        public void btDialog(String leMessage, Boolean zeroOuUn)
+        {
+            if (zeroOuUn == true)
+            {
+                MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (zeroOuUn == false)
+            {
+                MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+            }
 
-      
+        }
+
+
     }
+
 }
 
