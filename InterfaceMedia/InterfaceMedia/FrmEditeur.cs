@@ -43,6 +43,7 @@ namespace InterfaceMedia
             DateTimeCreation.Format = DateTimePickerFormat.Custom;
             DateTimeCreation.CustomFormat = "yyyy";
             DateTimeCreation.ShowUpDown = true;
+
         }
 
         //Rempli le Grid avec les emprunteurs
@@ -55,108 +56,26 @@ namespace InterfaceMedia
         {
             if (btnAjouter.Text.Equals("Ajouter"))
             {
-                btnAjouter.BackColor = Color.Green;
-                btnAjouter.Text = "Valider";
+                clickBouton(btnAjouter);
 
-                //le bouton annuler apparait
-                btnAnnuler.Visible = true;
-
-                //Desactive tous les autres boutons
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnRechercher.Enabled = false;
-
-                //Les textbox à remplir pour l'insertion se déverouille
-                txtNom.Enabled = true;
-                DateTimeCreation.Enabled = true;
-                txtMail.Enabled = true;
-                txtCodePostal.Enabled = true;
-                txtAdr.Enabled = true;
-                txtTel.Enabled = true;
-                txtFax.Enabled = true;
-                txtVille.Enabled = true;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
-                txtNom.BackColor = Color.White;
-                DateTimeCreation.BackColor = Color.White;
-                txtMail.BackColor = Color.White;
-                txtCodePostal.BackColor = Color.White;
-                txtAdr.BackColor = Color.White;
-                txtTel.BackColor = Color.White;
-                txtFax.BackColor = Color.White;
-                txtVille.BackColor = Color.White;
-
-                //Reinistialisation des textbox
-                code.Text = "";
-                txtNom.Text = "";
-                DateTimeCreation.Text = "";
-                txtMail.Text = "";
-                txtCodePostal.Text = "";
-                txtAdr.Text = "";
-                txtTel.Text = "";
-                txtFax.Text = "";
-                txtVille.Text = "";
+                btnAjouter.Enabled = true;
             }
 
             else if (btnAjouter.Text.Equals("Valider"))
             {
-
-                btnAjouter.Text = "Ajouter";
-                btnAjouter.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
-
-                //Remet les accessibilités des boutons par défauts
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnAjouter.Enabled = true;
-                btnRechercher.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtNom.Enabled = false;
-                DateTimeCreation.Enabled = false;
-                txtMail.Enabled = false;
-                txtCodePostal.Enabled = false;
-                txtAdr.Enabled = false;
-                txtTel.Enabled = false;
-                txtFax.Enabled = false;
-                txtVille.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtNom.BackColor = Color.Silver;
-                DateTimeCreation.BackColor = Color.Silver;
-                txtMail.BackColor = Color.Silver;
-                txtCodePostal.BackColor = Color.Silver;
-                txtAdr.BackColor = Color.Silver;
-                txtTel.BackColor = Color.Silver;
-                txtFax.BackColor = Color.Silver;
-                txtVille.BackColor = Color.Silver;
-
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
-
-
 
                 //Ajout d'un editeur
                 Editeur lEditeur = new Editeur(txtNom.Text, uneDateCreation, txtAdr.Text, txtCodePostal.Text,txtVille.Text, txtTel.Text, txtFax.Text, txtMail.Text);
                 unCodeSortie = unEditeur.ajout_editeur(lEditeur);
 
+                //Affiche une erreur si le nom de l'éditeur est déjà présent dans la base.
                 if (unCodeSortie == 99)
                 {
                     MessageBox.Show("Cet editeur est déjà présent dans la base, insertion annulé", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-                //Reinistialisation des textbox
-                code.Text = "";
-                txtNom.Text = "";
-                DateTimeCreation.Text = "";
-                txtMail.Text = "";
-                txtCodePostal.Text = "";
-                txtAdr.Text = "";
-                txtTel.Text = "";
-                txtFax.Text = "";
-                txtVille.Text = "";
-
-
-
+                clickValider(btnAjouter, "Ajouter");
 
                 RefreshGrid();
             }
@@ -202,36 +121,7 @@ namespace InterfaceMedia
 
             else if (btnModifier.Text.Equals("Valider"))
             {
-                
-                btnModifier.Text = "Modifier";
-                btnModifier.BackColor = Color.SteelBlue;
-                btnAnnuler.Visible = false;
 
-                //Remet les accessibilités des boutons par défauts
-                btnModifier.Enabled = false;
-                btnSupprimer.Enabled = false;
-                btnAjouter.Enabled = true;
-                btnRechercher.Enabled = true;
-
-                //Les textbox sont inacessibles.
-                txtNom.Enabled = false;
-                DateTimeCreation.Enabled = false;
-                txtMail.Enabled = false;
-                txtCodePostal.Enabled = false;
-                txtAdr.Enabled = false;
-                txtTel.Enabled = false;
-                txtFax.Enabled = false;
-                txtVille.Enabled = false;
-
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                txtNom.BackColor = Color.Silver;
-                DateTimeCreation.BackColor = Color.Silver;
-                txtMail.BackColor = Color.Silver;
-                txtCodePostal.BackColor = Color.Silver;
-                txtAdr.BackColor = Color.Silver;
-                txtTel.BackColor = Color.Silver;
-                txtFax.BackColor = Color.Silver;
-                txtVille.BackColor = Color.Silver;
 
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
@@ -239,7 +129,9 @@ namespace InterfaceMedia
 
                 //Modification d'un editeur
                 Editeur lEditeur = new Editeur(Convert.ToInt16(code.Text), txtNom.Text, uneDateCreation, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtTel.Text, txtFax.Text, txtMail.Text, ancienNom);
-                unEditeur.modification_editeur(lEditeur);
+                unEditeur.modification_editeur(lEditeur, ancienNom);
+
+                clickValider(btnModifier, "Modifier");
 
                 //Reinistialisation des textbox
                 code.Text = "";
@@ -365,9 +257,11 @@ namespace InterfaceMedia
                 //Recherche d'un ou de plusieurs editeurs
                 uneconnexion = new ConnexionBase();
                 unEditeur = new Crud_Editeur(uneconnexion);
-                unEditeur.recherche_editeur(txtNom.Text);
-                RempGridEditeur(unEditeur.lesEditeurs);
 
+                Editeur lEditeur = new Editeur(txtNom.Text);
+                unEditeur.recherche_editeur(lEditeur);
+
+                RempGridEditeur(unEditeur.lesEditeurs);
 
             }
         }
@@ -471,9 +365,18 @@ namespace InterfaceMedia
             txtFax.Text = GridEditeur.CurrentRow.Cells["Fax"].Value.ToString();
             txtMail.Text = GridEditeur.CurrentRow.Cells["Mail"].Value.ToString();
 
-            //Déverouille le bouton modifier et supprimer.
-            btnModifier.Enabled = true;
-            btnSupprimer.Enabled = true;
+            //Déverouille les boutons modifier et supprimer en fonction des droits de l'utilisateur.
+            if (leNiveau.Equals("Responsable stock"))
+            {
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = false;
+            }
+            else
+            {
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+            }
+
 
         }
 
@@ -485,6 +388,9 @@ namespace InterfaceMedia
                 unEditeur = new Crud_Editeur(uneconnexion);
                 unEditeur.Recup_Table_Editeur_archive();
                 RempGridEditeur(unEditeur.lesEditeurs);
+
+                GridEditeur.Columns["_AncienNom"].Visible = false;
+
                 GridEditeur.Update();
                 GridEditeur.Refresh();
             }
@@ -494,12 +400,120 @@ namespace InterfaceMedia
                 unEditeur = new Crud_Editeur(uneconnexion);
                 unEditeur.Recup_Table_Editeur();
                 RempGridEditeur(unEditeur.lesEditeurs);
+
+                GridEditeur.Columns["_AncienNom"].Visible = false;
+
                 GridEditeur.Update();
                 GridEditeur.Refresh();
             }
 
         }
 
+        //Méthode correspondant au click sur un des boutons
+        public void clickBouton(MetroFramework.Controls.MetroTile btn)
+        {
+            btn.BackColor = Color.Green;
+            btn.Text = "Valider";
 
+            //le bouton annuler apparait
+            btnAnnuler.Visible = true;
+
+            //Desactive tous les autres boutons
+            btnAjouter.Enabled = false;
+            btnModifier.Enabled = false;
+            btnSupprimer.Enabled = false;
+            btnRechercher.Enabled = false;
+
+            //Les textbox à remplir pour l'insertion se déverouille
+            txtNom.Enabled = true;
+            DateTimeCreation.Enabled = true;
+            txtMail.Enabled = true;
+            txtCodePostal.Enabled = true;
+            txtAdr.Enabled = true;
+            txtTel.Enabled = true;
+            txtFax.Enabled = true;
+            txtVille.Enabled = true;
+
+            //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
+            txtNom.BackColor = Color.White;
+            DateTimeCreation.BackColor = Color.White;
+            txtMail.BackColor = Color.White;
+            txtCodePostal.BackColor = Color.White;
+            txtAdr.BackColor = Color.White;
+            txtTel.BackColor = Color.White;
+            txtFax.BackColor = Color.White;
+            txtVille.BackColor = Color.White;
+
+            //Reinistialisation des textbox
+            code.Text = "";
+            txtNom.Text = "";
+            DateTimeCreation.Text = "";
+            txtMail.Text = "";
+            txtCodePostal.Text = "";
+            txtAdr.Text = "";
+            txtTel.Text = "";
+            txtFax.Text = "";
+            txtVille.Text = "";
+
+        }
+
+        //Methode correspondant la validation des saisies utilisateurs
+        public void clickValider(MetroFramework.Controls.MetroTile btn, string nomBtn)
+        {
+
+            btn.Text = nomBtn;
+            btn.BackColor = Color.SteelBlue;
+            btnAnnuler.Visible = false;
+
+            /*//Re active les boutons
+            btnAjouter.Enabled = true;
+            btnModifier.Enabled = true;
+            btnSupprimer.Enabled = true;
+            btnRechercher.Enabled = true;*/
+
+            //Déverouille les boutons modifier et supprimer en fonction des droits de l'utilisateur.
+            if (leNiveau.Equals("Responsable stock"))
+            {
+                btnModifier.Enabled = false;
+                btnSupprimer.Enabled = false;
+            }
+            else
+            {
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+            }
+
+            //Les textbox sont inacessibles.
+            txtNom.Enabled = false;
+            DateTimeCreation.Enabled = false;
+            txtMail.Enabled = false;
+            txtCodePostal.Enabled = false;
+            txtAdr.Enabled = false;
+            txtTel.Enabled = false;
+            txtFax.Enabled = false;
+            txtVille.Enabled = false;
+
+            //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+            txtNom.BackColor = Color.Silver;
+            DateTimeCreation.BackColor = Color.Silver;
+            txtMail.BackColor = Color.Silver;
+            txtCodePostal.BackColor = Color.Silver;
+            txtAdr.BackColor = Color.Silver;
+            txtTel.BackColor = Color.Silver;
+            txtFax.BackColor = Color.Silver;
+            txtVille.BackColor = Color.Silver;
+
+            //Reinistialisation des textbox
+            code.Text = "";
+            txtNom.Text = "";
+            DateTimeCreation.Text = "";
+            txtMail.Text = "";
+            txtCodePostal.Text = "";
+            txtAdr.Text = "";
+            txtTel.Text = "";
+            txtFax.Text = "";
+            txtVille.Text = "";
+
+        }
     }
 }
