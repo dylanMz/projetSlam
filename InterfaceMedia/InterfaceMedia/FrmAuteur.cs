@@ -28,7 +28,7 @@ namespace InterfaceMedia
         {
             InitializeComponent();
             connexion = new ConnexionBase();
-            unAuteur = new Crud_Auteur(connexion);
+            unAuteur = new Crud_Auteur();
             dgvAuteur.DataSource = unAuteur.afficheAuteur();
             remp_cmbPays();
 
@@ -121,18 +121,22 @@ namespace InterfaceMedia
                     pays = cmbPays.Text;
                 }
 
+                
                 //ajout de l'auteur à la bdd
                 if (chkDateNaiss.Checked == true && rdoDecede.Checked == true) //on a une date de naisance et une date de décès
                 {
-                    unAuteur.ajouterAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), pays, txtBio.Text);
+                    Auteur lAuteur = new Auteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), pays, txtBio.Text);
+                    unAuteur.ajouterAuteur(lAuteur);
                 }
                 else if (chkDateNaiss.Checked == false && rdoDecede.Checked == false) //on a une date de naissance mais pas de date de décès
                 {
-                    unAuteur.ajouterAuteurDecesNull(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), null, pays, txtBio.Text);
+                    Auteur lAuteur = new Auteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), null, pays, txtBio.Text);
+                    unAuteur.ajouterAuteur(lAuteur);
                 }
                 else if (chkDateNaiss.Checked == true && rdoDecede.Checked == false) //on a pas de date de naissance ni de date de deces
                 {
-                    unAuteur.ajouterAuteurNaissNull(txtNom.Text, txtPrenom.Text, txtPseudo.Text, null, null, pays, txtBio.Text);
+                    Auteur lAuteur = new Auteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, null, null, pays, txtBio.Text);
+                    unAuteur.ajouterAuteur(lAuteur);
                 }
 
                 //btnValider --> btn Ajouter
@@ -189,15 +193,18 @@ namespace InterfaceMedia
                 //ajout de l'auteur à la bdd
                 if (chkDateNaiss.Checked == true && rdoDecede.Checked == true) //on a une date de naisance et une date de décès
                 {
-                    unAuteur.modifierAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), pays, txtBio.Text, int.Parse(txtCode.Text));
+                    Auteur lAuteur = new Auteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), pays, txtBio.Text);
+                    unAuteur.modifierAuteur(lAuteur);
                 }
                 else if (chkDateNaiss.Checked == false && rdoDecede.Checked == false) //on a une date de naissance mais pas de date de décès
                 {
-                    unAuteur.modifierAuteurDecesNull(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), null, pays, txtBio.Text, int.Parse(txtCode.Text));
+                    Auteur lAuteur = new Auteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), null, pays, txtBio.Text);
+                    unAuteur.modifierAuteur(lAuteur);
                 }
                 else if (chkDateNaiss.Checked == true && rdoDecede.Checked == false) //on a pas de date de naissance ni de date de deces
                 {
-                    unAuteur.modifierAuteurNaissNull(txtNom.Text, txtPrenom.Text, txtPseudo.Text, null, null, pays, txtBio.Text, int.Parse(txtCode.Text));
+                    Auteur lAuteur = new Auteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, null, null, pays, txtBio.Text);
+                    unAuteur.modifierAuteur(lAuteur);
                 }
 
                 //modifications visuelles
@@ -251,7 +258,8 @@ namespace InterfaceMedia
                 }
 
                 //modifiaction de l'auteur dans la bdd
-                unAuteur.modifierAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), txtPays.Text, txtBio.Text, int.Parse(txtCode.Text));
+                Auteur lAuteur = new Auteur(int.Parse(txtCode.Text), txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), pays, txtBio.Text);
+                unAuteur.modifierAuteur(lAuteur);
 
                 btnModifier.Text = "Modifier";
                 btnModifier.BackColor = Color.SteelBlue;
@@ -343,8 +351,9 @@ namespace InterfaceMedia
                 if (txtCode.Text != "" || txtNom.Text != "" || txtPseudo.Text != "")
                 {
                     //recherche de l'auteur dans la bdd
-                    unAuteur.rechercheAuteur(int.Parse(txtCode.Text), txtNom.Text, txtPseudo.Text);
-
+                    Auteur lAuteur = new Auteur(int.Parse(txtCode.Text), txtNom.Text, txtPseudo.Text);
+                    unAuteur.rechercheAuteur(lAuteur);
+                    
                     btnRechercher.Text = "Rechercher";
                     btnRechercher.BackColor = Color.SteelBlue;
                     btnAnnuler.Visible = false;
@@ -484,13 +493,13 @@ namespace InterfaceMedia
 
         private void dgvAuteur_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtCode.Text = dgvAuteur.CurrentRow.Cells[0].Value.ToString();
-            txtNom.Text = dgvAuteur.CurrentRow.Cells[1].Value.ToString();
-            txtPrenom.Text = dgvAuteur.CurrentRow.Cells[2].Value.ToString();
-            txtPseudo.Text = dgvAuteur.CurrentRow.Cells[3].Value.ToString();
-            //dtDateNaiss.Value = dgvAuteur.CurrentRow.Cells[0].Value.ToString();
-            //dtStatut.Value = dgvAuteur.CurrentRow.Cells[0].Value.ToString();
-            if (dgvAuteur.CurrentRow.Cells[5].Value.ToString() == "")
+            txtCode.Text = dgvAuteur.CurrentRow.Cells["Id"].Value.ToString();
+            txtNom.Text = dgvAuteur.CurrentRow.Cells["Nom"].Value.ToString();
+            txtPrenom.Text = dgvAuteur.CurrentRow.Cells["Prénom"].Value.ToString();
+            txtPseudo.Text = dgvAuteur.CurrentRow.Cells["Pseudo"].Value.ToString();
+            dtDateNaiss.Text = dgvAuteur.CurrentRow.Cells["Date_Naissance"].Value.ToString();
+            dtStatut.Text = dgvAuteur.CurrentRow.Cells["Date_Décès"].Value.ToString();
+            if (dgvAuteur.CurrentRow.Cells["Date_Décès"].Value.ToString() == "")
             {
                 rdoVivant.Checked = true;
                 rdoDecede.Checked = false;
@@ -501,8 +510,8 @@ namespace InterfaceMedia
                 rdoDecede.Checked = true;
                 //dtStatut.Value = dgvAuteur.CurrentRow.Cells[0].Value.ToString();
             }
-            cmbPays.Text = dgvAuteur.CurrentRow.Cells[6].Value.ToString();
-            txtBio.Text = dgvAuteur.CurrentRow.Cells[7].Value.ToString();
+            cmbPays.Text = dgvAuteur.CurrentRow.Cells["Pays"].Value.ToString();
+            txtBio.Text = dgvAuteur.CurrentRow.Cells["Biographie"].Value.ToString();
         }
 
         //message erreur
