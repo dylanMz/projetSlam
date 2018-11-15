@@ -20,14 +20,20 @@ namespace InterfaceMedia
         private Crud_Auteur unAuteur;
         public List<String> listePays;
         private String leMessage;
+        private String pays;
+        private String leNiveau;
 
-        public FrmAuteur()
+
+        public FrmAuteur(String leNiveau)
         {
             InitializeComponent();
             connexion = new ConnexionBase();
             unAuteur = new Crud_Auteur(connexion);
             dgvAuteur.DataSource = unAuteur.afficheAuteur();
             remp_cmbPays();
+
+            this.leNiveau = leNiveau;
+            lblRang.Text = this.leNiveau;
         }
 
         #region Méthodes
@@ -41,6 +47,8 @@ namespace InterfaceMedia
                 cmbPays.Items.Add(listePays[i]);
             }
         }
+
+        
         #endregion
 
         #region Code Boutons
@@ -81,6 +89,8 @@ namespace InterfaceMedia
                 rdoDecede.Enabled = true;
                 cmbPays.Enabled = true;
                 chkNouvPays.Enabled = true;
+                chkDateNaiss.Enabled = true;
+                txtPays.Enabled = true;
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtNom.BackColor = Color.White;
@@ -99,19 +109,31 @@ namespace InterfaceMedia
                 dgvAuteur.DataSource = unAuteur.afficheAuteur();
 
             }
-
             else if (btnAjouter.Text == "Valider")
             {
+                //défini ou pays prend sa valeur
+                if (chkNouvPays.Checked == true) //si on ajoute un nouveau pays
+                {
+                    pays = txtPays.Text;
+                }
+                else if (chkNouvPays.Checked == false) //si on prend un pays deja dans la liste
+                {
+                    pays = cmbPays.Text;
+                }
+
                 //ajout de l'auteur à la bdd
-                if (rdoDecede.Checked == true)
+                if (chkDateNaiss.Checked == true && rdoDecede.Checked == true) //on a une date de naisance et une date de décès
                 {
-                    unAuteur.ajouterAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), txtPays.Text, txtBio.Text);
+                    unAuteur.ajouterAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), pays, txtBio.Text);
                 }
-                else
+                else if (chkDateNaiss.Checked == false && rdoDecede.Checked == false) //on a une date de naissance mais pas de date de décès
                 {
-                    //unAuteur.ajouterAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), txtPays.Text, txtBio.Text);
+                    unAuteur.ajouterAuteurDecesNull(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), null, pays, txtBio.Text);
                 }
-                
+                else if (chkDateNaiss.Checked == true && rdoDecede.Checked == false) //on a pas de date de naissance ni de date de deces
+                {
+                    unAuteur.ajouterAuteurNaissNull(txtNom.Text, txtPrenom.Text, txtPseudo.Text, null, null, pays, txtBio.Text);
+                }
 
                 //btnValider --> btn Ajouter
                 btnAjouter.Text = "Ajouter";
@@ -132,6 +154,9 @@ namespace InterfaceMedia
                 rdoDecede.Enabled = false;
                 cmbPays.Enabled = false;
                 chkNouvPays.Enabled = false;
+                chkDateNaiss.Enabled = false;
+                txtPays.Enabled = false;
+
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 txtNom.BackColor = Color.Silver;
@@ -146,11 +171,13 @@ namespace InterfaceMedia
                 //on déverouille le DGV
                 dgvAuteur.Enabled = true;
             }
+            
         }
 
         //bouton modifier
         private void btnModifier_Click(object sender, EventArgs e)
         {
+          
             if (txtCode.Text == "")
             {
                 leMessage = "Sélectionnez un auteur dans la liste pour le modifier";
@@ -159,6 +186,20 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text == "Modifier")
             {
+                //ajout de l'auteur à la bdd
+                if (chkDateNaiss.Checked == true && rdoDecede.Checked == true) //on a une date de naisance et une date de décès
+                {
+                    unAuteur.modifierAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), pays, txtBio.Text, int.Parse(txtCode.Text));
+                }
+                else if (chkDateNaiss.Checked == false && rdoDecede.Checked == false) //on a une date de naissance mais pas de date de décès
+                {
+                    unAuteur.modifierAuteurDecesNull(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), null, pays, txtBio.Text, int.Parse(txtCode.Text));
+                }
+                else if (chkDateNaiss.Checked == true && rdoDecede.Checked == false) //on a pas de date de naissance ni de date de deces
+                {
+                    unAuteur.modifierAuteurNaissNull(txtNom.Text, txtPrenom.Text, txtPseudo.Text, null, null, pays, txtBio.Text, int.Parse(txtCode.Text));
+                }
+
                 //modifications visuelles
                 btnModifier.BackColor = Color.Green;
                 btnModifier.Text = "Valider";
@@ -180,6 +221,8 @@ namespace InterfaceMedia
                 rdoDecede.Enabled = true;
                 cmbPays.Enabled = true;
                 chkNouvPays.Enabled = true;
+                chkDateNaiss.Enabled = true;
+
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont déverouillés
                 txtNom.BackColor = Color.White;
@@ -197,6 +240,16 @@ namespace InterfaceMedia
 
             else if (btnModifier.Text == "Valider")
             {
+                //défini ou pays doit récupérer sa valeur
+                if (chkNouvPays.Checked == true) // si on ajoute un nouveau pays
+                {
+                    pays = txtPays.Text;
+                }
+                else if (chkNouvPays.Checked == false) //si on prend un pays deja dans la liste
+                {
+                    pays = cmbPays.Text;
+                }
+
                 //modifiaction de l'auteur dans la bdd
                 unAuteur.modifierAuteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), txtPays.Text, txtBio.Text, int.Parse(txtCode.Text));
 
@@ -218,6 +271,8 @@ namespace InterfaceMedia
                 rdoDecede.Enabled = false;
                 cmbPays.Enabled = false;
                 chkNouvPays.Enabled = false;
+                chkDateNaiss.Enabled = false;
+
 
                 //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
                 txtNom.BackColor = Color.Silver;
@@ -368,6 +423,9 @@ namespace InterfaceMedia
             cmbPays.Enabled = false;
             chkNouvPays.Enabled = false;
             dtStatut.Visible = false;
+            chkDateNaiss.Enabled = false;
+            txtPays.Enabled = false;
+
 
             //on déverouille le DGV
             dgvAuteur.Enabled = true;
@@ -396,6 +454,8 @@ namespace InterfaceMedia
         //image retour menu home
         private void picHome_Click(object sender, EventArgs e)
         {
+            //permet de récuperer le niveau de l'utilisateur
+            leNiveau = lblRang.Text;
             this.Close();
             th = new Thread(openformAccueil);
             th.SetApartmentState(ApartmentState.STA);
@@ -405,7 +465,7 @@ namespace InterfaceMedia
         //ouverture du formulaire accueil
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest(lblRang.Text));
+            Application.Run(new FrmAccueilTest(leNiveau));
         }
         
         private void rdoDecede_CheckedChanged(object sender, EventArgs e)
@@ -459,13 +519,27 @@ namespace InterfaceMedia
             {
                 cmbPays.Visible = false;
                 txtPays.Visible = true;
+                
             }
             else
             {
                 cmbPays.Visible = true;
                 txtPays.Visible = false;
+                
             }
             
+        }
+
+        private void chkDateNaiss_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDateNaiss.Checked == true)
+            {
+                dtDateNaiss.Enabled = false;
+            }
+            else
+            {
+                dtDateNaiss.Enabled = true;
+            }
         }
     }
     #endregion

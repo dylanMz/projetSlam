@@ -108,7 +108,7 @@ namespace InterfaceMedia
 
         private void openformAuteur()
         {
-            Application.Run(new FrmAuteur());
+            Application.Run(new FrmAuteur(leNiveau));
         }
 
         private void openformEditeur()
@@ -118,7 +118,7 @@ namespace InterfaceMedia
 
         private void openformLivre()
         {
-            Application.Run(new Frmlivre());
+            Application.Run(new Frmlivre(leNiveau));
         }
 
         private void openformCouverture()

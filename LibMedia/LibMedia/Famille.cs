@@ -33,6 +33,10 @@ namespace LibMedia
             this.emp_mail = emp_mail;
             this.famille_emp_resp = famille_emp_resp;
         }
+        public Famille(int emp_num)
+        {
+            this.emp_num = emp_num;
+        }
         #endregion
 
         #region Accesseur        

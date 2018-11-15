@@ -40,6 +40,10 @@ namespace LibMedia
             this.emp_num = emp_num;
             this.emp_nom = emp_nom;
         }
+        public Emprunteur(int emp_num)
+        {
+            this.emp_num = emp_num;
+        }
         #endregion
 
         #region Accesseur        
