@@ -17,14 +17,14 @@ namespace InterfaceMedia
     {
         private List<Famille> lesidfamilles;
         private string chefvalide;
-        private Crud_Emprunteur unemprunteur;
+        private Crud_Famille unefamille;
         private Boolean newfamille = false;
         private int lecheffamille;
 
 
         public FrmFamille(List<Famille> familles, Boolean newfamille)
         {
-            unemprunteur = new Crud_Emprunteur();
+            unefamille = new Crud_Famille();
             InitializeComponent();
             this.lesidfamilles = familles;
             this.newfamille = newfamille;
@@ -110,7 +110,7 @@ namespace InterfaceMedia
                         int compar = Convert.ToInt32(txtnum.Text);
                         if (compar != num)
                         {
-                            unemprunteur.InsertFamille("proc_insert_famille", Convert.ToInt32(txtnum.Text), num);
+                            unefamille.InsertFamille("proc_insert_famille", Convert.ToInt32(txtnum.Text), num);
                         }
 
                     }
@@ -154,7 +154,7 @@ namespace InterfaceMedia
                         int compar = Convert.ToInt32(txtnum.Text);
                         if (compar != num)
                         {
-                            unemprunteur.UpdateFamille("proc_update_famille", Convert.ToInt32(txtnum.Text), num, ancienresp);
+                            unefamille.UpdateFamille("proc_update_famille", Convert.ToInt32(txtnum.Text), num, ancienresp);
                         }
 
                     }
@@ -205,7 +205,7 @@ namespace InterfaceMedia
                 else
                 {
                     int wid = Convert.ToInt16(txtnum.Text);
-                    unemprunteur.DeleteMembreFamille("proc_delete_membre_famille", wid);
+                    unefamille.DeleteMembreFamille("proc_delete_membre_famille", wid);
                 }
 
                 btnSupprimer.Text = "Supprimer";

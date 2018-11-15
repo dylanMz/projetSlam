@@ -19,6 +19,7 @@ namespace InterfaceMedia
         private int num;
         Thread th;
         private string id;
+        private Crud_Famille unefamille;
         private Crud_Emprunteur unEmprunteur;
         private ConnexionBase uneconnexion;
         private List<Famille> lesfamille;
@@ -29,6 +30,7 @@ namespace InterfaceMedia
         public FrmEmprunteur(String leNiveau)
         {
             InitializeComponent();
+            unefamille = new Crud_Famille();
             this.leNiveau = leNiveau;
             RefreshGrid();
             lblRang.Text = this.leNiveau;
@@ -312,7 +314,8 @@ namespace InterfaceMedia
                     DateTime naiis = Convert.ToDateTime(GridEmprunteur.SelectedRows[i].Cells[6].Value.ToString());
                     String mail = GridEmprunteur.SelectedRows[i].Cells[7].Value.ToString();
                     //Ajoute dans famille tout les emprunteurs sélectionnés
-                    int lechef = unEmprunteur.cheffamille(num); ;
+                    Famille cetteFamille = new Famille(num);
+                    int lechef = unefamille.cheffamille(cetteFamille); ;
                         lesfamille.Add(new Famille(num, nom, prenom, rue, codepostal, ville, naiis, mail, lechef));
                     
 
@@ -320,18 +323,22 @@ namespace InterfaceMedia
                     
 
                 }
-                unchef = unEmprunteur.cheffamille(num);
+                //Permet de recupérer les membre d'une famille et le chef
+                Famille numFamille = new Famille(num);
+                unchef = unefamille.cheffamille(numFamille);
                 if(unchef == 0)
                 {
                     unchef = num;
                 }
+                //si un emprunteur est choisi il recherche les membres de la famille
                 if (selectedRowCount == 1)
                 {
                     newfamille = false;
-                    unEmprunteur.lesfamilles.Clear();
+                    unefamille.lesfamilles.Clear();
                     lesfamille.Clear();
-                    unEmprunteur.Recup_Toutelafamille(unchef);
-                    FrmFamille lafamille = new FrmFamille(unEmprunteur.lesfamilles, newfamille);
+                    Famille idfamille = new Famille(unchef);
+                    unefamille.Recup_Toutelafamille(idfamille);
+                    FrmFamille lafamille = new FrmFamille(unefamille.lesfamilles, newfamille);
                     lafamille.Show();
                 }
                 else
