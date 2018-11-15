@@ -462,7 +462,7 @@ namespace InterfaceMedia
             txtFax.Text = GridEditeur.CurrentRow.Cells["Fax"].Value.ToString();
             txtMail.Text = GridEditeur.CurrentRow.Cells["Mail"].Value.ToString();
 
-            //Déverouille le bouton modifier et supprimer
+            //Déverouille le bouton modifier et supprimer.
             btnModifier.Enabled = true;
             btnSupprimer.Enabled = true;
 
