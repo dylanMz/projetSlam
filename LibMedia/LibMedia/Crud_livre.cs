@@ -19,14 +19,11 @@ namespace LibMedia
         private MySqlDataAdapter unAdapter;
         private DataSet unDataset;
         private ConnexionBase _connexion;
-      
+
         #endregion
 
         #region constructeur
-        public Crud_livre(ConnexionBase connexion_en_cours)
-        {
-            _connexion = connexion_en_cours;
-        }
+       
 
         public Crud_livre()
         {
@@ -37,7 +34,7 @@ namespace LibMedia
         #region Livre
         // Insertion d'un livre
 
-        public void ajout_livre(String wbdtitre, String wbdisbn, String wbdcouleur, int wbdnumtome, String wbdanneeparution, String wbdformat, int wbdpages, String wbdcommentaires, String wedicode, String wseriecode)
+        public void ajout_livre(Livre unlivre,String wEd,String WSer )
         {
          
 
@@ -50,34 +47,34 @@ namespace LibMedia
                     unComdeSql.Connection = _connexion.getConnexion();
 
                     unComdeSql.Parameters.Add(new MySqlParameter("titre", MySqlDbType.String));
-                    unComdeSql.Parameters["titre"].Value = wbdtitre;
+                    unComdeSql.Parameters["titre"].Value = unlivre.wbd_titre;
 
                     unComdeSql.Parameters.Add(new MySqlParameter("nisbn", MySqlDbType.String));
-                    unComdeSql.Parameters["nisbn"].Value = wbdisbn;
+                    unComdeSql.Parameters["nisbn"].Value = unlivre.wisbn;
 
                     unComdeSql.Parameters.Add(new MySqlParameter("couleur", MySqlDbType.String));
-                    unComdeSql.Parameters["couleur"].Value = wbdcouleur;
+                    unComdeSql.Parameters["couleur"].Value = unlivre.wcouleur;
 
-                    unComdeSql.Parameters.Add(new MySqlParameter("ntome", MySqlDbType.String));
-                    unComdeSql.Parameters["ntome"].Value = wbdnumtome;
+                    unComdeSql.Parameters.Add(new MySqlParameter("ntome", MySqlDbType.Int32));
+                    unComdeSql.Parameters["ntome"].Value = unlivre.Wbd_num_tome;
 
                     unComdeSql.Parameters.Add(new MySqlParameter("anneparution", MySqlDbType.String));
-                    unComdeSql.Parameters["anneparution"].Value = wbdanneeparution;
+                    unComdeSql.Parameters["anneparution"].Value = unlivre.wbd_annee_parution;
 
                     unComdeSql.Parameters.Add(new MySqlParameter("format", MySqlDbType.String));
-                    unComdeSql.Parameters["format"].Value = wbdformat;
+                    unComdeSql.Parameters["format"].Value = unlivre.wFormat;
 
                     unComdeSql.Parameters.Add(new MySqlParameter("nbrpage", MySqlDbType.String));
-                    unComdeSql.Parameters["nbrpage"].Value = wbdpages;
+                    unComdeSql.Parameters["nbrpage"].Value = unlivre.wpages;
 
                     unComdeSql.Parameters.Add(new MySqlParameter("commetaire", MySqlDbType.String));
-                    unComdeSql.Parameters["commetaire"].Value = wbdcommentaires;
+                    unComdeSql.Parameters["commetaire"].Value = unlivre.wcommentaires;
 
                     unComdeSql.Parameters.Add(new MySqlParameter("wediteur", MySqlDbType.String));
-                    unComdeSql.Parameters["wediteur"].Value = wedicode;
+                    unComdeSql.Parameters["wediteur"].Value = wEd;
 
                     unComdeSql.Parameters.Add(new MySqlParameter("wserie", MySqlDbType.String));
-                    unComdeSql.Parameters["wserie"].Value = wseriecode;
+                   unComdeSql.Parameters["wserie"].Value = WSer;
 
 
                     unComdeSql.ExecuteNonQuery();

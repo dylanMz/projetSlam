@@ -20,10 +20,7 @@ namespace LibMedia
         #endregion
 
         #region constructeur
-        public CRUD_Exemplaire(ConnexionBase connexion_en_cours)
-        {
-            _connexion = connexion_en_cours;
-        }
+     
 
         public CRUD_Exemplaire()
         {
@@ -32,7 +29,7 @@ namespace LibMedia
         #endregion
 
         // Insertion d'un exemplaire
-        public void ajout_exemplaire(String WExempRef, String WExempEtat, int wbdcode)
+        public void ajout_exemplaire(Exemplaire unexemplaire)
         {
              
 
@@ -46,13 +43,13 @@ namespace LibMedia
 
             // parametre d'entrer
             unComdeSql.Parameters.Add(new MySqlParameter("refexemp", MySqlDbType.String));
-            unComdeSql.Parameters["refexemp"].Value = WExempRef;
+            unComdeSql.Parameters["refexemp"].Value = unexemplaire.wExempRef;
 
             unComdeSql.Parameters.Add(new MySqlParameter("etat", MySqlDbType.String));
-            unComdeSql.Parameters["etat"].Value = WExempEtat;
+            unComdeSql.Parameters["etat"].Value =unexemplaire.wExempEtat;
 
             unComdeSql.Parameters.Add(new MySqlParameter("Id", MySqlDbType.Int16));
-            unComdeSql.Parameters["Id"].Value = wbdcode;
+            unComdeSql.Parameters["Id"].Value = unexemplaire.wbdcode;
 
             // paramtre de sortie 
 
@@ -70,7 +67,7 @@ namespace LibMedia
 
 
         // modification d'un exemplaire
-        public void update_exemplaire(String WExempRef, String WExempEtat, int wbdcode)
+        public void update_exemplaire(Exemplaire unexemplaire)
         {
 
 
@@ -83,13 +80,13 @@ namespace LibMedia
             unComdeSql.Connection = _connexion.getConnexion();
 
             unComdeSql.Parameters.Add(new MySqlParameter("refexemp", MySqlDbType.String));
-            unComdeSql.Parameters["refexemp"].Value = WExempRef;
+            unComdeSql.Parameters["refexemp"].Value = unexemplaire.wExempRef;
 
             unComdeSql.Parameters.Add(new MySqlParameter("etat", MySqlDbType.String));
-            unComdeSql.Parameters["etat"].Value = WExempEtat;
+            unComdeSql.Parameters["etat"].Value = unexemplaire.wExempEtat;
 
             unComdeSql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.Int16));
-            unComdeSql.Parameters["wcode"].Value = wbdcode;
+            unComdeSql.Parameters["wcode"].Value = unexemplaire.lebdcode;
 
             unComdeSql.ExecuteNonQuery();
 
@@ -101,7 +98,7 @@ namespace LibMedia
 
         // recherche exemplaire 
 
-        public DataTable recherche_exemplaire(String wbdcode,String WExempRef, String WExempEtat)
+        public DataTable recherche_exemplaire(Exemplaire unexemplaire)
         {
             
             _connexion.OuvrirConnexion();
@@ -113,11 +110,11 @@ namespace LibMedia
             cmdsql.Connection = _connexion.getConnexion();
 
             cmdsql.Parameters.Add(new MySqlParameter("wcode", MySqlDbType.String));
-            cmdsql.Parameters["wcode"].Value = wbdcode;
+            cmdsql.Parameters["wcode"].Value = unexemplaire.wbdcode;
             cmdsql.Parameters.Add(new MySqlParameter("refexemp", MySqlDbType.String));
-            cmdsql.Parameters["refexemp"].Value = WExempRef;
+            cmdsql.Parameters["refexemp"].Value = unexemplaire.wExempRef;
             cmdsql.Parameters.Add(new MySqlParameter("wetat", MySqlDbType.String));
-            cmdsql.Parameters["wetat"].Value = WExempEtat;
+            cmdsql.Parameters["wetat"].Value = unexemplaire.wExempEtat;
 
 
           
@@ -142,7 +139,7 @@ namespace LibMedia
 
 
         // supprimer un exemplaire 
-        public void delete_exemplaire(String WExempRef)
+        public void delete_exemplaire(Exemplaire unexemplaire)
         {
 
 
@@ -155,7 +152,7 @@ namespace LibMedia
             unComdeSql.Connection = _connexion.getConnexion();
 
             unComdeSql.Parameters.Add(new MySqlParameter("refexemp", MySqlDbType.String));
-            unComdeSql.Parameters["refexemp"].Value = WExempRef;
+            unComdeSql.Parameters["refexemp"].Value = unexemplaire.wExempRef;
 
 
 
@@ -167,7 +164,7 @@ namespace LibMedia
         }
 
         // ajoute un motif a l'archivage 
-        public void delete_motif(String WExempReff, String wmotifexemp)
+        public void delete_motif(Exemplaire unexemplaire, String wmotifexemp)
         {
 
 
@@ -180,7 +177,7 @@ namespace LibMedia
             unComdeSql.Connection = _connexion.getConnexion();
 
             unComdeSql.Parameters.Add(new MySqlParameter("wexempref", MySqlDbType.String));
-            unComdeSql.Parameters["wexempref"].Value = WExempReff;
+            unComdeSql.Parameters["wexempref"].Value = unexemplaire.wExempRef;
             unComdeSql.Parameters.Add(new MySqlParameter("wmotifret", MySqlDbType.String));
             unComdeSql.Parameters["wmotifret"].Value = wmotifexemp;
 
