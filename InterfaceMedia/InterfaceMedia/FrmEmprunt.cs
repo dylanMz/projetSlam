@@ -25,11 +25,16 @@ namespace InterfaceMedia
         private Crud_Emprunt ajRetour;
         private Crud_Emprunt LivreNonRendu;
         private Crud_Emprunt LivreEmp;
+        private String leNiveau;
         Thread home;
 
-        public FrmEmprunt()
+        public FrmEmprunt(String leNiveau)
         {
             InitializeComponent();
+
+            this.leNiveau = leNiveau;
+            lblRang.Text = this.leNiveau;
+
             //Instanciation des objet permettant l'execution des procédure
             Ajout = new Crud_Emprunt();
             Updat = new Crud_Emprunt();
@@ -51,6 +56,9 @@ namespace InterfaceMedia
         //Bouton permettant de revenir a la page d'acceuil
         private void picHome_Click(object sender, EventArgs e)
         {
+            //permet de récuperer le niveau de l'utilisateur
+            leNiveau = lblRang.Text;
+
             this.Close();
             home = new Thread(openformAccueil);
             home.SetApartmentState(ApartmentState.STA);
@@ -61,7 +69,7 @@ namespace InterfaceMedia
         //Ouvre la form acceuil
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest(lblRang.Text));
+            Application.Run(new FrmAccueilTest(leNiveau));
         }
 
 
@@ -112,16 +120,15 @@ namespace InterfaceMedia
 
                 if (Updat.verifEmprunt(lEmprunt).Equals("0"))
                 {
-                    btDialog("L'emprunt n'existe pas!",false);
+                     btDialog("L'emprunt n'existe pas!",false);
+
                 }
                 else
                 {
                     Updat.updateEmprunt(lEmprunt);
-                }
                     
-
+                }
                 clickValider(btnModifier, "Modifier");
-                
             }
             //Actualise la DataGridView
             GridEmprunt.DataSource = Updat.afficheEmprunt();
@@ -415,15 +422,17 @@ namespace InterfaceMedia
         //Methode affichant une boite de dialogue avec un message personnaliser
         public void btDialog(String leMessage,Boolean zeroOuUn)
         {
-            if(zeroOuUn == true)
+
+            if (zeroOuUn == true)
             {
                 MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if(zeroOuUn == false)
             {
                 MessageBox.Show(leMessage, "Médiateque", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Error);
+
+                
             }
-            
         }
 
         //Permet quand on clique sur une ligne de la DataGridView de remplir les champs

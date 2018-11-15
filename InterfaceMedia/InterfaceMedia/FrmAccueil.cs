@@ -128,7 +128,7 @@ namespace InterfaceMedia
 
         private void openformEmprunt()
         {
-            Application.Run(new FrmEmprunt());
+            Application.Run(new FrmEmprunt(leNiveau));
         }
 
         private void openformAdmin()
