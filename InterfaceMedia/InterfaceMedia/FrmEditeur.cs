@@ -27,12 +27,12 @@ namespace InterfaceMedia
         private String unCodeSortie;
         #endregion
 
-        public FrmEditeur()
+        public FrmEditeur(String leNiveau)
         {
             InitializeComponent();
 
-            uneconnexion = new ConnexionBase();
-            unEditeur = new Crud_Editeur(uneconnexion);
+            this.leNiveau = leNiveau;
+            lblRang.Text = this.leNiveau;
 
             RefreshGrid();
 
@@ -270,6 +270,23 @@ namespace InterfaceMedia
                 btnAjouter.Enabled = true;
                 btnRechercher.Enabled = true;
 
+                //Suppression d'un editeur
+                unEditeur.suppression_editeur(Convert.ToInt16(code.Text));
+
+                //Reinistialisation des textbox
+                code.Text = "";
+                txtNom.Text = "";
+                DateTimeCreation.Text = "";
+                txtMail.Text = "";
+                txtCodePostal.Text = "";
+                txtAdr.Text = "";
+                txtTel.Text = "";
+                txtFax.Text = "";
+                txtVille.Text = "";
+
+                //Actualisation du datagrid
+                RefreshGrid();
+
             }
         }
 
@@ -405,7 +422,11 @@ namespace InterfaceMedia
 
         private void picHome_Click(object sender, EventArgs e)
         {
+            //permet de récuperer le niveau de l'utilisateur
+            leNiveau = lblRang.Text;
+            //Ferme FrmEmprunteur
             this.Close();
+            //Permet d'ouvrir FrmAccueil
             th = new Thread(openformAccueil);
             th.SetApartmentState(ApartmentState.STA);
             th.Start();
@@ -413,7 +434,7 @@ namespace InterfaceMedia
 
         private void openformAccueil()
         {
-            Application.Run(new FrmAccueilTest(lblRang.Text));
+            Application.Run(new FrmAccueilTest(leNiveau));
         }
 
         //Affiche dans les textbox les valeurs de la ligne sélectionné.
@@ -441,12 +462,25 @@ namespace InterfaceMedia
 
         public void RefreshGrid()
         {
-            uneconnexion = new ConnexionBase();
-            unEditeur = new Crud_Editeur(uneconnexion);
-            unEditeur.Recup_Table_Editeur();
-            RempGridEditeur(unEditeur.lesEditeurs);
-            GridEditeur.Update();
-            GridEditeur.Refresh();
+            if (lblRang.Text == "Admin")
+            {
+                uneconnexion = new ConnexionBase();
+                unEditeur = new Crud_Editeur(uneconnexion);
+                unEditeur.Recup_Table_Editeur_archive();
+                RempGridEditeur(unEditeur.lesEditeurs);
+                GridEditeur.Update();
+                GridEditeur.Refresh();
+            }
+            else
+            {
+                uneconnexion = new ConnexionBase();
+                unEditeur = new Crud_Editeur(uneconnexion);
+                unEditeur.Recup_Table_Editeur();
+                RempGridEditeur(unEditeur.lesEditeurs);
+                GridEditeur.Update();
+                GridEditeur.Refresh();
+            }
+
         }
     }
 }

@@ -116,7 +116,7 @@ namespace LibMedia
         }
 
         //Modifier auteur
-        public void modifierAuteur(int unId, String unNom, String unPrenom, String unPseudo, DateTime uneDateNaiss, DateTime uneDateDeces, String unPays, String uneBiographie)
+        public void modifierAuteur(String unNom, String unPrenom, String unPseudo, DateTime uneDateNaiss, DateTime uneDateDeces, String unPays, String uneBiographie, int unId)
         {
             if (connexion.OuvrirConnexion() == true)
             {
@@ -177,14 +177,19 @@ namespace LibMedia
 
                 //mise en place des paramètres
                 //id
-                modifierAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                modifierAut.Parameters["wid"].Value = unAuteurld;
+                rechercheAut.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
+                rechercheAut.Parameters["wid"].Value = unAuteurld;
                 //nom
-                modifierAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                modifierAut.Parameters["wnom"].Value = unNom;
+                rechercheAut.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
+                rechercheAut.Parameters["wnom"].Value = unNom;
                 //Pseudo
-                modifierAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
-                modifierAut.Parameters["wpseudo"].Value = unPseudo;
+                rechercheAut.Parameters.Add(new MySqlParameter("wpseudo", MySqlDbType.String));
+                rechercheAut.Parameters["wpseudo"].Value = unPseudo;
+
+                //mise en place du paramètre de sortie
+                MySqlParameter PSortie_nat = new MySqlParameter("out_type_req", MySqlDbType.Int16);
+                rechercheAut.Parameters.Add(PSortie_nat);
+                PSortie_nat.Direction = ParameterDirection.Output;
 
                 rechercheAut.ExecuteNonQuery();
                 connexion.closeConnexion();

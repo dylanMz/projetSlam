@@ -26,7 +26,7 @@ namespace LibMedia
 
         #region Methodes
 
-        public Boolean verifEmprunt(Emprunt unEmprunt)
+        public String verifEmprunt(Emprunt unEmprunt)
         {
             laConnexion.OuvrirConnexion();
             uneCmdSql = new MySqlCommand();
@@ -43,7 +43,7 @@ namespace LibMedia
             uneCmdSql.ExecuteNonQuery();       //Execute la requete
             laConnexion.closeConnexion();       //Ferme la connexion
 
-            return (bool)PSortie_nat.Value;
+            return PSortie_nat.Value.ToString();
         }
 
         public void insertEmprunt(Emprunt unEmprunt)
