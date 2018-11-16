@@ -215,6 +215,8 @@ namespace InterfaceMedia
                 dtEmprunt.Enabled = false;
                 dtRetour.Enabled = false;
                 dtRetourPrevu.Enabled = false;
+
+                GridEmprunt.DataSource = Search.afficheEmprunt();
             }
             else if (btnSearchEmp.Text.Equals("Valider"))
             {
@@ -250,6 +252,8 @@ namespace InterfaceMedia
 
                 //Les textbox à remplir pour l'insertion se déverouille
                 dtDate.Enabled = true;
+
+                GridEmprunt.DataSource = LivreEmp.afficheEmprunt();
 
             }
             else if (btnLivre.Text.Equals("Valider"))
