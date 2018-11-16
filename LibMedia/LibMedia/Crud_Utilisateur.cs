@@ -237,7 +237,7 @@ namespace LibMedia
             set { _desUtilisateurs = value; }
         }
 
-        public Boolean myVar
+        public Boolean _boolCo
         {
             get { return boolCo; }
             set { boolCo = value; }

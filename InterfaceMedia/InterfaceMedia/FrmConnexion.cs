@@ -36,9 +36,10 @@ namespace InterfaceMedia
             Utilisateur lUtilisateur = new Utilisateur(txtIdentifiant.Text, txtPassword.Text);
             leNiveau = unUtilisateur.recup_connexion(lUtilisateur);
 
-                uneCo = unUtilisateur.myVar;
+                uneCo = unUtilisateur._boolCo;
 
-                if (uneCo == true)
+                    
+                if (uneCo == true) //L'utilisateur est bien dans la base de données, l'application s'ouvre.
                 {
                     this.Close();
                     th = new Thread(openformAccueil);
@@ -58,7 +59,7 @@ namespace InterfaceMedia
 
         private void lblMdpOublie_Click(object sender, EventArgs e)
         {
-
+            //Pas fait.
         }
 
         //Ouvre l'interface Accueil avec son type d'utilisateur (leNiveau)
@@ -67,6 +68,7 @@ namespace InterfaceMedia
             Application.Run(new FrmAccueilTest(leNiveau));
         }
 
+        //Permet de presser la touche ENTREE pour déclencher l'évenement du bouton connexion.
         private void Entrer(object sender, KeyEventArgs e)
         {
             if (e.KeyCode.Equals(Keys.Enter))
