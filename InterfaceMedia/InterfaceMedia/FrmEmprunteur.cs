@@ -44,11 +44,6 @@ namespace InterfaceMedia
             {
                 btnSupprimer.Enabled = false;
             }
-            else if(this.leNiveau.Equals("Admin"))
-            {
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
-            }
 
 
         }
@@ -70,7 +65,25 @@ namespace InterfaceMedia
         //au clic dans le dataGrid rempli les informations dans les textbox ou datetime 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
+            if (this.leNiveau.Equals("Admin"))
+            {
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+            }
+            else if (this.leNiveau.Equals("Responsable secteur"))
+            {
+                btnSupprimer.Enabled = false;
+                btnModifier.Enabled = true;
+            }
+            else if (this.leNiveau.Equals("admin"))
+            {
+                btnSupprimer.Enabled = true;
+                btnAjouter.Enabled = true;
+                btnModifier.Enabled = true;
+            }
+        
+
             id = GridEmprunteur.CurrentRow.Cells["numéro"].Value.ToString(); ;
             txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
             txtPrenom.Text = GridEmprunteur.CurrentRow.Cells["prénom"].Value.ToString();
@@ -197,17 +210,32 @@ namespace InterfaceMedia
 
         private void btnAnnuler_Click(object sender, EventArgs e)
         {
+
+            if (this.leNiveau.Equals("Personnel"))
+            {
+                btnAjouter.Enabled = false;
+
+            }
+            else if (this.leNiveau.Equals("Responsable secteur"))
+            {
+                btnAjouter.Enabled = true;
+
+            }else if (this.leNiveau.Equals("Admin"))
+            {
+                btnAjouter.Enabled = true;
+            }
+            btnModifier.Enabled = false;
+            btnSupprimer.Enabled = false;
             //les boutons sont remis par defaut
             btnAjouter.BackColor = Color.SteelBlue;
             btnModifier.BackColor = Color.SteelBlue;
             btnSupprimer.BackColor = Color.SteelBlue;
             btnRechercher.BackColor = Color.SteelBlue;
 
-            btnAjouter.Enabled = true;
-            btnModifier.Enabled = true;
-            btnSupprimer.Enabled = true;
+            
             btnRechercher.Enabled = true;
             btnFamille.Enabled = true;
+
 
             btnAjouter.Text = "Ajouter";
             btnModifier.Text = "Modifier";
@@ -566,8 +594,8 @@ namespace InterfaceMedia
             //Re active les boutons
             btnAjouter.Enabled = true;
             btnFamille.Enabled = true;
-            btnModifier.Enabled = true;
-            btnSupprimer.Enabled = true;
+            btnSupprimer.Enabled = false;
+            btnModifier.Enabled = false;
             btnRechercher.Enabled = true;
         }
 
