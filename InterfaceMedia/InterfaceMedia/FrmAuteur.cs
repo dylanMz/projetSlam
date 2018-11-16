@@ -204,7 +204,7 @@ namespace InterfaceMedia
             else if (btnModifier.Text == "Modifier")
             {
                 //ajout de l'auteur à la bdd
-                if (chkDateNaiss.Checked == true && rdoDecede.Checked == true) //on a une date de naisance et une date de décès
+                if (chkDateNaiss.Checked == false && rdoDecede.Checked == true) //on a une date de naisance et une date de décès
                 {
                     Auteur lAuteur = new Auteur(txtNom.Text, txtPrenom.Text, txtPseudo.Text, DateTime.Parse(dtDateNaiss.Text), DateTime.Parse(dtStatut.Text), pays, txtBio.Text);
                     unAuteur.modifierAuteur(lAuteur);
