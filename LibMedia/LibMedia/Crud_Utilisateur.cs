@@ -239,8 +239,8 @@ namespace LibMedia
 
         public Boolean myVar
         {
-            get { return uneVar; }
-            set { uneVar = value; }
+            get { return boolCo; }
+            set { boolCo = value; }
         }
 
         #endregion
