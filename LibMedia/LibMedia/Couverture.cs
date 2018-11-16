@@ -16,7 +16,7 @@ namespace LibMedia
         private string imageBd;
         private int tomeBd;
         private string anneeParution;
-        #endregion
+        #endregion 
         #region constructeur
         public Couverture(int unCodeBd, string uneImageBd, string unTitreBd, int unTomeBd, string uneAnneeParution)
         {
