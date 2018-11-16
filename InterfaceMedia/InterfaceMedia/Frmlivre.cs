@@ -27,7 +27,7 @@ namespace InterfaceMedia
         Thread th;
         private String resultat;
         private bool pasvalide;
-
+        private bool erreurtype;
 
         public Frmlivre(String leNiveau)
         {
@@ -97,6 +97,31 @@ namespace InterfaceMedia
 
         }
 
+        public void reset()
+        {
+
+            txtbxcode.Text = "";
+            txtbxtitre.Text = "";
+            txtbxisbn.Text = "";
+            txtbxcouleur.Text = "";
+            txtbxtome.Text = "";
+            cmbbxannee.SelectedItem = null;
+            cmbbxmois.SelectedItem = null;
+            txtbxformat.Text = "";
+            txtbxpage.Text = "";
+            txtbxcommentaire.Text = "";
+
+            txtbxreferencerexemp.Text = "";
+
+            cmbbxauteur.SelectedItem = null;
+            cmbbauteurdessin.SelectedItem = null;
+            cmbbxediteur.SelectedItem = null;
+            cmbbxserie.SelectedItem = null;
+            codelivreexmp.Text = "";
+            txtbxmotif.Text = "";
+
+            txtbxcommentaire.Text = "";
+        }
         public void remp_cmbx()
         {
             // remplissage combo box annee
@@ -218,8 +243,24 @@ namespace InterfaceMedia
                     {
                         resultat = rdbtntb.Text;
                     }
-                    Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, resultat,codelivreexmp.Text);
-                    unexemplaire.ajout_exemplaire(lexemplaire);
+                    try
+                    {
+                        Convert.ToInt32(codelivreexmp.Text);
+                    }
+                    catch
+                    {
+
+                        btDialog("Code est un entier", true);
+                        erreurtype = false;
+                    }
+
+
+                    if (erreurtype == true)
+                    {
+                        Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, resultat, Int32.Parse(codelivreexmp.Text));
+                        unexemplaire.ajout_exemplaire(lexemplaire);
+                        reset();
+                    }
                 }
                 else if (btnexemp.Text.Equals("Livre"))
                 {
@@ -229,17 +270,42 @@ namespace InterfaceMedia
                     parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
                     if (!txtbxtitre.Text.Equals("") && !txtbxisbn.Equals("") && !txtbxcouleur.Text.Equals("") && !txtbxtome.Text.Equals("") && !parutiontotal.Equals("") && !txtbxformat.Text.Equals("") && !txtbxpage.Text.Equals("") && !txtbxcommentaire.Text.Equals("") && !cmbbxediteur.Text.Equals("") && !cmbbxserie.Text.Equals(""))
                     {
-                        Livre lelivre = new Livre(1,txtbxtitre.Text, txtbxisbn.Text, Int32.Parse(txtbxtome.Text) , parutiontotal, Int32.Parse(txtbxpage.Text),"", txtbxcouleur.Text,txtbxcommentaire.Text,   txtbxformat.Text, 1,1);
-                        unlivre.ajout_livre( lelivre, cmbbxediteur.Text, cmbbxserie.Text);
+                        erreurtype = true;
+                        try
+                        {
+                            Convert.ToInt32(txtbxtome.Text);
+                        }
+                        catch
+                        {
+                            btDialog("Tome est un entier", true);
+                            erreurtype = false;
+                        }
+                        try
+                        {
+                            Convert.ToInt32(txtbxpage.Text);
+                        }
+                        catch { 
+                       
+                            btDialog("Page est un entier", true);
+                            erreurtype = false;
+                        }
 
-                        if (cmbbxauteur.Text != null)
+                        if (erreurtype == true)
+                        {
+                            Livre lelivre = new Livre(txtbxtitre.Text, txtbxisbn.Text, Int32.Parse(txtbxtome.Text), parutiontotal, Int32.Parse(txtbxpage.Text), txtbxcouleur.Text, txtbxcommentaire.Text, txtbxformat.Text);
+                            unlivre.ajout_livre(lelivre, cmbbxediteur.Text, cmbbxserie.Text);
+                            
+                        }
+                        if (cmbbxauteur.Text != null && erreurtype == true)
                         {
                             unlivre.insert_participer(cmbbxauteur.Text, 0);
                         }
-                        if (cmbbauteurdessin.Text != null)
+                        if (cmbbauteurdessin.Text != null && erreurtype == true)
                         {
                             unlivre.insert_participer(cmbbauteurdessin.Text, 1);
+                           
                         }
+                        reset();
                     }
                     else
                     {
@@ -376,28 +442,7 @@ namespace InterfaceMedia
             rdbtnb.Checked = false;
             rdbtnta.Checked = false;
             rdbtntb.Checked = false;
-
-            txtbxcode.Text = "";
-            txtbxtitre.Text = "";
-            txtbxisbn.Text = "";
-            txtbxcouleur.Text = "";
-            txtbxtome.Text = "";
-            cmbbxannee.SelectedItem = null;
-            cmbbxmois.SelectedItem = null;
-            txtbxformat.Text = "";
-            txtbxpage.Text = "";
-            txtbxcommentaire.Text = "";
-         
-            txtbxreferencerexemp.Text = "";
-
-            cmbbxauteur.SelectedItem = null;
-            cmbbauteurdessin.SelectedItem = null;
-            cmbbxediteur.SelectedItem = null;
-            cmbbxserie.SelectedItem = null;
-            codelivreexmp.Text = "";
-            txtbxmotif.Text = "";
-
-            txtbxcommentaire.Text = "";
+            reset();
 
             dtgrvLivre.DataSource = unlivre.afficherlivre();
 
@@ -447,9 +492,11 @@ namespace InterfaceMedia
                 {
                     string parutiontotal;
                     //affichage de la recherche livre  dans le datagridview
+
                     if ((cmbbxmois.Text == "") && (cmbbxannee.Text == ""))
                     {
                         parutiontotal = "";
+
                         Livre lelivre = new Livre(txtbxtitre.Text, parutiontotal);
                         dtgrvLivre.DataSource = unlivre.recherche_livre(lelivre);
 
@@ -605,17 +652,34 @@ namespace InterfaceMedia
             {
                 if (btnexemp.Text.Equals("Livre"))
                 {
-                    Livre lelivre = new Livre(Int32.Parse(txtbxcode.Text));
-                    unlivre.Delete_livre(lelivre);
+                    erreurtype= true;
+                    try
+                    {
+                        Convert.ToInt32(txtbxcode.Text);
+                    }
+                    catch
+                    {
+                        btDialog("ce n'est pas un entier", true);
+                        erreurtype = false;
+                    }
 
-                   
-                    unlivre.delet_motif(txtbxmotif.Text,lelivre);
+                    if (erreurtype == true) { 
+                        Livre lelivre = new Livre(Int32.Parse(txtbxcode.Text));
+                        unlivre.delet_participer(lelivre);
+                        unlivre.Delete_livre(lelivre);
+
+
+                        unlivre.delet_motif(txtbxmotif.Text, lelivre);
+                        reset();
+
+                    }
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
                     Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, resultat, codelivreexmp.Text);
                     unexemplaire.delete_exemplaire(lexemplaire);
                     unexemplaire.delete_motif(lexemplaire,txtbxmotifexemp.Text);
+                    reset();
                 }
 
 
@@ -729,9 +793,36 @@ namespace InterfaceMedia
             {
                 if (btnexemp.Text.Equals("Livre"))
                 {
-                    string parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
-                    Livre lelivre = new Livre(Int32.Parse(txtbxcode.Text), txtbxtitre.Text, txtbxisbn.Text, Int32.Parse(txtbxtome.Text), parutiontotal, Int32.Parse(txtbxpage.Text), "", txtbxcouleur.Text, txtbxcommentaire.Text, txtbxformat.Text,  1 , 1);
-                    unlivre.update_livre(lelivre, cmbbxediteur.Text, cmbbxserie.Text );
+                    
+                        erreurtype = true;
+                        try
+                        {
+                            Convert.ToInt32(txtbxtome.Text);
+                        }
+                        catch
+                        {
+                            btDialog("Tome est un entier", true);
+                            erreurtype = false;
+                        }
+                        try
+                        {
+                            Convert.ToInt32(txtbxpage.Text);
+                        }
+                        catch
+                        {
+                            btDialog("Page est un entier", true);
+                            erreurtype = false;
+                        }
+                        if (erreurtype == true)
+                        {
+                            string parutiontotal = cmbbxmois.Text + "/" + cmbbxannee.Text;
+                             
+                            Livre lelivre = new Livre(Int32.Parse(txtbxcode.Text), txtbxtitre.Text, txtbxisbn.Text, Int32.Parse(txtbxtome.Text), parutiontotal, Int32.Parse(txtbxpage.Text), "", txtbxcouleur.Text, txtbxcommentaire.Text, txtbxformat.Text, 1, 1);
+                            unlivre.update_livre(lelivre, cmbbxediteur.Text, cmbbxserie.Text);
+                            reset();
+
+                    
+                    }
                 }
                 else if (btnexemp.Text.Equals("exemplaire"))
                 {
@@ -752,8 +843,23 @@ namespace InterfaceMedia
                     {
                         resultat = rdbtntb.Text;                    
                     }
-                    Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, resultat, Int32.Parse(codelivreexmp.Text));
-                    unexemplaire.update_exemplaire(lexemplaire);
+                    erreurtype = true;
+                    try
+                    {
+                        Convert.ToInt32(codelivreexmp.Text);
+                    }
+                    catch
+                    {
+
+                        btDialog("Code est un entier", true);
+                        erreurtype = false;
+                    }
+                    if (erreurtype == true)
+                    {
+                        Exemplaire lexemplaire = new Exemplaire(txtbxreferencerexemp.Text, resultat, Int32.Parse(codelivreexmp.Text));
+                        unexemplaire.update_exemplaire(lexemplaire);
+                        reset();
+                    }
                 }
 
                 // repasse le bouton ajouter en "ajouter" + modification couleur + desactive le bouton annuler

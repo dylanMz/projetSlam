@@ -52,8 +52,8 @@ namespace LibMedia
                     unComdeSql.Parameters.Add(new MySqlParameter("nisbn", MySqlDbType.String));
                     unComdeSql.Parameters["nisbn"].Value = unlivre.wisbn;
 
-                    unComdeSql.Parameters.Add(new MySqlParameter("couleur", MySqlDbType.String));
-                    unComdeSql.Parameters["couleur"].Value = unlivre.wcouleur;
+                    unComdeSql.Parameters.Add(new MySqlParameter("wwcouleur", MySqlDbType.String));
+                    unComdeSql.Parameters["wwcouleur"].Value = unlivre.wcouleur;
 
                     unComdeSql.Parameters.Add(new MySqlParameter("ntome", MySqlDbType.Int32));
                     unComdeSql.Parameters["ntome"].Value = unlivre.Wbd_num_tome;
@@ -98,7 +98,7 @@ namespace LibMedia
        
             unComdeSql.Parameters.Add(new MySqlParameter("wauteur", MySqlDbType.String));
             unComdeSql.Parameters["wauteur"].Value = wlauteur;
-            unComdeSql.Parameters.Add(new MySqlParameter("wtype", MySqlDbType.Int16));
+            unComdeSql.Parameters.Add(new MySqlParameter("wtype", MySqlDbType.Int32));
             unComdeSql.Parameters["wtype"].Value = letype;
 
             unComdeSql.ExecuteNonQuery();
@@ -195,9 +195,25 @@ namespace LibMedia
             _connexion.closeConnexion();
         }
 
+        //supression des auteur dans participer
+        public void delet_participer(Livre unlivre)
+        {
+            _connexion.OuvrirConnexion();
 
+            MySqlCommand unComdeSql = new MySqlCommand();
+            unComdeSql.CommandText = "proc_delete_participation";
+            unComdeSql.CommandType = System.Data.CommandType.StoredProcedure;
+            unComdeSql.Connection = _connexion.getConnexion();
 
-            public DataTable afficherlivre()
+          
+            unComdeSql.Parameters.Add(new MySqlParameter("wnumbd", MySqlDbType.Int32));
+            unComdeSql.Parameters["wnumbd"].Value = unlivre.Wbd_code;
+            unComdeSql.ExecuteNonQuery();
+
+            _connexion.closeConnexion();
+        }
+
+        public DataTable afficherlivre()
         {
             //déclaration et instanciation
             cmdsql = new MySqlCommand();

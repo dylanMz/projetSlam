@@ -24,6 +24,8 @@ namespace LibMedia
         #endregion
 
         #region Constructeur.s
+
+        //Constructeur d'un editeur
         public Editeur(int wEditeurNum, String wEditeurNom, int wEditeurCreation, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurTel, String wEditeurFax, String wEditeurMail)
         {
             EditeurNum = wEditeurNum;
@@ -36,12 +38,14 @@ namespace LibMedia
             EditeurFax = wEditeurFax;
             EditeurMail = wEditeurMail;
         }
-
+        
+        //Constructeur pour la suppression
         public Editeur(String wEditeurNom)
         {
             EditeurNom = wEditeurNom;
         }
 
+        //Constructeur pour la modification
         public Editeur(int wEditeurNum, String wEditeurNom, int wEditeurCreation, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurTel, String wEditeurFax, String wEditeurMail, String wunAncienNom)
         {
             EditeurNum = wEditeurNum;
@@ -55,7 +59,7 @@ namespace LibMedia
             EditeurMail = wEditeurMail;
             AncienNom = wunAncienNom;
         }
-
+        
         public Editeur(String wEditeurNom, int wEditeurCreation, String wEditeurAdresse, String wEditeurCP, String wEditeurVille, String wEditeurTel, String wEditeurFax, String wEditeurMail)
         {
             EditeurNom = wEditeurNom;
@@ -67,6 +71,7 @@ namespace LibMedia
             EditeurFax = wEditeurFax;
             EditeurMail = wEditeurMail;
         }
+        
         #endregion
 
         #region Accesseurs
