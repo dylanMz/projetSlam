@@ -166,7 +166,6 @@ namespace InterfaceMedia
                 metroTileAuteur.Enabled = false;
                 metroTileCouverture.Enabled = false;
                 metroTileEditeur.Enabled = false;
-                metroTileLivre.Enabled = false;
                 btnAdmin.Enabled = false;
             }
         }

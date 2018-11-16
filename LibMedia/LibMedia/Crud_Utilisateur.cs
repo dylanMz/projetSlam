@@ -16,7 +16,7 @@ namespace LibMedia
         private ConnexionBase uneconnexion;
         private MySqlDataReader _unReader;
         private List<Utilisateur> _desUtilisateurs;
-        private Boolean uneVar;
+        private Boolean boolCo;
         private DataSet unDataset;
         private String unNiveau;
         private int CodeOut;
@@ -99,14 +99,14 @@ namespace LibMedia
                 DataTable dt = new DataTable();
                 unAdapter.Fill(dt);
                
+                //Vérifie si la requête à un résultat c'est qu'il y a un utilisateur qui a ce mot de passe et ce pseudo
                 if (dt.Rows[0][0].ToString() == "1")
                 {
-                    uneVar = true;
-                    
+                    boolCo = true;
                 }
                 else
                 {
-                    uneVar = false;
+                    boolCo = false;
                 }
 
                 MySqlCommand UtilisateurSqlNiveau = new MySqlCommand();
@@ -125,11 +125,11 @@ namespace LibMedia
                 }
                 _unReader.Close();
 
-                uneconnexion.closeConnexion();
+                uneconnexion.closeConnexion(); //Ferme la connexion
 
                 
             }
-
+            //Permet d'avoir le niveau de l'utilisateur qui vient de se connecter (Admin, personnel etc...)
             return unNiveau;
         }
 
