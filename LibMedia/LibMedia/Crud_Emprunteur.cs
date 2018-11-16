@@ -71,26 +71,26 @@ namespace LibMedia
                 //paramétre de la procédure
                 
                 unecommandeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                unecommandeSql.Parameters["wnom"].Value = Emprunteur.emp_nom;
+                unecommandeSql.Parameters["wnom"].Value = Emprunteur.Nom;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wprenom", MySqlDbType.String));
-                unecommandeSql.Parameters["wprenom"].Value = Emprunteur.emp_prenom;
+                unecommandeSql.Parameters["wprenom"].Value = Emprunteur.Prénom;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wrue", MySqlDbType.String));
-                unecommandeSql.Parameters["wrue"].Value = Emprunteur.emp_rue;
+                unecommandeSql.Parameters["wrue"].Value = Emprunteur.Rue;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wcodepostal", MySqlDbType.String));
-                unecommandeSql.Parameters["wcodepostal"].Value = Emprunteur.emp_code_postal;
+                unecommandeSql.Parameters["wcodepostal"].Value = Emprunteur.Code_Postal;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wville", MySqlDbType.String));
-                unecommandeSql.Parameters["wville"].Value = Emprunteur.emp_ville;
+                unecommandeSql.Parameters["wville"].Value = Emprunteur.Ville;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wdatenaiss", MySqlDbType.Date));
-                unecommandeSql.Parameters["wdatenaiss"].Value = Emprunteur.emp_date_naiss;
+                unecommandeSql.Parameters["wdatenaiss"].Value = Emprunteur.Naissance;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wmail", MySqlDbType.String));
-                unecommandeSql.Parameters["wmail"].Value = Emprunteur.emp_mail;
+                unecommandeSql.Parameters["wmail"].Value = Emprunteur.Mail;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wpremadh", MySqlDbType.Date));
-                unecommandeSql.Parameters["wpremadh"].Value = Emprunteur.emp_prem_adh;
+                unecommandeSql.Parameters["wpremadh"].Value = Emprunteur.Adhésion;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wrenadh", MySqlDbType.Date));
-                unecommandeSql.Parameters["wrenadh"].Value = Emprunteur.emp_ren_adh;
+                unecommandeSql.Parameters["wrenadh"].Value = Emprunteur.Renouvellement_Adhésion;
 
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                unecommandeSql.Parameters["wid"].Value = Emprunteur.emp_num;
+                unecommandeSql.Parameters["wid"].Value = Emprunteur.Numéro;
 
 
 
@@ -128,9 +128,9 @@ namespace LibMedia
 
                 //paramétre de la procédure
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                unecommandeSql.Parameters["wid"].Value = Remprunteur.emp_num;
+                unecommandeSql.Parameters["wid"].Value = Remprunteur.Numéro;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wnom", MySqlDbType.String));
-                unecommandeSql.Parameters["wnom"].Value = Remprunteur.emp_nom;
+                unecommandeSql.Parameters["wnom"].Value = Remprunteur.Nom;
 
                 //verification pour savoir si un nom ou un id est saisie
                 if (Remprunteur.emp_num != 0)
@@ -167,7 +167,7 @@ namespace LibMedia
 
 
                 unecommandeSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                unecommandeSql.Parameters["wid"].Value = NumEmprunteur.emp_num;
+                unecommandeSql.Parameters["wid"].Value = NumEmprunteur.Numéro;
                 unecommandeSql.Parameters.Add(new MySqlParameter("wmotif", MySqlDbType.String));
                 unecommandeSql.Parameters["wmotif"].Value = wmotif;
                 unecommandeSql.ExecuteNonQuery();

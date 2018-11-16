@@ -90,7 +90,7 @@ namespace LibMedia
                 EmprunteurSql.CommandType = CommandType.StoredProcedure;
                 EmprunteurSql.Connection = uneconnexion.getConnexion();
                 EmprunteurSql.Parameters.Add(new MySqlParameter("wid", MySqlDbType.Int32));
-                EmprunteurSql.Parameters["wid"].Value = numFamille.emp_num;
+                EmprunteurSql.Parameters["wid"].Value = numFamille.Numéro;
                 //mise en place du paramètre de sortie
                 MySqlParameter PSortie_nat = new MySqlParameter("wafamille", MySqlDbType.Int16);
                 EmprunteurSql.Parameters.Add(PSortie_nat);
@@ -123,7 +123,7 @@ namespace LibMedia
                 EmprunteurSql.CommandType = CommandType.StoredProcedure;
                 EmprunteurSql.Connection = uneconnexion.getConnexion();
                 EmprunteurSql.Parameters.Add(new MySqlParameter("widres", MySqlDbType.Int32));
-                EmprunteurSql.Parameters["widres"].Value = lafamille.emp_num;
+                EmprunteurSql.Parameters["widres"].Value = lafamille.Numéro;
                 _unReader = EmprunteurSql.ExecuteReader();
 
                 while (_unReader.Read())
