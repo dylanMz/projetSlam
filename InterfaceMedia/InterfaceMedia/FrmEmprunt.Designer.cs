@@ -60,8 +60,6 @@
             this.btnQuitter = new MetroFramework.Controls.MetroTile();
             this.picHome = new System.Windows.Forms.PictureBox();
             this.lblRang = new MetroFramework.Controls.MetroLabel();
-            this.ttpMauvaiseSaisie = new MetroFramework.Components.MetroToolTip();
-            this.metroToolTip1 = new MetroFramework.Components.MetroToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.GridEmprunt)).BeginInit();
             this.gpbxChoix.SuspendLayout();
             this.GroupSaisie.SuspendLayout();
@@ -535,18 +533,6 @@
             this.lblRang.TabIndex = 47;
             this.lblRang.Text = "lblRang";
             // 
-            // ttpMauvaiseSaisie
-            // 
-            this.ttpMauvaiseSaisie.Style = MetroFramework.MetroColorStyle.Blue;
-            this.ttpMauvaiseSaisie.StyleManager = null;
-            this.ttpMauvaiseSaisie.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
-            // metroToolTip1
-            // 
-            this.metroToolTip1.Style = MetroFramework.MetroColorStyle.Blue;
-            this.metroToolTip1.StyleManager = null;
-            this.metroToolTip1.Theme = MetroFramework.MetroThemeStyle.Light;
-            // 
             // FrmEmprunt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -605,7 +591,5 @@
         private System.Windows.Forms.PictureBox picHome;
         private MetroFramework.Controls.MetroLabel lblRang;
         private System.Windows.Forms.MaskedTextBox MtxtbxRefEx;
-        private MetroFramework.Components.MetroToolTip ttpMauvaiseSaisie;
-        private MetroFramework.Components.MetroToolTip metroToolTip1;
     }
 }

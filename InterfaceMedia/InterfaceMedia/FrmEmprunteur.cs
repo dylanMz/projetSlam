@@ -44,6 +44,11 @@ namespace InterfaceMedia
             {
                 btnSupprimer.Enabled = false;
             }
+            else if(this.leNiveau.Equals("Admin"))
+            {
+                btnModifier.Enabled = true;
+                btnSupprimer.Enabled = true;
+            }
 
 
         }
@@ -65,11 +70,7 @@ namespace InterfaceMedia
         //au clic dans le dataGrid rempli les informations dans les textbox ou datetime 
         private void CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.leNiveau.Equals("Admin"))
-            {
-                btnModifier.Enabled = true;
-                btnSupprimer.Enabled = true;
-            }
+            
             id = GridEmprunteur.CurrentRow.Cells["numéro"].Value.ToString(); ;
             txtNom.Text = GridEmprunteur.CurrentRow.Cells["nom"].Value.ToString();
             txtPrenom.Text = GridEmprunteur.CurrentRow.Cells["prénom"].Value.ToString();
@@ -150,7 +151,7 @@ namespace InterfaceMedia
         private void btnModifier_Click(object sender, EventArgs e)
         {
             
-            if (btnModifier.Text.Equals("Modifier")&!txtNom.Text.Equals(""))
+            if (btnModifier.Text.Equals("Modifier"))
             {
                 groupAjouterEmp.Enabled = true;
                
@@ -168,22 +169,28 @@ namespace InterfaceMedia
             }
             else if (btnModifier.Text.Equals("Valider"))
             {
+                if (txtNom.Text.Equals("") | txtPrenom.Text.Equals("") | txtAdresse.Text.Equals("") | txtCodePostal.Text.Equals("") | txtVille.Text.Equals(""))
+                {
+                    MessageBox.Show("Des champs importants sont vides", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    utilisemethodeprocedure("proc_update_emprunteur");
 
-                utilisemethodeprocedure("proc_update_emprunteur");
+                    btnModifier.Text = "Modifier";
+                    groupAjouterEmp.Enabled = false;
 
-                btnModifier.Text = "Modifier";
-                groupAjouterEmp.Enabled = false;
-
-                clickvalider(btnModifier);
+                    clickvalider(btnModifier);
 
 
-                //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
-                modifcouleurControlVerou();
+                    //Le background color des textbox change de couleur pour indiquer qu'elles sont verouillés
+                    modifcouleurControlVerou();
 
 
 
-                //met à jour le datagrid
-                RefreshGrid();
+                    //met à jour le datagrid
+                    RefreshGrid();
+                }
                
             }
         }
@@ -447,7 +454,7 @@ namespace InterfaceMedia
         //clic sur le bouton supprimer (pour supprimer un emprunteur)
         private void btnSupprimer_Click(object sender, EventArgs e)
         {
-            if (btnSupprimer.Text.Equals("Supprimer") & !txtNom.Text.Equals(""))
+            if (btnSupprimer.Text.Equals("Supprimer"))
             {
                 groupAjouterEmp.Enabled = true;
                 txtNom.Enabled = false;
