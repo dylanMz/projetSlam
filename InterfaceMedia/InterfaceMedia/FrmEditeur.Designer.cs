@@ -74,7 +74,7 @@
             this.GridEditeur.AllowUserToDeleteRows = false;
             this.GridEditeur.AllowUserToResizeRows = false;
             this.GridEditeur.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.GridEditeur.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.GridEditeur.BackgroundColor = System.Drawing.Color.White;
             this.GridEditeur.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.GridEditeur.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.GridEditeur.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -111,7 +111,6 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.GridEditeur.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.GridEditeur.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.GridEditeur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.GridEditeur.Size = new System.Drawing.Size(860, 274);
             this.GridEditeur.TabIndex = 45;

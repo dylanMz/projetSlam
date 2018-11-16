@@ -23,7 +23,7 @@ namespace LibMedia
 
         #region constructeur
 
-        public Auteur(int unAuteurld, String unNom, String unPrenom, String unPseudo, DateTime uneDateNaiss, DateTime uneDateDeces, String unPays, String uneBiographie)
+        public Auteur(int unAuteurld, String unNom, String unPrenom, String unPseudo, DateTime? uneDateNaiss, DateTime? uneDateDeces, String unPays, String uneBiographie)
         {
             Auteurld = unAuteurld;
             AuteurNom = unNom;

@@ -21,6 +21,8 @@ namespace LibMedia
         public Crud_Editeur(ConnexionBase connexion_en_cours)
         {
             uneconnexion = connexion_en_cours;
+
+            //Instancie une liste d'éditeur
             _desEditeurs = new List<Editeur>();
         }
 
@@ -78,6 +80,7 @@ namespace LibMedia
         //Ajout d'un editeur
         public int ajout_editeur(Editeur unEditeur)
         {
+            //Ouvre la connexion
             if (uneconnexion.OuvrirConnexion() == true)
             {
                 MySqlCommand unComdeSql = new MySqlCommand();
@@ -130,6 +133,7 @@ namespace LibMedia
         //Modification d'un editeur
         public void modification_editeur(Editeur unEditeur, String wAncienNom)
         {
+            //Ouvre la connexion
             if (uneconnexion.OuvrirConnexion() == true)
             {
                 MySqlCommand unComdeSql = new MySqlCommand();
@@ -168,22 +172,22 @@ namespace LibMedia
                 unComdeSql.Parameters["wAncienNom"].Value = wAncienNom;
 
 
-                //mise en place du paramètre de sortie
-                MySqlParameter PSortie_nat = new MySqlParameter("out_code_erreur", MySqlDbType.Int16);
-                unComdeSql.Parameters.Add(PSortie_nat);
-                PSortie_nat.Direction = ParameterDirection.Output;
 
-                unComdeSql.ExecuteNonQuery();
 
-                uneconnexion.closeConnexion();
+                unComdeSql.ExecuteNonQuery(); // Execute la requête
+
+                uneconnexion.closeConnexion(); // Ferme la connexion
 
 
             }
+
+
         }
 
         //Suppression d'un editeur
         public void suppression_editeur(Editeur unEditeur)
         {
+            //Ouvre la connexion
             if (uneconnexion.OuvrirConnexion() == true)
             {
                 MySqlCommand unComdeSql = new MySqlCommand();
@@ -204,6 +208,7 @@ namespace LibMedia
         //Recherche d'un editeur
         public void recherche_editeur(Editeur unEditeur)
         {
+            //Ouvre la connexion
             if (uneconnexion.OuvrirConnexion() == true)
             {
                 MySqlCommand EditeurSql = new MySqlCommand();
