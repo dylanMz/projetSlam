@@ -214,16 +214,50 @@ namespace InterfaceMedia
                     wtome = Convert.ToInt32(txtBoxTome.Text); //On convertie un type string en Int
                 }
 
+                if (txtBoxCode.Text != "") //vérification du champ de txtBoxCode
+                {
+                    wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text); //On initialise une nouvelle couverture
+                    if (uneCouverture.getCodeExist(wcouverture) == true) //On vérifie que le code Bd existe bien
+                    {
+                        GridViewBase.DataSource = uneCouverture.rechercher(wcouverture); //On affiche notre recherche dans la base de données
+                        GridViewBase.Update(); //On modifie les valeurs de la GridView
+                        GridViewBase.Refresh(); //On affiche les nouvelles valeurs
+
+                        clickValider(btnRechercher, "Rechercher"); //Appelle de la méthode clickValider
+
+                        btnAnnuler.Visible = true; //On affiche le bouton annuler
+                    }
+
+                    else if (uneCouverture.getCodeExist(wcouverture) == false)
+                    {
+                        MessageBox.Show("Ce code de Bd n'existe pas dans la base de données"); //Message d'erreur
+                    }
+                }
+
+                if (txtBoxTome.Text != "") //vérification du champ de txtBoxTome
+                {
+                    wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text); //On initialise une nouvelle couverture
+                    if (uneCouverture.getTomeExist(wcouverture) == true) //On vérifie que le N°Tome existe bien
+                    {
+                        GridViewBase.DataSource = uneCouverture.rechercher(wcouverture); //On affiche notre recherche dans la base de données
+                        GridViewBase.Update(); //On modifie les valeurs de la GridView
+                        GridViewBase.Refresh(); //On affiche les nouvelles valeurs
+
+                        clickValider(btnRechercher, "Rechercher"); //Appelle de la méthode ClickValider
+                        btnAnnuler.Visible = true; //Appelle de la méthode annuler
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aucun livre ne possède ce tome"); //Message d'erreur
+                    }
+                }
+
                 if (txtBoxTitre.Text != "") //vérification du champ de txtBoxTitre
                 {
                     wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text); //Initialisation d'une nouvelle couverture
                     if (uneCouverture.getExist(wcouverture) == true) //On vérifie que le Titre existe
                     {
                         txtBoxCode.Text = uneCouverture.getCode(wcouverture).ToString(); //On récupère le code Bd de ce Titre
-
-                        //Connexion à la base de données
-                        _connexion = new ConnexionBase();
-                        uneCouverture = new CRUD_Couverture(_connexion);
 
                         GridViewBase.DataSource = uneCouverture.rechercher(wcouverture); //On affiche notre recherche dans la base de données
                         GridViewBase.Update(); //On modifie les valeurs de la GridView
@@ -239,72 +273,16 @@ namespace InterfaceMedia
                         MessageBox.Show("Ce Titre n'existe pas dans la base de données"); //Message d'erreur
                     }
                 }
-
-                if(txtBoxCode.Text != "") //vérification du champ de txtBoxCode
-                {
-                    wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text); //On initialise une nouvelle couverture
-                    if (uneCouverture.getCodeExist(wcouverture)==true) //On vérifie que le code Bd existe bien
-                    {
-                        //Connexion à la base de données
-                        _connexion = new ConnexionBase();
-                        uneCouverture = new CRUD_Couverture(_connexion);
-
-                        wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text); //On initialise une nouvelle couverture
-                        GridViewBase.DataSource = uneCouverture.rechercher(wcouverture); //On affiche notre recherche dans la base de données
-                        GridViewBase.Update(); //On modifie les valeurs de la GridView
-                        GridViewBase.Refresh(); //On affiche les nouvelles valeurs
-
-                        clickValider(btnRechercher, "Rechercher"); //Appelle de la méthode clickValider
-
-                        afficheImage(); //Appelle de la méthode afficheImage
-                        btnAnnuler.Visible = true; //On affiche le bouton annuler
-                    }
-
-                    else
-                    {
-                        MessageBox.Show("Ce code de Bd n'existe pas dans la base de données"); //Message d'erreur
-                    }
-                }
-
-                if (txtBoxTome.Text != "") //vérification du champ de txtBoxTome
-                {
-                    wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text); //On initialise une nouvelle couverture
-                    if (uneCouverture.getTomeExist(wcouverture) == true) //On vérifie que le N°Tome existe bien
-                    {
-                        //Connexion à la base de données
-                        _connexion = new ConnexionBase();
-                        uneCouverture = new CRUD_Couverture(_connexion);
-
-                        wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text); //On initialise une nouvelle couverture
-                        GridViewBase.DataSource = uneCouverture.rechercher(wcouverture); //On affiche notre recherche dans la GridView
-                        GridViewBase.Update(); //On modifie les valeurs de la GridView
-                        GridViewBase.Refresh(); //On affiche les nouvelles valeurs
-
-                        clickValider(btnRechercher, "Rechercher"); //Appelle de la méthode ClickValider
-
-                        btnAnnuler.Visible = true; //Appelle de la méthode annuler
-                    }
-                    else
-                    {
-                        MessageBox.Show("Aucun livre ne possède ce tome"); //Message d'erreur
-                    }
-                }
                 if (txtBoxParution.Text != "") //vérification du champ de txtBoxParution
                 {
                     wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text); //On initialise une nouvelle couverture
                     if (uneCouverture.getAnneeExist(wcouverture) == true) //On vérifie qu'au moins une bd est sorti à la date indiqué
                     {
-                        //Connexion à la base de données
-                        _connexion = new ConnexionBase();
-                        uneCouverture = new CRUD_Couverture(_connexion);
-
-                        wcouverture = new Couverture(wcode, txtBoxTitre.Text, wtome, txtBoxParution.Text); //On initilialise une nouvelle couverture
-                        GridViewBase.DataSource = uneCouverture.rechercher(wcouverture); //On affiche notre recherche dans la GridView
+                        GridViewBase.DataSource = uneCouverture.rechercher(wcouverture); //On affiche notre recherche dans la base de données
                         GridViewBase.Update(); //On modifie les valeurs de la GridView
                         GridViewBase.Refresh(); //On affiche les nouvelles valeurs
 
                         clickValider(btnRechercher, "Rechercher"); //On appelle la méthode clickValider
-
                         btnAnnuler.Visible = true; //On affiche le bouton annuler
                     }
                     else
