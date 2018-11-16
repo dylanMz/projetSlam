@@ -46,9 +46,10 @@ namespace InterfaceMedia
 
         }
 
-        //Rempli le Grid avec les emprunteurs
+        //Rempli le Grid avec les editeurs
         private void RempGridEditeur(List<Editeur> lesEditeurs)
         {
+            
             GridEditeur.DataSource = lesEditeurs;
         }
 
@@ -56,6 +57,7 @@ namespace InterfaceMedia
         {
             if (btnAjouter.Text.Equals("Ajouter"))
             {
+                //Execute la méthode clickbouton qui gère les accessibilités et le design des textbox et des boutons.
                 clickBouton(btnAjouter);
 
                 btnAjouter.Enabled = true;
@@ -133,34 +135,41 @@ namespace InterfaceMedia
 
             else if (btnModifier.Text.Equals("Valider"))
             {
-
-
                 uneDateCreation = Convert.ToInt32(DateTimeCreation.Text);
 
                 ancienNom = GridEditeur.CurrentRow.Cells["Nom"].Value.ToString();
 
-                //Modification d'un editeur
-                Editeur lEditeur = new Editeur(Convert.ToInt16(code.Text), txtNom.Text, uneDateCreation, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtTel.Text, txtFax.Text, txtMail.Text, ancienNom);
-                unEditeur.modification_editeur(lEditeur, ancienNom);
+                //Affiche un message d'erreur si le champ nom est vide
+                if (txtNom.Text.Equals(""))
+                {
+                    MessageBox.Show("Veuillez renseigner un nom", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
-                clickValider(btnModifier, "Modifier");
+                else
+                {
+                    //Modification d'un editeur
+                    Editeur lEditeur = new Editeur(Convert.ToInt16(code.Text), txtNom.Text, uneDateCreation, txtAdr.Text, txtCodePostal.Text, txtVille.Text, txtTel.Text, txtFax.Text, txtMail.Text, ancienNom);
+                    unEditeur.modification_editeur(lEditeur, ancienNom);
 
-                //Reinistialisation des textbox
-                code.Text = "";
-                txtNom.Text = "";
-                DateTimeCreation.Text = "";
-                txtMail.Text = "";
-                txtCodePostal.Text = "";
-                txtAdr.Text = "";
-                txtTel.Text = "";
-                txtFax.Text = "";
-                txtVille.Text = "";
+                    clickValider(btnModifier, "Modifier");
 
-                //Le grid est de nouveau accessible
-                GridEditeur.Enabled = true;
+                    //Reinistialisation des textbox
+                    code.Text = "";
+                    txtNom.Text = "";
+                    DateTimeCreation.Text = "";
+                    txtMail.Text = "";
+                    txtCodePostal.Text = "";
+                    txtAdr.Text = "";
+                    txtTel.Text = "";
+                    txtFax.Text = "";
+                    txtVille.Text = "";
 
-                //Actualisation du datagrid
-                RefreshGrid();
+                    //Le grid est de nouveau accessible
+                    GridEditeur.Enabled = true;
+
+                    //Actualisation du datagrid
+                    RefreshGrid();
+                }
 
             }
         }
@@ -361,7 +370,7 @@ namespace InterfaceMedia
         {
             //permet de récuperer le niveau de l'utilisateur
             leNiveau = lblRang.Text;
-            //Ferme FrmEmprunteur
+            //Ferme FrmEditeur
             this.Close();
             //Permet d'ouvrir FrmAccueil
             th = new Thread(openformAccueil);

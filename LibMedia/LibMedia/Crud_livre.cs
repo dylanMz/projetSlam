@@ -98,7 +98,7 @@ namespace LibMedia
        
             unComdeSql.Parameters.Add(new MySqlParameter("wauteur", MySqlDbType.String));
             unComdeSql.Parameters["wauteur"].Value = wlauteur;
-            unComdeSql.Parameters.Add(new MySqlParameter("wtype", MySqlDbType.Int16));
+            unComdeSql.Parameters.Add(new MySqlParameter("wtype", MySqlDbType.Int32));
             unComdeSql.Parameters["wtype"].Value = letype;
 
             unComdeSql.ExecuteNonQuery();
