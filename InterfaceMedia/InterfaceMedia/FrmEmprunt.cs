@@ -51,6 +51,8 @@ namespace InterfaceMedia
             //Rempli dès l'ouverture la DataGridView
             Crud_Emprunt Export = new Crud_Emprunt();
             GridEmprunt.DataSource = Export.afficheEmprunt();
+
+
         }
 
         #region Evenement
@@ -75,6 +77,7 @@ namespace InterfaceMedia
                 clickBouton(btnAjouter);
 
                 btnAjouter.Enabled = true;
+                dtRetour.Enabled = false;
 
             }
             else if (btnAjouter.Text.Equals("Valider"))
@@ -278,21 +281,25 @@ namespace InterfaceMedia
 
         private void GridEmprunt_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             string dtNull = GridEmprunt.CurrentRow.Cells["dateRetour"].Value.ToString();
             txtbxNumEmp.Text = GridEmprunt.CurrentRow.Cells["emp_num"].Value.ToString();
             MtxtbxRefEx.Text = GridEmprunt.CurrentRow.Cells["ExempRef"].Value.ToString();
             dtEmprunt.Text = GridEmprunt.CurrentRow.Cells["dateEmprunt"].Value.ToString();
             dtRetourPrevu.Text = GridEmprunt.CurrentRow.Cells["dateRetourPrevu"].Value.ToString();
+            Emprunt lemprunt = new Emprunt(Convert.ToInt16(GridEmprunt.CurrentRow.Cells["emp_num"].Value), GridEmprunt.CurrentRow.Cells["ExempRef"].Value.ToString());
             if (dtNull != "01/01/0001 00:00:00")
             {
                 dtRetour.Text = dtNull;
             }
+
+            lblNb.Text = "Deja " + Ajout.nbEmprunter(lemprunt) + " livres d'empruntés";
         }
 
         //Ouvre une boite de dialogue quand la saisie est incorrecte sur le Mask
         private void MtxtbxRefEx_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
         {
-            btDialog("Désolé la saisie autorisé est de la forme 0000_00", false);
+            btDialog("Désolé la saisie autorisé est de la forme 0000_00", true);
         }
 
         //Permet de remettre les bouton a 0 sans valider
@@ -471,6 +478,7 @@ namespace InterfaceMedia
         }
 
         #endregion
+
 
     }
 }

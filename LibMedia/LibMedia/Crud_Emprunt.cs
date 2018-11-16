@@ -24,7 +24,7 @@ namespace LibMedia
             return laConnexion;
         }
 
-        #region Methodes
+        #region ProcédureSQL
 
         public String verifEmprunt(Emprunt unEmprunt)
         {
@@ -56,6 +56,24 @@ namespace LibMedia
             uneCmdSql.Parameters.Add(new MySqlParameter("RefEx", MySqlDbType.String));
             uneCmdSql.Parameters["RefEx"].Value = unEmprunt.refEx;
             MySqlParameter PSortie_nat = new MySqlParameter("ret", MySqlDbType.String);
+            uneCmdSql.Parameters.Add(PSortie_nat);
+            PSortie_nat.Direction = ParameterDirection.Output;
+            uneCmdSql.ExecuteNonQuery();       //Execute la requete
+            laConnexion.closeConnexion();       //Ferme la connexion
+
+            return PSortie_nat.Value.ToString();
+        }
+
+        public String nbEmprunter(Emprunt unEmprunt)
+        {
+            laConnexion.OuvrirConnexion();
+            uneCmdSql = new MySqlCommand();
+            uneCmdSql.CommandText = "compte_nb_emprunt";  //Nom de la rpocédure sur MySql
+            uneCmdSql.CommandType = CommandType.StoredProcedure;  //Indique que c'est une procedure
+            uneCmdSql.Connection = laConnexion.getConnexion();
+            uneCmdSql.Parameters.Add(new MySqlParameter("num", MySqlDbType.String));
+            uneCmdSql.Parameters["num"].Value = unEmprunt.numEmp;
+            MySqlParameter PSortie_nat = new MySqlParameter("nbEmp", MySqlDbType.String);
             uneCmdSql.Parameters.Add(PSortie_nat);
             PSortie_nat.Direction = ParameterDirection.Output;
             uneCmdSql.ExecuteNonQuery();       //Execute la requete
@@ -141,7 +159,6 @@ namespace LibMedia
 
         }
 
-
         public void modifDate_Retour(Emprunt unEmprunt)
         {
             laConnexion.OuvrirConnexion();
@@ -205,8 +222,6 @@ namespace LibMedia
             return uneTable;
         }
 
-        
-
         public DataTable rechercheNonRendu(DateTime uneDate)
         {
 
@@ -229,9 +244,6 @@ namespace LibMedia
 
             return uneTable;
         }
-
-
-
 
         #endregion
 
